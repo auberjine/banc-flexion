@@ -1,0 +1,26 @@
+[
+ {
+  "id": "02-01",
+  "planche": "02_coulisseau",
+  "vue": "detail C (4:1), rebords du dessous du coin 02c",
+  "lentille": "completude",
+  "categorie": "cote_manquante",
+  "gravite": "mineur",
+  "description": "Le degagement au pied des rebords du DESSOUS n'est ni cote ni defini dans le detail C : seule la hauteur 3 y figure. Le rayon R1,5 et la regle 'degagement centre sur l angle' ne sont ecrits que pour le detail B (rebords du dessus). L'atelier doit deviner que la poche du dessous est la meme, alors que l'angle y est different (face interieure NORMALE a la pente). Reliquat du constat 02-19 de la revue precedente, corrige pour B seulement.",
+  "preuve": "SVG 02_coulisseau : textes du detail C = 'DETAIL C (4:1)' (364;132), 'rebords du dessous, 2 ex.', 'largeur (8,15) en projection' (364;140,3), '3' (349,3;174,5) : aucun 'R1,5'. Detail B : 'R1,5' (280,3;159,6) et 'degagement centre sur l angle' (286;140,3). plans.py l.822 : c02_rayon_creux appele pour vb seulement ; l.829 sous-titre de C sans le degagement. parts.coin_profile : c.add(y1, zb(y1), p.PLAQ_REBORD_R, relief=True), meme R = 1,5 que les rebords du dessus.",
+  "correction": "plans.py l.829 : texte 'largeur (%s) en projection ; degagement centre sur l angle' % f(wb, 2). Apres l.850, ajouter c02_rayon_creux(vd, (y1b, zb(y1b)), p.PLAQ_REBORD_R, <angle>, 'R%s' % f(p.PLAQ_REBORD_R), lg=5.0, palier=...) avec un angle choisi pour que la ligne sorte dans le vide sous le logement sans croiser la cote 3 (a verifier au rendu).",
+  "statut": "confirme"
+ },
+ {
+  "id": "02-02",
+  "planche": "02_coulisseau",
+  "vue": "coin de commande 02c (1:1), appels de detail B et C",
+  "lentille": "lisibilite",
+  "categorie": "texte_touche",
+  "gravite": "mineur",
+  "description": "Le cercle d'appel B est traverse par la ligne d'attache haute commune aux cotes 16 et 30,8 (elle part 1 mm a droite du bout mince et entre de 0,9 mm dans le cercle). Le cercle C est tangent a l'attache basse de 30,8 (recouvrement de 0,1 mm). Une attache ne doit rien croiser.",
+  "preuve": "SVG : cercle B cx=368,725 cy=45,000 r=5,5 ; a y=46 il s'etend jusqu'a x = 368,725 + sqrt(5,5^2 - 1^2) = 374,13. Lignes d'attache y=46 de x=373,25 a 381,25 et 388,25 (lignes 171 et 177 du SVG) : 0,88 mm dans le cercle. Cercle C cx=368,177 cy=78,702 r=5,5 ; a y=76,836, x max = 368,177 + 5,174 = 373,35 > 373,25, depart de l'attache basse de 30,8. plans.py l.806-807 (rayon 5,5, centre sur le milieu du rebord).",
+  "correction": "plans.py l.806 : c02_appel(vc, (Y1 - w / 2.0 - 1.0, zt + 1.5), 5.0, 'B', 35.0) (bord droit du cercle a y=46 : Y1 + 0,25, poche R1,5 toujours dedans). l.807 : c02_appel(vc, (Y1 - wb / 2.0 - 1.0, zb(Y1 - wb / 2.0 - 1.0) - 1.0), 5.0, 'C', -30.0) (bord droit a Y1 - 0,5 au niveau de l'attache). Verifie par calcul.",
+  "statut": "confirme"
+ }
+]

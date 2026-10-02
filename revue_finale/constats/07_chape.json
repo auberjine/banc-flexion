@@ -1,0 +1,26 @@
+[
+ {
+  "id": "07-01",
+  "planche": "07_chape",
+  "vue": "MONTAGE DE LA CHAPE, COUPE PAR LES AXES (1:1)",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "Les deux platines 07, empilees et coupees, portent le meme motif de hachures (c07_hp, 45 deg, pas 1,2) : leurs hachures se continuent d'une platine a l'autre et seule la ligne de joint les separe. ISO 128-50 demande de differencier les hachures de deux pieces coupees adjacentes (direction ou pas), meme identiques.",
+  "preuve": "plans.py l.1945 (un seul motif c07_hp) et l.1967-1973 (m.zone([r_], \"c07_hp\") pour i = 0 et 1). Decoupe 07_chape/platines.png : hachures continues de part et d'autre du joint.",
+  "correction": "plans.py : apres l.1945, s.motif(\"c07_hq\", -45.0, 1.2) ; l.1972, m.zone([r_], \"c07_hp\" if i == 0 else \"c07_hq\", w=0). La platine du dessus (i = 1) ne touche que des rondelles non coupees, la -45 deg n'y rencontre donc pas le motif des entretoises 07b (c07_ht, -45, pas 1,4).",
+  "statut": "confirme"
+ },
+ {
+  "id": "07-02",
+  "planche": "07_chape",
+  "vue": "planche entiere (rendu)",
+  "lentille": "lisibilite",
+  "categorie": "echelle",
+  "gravite": "mineur",
+  "description": "Le PNG de out/rendus est tronque : la derniere ligne non blanche est a y = 2089 px, soit 274 mm (7,619 px/mm), alors que le cadre de la feuille finit a 287 mm et la feuille a 297. La rangee basse du cartouche (echelle, tol. generale ISO 2768-m, banc de flexion) et le bas du cadre ne figurent donc sur aucun rendu : un relecteur qui lit le PNG ne peut pas controler l'echelle. Le SVG lui-meme est correct (viewBox 0 0 420 297) ; un rendu refait dans le scratchpad (page HTML enveloppe, fenetre 1600 x 1200) montre le cartouche complet.",
+  "preuve": "Pillow sur out/rendus/07_chape.png : bas du dessin coupe a ~2089 px (274 mm) ; texte « 1:1 » du cartouche a y = 285 dans le SVG, absent du PNG. Echelles verifiees dans le SVG : platine 140,000 x 69,455 (bbox du profil, 1:1), alesage 18,0, trous 11,0, entretoises 06b 60,0 et 07b 71,5 de long dans le montage : toutes vraies.",
+  "correction": "rendu_planches.py ligne 37 : Chromium sans interface retranche ~87 px CSS de hauteur a la fenetre 1600 x 1132. Ouvrir une fenetre plus haute (--window-size=1600,1250) puis recadrer le PNG a 3200 x 2264 avec Pillow, ou rendre une page HTML qui contient le SVG en <img> de 1600 x 1131,4 px avec body{margin:0}, et verifier en fin de main() que la ligne y = 2263 n'est pas tronquee (bas du cadre a 287 mm = 2187 px).",
+  "statut": "confirme"
+ }
+]

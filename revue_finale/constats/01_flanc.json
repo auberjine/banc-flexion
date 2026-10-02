@@ -1,0 +1,62 @@
+[
+ {
+  "id": "01-01",
+  "planche": "01_flanc",
+  "vue": "vue de la face gravee (1:4)",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "La ligne de repere de la bulle C (trou d'entretoise de bielle, x = +/-250, Z 341,6) traverse l'arete inclinee de la fenetre, en trait fort, avant d'atteindre sa bulle, posee dans le vide de la fenetre. Les autres bulles (A, B, D, E) ne croisent que le bord de leur propre trou, ou le chant exterieur pour sortir de la piece.",
+  "preuve": "SVG 01_flanc : la ligne de repere de C va de (207,5 ; 47,6) a (212,4 ; 55,9). Elle coupe le trou en (208,2 ; 48,8) puis l'arete de la fenetre en (209,8 ; 51,5). Calcul : a x = 276 (modele), l'arete est a Z = 383,2 - (435 - 276) x tan 17,97 = 331,6, alors que la bulle (decalage 11 mm de feuille = 44 mm modele) est a Z de l'ordre de 298, sous l'arete. Appel : plans.py l.252 OFFS['C'] = (6.5, 11.0), puis l.262 v.bulle(...).",
+  "correction": "plans.py l.252 : placer la bulle C au-dessus du trou, dans la membrure, par exemple OFFS['C'] = (8.0, -6.0) ou (-8.0, -6.0), entre l'ajour de 38,6 (x 249,8, Z 390,7) et l'arete. Verifier au rendu que la bulle ne touche ni l'ajour ni l'arete inclinee.",
+  "statut": "confirme"
+ },
+ {
+  "id": "01-02",
+  "planche": "01_flanc",
+  "vue": "vue de la face gravee (1:4)",
+  "lentille": "completude",
+  "categorie": "cote_manquante",
+  "gravite": "mineur",
+  "description": "La cote 500 (entraxe des encoches du chant bas) s'attache au milieu de chaque encoche, au niveau du chant bas, la ou il n'y a que le vide de l'encoche. Aucun axe n'est trace a x = +/-250 sur la vue. La ligne d'attache part donc d'un point qui n'est ni une arete ni un axe, et le lecteur doit deviner qu'il s'agit de l'entraxe des encoches. Le detail W trace bien son axe, mais ne donne pas la position.",
+  "preuve": "plans.py l.245 : v.cote_hx(-p.PIED_X_POS, p.PIED_X_POS, 0.0, 0.0, 0.0, ...), attaches a (+/-250 ; 0). L'encoche va de x = 245,8 a 254,2 et de Z 0 a 8 (P.flanc_contour). Seul axe de la vue : l.239 v.axe((0, 0), (0, H_FLANC)). Constate sur le rendu, ou l'attache gauche part du fond ouvert de l'encoche, dans le cercle W.",
+  "correction": "plans.py, plan_flanc, apres l.239 : pour sx in (-1, 1), v.axe((sx * p.PIED_X_POS, p.PIED_CROIX_FLANC + 2.0), (sx * p.PIED_X_POS, z_de_y(v, y0 + 9.0)), ext=0.0). Puis l.245 : passer z0 = z1 = None, pour que la ligne de cote s'appuie sur ces axes : v.cote_hx(-p.PIED_X_POS, p.PIED_X_POS, None, None, 0.0, dt=-22.0, zl=z_de_y(v, y0 + 7.0)).",
+  "statut": "confirme"
+ },
+ {
+  "id": "01-03",
+  "planche": "01_flanc",
+  "vue": "details X, Z et W",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "Trois cotes de detail sont posees dans la matiere de la piece au lieu d'etre a l'exterieur. (a) Detail X : la cote de reference (66,6) est a Z = -5,5, dans la membrure basse, entre l'arete (Z 0) et le trait de rupture (Z -10). (b) Detail Z : la ligne de la profondeur 28 est decalee de 15 mm vers le chant de 440. Elle coupe ce chant puis court dans la matiere sous l'encoche. (c) Detail W : la cote verticale 8 est a 6 mm a droite de l'encoche, entre Z 0 et 8, donc dans la matiere au-dessus du chant bas, et sa fleche basse tombe sur le chant sans ligne d'attache.",
+  "preuve": "(a) plans.py l.291 : v2.cote_hx(xb0, xb1, 0, 0, 0, ..., zl=-5.5). La matiere est sous Z 0 (rupture l.284 a zb = -10). (b) l.355 : f01_cote_alignee(v4, c0, fond, OFF_P = 15.0, ...). Sur le rendu, la ligne du 28 franchit le chant vertical x = 480 puis s'etend dans la matiere. (c) l.383 : v5.cote_vx(0.0, PIED_CROIX_FLANC, None, xw + w2 + PIED_R, 6.0, ...), avec x0 = None : pas d'attache au chant bas. Les trois cas sont vus sur le rendu zoome (decoupes dx.png, dz2.png, dw.png).",
+  "correction": "(a) l.291 : placer la cote (66,6) au-dessus du bossage, par exemple zl = p.BOSSAGE_RELIEF + 6.0 avec les attaches tirees vers le haut depuis (xb0, 0) et (xb1, 0), et remonter le texte R150 (l.286) si besoin. (b) l.351-355 : OFF_P = -15.0 ou une valeur negative du meme ordre, pour poser la profondeur du cote du chant haut, au-dessus de l'encoche, hors matiere ; retoucher l'attache du fond (l.357-361) en consequence. (c) l.383 : donner x0 = xw + w2 + p.PIED_R pour l'attache du bas. Mieux, coter 8 a gauche dans le vide de l'encoche, ou sous le chant bas avec une cote de profondeur depuis le chant.",
+  "statut": "confirme"
+ },
+ {
+  "id": "01-04",
+  "planche": "01_flanc",
+  "vue": "notes / tableau DECOUPES INTERIEURES",
+  "lentille": "completude",
+  "categorie": "cote_manquante",
+  "gravite": "mineur",
+  "description": "Les notes indiquent que les encoches ET la mortaise sont taillees sur la tole REELLE. Elles donnent la loi des encoches (8,4 = tole + jeu 0,4), mais pas celle de la mortaise. La mortaise vaut 6 x tole + 2 x 2 de jeu, soit 52 a 8 mm de tole, et n'est donnee qu'en valeur nominale (largeur 52). Si la tole livree mesure 8,3, le DXF regenere portera 53,8, alors que la planche (si elle n'est pas regeneree) continuera d'afficher 52 sans que le lecteur puisse le savoir.",
+  "preuve": "parts.py flanc_mortaise : lx2 = p.TRAVERSE_LX_REEL / 2, avec TRAVERSE_LX_REEL = TRAVERSE_N * EP_TOLE_REELLE (params.py l.489), plus le jeu TRAVERSE_JEU_X : 6 x 8 + 4 = 52. plans.py l.207 : le texte ne cite que les encoches.",
+  "correction": "plans.py l.207-208 : completer la note, par exemple \"Encoches et mortaise taillees sur la tole REELLE (encoches %s = tole + jeu %s ; mortaise %s = %d x tole + jeu %s) :\" % (D.fmt(p.ENCOCHE_PIED_B), D.fmt(p.PIED_JEU), D.fmt(p.TRAVERSE_LX_REEL + p.TRAVERSE_JEU_X), p.TRAVERSE_N, D.fmt(p.TRAVERSE_JEU_X)).",
+  "statut": "confirme"
+ },
+ {
+  "id": "01-05",
+  "planche": "01_flanc",
+  "vue": "detail X (1,5:1)",
+  "lentille": "completude",
+  "categorie": "echelle",
+  "gravite": "mineur",
+  "description": "Le detail X est a 1,5:1, echelle hors de la serie recommandee par l'ISO 5455 (1:1, 2:1, 5:1). Il est bien annonce dans le titre et dans le cartouche, et il est juste. Les echelles mesurees sont exactes : vue 1:4 (960 -> 240,0 mm, 750 -> 187,5 mm, 440 -> 110,0 mm), details 2:1 (9,5 -> 19,0 ; 8 -> 16,0 ; 28 -> 56,0 ; 8,4 -> 16,8 mm).",
+  "preuve": "plans.py l.273 KX = 1.5. Largeur du detail : (66,6 + 5) x 1,5 = 107 mm ; a 2:1, 143 mm, qui ne tiennent pas dans la colonne x 280-410.",
+  "correction": "plans.py l.273 : KX = 1.0 (71 mm de large, cela tient), en ajustant le titre de la l.274 (il suit KX par le format si on le parametre) et l.220. Ou bien garder 1,5:1 comme echelle d'exception assumee.",
+  "statut": "plausible"
+ }
+]

@@ -1,0 +1,26 @@
+[
+ {
+  "id": "04-01",
+  "planche": "04_patins",
+  "vue": "04b patin de charge (1:1)",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "Les deux lignes d'attache de l'entraxe 70 partent 2 mm au-dessus des trous de 8 et montent jusqu'a la ligne de cote. Elles traversent ainsi 44 mm de matiere et coupent le chant haut du patin (y = +50). Ce sont des traits fins continus, et non les axes des trous : on lit deux aretes paralleles dans la piece. La planche 05 regle le meme cas proprement (cote 68 portee par les axes prolonges des encoches, sans attache).",
+  "preuve": "plans.py, plan_patins, l. 1263 : v3.cote_hx(-gx, gx, gd / 2.0 + 2.0, gd / 2.0 + 2.0, 0.0, zl=bc / 2.0 + 10.0). SVG : <line> de (250,85) a (250,30) et de (320,85) a (320,30), largeur 0,18, non pointilles ; ils coupent le contour du patin (segment (329,42)-(241,42), largeur 0,5) en (250,42) et (320,42). Les axes des trous (l. 1261-1262) s'arretent a +/- gd/2 + 3 mm, soit y = 85 a 99.",
+  "correction": "plans.py, plan_patins : l. 1261-1262, remplacer v3.axe((sx * gx, -gd / 2.0), (sx * gx, gd / 2.0)) par v3.axe((sx * gx, -gd / 2.0 - 2.0), (sx * gx, bc / 2.0 + 12.0), ext=0.0) (axes prolonges jusqu'a 2 mm au-dela de la ligne de cote). Puis l. 1263 : v3.cote_hx(-gx, gx, None, None, 0.0, zl=bc / 2.0 + 10.0), c'est-a-dire sans attache, comme la cote 68 de plan_pied.",
+  "statut": "confirme"
+ },
+ {
+  "id": "04-02",
+  "planche": "04_patins",
+  "vue": "notes",
+  "lentille": "completude",
+  "categorie": "valeur_fausse",
+  "gravite": "mineur",
+  "description": "La note 4 dit « 3 kN par appui ». Or chacun des deux appuis du banc 3 points recoit 6 kN (12 kN / 2). Les 3 kN valent par PATIN, c'est-a-dire par contact bossage / fond de rainure : il y en a quatre, deux par appui (un par flanc). C'est bien cette valeur que hertz_appui() emploie. Un lecteur qui recalcule le Hertz avec 3 kN « par appui » sur deux bossages trouvera 1,5 kN par contact, et une pression trop basse.",
+  "preuve": "plans.py, plan_patins, l. 1186-1188 : f(p.CHARGE_DIM / 4000.0) suivi du texte « kN par appui ». params.py l. 905 : hertz_appui() prend f = CHARGE_DIM / 4.0 = 3000 N par contact. Calcul : 12000 / 2 = 6000 N par appui ; 12000 / 4 = 3000 N par patin. Sur la planche : texte y = 228,0, « ... 3 kN par appui : Hertz 339 MPa ... ».",
+  "correction": "plans.py, plan_patins, note 4 (l. 1186) : remplacer « %s kN par appui » par « %s kN par patin (4 contacts, 2 par appui) ». Valeur inchangee : f(p.CHARGE_DIM / 4000.0). Meme formule sur la planche 01 (plan_flanc, l. 293, « %s kN par appui ») : a verifier par le relecteur de la 01.",
+  "statut": "confirme"
+ }
+]

@@ -1,0 +1,50 @@
+[
+ {
+  "id": "00-01",
+  "planche": "00_assemblage",
+  "vue": "elevation (1:5)",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "Trois lignes de repere de l'elevation traversent le contour fort de la fenetre du flanc avant d'atteindre leur bulle, posee dans le vide de la fenetre : 01 (membrure haute), V9 (trou de tirant de chape) et 02f (tete de guide dans la lumiere). Pour V9 et 02f, la ligne coupe en plus l'arete du lobe central. Le lecteur suit mal ces lignes, et le trait de la ligne de repere se confond avec l'arete au point de croisement.",
+  "preuve": "SVG 00_assemblage : la ligne de repere de 01 va de (62,0 ; 39,1) a (68,7 ; 55,7) et coupe l'arete inclinee de la fenetre en (66,2 ; 49,5). Celle de V9 va de (138,4 ; 57,5) a (153,1 ; 67,9) et coupe le lobe en (146,8 ; 63,5). Celle de 02f va de (136,8 ; 66,3) a (162,7 ; 77,6) et coupe le lobe en (139,4 ; 67,4) et (141,1 ; 68,1). Appels : plans.py l.2240 v.bulle((-330, ...), R['flanc'], 8.0, 20.0), l.2245 bul(v, (p.SUPPORT_X, p.Z_VIS), 156.0, 70.0, 'V9'), l.2246 bul(v, (p.GUIDE_X, p.Z_GUIDE), 166.0, 79.0, R['guide']). Croisements confirmes par l'intersection des lignes fines de bulle avec les traits de 0,5 (script de controle) et vus sur le rendu.",
+  "correction": "plans.py, plan_assemblage. l.2240 : garder la bulle 01 dans la membrure haute, par exemple v.bulle((-330.0, zm), R['flanc'], 14.0, -4.0) en verifiant au rendu qu'elle ne mord ni les ajours ni le chant haut. Ou bien designer le montant gauche (x = -455) avec une bulle a gauche, entre le flanc et la cote 440. l.2245-2246 : sortir V9 et 02f par le HAUT du lobe (dy negatif, bulles entre la lumiere et l'ajour de 81) pour que leur ligne reste dans la matiere du lobe. Sinon, accepter le croisement et terminer la ligne par une fleche. Controler au rendu.",
+  "statut": "confirme"
+ },
+ {
+  "id": "00-02",
+  "planche": "00_assemblage",
+  "vue": "coupe B-B (1:2,5)",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "La ligne de repere de V5 (rondelles AS 1730 cote interieur des platines) part du bas de la rondelle, qui fait 0,8 mm de large sur la feuille. Elle descend en biais a travers la platine 07 hachuree et parcourt environ 6 mm dans ses hachures avant d'en sortir. On peut donc croire que V5 designe la platine. Le point de depart est en plus colle a l'arete de la platine : 0,4 mm.",
+  "preuve": "SVG : la ligne de V5 va de (211,4 ; 208,5) a (216,4 ; 236,5). La platine inferieure va de x = 211,8 a 218,2 (y = 109,5 a 125,5 modele, ox 184, k 0,4). La ligne entre dans la platine en (211,8 ; 210,8) et en sort en (212,9 ; 216,9). La rondelle occupe x = 211,0 a 211,8. Appel : plans.py l.2419 bul(v3, (yi - p.SUPPORT_RONDELLE / 2.0, zv - rb + 1.0), ob + 205.0, 240.0, 'V5').",
+  "correction": "plans.py l.2419. Faire partir le repere de V5 du haut de la rondelle, au-dessus des ecrous V8 (rb = 15 contre rtete = 12) : point (yi - p.SUPPORT_RONDELLE / 2.0, zv + rb - 1.0). Le tirer vers le haut et la gauche, au-dessus des ecrous, vers une bulle de la rangee haute, en decalant au besoin 07b, 07 et V6 (l.2412-2414). Autre solution : bulle V5 verticale sous la rondelle (cx = ob + 199.4), le V8 de la l.2418 etant decale a ob + 190. Verifier au rendu qu'aucune ligne n'entre dans la platine.",
+  "statut": "confirme"
+ },
+ {
+  "id": "00-03",
+  "planche": "00_assemblage",
+  "vue": "cartouche / titres de vues",
+  "lentille": "completude",
+  "categorie": "echelle",
+  "gravite": "mineur",
+  "description": "La coupe B-B est a 1:2,5, echelle hors de la serie recommandee par l'ISO 5455 (1:2, 1:5, 1:10). Elle est bien indiquee dans le titre de la vue et mesuree juste (155 -> 62,0 mm, 160 -> 64,0 mm, 85,5 -> 34,2 mm, k = 0,4). Les autres echelles sont vraies : elevation 960 -> 192,0 mm, 440 -> 88,0 mm, k = 0,2 ; A-A 60 -> 30,0 et 68 -> 34,0 mm, k = 0,5. Le cartouche porte bien '1:5 sauf indication'.",
+  "preuve": "plans.py l.2285 kb = 0.4. Lignes de cote mesurees dans le SVG : '155' 62,000 mm, '160' 64,000 mm, '85,5' 34,200 mm.",
+  "correction": "Pour s'en tenir a la serie ISO 5455 : plans.py l.2285, kb = 0.5. Il faut alors controler la place disponible : la vue fait environ 123 x 120 mm a 1:2, entre y 145 et 268 et a gauche du cartouche (x < 225). Si elle ne tient pas, garder 1:2,5, echelle d'exception admise par l'ISO 5455, en connaissance de cause.",
+  "statut": "plausible"
+ },
+ {
+  "id": "00-04",
+  "planche": "00_assemblage",
+  "vue": "perspective",
+  "lentille": "completude",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "La mention ' : PERIME' sous la perspective depend de l'ordre des dates de fichiers (iso.json plus ancien que params.py ou parts.py). Or git ne conserve pas ces dates. Dans ce depot fraichement extrait, iso.json date de 15:06:45,743 et params.py de 15:06:45,774. La condition est donc vraie, et la prochaine execution de plans.py imprimera 'PERIME' sur la planche alors que le modele est a jour. L'ancien rendu de 00 (avant le nouveau rendu par le coordinateur) affichait d'ailleurs 'modele 3D du 02/10/2026 : PERIME', alors que le SVG actuel ne le porte pas : meme commit, deux sorties differentes.",
+  "preuve": "plans.py l.2488 : perime = t_iso < max(os.path.getmtime(p.__file__), os.path.getmtime(P.__file__)). La commande python3 -c \"import os; print(os.path.getmtime('out/iso.json') < max(os.path.getmtime('params.py'), os.path.getmtime('parts.py')))\" renvoie True. Le SVG actuel porte 'modele 3D du 02/10/2026' sans PERIME.",
+  "correction": "plans.py l.2488 : comparer une empreinte et non des dates. build_freecad.py ecrirait dans iso.json un hachage (sha1) de params.py et parts.py. plan_assemblage le comparerait au hachage courant et n'afficherait PERIME que s'ils different. A defaut, au minimum, ne pas imprimer PERIME sur la planche et se contenter du message console.",
+  "statut": "plausible"
+ }
+]

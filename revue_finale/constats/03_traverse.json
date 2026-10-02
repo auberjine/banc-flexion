@@ -1,0 +1,14 @@
+[
+ {
+  "id": "03-01",
+  "planche": "03_traverse",
+  "vue": "mortaise du flanc (2:1) et texte de calcul en pied de feuille",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "Deux textes de la planche citent des noms de variables du code, sans signification pour l'atelier : '(EP_TOLE_REELLE)' sous la vue de la mortaise et '(params.verifie)' en tete du bloc de calcul.",
+  "preuve": "SVG 03_traverse : texte (318;104) 'Largeur = 6 x tole REELLE + 2 x R2 (EP_TOLE_REELLE) : ...' ; texte (16;258) 'Sous 12 kN (params.verifie) :'. plans.py l.1083 et l.1111.",
+  "correction": "plans.py l.1083 : remplacer '(EP_TOLE_REELLE)' par '(epaisseur de tole MESUREE a la livraison)'. l.1111 : 'Sous %s kN (verification de dimensionnement) :'.",
+  "statut": "confirme"
+ }
+]

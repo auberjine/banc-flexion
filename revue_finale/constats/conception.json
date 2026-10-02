@@ -1,0 +1,52 @@
+[
+  {
+    "id": "C-01",
+    "sujet": "Crochet d'étuve : les trois langues à bec ne peuvent pas entrer dans les trous carrés de 10",
+    "categorie": "risque_montage",
+    "gravite": "bloquant",
+    "description": "La tête de chaque langue (langue CROCHET_LANGUE_H = 7 plus bec CROCHET_BEC = 5, sur y de -9 à -4) fait 12 mm de haut, pour des trous carrés de ETUVE_TROU = 10. Elle ne passe donc pas par translation, et l'élargissement D9 (langue de 9) ne change rien. Pour qu'une tête de 5 x 12 passe une fente de 10 dans une paroi mince, il faut l'incliner d'au moins 30° (corde maxi min(12/cos t, 5/sin t) <= 10). Or le crochet est rigide et porte trois langues à 40 et 50 mm l'une de l'autre. Quand la dernière tête franchit la paroi, les autres langues traversent déjà la paroi dans leur trou, entre 0 et 9 mm du corps. L'écart de 40 x tan(t) doit donc rester sous 9 mm, soit t <= 12,7°. À cette inclinaison, la corde de la tête vaut encore 12,3 mm. Le pivotement autour de y ou de z est bloqué aussi : 2 mm de jeu en x sur 90 mm d'entraxe. La pose décrite (« les langues inclinées dans leurs trous, on redresse, on laisse descendre ») est donc géométriquement impossible. verifie() ne contrôle que la langue seule (CROCHET_LANGUE_H <= ETUVE_TROU - 2) et non la tête langue + bec. Défaut antérieur au 02/10, non vu par D9.",
+    "preuve": "params.py:62 (ETUVE_TROU = 10), params.py:63 (pas 40 / 50), params.py:701-707 (LANGUE_H 7, BEC 5, BEC_L 5, LANGUE_L 9), params.py:696-698 (mode de pose), params.py:1375-1383 (contrôles), parts.py:680-687 (profil de la langue). Calcul sur le polygone de crochet_profile() : plus grande corde à travers la tête de 12,00 à 0°, 12,05 à 5°, 12,30 à 12,7° (trou 10) ; inclinaison maxi avec deux langues engagées atan(9/40) = 12,7°.",
+    "correction": "Ramener la tête sous le trou, avec 1 mm de jeu, et poser par translation horizontale puis descente. Par exemple CROCHET_LANGUE_H = ETUVE_TROU - 4 (6) et CROCHET_BEC = 3 : tête de 9, descente de 4, bec en prise de 3 derrière la paroi, 3 de jeu entre la paroi et le bec (encoche de 4 conservée). Essayé sur une copie : verifie() à 0 problème, profil construit, verif_percages à 0 faute, paroi à 17 MPa. Ajouter à verifie() : `if CROCHET_LANGUE_H + CROCHET_BEC > ETUVE_TROU - 1: pb.append(\"tete de langue (langue + bec) plus haute que le trou\")`. Récrire le mode de pose (params.py:697-698) : « engager les trois langues de face, à l'horizontale, puis laisser descendre ». La pièce reste NE PAS DÉCOUPER (largeur d'étuve), mais la correction ne dépend pas de cette largeur.",
+    "statut": "confirme"
+  },
+  {
+    "id": "C-02",
+    "sujet": "V2 (tige M10 x 80) et V9 (3 rondelles sous écrou) : fenêtre de tôle 7,75 - 8,33, bien plus étroite que la tolérance de livraison",
+    "categorie": "risque_montage",
+    "gravite": "important",
+    "description": "Les boulonneries sont calculées sur EP_TOLE_REELLE (D5). Balayage de verifie() : 0 problème seulement pour une tôle mesurée de 7,75 à 8,33. En dessous, la marge de filet V9 tombe sous 2,5 (2,3 à 7,7). Au-dessus, V2 dépasse de moins de 3 mm (2,5 à 8,5). Or params.py:36-38 annonce une tolérance de livraison de -0,5 / +1,2 (EN 10029 classe A), soit 7,5 à 9,2. Une tôle livrée « dans la tolérance » a donc de fortes chances de faire refuser la visserie commandée selon NOMENCLATURE (V2 M10 x 80, V9 + 3 rondelles). Ce n'est pas une décision ouverte de REPRISE.md (l'intégration le range en « reste ») : le fait nouveau est qu'une modification sans contrepartie couvre toute la tolérance.",
+    "preuve": "params.py:111-112 (TRAVERSE_TIRANT_L = 80), params.py:571 (SUPPORT_RONDELLES_ECROU = 3), params.py:573-574 (empilement), params.py:1100-1111 (boulonnerie). Balayage d'EP_TOLE_REELLE sur une copie : 7,5 → V9 marge 1,5 ; 7,7 → 2,3 ; 7,75 à 8,33 → 0 problème ; 8,34 → V2 dépasse de 3,0 (refusé) ; 9,0 → V2 dépasse de 1,0. V2 : (80 - 6t - 4)/2 - 10 >= 3 ⇒ t <= 8,33. V9 : 4t + 139,5 - 168 >= 2,5 ⇒ t >= 7,75.",
+    "correction": "TRAVERSE_TIRANT_L = 90 (tige coupée à longueur, aucun coût) et SUPPORT_RONDELLES_ECROU = 4 (V9 : 1 rondelle sous tête et 4 sous écrou). Recalculé sur une copie avec un écrou de 8,4 (voir C-03) : 0 problème de t = 7,25 à 9,2. À 7,5 : V2 dépasse de 10,5, V9 marge 3,5 et dépassement 20,1. À 9,2 : V2 dépasse de 5,4, V9 marge 10,3 et dépassement 13,3. V1 reste bon sur toute la plage (dépassement 7,6 à 11, marge 4,5 à 8,4). Mettre à jour le commentaire params.py:562-567 (« trois rondelles », 171,5 / 3,5 / 20,5), NOMENCLATURE V2 / V9 et la planche 07 (rondelles dessinées).",
+    "statut": "confirme"
+  },
+  {
+    "id": "C-03",
+    "sujet": "Écrou de V9 : hauteur prise à 8 au lieu de 8,4 (ISO 4032), et écrou non freiné dans l'étuve",
+    "categorie": "incoherence",
+    "gravite": "mineur",
+    "description": "V9 est désignée « écrou H M10 ISO 4032 classe 8 ». La hauteur m maxi d'un ISO 4032 M10 est 8,4, mais SUPPORT_ECROU_M10_H vaut 8,0 : le dépassement publié (20,5) vaut en réalité 20,1. Plus important, boulonnerie() justifie FILET_DEPASSE_MIN par « l'élément de freinage est en prise ». Le commentaire params.py:100-105 écarte les écrous ordinaires et à bague au profit de l'ISO 7042 tout métal à cause des 150 °C. V9 n'a pourtant aucun freinage, alors qu'elle serre la chape, qui reçoit l'effort de commande en cycles de manœuvre et de chauffe. La règle n'est pas appliquée de la même façon aux trois boulonneries.",
+    "preuve": "params.py:572 (SUPPORT_ECROU_M10_H = 8.0), params.py:1106-1111, params.py:100-105 et 113 ; NOMENCLATURE.md:60 et nomenclature.py:92 (« ecrou H M10 ISO 4032 ») ; plans.py:1937 dessine ecr = 8. Calcul : 200 - 171,5 - 8,4 = 20,1.",
+    "correction": "Soit SUPPORT_ECROU_M10_H = 8.4 avec la désignation actuelle. Soit, de préférence, un écrou ISO 7042 classe 8 pour V9 comme pour V1 et V2 : remplacer SUPPORT_ECROU_M10_H par ECROU_FREIN_H (10) dans boulonnerie() et dans plans.py. Avec C-02 (4 rondelles), le dépassement vaut 18,1 à t = 8 et 11,7 à t = 9,2, toujours >= 3. Le couple de 35 N.m reste la décision ouverte de REPRISE.md, non touchée ici.",
+    "statut": "confirme"
+  },
+  {
+    "id": "C-04",
+    "sujet": "Traverse (D8) : la note de pièce cote le fraisage depuis des faces qui ne sont pas la référence annoncée",
+    "categorie": "incoherence",
+    "gravite": "mineur",
+    "description": "La note du PartSpec traverse, reprise mot pour mot dans NOMENCLATURE.md, dit que le paquet est « aligné sur les faces HAUTES des tenons, à la cote finie 64 / 38 ». Mais 64 se mesure depuis le dessus de la coiffe et 38 depuis la face BASSE du tenon. La cote fonctionnelle, mesurée depuis la face haute du tenon qui porte sur la mortaise et sert de référence au fraisage, vaut 58. La planche 03 donne bien « fraisé à 58 de ces faces » (tb - z0). La note et la nomenclature donnent donc à l'atelier deux cotes qui ne partent pas de la référence, et dont la valeur dépend de la précision laser du tenon (20) et de la coiffe (6).",
+    "preuve": "parts.py:934-938 (note : fr(hf), fr(hs) avec hf = TRAVERSE_H = 64, hs = Z_TAB0 - Z_TRAVERSE_BAS = 38) ; NOMENCLATURE.md:22 ; plans.py:1010-1011 (« fraise a %s de ces faces » % f(tb - z0)). Calcul : Z_TAB1 - Z_TRAVERSE_BAS = 381,712 - 323,712 = 58,0 ; brut 59.",
+    "correction": "Dans parts.py:934-938, écrire : « DXF = brut : chant du bas + 1 ; chants du bas FRAISÉS EN PAQUET serré, paquet posé sur les faces HAUTES des tenons, chant fraisé à %s de ces faces (brut %s), Ra 1,6 » avec fr(p.Z_TAB1 - p.Z_TRAVERSE_BAS) et fr(p.Z_TAB1 - p.Z_TRAVERSE_BAS + p.TRAVERSE_SUREP) (58 / 59). Garder 64 / 38 seulement comme cotes de contrôle. Régénérer NOMENCLATURE.md.",
+    "statut": "confirme"
+  },
+  {
+    "id": "C-05",
+    "sujet": "verifie() : deux contrôles ajoutés le 02/10 sont toujours vrais par construction",
+    "categorie": "autre",
+    "gravite": "mineur",
+    "description": "Le contrôle de jeu de rainure calcule j_rain = (RAINURE_B - EP_TOLE_REELLE)/2, alors que RAINURE_B est défini par EP_TOLE_REELLE + 2·RAINURE_JEU : j_rain vaut RAINURE_JEU quelle que soit la tôle, et le contrôle ne réagit pas à la tôle mesurée, contrairement à ce que dit le compte rendu (D2). De même, le contrôle « ENTRETOISE_L = ECART_FLANCS » (D13) compare deux grandeurs liées par ENTRETOISE_L = ECART_FLANCS. Aucun des deux n'est faux. Ils donnent seulement une fausse impression de couverture.",
+    "preuve": "params.py:133 et 1608-1610 ; params.py:93 et 1574-1575. Balayage d'EP_TOLE_REELLE de 7,5 à 9,0 : le contrôle de rainure ne se déclenche jamais.",
+    "correction": "Remplacer le contrôle de rainure par `if not 0.5 <= RAINURE_JEU <= 1.0` (même effet, sans ambiguïté). S'il doit protéger quelque chose, ajouter plutôt un contrôle de largeur de rainure contre la tôle la plus épaisse admise (par exemple RAINURE_B - (EP_TOLE_REELLE + 0,2) >= 2 x 0,5 pour une tôle non plane). Supprimer le contrôle ENTRETOISE_L = ECART_FLANCS, ou le remplacer par un contrôle de la tolérance de coupe (ENTRETOISE_TOL) contre TRAVERSE_JEU_Y.",
+    "statut": "confirme"
+  }
+]

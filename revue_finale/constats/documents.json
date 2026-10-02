@@ -1,0 +1,262 @@
+[
+  {
+    "id": "D-01",
+    "documents": [
+      "README.md",
+      "REPRISE.md",
+      "outils.py",
+      "make.py"
+    ],
+    "categorie": "autre",
+    "gravite": "important",
+    "description": "Les instructions d'environnement du README ne valent que pour Windows et contredisent REPRISE.md (environnement Linux). README.md:51-52 : « Il faut FreeCAD 1.0 installe dans `C:/Program Files/FreeCAD 1.0`, et Edge pour le PDF ». README.md:63 : commande PDF avec le chemin en dur de msedge.exe. README.md:69 : le chemin de freecadcmd.exe est en dur. Or outils.py cherche chaque outil dans la variable BANC_FREECAD / BANC_CCX / BANC_NAVIGATEUR, puis a l'emplacement Windows, puis dans le PATH (freecadcmd, chromium, google-chrome). make.py prend n'importe quel Chromium et ajoute --no-sandbox hors Windows. Le README ne cite ni outils.py, ni les variables BANC_*, ni Chromium, ni Pillow, ni rendu_planches.py. Son tableau des fichiers source (README.md:76-102) omet outils.py et rendu_planches.py. Sous Linux, la commande de la ligne 63 echoue, et celle de la ligne 69 aussi.",
+    "preuve": [
+      "README.md:51-52",
+      "README.md:63",
+      "README.md:69",
+      "README.md:76-102 (ni outils.py ni rendu_planches.py)",
+      "REPRISE.md:46-58 (Environnement (Linux) : chromium, BANC_NAVIGATEUR, BANC_FREECAD, Pillow)",
+      "outils.py:1-19 et 22-46 (variable, puis chemin Windows, puis PATH)",
+      "make.py:63-80 (outils.navigateur(), options_navigateur())"
+    ],
+    "correction": "README.md:51-52, 63 et 69 : renvoyer a outils.py, aux variables BANC_FREECAD / BANC_CCX / BANC_NAVIGATEUR et a la recherche dans le PATH. Donner les commandes sous les deux systemes : `freecadcmd fem_flanc.py`, et `python rendu_planches.py` ou chromium --headless --no-sandbox pour le PDF. Ajouter outils.py et rendu_planches.py au tableau des fichiers.",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-02",
+    "documents": [
+      "SPEC.md",
+      "NOMENCLATURE.md",
+      "out/plans/00_assemblage.svg",
+      "out/dxf/LISTE.txt"
+    ],
+    "categorie": "valeur_perimee",
+    "gravite": "important",
+    "description": "SPEC.md et NOMENCLATURE.md sont a jour sur le fond. `python3 spec.py` et `python3 nomenclature.py`, lances sur le depot tel qu'il est extrait, ne changent aucune valeur (git diff --stat : SPEC.md 8 lignes, NOMENCLATURE.md 2 lignes ; fichiers remis par git checkout). Mais ces generateurs datent les calculs par la date de modification des fichiers de out/, et une extraction git remet ces dates au jour de l'extraction. Le diff obtenu : (1) SPEC.md:148-149 et NOMENCLATURE.md:115 passent de « fem_flamb3, 22/09/2026 » et « fem_flambement, 18/09/2026 » a « 02/10/2026 ». NOMENCLATURE ecrit alors « calcul du 02/10/2026, avant les entretoises de chape et de sommet », ce qui se contredit. (2) Le paragraphe du balayage R10 a R26 (SPEC.md:170-172) disparait, remplace par une phrase generique, parce que out/balayage_R_FEN_BAS.json est exclu par .gitignore. Meme mecanisme dans plans.py:2486-2493 : regeneree dans une copie du depot, la planche 00 affiche « modele 3D du 02/10/2026 : PERIME », parce que l'extraction a donne a params.py et parts.py une date posterieure a out/iso.json. Le modele n'a pourtant pas change. Enfin, export_dxf.py:270 ecrit LISTE.txt en CRLF, alors que la version du depot est en LF : make.py modifie donc ce fichier a chaque passage.",
+    "preuve": [
+      "spec.py:41-46 (date = os.path.getmtime)",
+      "spec.py:66-68, 271, 275, 308-316",
+      "nomenclature.py:245-246 et 419-428",
+      "plans.py:2486-2493 (perime = mtime(iso.json) < mtime(params.py, parts.py))",
+      ".gitignore:9 (out/balayage_*.json)",
+      "SPEC.md:148-149 et 170-172 (version du depot) contre la sortie de python3 spec.py",
+      "NOMENCLATURE.md:115 (« calcul du 18/09/2026 ») contre la sortie de python3 nomenclature.py (« calcul du 02/10/2026 »)",
+      "out/plans/00_assemblage.svg:2861 (« modele 3D du 02/10/2026 ») contre la planche regeneree (« ... : PERIME »)",
+      "export_dxf.py:270 (newline=\"\\r\\n\") contre out/dxf/LISTE.txt (LF)"
+    ],
+    "correction": "spec.py et nomenclature.py : lire la date de calcul DANS le JSON (champ date ecrit par fem_*.py), ou la garder dans params.py, et non dans la date de modification du fichier. Versionner out/balayage_R_FEN_BAS.json, ou figer dans spec.py le texte du balayage avec sa date. plans.py:2486-2493 : comparer un empreinte (hachage de params.py et parts.py, ecrite par build_freecad.py dans iso.json) et non des dates de fichier. export_dxf.py:270 : choisir une seule fin de ligne pour LISTE.txt.",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-03",
+    "documents": [
+      "NOMENCLATURE.md",
+      "out/plans/07_chape.svg",
+      "params.py",
+      "nomenclature.py"
+    ],
+    "categorie": "designation",
+    "gravite": "important",
+    "description": "La tete de manoeuvre V7 est designee « Ecrou M16 H ISO 4032 classe 8 + ecrou M16 HM ISO 4035, bloques », « 21 de haut ». Avec ces normes, elle fait 14,8 (ISO 4032 M16, m maxi) + 8,0 (ISO 4035 M16) = 22,8 mm. Les 21 de VIS_TETE_H correspondent a 13 + 8, soit DIN 934 + DIN 439. La planche 07 dessine la tete a 21 (plans.py:2008-2010). L'etape 4 du montage, « bloques a 4,5 du bout », se deduit de 21 (nomenclature.py:119) : avec des ecrous ISO, il ne reste que 2,7 mm. Ecart du meme ordre pour l'ecrou H M10 ISO 4032 de V9 : 8,4 mm de haut maxi, compte 8 (SUPPORT_ECROU_M10_H). Le depassement de V9 vaut alors 20,1 et non 20,5 (NOMENCLATURE.md:60, SPEC.md:361 et 390, DEBOUT.md:159, planche 07).",
+    "preuve": [
+      "NOMENCLATURE.md:58 (V7, « 21 de haut »)",
+      "nomenclature.py:85-87",
+      "params.py:444-445 (VIS_TETE_D = 24, VIS_TETE_H = 21.0)",
+      "plans.py:2008-2010 (planche 07 : ecrou H puis HM sur VIS_TETE_H)",
+      "NOMENCLATURE.md:135 (« bloques a 4,5 du bout »)",
+      "params.py:572 (SUPPORT_ECROU_M10_H = 8.0) contre NOMENCLATURE.md:60 (« ecrou H M10 ISO 4032 »)"
+    ],
+    "correction": "params.py : VIS_TETE_H = 22.8 (ISO 4032 + ISO 4035) et SUPPORT_ECROU_M10_H = 8.4. Ou bien, dans nomenclature.py:85 et 92, designer des ecrous dont la hauteur fait bien 21 et 8 (DIN 934 / DIN 439). Puis regenerer NOMENCLATURE.md, SPEC.md et la planche 07.",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-04",
+    "documents": [
+      "DEBOUT.md",
+      "out/plans/01_flanc.svg",
+      "parts.py"
+    ],
+    "categorie": "valeur_perimee",
+    "gravite": "mineur",
+    "description": "DEBOUT.md:192 place la mortaise de traverse a « z 361,7 - 382,1 ». La planche 01 (tableau DECOUPES INTERIEURES) et parts.flanc_mortaise() la donnent de 361,5 a 381,9. La mortaise est le tenon (Z_TAB0 = 361,7 a Z_TAB1 = 381,7), elargi de TRAVERSE_JEU / 2 = 0,2 en haut et en bas. DEBOUT a ajoute 0,4 vers le haut au lieu de 0,2 de chaque cote. La hauteur de 20,4 est juste, mais la position est decalee de 0,2.",
+    "preuve": [
+      "DEBOUT.md:192 (« z 361,7 - 382,1 »)",
+      "out/plans/01_flanc.svg:435 (« 361,5 a 381,9 »)",
+      "parts.py:216-235 (jz = TRAVERSE_JEU / 2 ; Z_TAB0 - jz a Z_TAB1 + jz)",
+      "params.py:491 et 540-541 (TRAVERSE_JEU = 0.4 ; Z_TAB0 = 361,71, Z_TAB1 = 381,71)"
+    ],
+    "correction": "DEBOUT.md:192 : ecrire « a z 361,5 - 381,9 ».",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-05",
+    "documents": [
+      "README.md",
+      "DEBOUT.md",
+      "params.py"
+    ],
+    "categorie": "contradiction",
+    "gravite": "mineur",
+    "description": "README.md:144-148 : « Le noeud ... porte trois ouvertures : la fente du coin au centre, les deux lumieres de guidage ... Ne pas y ajouter d'ouverture ». DEBOUT.md:254-256 en compte quatre : la fente du coin, les deux lumieres, et la mortaise de traverse plus haut. verifie() exige d'ailleurs que la mortaise reste dans le noeud (« la mortaise de traverse sort du noeud »). Le README oublie la mortaise, et le trou de l'entretoise de sommet a z 411, dans la liste de ce qu'il ne faut pas augmenter.",
+    "preuve": [
+      "README.md:144-148",
+      "DEBOUT.md:254-256",
+      "params.py:1554-1555"
+    ],
+    "correction": "README.md:144-146 : « porte quatre ouvertures : la fente du coin au centre, les deux lumieres de guidage a x = +/- 44 et, plus haut, la mortaise de traverse ».",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-06",
+    "documents": [
+      "README.md",
+      "SPEC.md",
+      "out/fem_flanc.json"
+    ],
+    "categorie": "valeur_perimee",
+    "gravite": "mineur",
+    "description": "README.md:125-128 cite le balayage EF du conge (R10 a R26, « 151 a 160 MPa sans tendance ») comme s'il portait sur le flanc actuel. Or ce flanc culmine a 213 MPa (README.md:96, fem_flanc.json). SPEC.md:170-172 precise que ce balayage date du 16/09/2026 et portait « sur le flanc de l'epoque » (10 mm S355). Le lecteur du README peut croire que le flanc actuel travaille a 151-160 MPa au conge.",
+    "preuve": [
+      "README.md:125-128",
+      "SPEC.md:170-172 (« fem_balayage.py, 16/09/2026, sur le flanc de l'epoque »)",
+      "README.md:96 et out/fem_flanc.json (von_mises_max 212.8)"
+    ],
+    "correction": "README.md:127-128 : « un balayage EF de R10 a R26 (16/09/2026, sur le flanc de 10 mm S355 de l'epoque) donne 151 a 160 MPa sans tendance ».",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-07",
+    "documents": [
+      "README.md",
+      ".gitignore"
+    ],
+    "categorie": "autre",
+    "gravite": "mineur",
+    "description": "Le tableau « Ce qu'il y a dans out/ » annonce deux elements qui ne sont pas dans le depot. Aucun script ne les produit non plus. README.md:29 : `perime_2026-10-02/`, exclu par .gitignore (out/perime_*/) et absent. README.md:30 : `revue_brute.json` (« les 89 propositions et 70 signalements de la revue du 11/09 »), exclu par .gitignore et absent. Les lignes 16 a 18 (fcstd, step, stl) decrivent aussi des dossiers absents, mais ceux-la, build_freecad.py les regenere.",
+    "preuve": [
+      "README.md:29-30",
+      ".gitignore:6 (out/perime_*/) et .gitignore:8 (out/revue_brute.json)",
+      "git ls-files out (aucun des deux)"
+    ],
+    "correction": "README.md:29-30 : retirer ces deux lignes, ou les marquer « copie locale, hors depot ».",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-08",
+    "documents": [
+      "SPEC.md",
+      "NOMENCLATURE.md",
+      "out/plans/02_coulisseau.svg"
+    ],
+    "categorie": "contradiction",
+    "gravite": "mineur",
+    "description": "SPEC.md:444 (conduite d'essai) autorise « pate graphite ou cuivre sur le filetage de la tige ». Partout ailleurs, la tige se monte a la pate cuivre : SPEC.md:233-235, NOMENCLATURE.md:135 (etape 4), planche 02 (« pate cuivre (haute temperature) »), DEBOUT.md:72 et 104. L'irreversibilite du filet est justifiee au frottement BAS mu = 0,08, « acier sur acier, pate cuivre » (marge x2,13). Une pate graphite ou bisulfure peut descendre sous cette valeur, et l'irreversibilite n'est pas verifiee pour elle.",
+    "preuve": [
+      "SPEC.md:444 (spec.py:674)",
+      "SPEC.md:233-235",
+      "NOMENCLATURE.md:101 et 135",
+      "out/plans/02_coulisseau.svg:30-31",
+      "params.py:447-450 (VIS_MU_MIN = 0.08, pate cuivre)"
+    ],
+    "correction": "spec.py:674 : « pate cuivre haute temperature sur le filetage de la tige (l'irreversibilite est chiffree a mu 0,08), rien sur les plaques de bronze ».",
+    "statut": "plausible"
+  },
+  {
+    "id": "D-09",
+    "documents": [
+      "SPEC.md",
+      "DEBOUT.md",
+      "out/plans/07_chape.svg",
+      "params.py"
+    ],
+    "categorie": "contradiction",
+    "gravite": "mineur",
+    "description": "SPEC.md:359 et DEBOUT.md:158 (en gras) donnent la contrainte des entretoises de butee 07b : « 12,6 MPa de compression chacune ». La planche 07 dit au contraire « 12,6 MPa chacune sous la commande, 92 environ avec la precharge des V9 (35 N.m, K = 0,2) ». Le calcul le confirme : 17,5 kN de precharge sur 219 mm2 font 80 MPa, plus 12,6. Le controle de verifie() (sig_tube > 0,3 x 235 = 70,5 MPa) ne porte que sur les 12,6 MPa, alors que la contrainte reelle, 92 MPa, depasse ce seuil. Les documents ne disent pas la meme chose de la compression du tube.",
+    "preuve": [
+      "SPEC.md:359 (spec.py:580-581)",
+      "DEBOUT.md:158",
+      "out/plans/07_chape.svg:29",
+      "params.py:1620-1624"
+    ],
+    "correction": "spec.py:580-581 et DEBOUT.md:158 : donner les deux valeurs, comme la planche 07. params.py:1623 : decider si le critere de 0,3 x 235 doit inclure la precharge ; sinon, justifier le seuil.",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-10",
+    "documents": [
+      "README.md",
+      "NOMENCLATURE.md",
+      "SPEC.md"
+    ],
+    "categorie": "contradiction",
+    "gravite": "mineur",
+    "description": "README.md:221-223 pose la regle « Ecrous autofreines TOUT METAL (ISO 7042) sur la visserie M10 du cadre : une bague polyamide flue vers 120 C ». SPEC.md:383-384 exige que le bout depasse de 3 « pour que le freinage soit en prise ». Pourtant, la V9, vis M10 qui traverse les deux flancs et le cadre, recoit un ecrou H M10 ISO 4032 ordinaire, sans aucun freinage (NOMENCLATURE.md:60, SPEC.md:360). Seuls les « ecrous de cadre et de traverse » sont ISO 7042 (SPEC.md:392). La V9 ne voit que la precharge et les 329 N de desserrage. Le perimetre de la regle reste ambigu dans le README.",
+    "preuve": [
+      "README.md:221-223",
+      "NOMENCLATURE.md:60 (V9 : « ecrou H M10 ISO 4032 classe 8 »)",
+      "SPEC.md:360, 383-384 et 392",
+      "nomenclature.py:92"
+    ],
+    "correction": "Choisir. Soit nomenclature.py:92 passe la V9 en ecrou ISO 7042, dont la hauteur de 10 impose de revoir SUPPORT_ECROU_M10_H dans params.py. Soit README.md:221 precise « V1 et V2 ; la V9 de chape, en ecrou ISO 4032 simple, parce que ... ».",
+    "statut": "plausible"
+  },
+  {
+    "id": "D-11",
+    "documents": [
+      "out/plans/00_assemblage.svg",
+      "SPEC.md",
+      "NOMENCLATURE.md",
+      "out/plans/02_coulisseau.svg",
+      "out/plans/01_flanc.svg"
+    ],
+    "categorie": "autre",
+    "gravite": "mineur",
+    "description": "Les arrondis different d'un document a l'autre. La planche 00 ecrit « 0,43 mm de coulisseau ... par tour de tige », alors que SPEC.md:225, NOMENCLATURE.md:97, DEBOUT.md:55 et la planche 02 ecrivent 0,425. SPEC.md:360 place les vis de chape a « z 303 », alors que la planche 01 (percage D) et le tableau NIVEAUX de la planche 00 donnent 302,7.",
+    "preuve": [
+      "out/plans/00_assemblage.svg:30 (plans.py:2146, D.fmt(cpt[0], 2))",
+      "SPEC.md:225 ; NOMENCLATURE.md:97 ; out/plans/02_coulisseau.svg:33",
+      "SPEC.md:360 (spec.py:582-583, « z %.0f »)",
+      "out/plans/01_flanc.svg:321 et out/plans/00_assemblage.svg:530 (302,7)"
+    ],
+    "correction": "plans.py:2146 : afficher 3 decimales (0,425). spec.py:583 : afficher z a 0,1 pres (%.1f).",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-12",
+    "documents": [
+      "out/dxf/LISTE.txt",
+      "NOMENCLATURE.md",
+      "out/plans/07_chape.svg",
+      "out/dxf/support.dxf"
+    ],
+    "categorie": "designation",
+    "gravite": "mineur",
+    "description": "La platine de butee (rep. 07, « Platine de butee de la vis ») se decoupe d'apres un fichier nomme support.dxf, dont le texte d'identification dit « SUPPORT ep8 42CrMo4 +A x2 ». Ni LISTE.txt, ni le tableau DXF de NOMENCLATURE.md, ni le DXF ne donnent le repere 07 ou la designation. La planche 07 dit seulement « 07 : decoupe laser » sans nommer le fichier. Les autres planches nomment le leur (flanc.dxf, poussoir.dxf, traverse.dxf, patin_appui.dxf, patin_charge.dxf, pied.dxf, crochet.dxf). Pour le decoupeur, le lien entre support.dxf et la piece 07 n'apparait nulle part.",
+    "preuve": [
+      "out/dxf/LISTE.txt:10",
+      "NOMENCLATURE.md:77",
+      "out/dxf/support.dxf (texte « SUPPORT ep8 42CrMo4 +A x2 »)",
+      "out/plans/07_chape.svg:33 (plans.py:1857) contre out/plans/01_flanc.svg:35, 03_traverse.svg:34, 05_pied.svg:35"
+    ],
+    "correction": "plans.py:1857 : « 07 : decoupe laser d'apres support.dxf ». nomenclature.py et export_dxf.py : ajouter le repere dans le tableau DXF et dans le texte du DXF, par exemple « 07 PLATINE DE BUTEE (support) ».",
+    "statut": "confirme"
+  },
+  {
+    "id": "D-13",
+    "documents": [
+      "NOMENCLATURE.md",
+      "out/plans/02_coulisseau.svg",
+      "out/plans/04_patins.svg"
+    ],
+    "categorie": "designation",
+    "gravite": "mineur",
+    "description": "La goupille V3, « Goupille cylindrique 8 m6 x 30 », est la seule piece de visserie commandee sans norme : ISO 2338 ou ISO 8734 (trempee) ? Toutes les autres en portent une (ISO 4014, 4762, 7042, 7089, 4032, 4035, DIN 2093). La longueur de 30 est en dur dans nomenclature.py (GOUPILLE_L), sans parametre dans params.py. Les planches 02 et 04 disent « 8 m6 » sans la longueur.",
+    "preuve": [
+      "NOMENCLATURE.md:54",
+      "nomenclature.py:40 et 70",
+      "out/plans/02_coulisseau.svg:28 ; out/plans/04_patins.svg:31"
+    ],
+    "correction": "params.py : ajouter POUSSOIR_GOUPILLE_L = 30. nomenclature.py:70 : « Goupille cylindrique ISO 2338 8 m6 x 30 », ou ISO 8734 si elle est trempee.",
+    "statut": "confirme"
+  }
+]

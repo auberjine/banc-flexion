@@ -1,0 +1,50 @@
+[
+ {
+  "id": "06-01",
+  "planche": "06_petites",
+  "vue": "06b ENTRETOISE DE CADRE, COUPE AXIALE (2:1)",
+  "lentille": "completude",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "Dans la coupe axiale du tube, les aretes vues derriere le plan de coupe ne sont pas dessinees : aux deux bouts, le bord de l'alesage diam. 11 (demi-cercle du fond) se projette en un trait fort horizontal de x = -5,5 a +5,5 qui relie les deux parois hachurees. La vue montre deux rectangles hachures isoles, comme deux plats paralleles, et l'alesage reste ouvert en haut et en bas.",
+  "preuve": "plans.py l.1628-1632 : seules les deux parois sont tracees (zone + contour). Dans le SVG, les seuls traits horizontaux a y = 45,0 et y = 165,0 sont les attaches de la cote 60 (x 206 a 217) ; rien entre x = 174 et x = 196 (bord interieur des parois). Decoupe 06_petites/ent_haut.png : alesage ouvert.",
+  "correction": "plans.py, plan_petites, apres la boucle des parois (l.1632) : for z in (0.0, lE): p06_ligne(v2, (-di / 2.0, z), (di / 2.0, z), D.TRAIT_FORT)",
+  "statut": "confirme"
+ },
+ {
+  "id": "06-02",
+  "planche": "06_petites",
+  "vue": "06a TOURILLON (2:1) et 06c / 06d PLAQUE (1:1)",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "Les cotes 76 et diam. 25 h9 du tourillon, et 100 et 38 de la plaque, partent d'aretes fictives (coins chanfreines 1,5 x 45 et coins R4) sans que ces aretes soient marquees (ISO 129-1 : prolonger en trait fin les deux contours jusqu'a leur intersection). Les attaches flottent a 3 mm (2:1) du chanfrein et ne touchent aucun trait de la piece. La planche 07 marque ses aretes fictives (c07_sommet_fictif), la 06 non : incoherence entre planches.",
+  "preuve": "plans.py l.1617-1618 (cote_vx / cote_hx attaches en (+/-rT, 0) et (rT, lT)), l.1663-1664 (attaches en (yc +/- hl, +/-hb)). SVG : attache de la cote 76 de (101,0 ; 197,0) a (112,0 ; 197,0), alors que le contour s'arrete en x = 97,0 a y = 197 (rT - cT = 11 mm x 2). Decoupe 06_petites/tour_bas.png.",
+  "correction": "plans.py, plan_petites : apres l.1618, pour chacun des 4 coins (sx, z0, zc) dans ((+/-1, 0, cT), (+/-1, lT, lT - cT)) : p06_ligne(v, (sx * rT, zc), (sx * rT, z0)) et p06_ligne(v, (sx * (rT - cT), z0), (sx * rT, z0)) ; pour la plaque apres l.1664, prolonger de meme les deux droites de chaque coin R4 jusqu'au coin vif (meme logique que c07_sommet_fictif, en profil tourne).",
+  "statut": "confirme"
+ },
+ {
+  "id": "06-03",
+  "planche": "06_petites",
+  "vue": "notes",
+  "lentille": "lisibilite",
+  "categorie": "autre",
+  "gravite": "mineur",
+  "description": "La note 4 « entre les rebords du coin 02c (7,05 dessus, 8,15 dessous) » donne deux nombres sans dire ce qu'ils mesurent. Ce sont les largeurs des rebords selon y (PLAQ_REBORD_L, PLAQ_REBORD_L_BAS), information qui ne sert pas a la plaque achetee ; le lecteur peut les prendre pour un jeu ou une cote de pose.",
+  "preuve": "plans.py l.1592-1594 ; params.py l.353 (PLAQ_REBORD_L = rebords du dessus, selon y) et l.430. Valeurs : 7.05 et 8.147 -> « 7,05 » et « 8,15 ».",
+  "correction": "plans.py l.1592 : ecrire « entre les rebords du coin %s (larges de %s dessus et %s dessous) » ou supprimer la parenthese (la cote appartient a la planche 02).",
+  "statut": "confirme"
+ },
+ {
+  "id": "06-04",
+  "planche": "06_petites",
+  "vue": "planche entiere (rendu)",
+  "lentille": "lisibilite",
+  "categorie": "echelle",
+  "gravite": "mineur",
+  "description": "Le PNG de out/rendus est tronque : la derniere ligne non blanche est a y = 2089 px, soit 274 mm (7,619 px/mm), alors que le cadre de la feuille finit a 287 mm et la feuille a 297. La rangee basse du cartouche (echelle, tol. generale ISO 2768-m, banc de flexion) et le bas du cadre ne figurent donc sur aucun rendu : un relecteur qui lit le PNG ne peut pas controler l'echelle. Le SVG lui-meme est correct (viewBox 0 0 420 297) ; un rendu refait dans le scratchpad (page HTML enveloppe, fenetre 1600 x 1200) montre le cartouche complet.",
+  "preuve": "Pillow sur out/rendus/06_petites.png : premiere/derniere ligne contenant un pixel < 128 = 73 / 2089 (2264 px de haut). SVG : rect cadre y 10 a 287, cartouche y 251 a 287, texte « 2:1 - plaque 06c/06d 1:1 » a y = 285. Echelles verifiees dans le SVG : tourillon 50,0 x 152,0 (2:1 de 25 x 76), parois 06b 9,0 x 120,0 (2:1 de 4,5 x 60), plaque 100,0 x 38,0 (1:1), trous 9,0 : toutes vraies.",
+  "correction": "rendu_planches.py ligne 37 : Chromium sans interface retranche ~87 px CSS de hauteur a la fenetre 1600 x 1132. Ouvrir une fenetre plus haute (--window-size=1600,1250) puis recadrer le PNG a 3200 x 2264 avec Pillow, ou rendre une page HTML qui contient le SVG en <img> de 1600 x 1131,4 px avec body{margin:0}, et verifier en fin de main() que la ligne y = 2263 n'est pas tronquee (bas du cadre a 287 mm = 2187 px).",
+  "statut": "confirme"
+ }
+]
