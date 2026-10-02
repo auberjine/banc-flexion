@@ -177,10 +177,10 @@
 <path d="M 85.800 124.000 L 85.072 126.600 L 86.528 126.600 Z" fill="#000"/>
 <path d="M 85.800 118.000 L 86.528 115.400 L 85.072 115.400 Z" fill="#000"/>
 <text x="84.200" y="121.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 84.200 121.000)">30</text>
-<line x1="62.000" y1="39.085" x2="68.663" y2="55.742" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="62.000" y1="39.085" x2="55.600" y2="39.085" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <circle cx="62.000" cy="39.085" r="0.55" fill="#000"/>
-<circle cx="70.000" cy="59.085" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
-<text x="70.000" y="60.165" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">01</text>
+<circle cx="52.000" cy="39.085" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="52.000" y="40.165" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">01</text>
 <line x1="77.200" y1="121.000" x2="65.751" y2="122.908" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <circle cx="77.200" cy="121.000" r="0.55" fill="#000"/>
 <circle cx="62.200" cy="123.500" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
@@ -447,14 +447,14 @@
 <circle cx="170.000" cy="222.480" r="0.55" fill="#000"/>
 <circle cx="198.000" cy="230.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
 <text x="198.000" y="231.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">06a</text>
-<line x1="207.800" y1="207.315" x2="207.978" y2="236.400" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="207.800" y1="207.315" x2="202.629" y2="236.455" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <circle cx="207.800" cy="207.315" r="0.55" fill="#000"/>
-<circle cx="208.000" cy="240.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
-<text x="208.000" y="241.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">V8</text>
-<line x1="211.400" y1="208.515" x2="216.370" y2="236.456" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="202.000" cy="240.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="202.000" y="241.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">V8</text>
+<line x1="211.400" y1="208.515" x2="211.400" y2="236.400" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <circle cx="211.400" cy="208.515" r="0.55" fill="#000"/>
-<circle cx="217.000" cy="240.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
-<text x="217.000" y="241.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">V5</text>
+<circle cx="211.400" cy="240.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="211.400" y="241.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">V5</text>
 <line x1="224.000" y1="207.315" x2="225.780" y2="236.407" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <circle cx="224.000" cy="207.315" r="0.55" fill="#000"/>
 <circle cx="226.000" cy="240.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>

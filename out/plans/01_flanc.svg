@@ -30,7 +30,7 @@
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Contour symetrique en X, graduation d'un seul cote : deux flancs identiques, face gravee a l'exterieur ;</text>
 <text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Aretes cassees 0,8 x 45 deg sur les deux faces, bossages compris (ils ne sont pas repris).</text>
 <text x="408.000" y="228.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe.</text>
-<text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Encoches et mortaise taillees sur la tole REELLE (encoches 8,4 = tole + jeu 0,4) :</text>
+<text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Encoches et mortaise taillees sur la tole REELLE (encoches 8,4 = tole + jeu 0,4 ; mortaise 52 = 6 x tole + jeu 4) :</text>
 <text x="408.000" y="220.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Matiere : 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re &gt;= 430 MPa a 20 C.</text>
 <text x="408.000" y="216.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Decoupe et gravure laser d'apres flanc.dxf : calque DECOUPE coupe, GRAVURE marque sans traverser (detail Y).</text>
 <text x="25.000" y="17.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="start" font-weight="bold">VUE DE LA FACE GRAVEE  (1:4)</text>
@@ -96,8 +96,8 @@
 <path d="M 158.375 68.916 L 159.500 68.916" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 158.375 69.138 L 160.375 69.138" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="145.000" y1="135.500" x2="145.000" y2="20.500" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
-<line x1="82.500" y1="134.000" x2="82.500" y2="142.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="207.500" y1="134.000" x2="207.500" y2="142.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="82.500" y1="130.500" x2="82.500" y2="142.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="207.500" y1="130.500" x2="207.500" y2="142.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
 <line x1="82.500" y1="140.000" x2="207.500" y2="140.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <path d="M 82.500 140.000 L 85.100 140.728 L 85.100 139.272 Z" fill="#000"/>
 <path d="M 207.500 140.000 L 204.900 139.272 L 204.900 140.728 Z" fill="#000"/>
@@ -128,10 +128,10 @@
 <circle cx="259.375" cy="35.500" r="0.55" fill="#000"/>
 <circle cx="271.375" cy="39.500" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
 <text x="271.375" y="40.580" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">B</text>
-<line x1="207.500" y1="47.599" x2="212.423" y2="55.930" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="207.500" y1="47.599" x2="213.020" y2="43.459" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <circle cx="207.500" cy="47.599" r="0.55" fill="#000"/>
-<circle cx="214.000" cy="58.599" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
-<text x="214.000" y="59.679" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">C</text>
+<circle cx="215.500" cy="41.599" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="215.500" y="42.679" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">C</text>
 <line x1="158.000" y1="57.322" x2="158.000" y2="51.422" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <circle cx="158.000" cy="57.322" r="0.55" fill="#000"/>
 <circle cx="158.000" cy="48.322" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>

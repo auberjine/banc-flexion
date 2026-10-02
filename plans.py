@@ -205,8 +205,10 @@ def plan_flanc():
     notes = ["Decoupe et gravure laser d'apres flanc.dxf : calque DECOUPE coupe, GRAVURE marque"
              " sans traverser (detail %s)." % DY,
              "Matiere : %s." % p.EXIGENCE_TOLE,
-             "Encoches et mortaise taillees sur la tole REELLE (encoches %s = tole + jeu %s) :"
-             % (D.fmt(p.ENCOCHE_PIED_B), D.fmt(p.PIED_JEU)),
+             "Encoches et mortaise taillees sur la tole REELLE (encoches %s = tole + jeu %s ;"
+             " mortaise %s = %d x tole + jeu %s) :"
+             % (D.fmt(p.ENCOCHE_PIED_B), D.fmt(p.PIED_JEU), D.fmt(p.TRAVERSE_LX_REEL + p.TRAVERSE_JEU_X),
+                p.TRAVERSE_N, D.fmt(p.TRAVERSE_JEU_X)),
              p.NOTE_TOLE_REELLE[0].upper() + p.NOTE_TOLE_REELLE[1:] + ".",
              "Aretes cassees %s x 45 deg sur les deux faces, bossages compris (ils ne sont pas repris)."
              % D.fmt(p.CHANFREIN),
@@ -243,14 +245,19 @@ def plan_flanc():
         return vv.cz - (y - vv.oy) / vv.k
 
     y0 = v.P((0.0, 0.0))[1]
-    v.cote_hx(-p.PIED_X_POS, p.PIED_X_POS, 0.0, 0.0, 0.0, dt=-22.0, zl=z_de_y(v, y0 + 7.0))
+    # entraxe des encoches du chant bas : porte par leurs axes, prolonges
+    # jusqu'au-dela de sa ligne de cote
+    for sx in (-1.0, 1.0):
+        v.axe((sx * p.PIED_X_POS, p.PIED_CROIX_FLANC + 2.0), (sx * p.PIED_X_POS, z_de_y(v, y0 + 9.0)),
+              ext=0.0)
+    v.cote_hx(-p.PIED_X_POS, p.PIED_X_POS, None, None, 0.0, dt=-22.0, zl=z_de_y(v, y0 + 7.0))
     v.cote_hx(-p.X_APPUI, p.X_APPUI, p.Z_BOSSAGE, p.Z_BOSSAGE, 0.0,
               texte="%s +/-0,3" % D.fmt(2.0 * p.X_APPUI), zl=z_de_y(v, y0 + 14.0))
     v.cote_hx(-p.L_FLANC / 2.0, p.L_FLANC / 2.0, 0.0, 0.0, 0.0, zl=z_de_y(v, y0 + 21.0))
     v.cote_vx(0.0, p.H_FLANC, -p.L_FLANC / 2.0, -p.L_FLANC / 2.0, -7.0)
 
     # bulles des percages, decalages choisis un par un sur le rendu
-    OFFS = {"A": (12.0, -4.0), "B": (12.0, 4.0), "C": (6.5, 11.0), "D": (0.0, -9.0), "E": (8.5, -1.0)}
+    OFFS = {"A": (12.0, -4.0), "B": (12.0, 4.0), "C": (8.0, -6.0), "D": (0.0, -9.0), "E": (8.5, -1.0)}
     lignes = []
     i = 0
     for (x, z, d, role) in trous:
@@ -2253,7 +2260,7 @@ def plan_assemblage():
     v.cote_vx(-p.PIED_SOL, 0.0, -p.PIED_X_POS + p.PIED_E / 2, None, 7.0, queue=3.0)
     # reperes
     iv = a00_intervalles([outer] + trous, -330.0)[-1]           # membrure haute
-    v.bulle((-330.0, (iv[0] + iv[1]) / 2.0), R["flanc"], 8.0, 20.0)
+    v.bulle((-330.0, (iv[0] + iv[1]) / 2.0), R["flanc"], -10.0, 0.0)   # reste dans la membrure
     v.bulle((-p.PIED_X_POS - p.PIED_E / 2, -p.PIED_SOL / 2), R["pied"], -15.0, 2.5)
     xe, ze = max(boulons)                       # entretoise du coin haut droit
     c1 = v.bulle((xe, ze), "V1", 16.0, 5.0)
@@ -2431,8 +2438,10 @@ def plan_assemblage():
     bul(v3, (ye + p.SUPPORT_BUTEE_H / 2.0, zv + rb - 2.0), ob + 209.0, 176.0, "V6")
     bul(v3, (22.0, p.Z_COULISSEAU_BAS + 15.0), ob + 186.0, 220.0, R["coulisseau"])
     bul(v3, (5.0, p.Z_TOURILLON_BAS + p.TOURILLON_L - 5.0), ob + 186.0, 230.0, R["tourillon"])
-    bul(v3, (yi - p.SUPPORT_RONDELLE - hm, zv - rtete + 1.0), ob + 196.0, 240.0, "V8")
-    bul(v3, (yi - p.SUPPORT_RONDELLE / 2.0, zv - rb + 1.0), ob + 205.0, 240.0, "V5")
+    bul(v3, (yi - p.SUPPORT_RONDELLE - hm, zv - rtete + 1.0), ob + 190.0, 240.0, "V8")
+    # V5 a la verticale de sa rondelle : sa ligne longe la platine sans y entrer
+    pv5 = (yi - p.SUPPORT_RONDELLE / 2.0, zv - rb + 1.0)
+    bul(v3, pv5, v3.P(pv5)[0], 240.0, "V5")
     bul(v3, (y_tete + p.VIS_TETE_H / 2.0, zv - rtete + 1.0), ob + 214.0, 240.0, "V7")
     bul(v3, (p.Y_BOUT_TIRANT - 2.0, zv + 3.0), ob + 230.0, 214.0, "V9")
     s.text(124.0, 270.0, "Le coin AVANCE VERS LA CHAPE en chargeant ; repousse vers son bout epais, il TIRE"
