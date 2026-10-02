@@ -108,8 +108,9 @@ ECROU_FREIN_H = 10.0      # ecrou ISO 7042 M10, hauteur maxi
 ECROU_FREIN_REF = "ISO 7042 classe 8, autofreine tout metal"
 ENTR_VIS_L = 100.0        # vis TH M10 x 100 : serrage 80, ecrou sur le filet, 10 de depassement
 ENTR_VIS_FILET = 26.0     # filetage partiel ISO 4014 : b = 2d + 6 pour L <= 125
-TRAVERSE_TIRANT_L = 80.0  # tige filetee M10 x 80 du paquet de traverse + 2 rondelles + 2 ecrous ISO 7042
-                          # (verifie() la refuse si la tole mesuree depasse 8,3 : prendre alors 90)
+TRAVERSE_TIRANT_L = 90.0  # tige filetee M10 x 90 du paquet de traverse + 2 rondelles + 2 ecrous ISO 7042
+                          # (a 80, verifie() la refusait des 8,34 de tole mesuree ; a 90 elle couvre
+                          # toute la tolerance de livraison, 7,5 a 9,2)
 FILET_DEPASSE_MIN = 3.0   # 2 pas de M10 au dela de l ecrou : l element de freinage est en prise
 FILET_MARGE_MIN = 2.5     # l ecrou reste sur la partie filetee malgre les tolerances d empilement
 
@@ -442,7 +443,7 @@ VIS_FLANC = 30.0          # demi angle de flanc : 30 metrique ISO, 15 trapezoida
 VIS_H1 = 0.541266 * VIS_PAS   # hauteur de recouvrement des flancs
 VIS_L = 185.0
 VIS_TETE_D = 24.0         # un ecrou H et un ecrou HM bloques font la tete
-VIS_TETE_H = 21.0
+VIS_TETE_H = 22.8         # ecrou H ISO 4032 M16 (14,8) + ecrou HM ISO 4035 M16 (8)
 VIS_PASSAGE_D = 18.0
 # Frottement du FILET de commande : tige 8.8 dans le taraudage du coin en C45,
 # acier sur acier, monte a la pate cuivre. Pour l'irreversibilite, le cas
@@ -562,14 +563,16 @@ SUPPORT_X1 = SUPPORT_X + SUPPORT_R_BOUT
 # cadre, flanc, entretoise de butee, platines, rondelles, ecrou. Vis du commerce
 # a filetage PARTIEL : l'ecrou doit tomber entierement sur le filet, et avec
 # FILET_MARGE_MIN de marge, car l'empilement additionne 4 toles et 2 tubes
-# coupes. D'ou TROIS rondelles sous l'ecrou : l'empilement fait 171,5 pour un
-# filet qui commence a 168 (3,5 de marge, 20,5 de depassement). Avec deux, il
-# faisait 169,5 et la marge de 1,5 etait mangee par les tolerances.
+# coupes. D'ou QUATRE rondelles sous l'ecrou : l'empilement fait 173,5 pour un
+# filet qui commence a 168 (5,5 de marge, 18,1 de depassement avec l'ecrou ISO
+# 4032 de 8,4), et verifie() l'accepte sur toute la tolerance de livraison de
+# la tole (7,5 a 9,2). Avec trois, une tole mesuree sous 7,75 faisait tomber
+# la marge sous FILET_MARGE_MIN.
 SUPPORT_TIRANT_L = 200.0          # vis H M10 x 200 ISO 4014
 SUPPORT_TIRANT_FILET = 32.0       # longueur filetee (b = 2d + 12 pour L > 125)
 SUPPORT_RONDELLE_E = RONDELLE_M10_E
-SUPPORT_RONDELLES_ECROU = 3       # sous l'ecrou
-SUPPORT_ECROU_M10_H = 8.0
+SUPPORT_RONDELLES_ECROU = 4       # sous l'ecrou
+SUPPORT_ECROU_M10_H = 8.4         # ecrou H ISO 4032 M10
 SUPPORT_EMPILEMENT = (2 * EP_TOLE_REELLE + ECART_FLANCS + SUPPORT_TUBE_L + SUPPORT_N * EP_TOLE_REELLE
                       + SUPPORT_RONDELLE_E * (1 + SUPPORT_RONDELLES_ECROU))   # sous tete, ecrou exclu
 VIS_Y0 = COIN_Y0 + COIN_COURSE - 1.0                # bout de la tige filetee :
@@ -695,11 +698,14 @@ PIED_AJOUR_R = 6.0
 # langue haute, y = 0 la face interieure de la paroi.
 # Le poids et le couple de l appui tirent le haut vers l interieur : les becs
 # des langues le retiennent ; le bas du corps s appuie sur la paroi. Pose :
-# les langues inclinees dans leurs trous, on redresse, on laisse descendre.
+# la tete (langue + bec) passe le trou DE FACE, crochet a l horizontale, puis
+# on le laisse descendre : le bec retombe derriere la paroi. Un crochet rigide a
+# trois langues ne peut pas s incliner pour engager une tete plus haute que le
+# trou (12,7 deg au plus entre deux langues), d ou langue 6 + bec 3 < 10.
 CROCHET_E = EP_FLANC      # 8 dans un carre de 10 : 1 de jeu par cote
 CROCHET_N_LANGUES = 3
-CROCHET_LANGUE_H = ETUVE_TROU - 3.0        # 7 : 1,5 de jeu en haut et en bas
-CROCHET_BEC = 5.0         # retombee derriere la paroi
+CROCHET_LANGUE_H = ETUVE_TROU - 4.0        # 6 : descend de 4 apres le passage de la tete
+CROCHET_BEC = 3.0         # retombee derriere la paroi : tete de 9 dans le carre de 10
 CROCHET_BEC_L = 5.0       # sa longueur, au dela de la paroi
 # la langue traverse la paroi, laisse 3 de jeu, puis retombe en bec : l encoche
 # entre le bec et le corps fait 4 = la moitie de la tole, ce que le laser coupe
@@ -1374,6 +1380,9 @@ def verifie():
     # crochets d etuve
     if CROCHET_LANGUE_H > ETUVE_TROU - 2.0 or CROCHET_E > ETUVE_TROU - 1.5:
         pb.append("la langue du crochet (%g x %g) ne passe pas un carre de %g" % (CROCHET_E, CROCHET_LANGUE_H, ETUVE_TROU))
+    if CROCHET_LANGUE_H + CROCHET_BEC > ETUVE_TROU - 1.0:
+        pb.append("tete de langue du crochet (%g + %g de bec) plus haute que le carre de %g :"
+                  " elle ne passe pas de face" % (CROCHET_LANGUE_H, CROCHET_BEC, ETUVE_TROU))
     if min(ETUVE_TROU_PAS) - CROCHET_LANGUE_H < ETUVE_TROU + 4.0:
         pb.append("deux langues du crochet tombent dans le meme trou")
     if CROCHET_LANGUE_L - CROCHET_BEC_L - ETUVE_PAROI_E < 1.5:

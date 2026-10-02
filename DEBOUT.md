@@ -156,15 +156,16 @@ cadre, de part et d'autre de la vis, dans le plan de son axe.
 | Platines | 2 x tole 8, 70 de haut au droit de l'alesage, 140 de long |
 | Flexion d'une platine | 130 MPa, coefficient 3,3 a froid et 3,0 a 150 C, fleche 0,14 mm |
 | Entretoises | tube de precision 20 x 4,5, L = 71,5 +/- 0,2, **12,6 MPa de compression chacune** |
-| Fixation | 2 vis H M10 x 200 filetees sur 32, a x = +/- 52 dans le plan de l'axe de vis ; tete et 1 rondelle derriere le flanc oppose, 3 rondelles + ecrou cote platines. Empilement sous tete 171,5, filet a partir de 168 : l'ecrou tombe sur le filet avec 3,5 de marge, la vis depasse de 20,5 |
+| Fixation | 2 vis H M10 x 200 filetees sur 32, a x = +/- 52 dans le plan de l'axe de vis ; tete et 1 rondelle derriere le flanc oppose, 4 rondelles + ecrou H ISO 4032 (8,4) cote platines. Empilement sous tete 173,5, filet a partir de 168 : l'ecrou tombe sur le filet avec 5,5 de marge, la vis depasse de 18,1 |
 | Serrage | 35 N.m, aucun taraudage : les vis traversent les deux flancs et une entretoise de cadre |
 | Butee a aiguilles | AXK 1730 + 2 rondelles AS, a plat sur la face EXTERIEURE |
 | Retenue interieure | 2 rondelles trempees AS 1730 (17 x 30 x 1) + 2 ecrous HM : 329 N au desserrage seulement |
 
-Trois rondelles sous l'ecrou, et non deux : l'empilement additionne quatre toles
-et deux tubes coupes. Avec deux rondelles il faisait 169,5 pour un filet qui
-commence a 168, et les tolerances de tole et de coupe mangeaient la marge :
-l'ecrou serait venu buter en fin de filet sans serrer.
+Quatre rondelles sous l'ecrou : l'empilement additionne quatre toles et deux
+tubes coupes. Avec deux rondelles il faisait 169,5 pour un filet qui commence a
+168 ; avec trois, une tole mesuree sous 7,75 faisait encore tomber la marge sous
+2,5. Avec quatre, verifie() accepte toute la tolerance de livraison (7,5 a 9,2) :
+l'ecrou ne vient jamais buter en fin de filet sans serrer.
 
 L'AXK 1528 de la version precedente etait une erreur : son alesage de 15 ne
 passe pas un M16.
@@ -212,7 +213,7 @@ cote. Essaye sur le flanc de 10, il creusait une entaille au bout meme de la
 ligne d'appui : 209 MPa au lieu de 130.
 
 Il n'y a plus ni barreau 60 x 45, ni quatre taraudages, ni quatre vis, ni
-quatre trous dans le flanc. Une tige filetee M10 x 80 tient le paquet au
+quatre trous dans le flanc. Une tige filetee M10 x 90 tient le paquet au
 montage ; elle ne reprend aucune charge. Le chant du bas est fraise **les
 plaques serrees en paquet**, en une seule passe, alignees sur les faces hautes
 des tenons ; le DXF porte 1 mm de surepaisseur sur ce chant.
@@ -332,8 +333,8 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   aretes des deux pieds en V ; chaque pied pose par son arete basse sur deux
   appuis, a 245,8 de part et d'autre de l'axe, et la dent de chaque appui entre
   dans la fente du pied. Parois de 1 mm percees de trous carres de 10 au pas de
-  40 et 50 en alternance : chaque crochet pend par trois langues de 7 a bec,
-  comme un crochet de rayonnage, et porte en bas un appui de 60 avec une dent
+  40 et 50 en alternance : chaque crochet pend par trois langues de 6 a bec
+  de 3 (tete de 9, qui passe le trou de face avant de descendre), et porte en bas un appui de 60 avec une dent
   qui entre dans une fente du pied a 5 du bout : le cadre est cale. La largeur
   interieure, supposee 540, est A CONFIRMER : c'est elle qui place la dent sur
   l'appui, a 48,2 de la paroi. Tant qu'elle ne l'est pas, les DXF du pied et

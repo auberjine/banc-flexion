@@ -36,25 +36,19 @@ correction. Apres corrections : `params.py` 0 probleme, `verif_percages.py`
   la matiere est admise quand elle est plus claire, et dehors elle
   croiserait d'autres traits.
 
-## A trancher (modifie la conception ou la visserie)
+## Tranche par l'utilisateur et applique
 
-- **C-01, bloquant** : le crochet d'etuve ne peut pas s'accrocher.
-  - La tete de langue fait 12 mm (langue 7 + bec 5) pour un trou de 10.
-  - Le crochet est rigide, a trois langues : on ne peut pas l'incliner de
-    plus de 12,7 deg.
-  - Proposition : langue 6 + bec 3, pose de face puis descente, et
-    controle `langue + bec <= trou - 1` dans `verifie()`.
-  - La piece est deja NE PAS DECOUPER.
-- **C-02, important** : V2 et V9 ne conviennent qu'a une tole mesuree de
-  7,75 a 8,33 mm, alors que la tolerance de livraison va de 7,5 a 9,2.
-  - Proposition : V2 en M10 x 90, et 4 rondelles sous l'ecrou de V9.
-  - Ainsi, aucun probleme de 7,25 a 9,2.
-- **C-03 et D-03 : hauteurs d'ecrous ISO.**
-  - ISO 4032 M10 = 8,4 et non 8.
-  - ISO 4032 + ISO 4035 M16 = 22,8 et non 21 (ces 21 sont les cotes
-    DIN 934).
-  - Choisir la norme commandee et regler `params.py` en consequence.
-- **D-10 et C-03** : l'ecrou de V9 n'est pas freine, contrairement a la
+- **C-01** : crochet, langue 6 + bec 3 (tete de 9 dans le trou de 10), pose de
+  face puis descente ; nouveau controle dans `verifie()`.
+- **C-02** : V2 en M10 x 90, V9 avec 4 rondelles sous l'ecrou. `verifie()`
+  passe de 7,25 a 9,2 mm de tole mesuree.
+- **C-03 et D-03** : hauteurs ISO. Ecrou H M10 ISO 4032 = 8,4 ; tete V7 =
+  22,8 (ISO 4032 + ISO 4035 M16). La tige depasse desormais de 2,7 de la tete
+  (plus d'un pas).
+
+## A trancher
+
+- **D-10** : l'ecrou de V9 n'est pas freine, contrairement a la
   regle « autofreine tout metal » de la visserie M10. Proposition : ISO 7042.
 - **D-09** : 12,6 MPa (SPEC, DEBOUT) contre 92 MPa avec precharge
   (planche 07). Le controle de `verifie()` ne compte que les 12,6.

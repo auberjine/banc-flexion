@@ -363,8 +363,8 @@
 <path d="M 204.600 198.116 L 204.600 207.715 A 0.000 0.000 0 0 0 204.600 207.715 L 207.800 207.715 A 0.000 0.000 0 0 0 207.800 207.715 L 207.800 198.116 A 0.000 0.000 0 0 0 207.800 198.115 L 204.600 198.115 A 0.000 0.000 0 0 0 204.600 198.116 Z" fill="none" fill-rule="evenodd" stroke="#000" stroke-width="0.350" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 218.200 196.916 L 218.200 208.915 A 0.000 0.000 0 0 0 218.200 208.915 L 219.800 208.915 A 0.000 0.000 0 0 0 219.800 208.915 L 219.800 196.916 A 0.000 0.000 0 0 0 219.800 196.915 L 218.200 196.915 A 0.000 0.000 0 0 0 218.200 196.916 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
 <path d="M 218.200 196.916 L 218.200 208.915 A 0.000 0.000 0 0 0 218.200 208.915 L 219.800 208.915 A 0.000 0.000 0 0 0 219.800 208.915 L 219.800 196.916 A 0.000 0.000 0 0 0 219.800 196.915 L 218.200 196.915 A 0.000 0.000 0 0 0 218.200 196.916 Z" fill="none" fill-rule="evenodd" stroke="#000" stroke-width="0.350" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 219.800 198.116 L 219.800 207.715 A 0.000 0.000 0 0 0 219.800 207.715 L 228.200 207.715 A 0.000 0.000 0 0 0 228.200 207.715 L 228.200 198.116 A 0.000 0.000 0 0 0 228.200 198.115 L 219.800 198.115 A 0.000 0.000 0 0 0 219.800 198.116 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
-<path d="M 219.800 198.116 L 219.800 207.715 A 0.000 0.000 0 0 0 219.800 207.715 L 228.200 207.715 A 0.000 0.000 0 0 0 228.200 207.715 L 228.200 198.116 A 0.000 0.000 0 0 0 228.200 198.115 L 219.800 198.115 A 0.000 0.000 0 0 0 219.800 198.116 Z" fill="none" fill-rule="evenodd" stroke="#000" stroke-width="0.350" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 219.800 198.116 L 219.800 207.715 A 0.000 0.000 0 0 0 219.800 207.715 L 228.920 207.715 A 0.000 0.000 0 0 0 228.920 207.715 L 228.920 198.116 A 0.000 0.000 0 0 0 228.920 198.115 L 219.800 198.115 A 0.000 0.000 0 0 0 219.800 198.116 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
+<path d="M 219.800 198.116 L 219.800 207.715 A 0.000 0.000 0 0 0 219.800 207.715 L 228.920 207.715 A 0.000 0.000 0 0 0 228.920 207.715 L 228.920 198.116 A 0.000 0.000 0 0 0 228.920 198.115 L 219.800 198.115 A 0.000 0.000 0 0 0 219.800 198.116 Z" fill="none" fill-rule="evenodd" stroke="#000" stroke-width="0.350" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 156.400 195.315 L 202.200 195.315 L 202.200 210.076 L 156.400 219.812 L 156.400 195.315 Z" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 1.2 1 1.2 1 1.2"/>
 <path d="M 147.400 262.400 L 147.400 259.600 L 188.600 259.600 L 188.600 262.400" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="8 1.2 1 1.2 1 1.2"/>
 <path d="M 146.200 262.400 L 166.400 262.400 L 167.500 263.900 L 168.500 260.900 L 169.600 262.400 L 189.800 262.400" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
@@ -455,8 +455,8 @@
 <circle cx="211.400" cy="208.515" r="0.55" fill="#000"/>
 <circle cx="211.400" cy="240.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
 <text x="211.400" y="241.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">V5</text>
-<line x1="224.000" y1="207.315" x2="225.780" y2="236.407" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<circle cx="224.000" cy="207.315" r="0.55" fill="#000"/>
+<line x1="224.360" y1="207.315" x2="225.820" y2="236.405" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="224.360" cy="207.315" r="0.55" fill="#000"/>
 <circle cx="226.000" cy="240.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
 <text x="226.000" y="241.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">V7</text>
 <line x1="231.200" y1="201.715" x2="239.623" y2="211.296" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
@@ -2858,5 +2858,5 @@
 <text x="394.941" y="35.958" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">05c</text>
 <text x="318.000" y="140.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Pieds couches, pieds en V et crochets d etuve figures ensemble :</text>
 <text x="318.000" y="144.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">debout, les pieds couches restent sur la paillasse.</text>
-<text x="382.325" y="135.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#000" text-anchor="end" font-weight="normal">modele 3D du 02/10/2026</text>
+<text x="382.325" y="135.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#000" text-anchor="end" font-weight="normal">modele 3D du 02/10/2026 : PERIME</text>
 </svg>

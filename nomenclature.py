@@ -83,8 +83,8 @@ def visserie():
          "face EXTERIEURE des platines : c est elle qui encaisse les %.1f kN de commande"
          % (p.coin_effort() / 1000.0)),
         ("V7", "Ecrou M16 H ISO 4032 classe 8 + ecrou M16 HM ISO 4035, bloques", 1,
-         "tete de manoeuvre, %g de haut, en appui sur la butee a aiguilles. Douille de 24 et"
-         " cliquet : une cle plate bute sur les bouts des vis V9" % p.VIS_TETE_H),
+         "tete de manoeuvre, %s de haut, en appui sur la butee a aiguilles. Douille de 24 et"
+         " cliquet : une cle plate bute sur les bouts des vis V9" % fr(p.VIS_TETE_H)),
         ("V8", "Ecrou M16 HM ISO 4035", 2,
          "bloques l un sur l autre cote interieur des platines, sur les rondelles V5, avec 0,1 a"
          " 0,3 de jeu axial : ils ne retiennent la tige qu au desserrage, %.0f N"
@@ -198,8 +198,9 @@ def ordre_de_montage():
 
 def position_debout():
     return [
-        "Accrocher d abord les 4 crochets aux parois de l etuve : langues inclinees dans leurs"
-        " trous carres, redresser, laisser descendre.",
+        "Accrocher d abord les 4 crochets aux parois de l etuve : crochet a l horizontale, engager"
+        " les trois tetes de langue DE FACE dans leurs trous carres, puis laisser descendre : les"
+        " becs retombent derriere la paroi.",
         "Le cadre couche sur ses pieds, engager les deux pieds en V UN PAR UN sur les deux coins"
         " d un meme about, chacun chasse le long de sa propre encoche a %g degres (maillet,"
         " nodes). Ils ne se montent pas ensemble : leurs encoches font %g degres entre elles."
