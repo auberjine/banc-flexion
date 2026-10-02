@@ -564,8 +564,8 @@ SUPPORT_X1 = SUPPORT_X + SUPPORT_R_BOUT
 # a filetage PARTIEL : l'ecrou doit tomber entierement sur le filet, et avec
 # FILET_MARGE_MIN de marge, car l'empilement additionne 4 toles et 2 tubes
 # coupes. D'ou QUATRE rondelles sous l'ecrou : l'empilement fait 173,5 pour un
-# filet qui commence a 168 (5,5 de marge, 18,1 de depassement avec l'ecrou ISO
-# 4032 de 8,4), et verifie() l'accepte sur toute la tolerance de livraison de
+# filet qui commence a 168 (5,5 de marge ; 9,7 de depassement au dela des deux
+# ecrous ISO 4032 de 8,4 contre-bloques), et verifie() l'accepte sur toute la tolerance de livraison de
 # la tole (7,5 a 9,2). Avec trois, une tole mesuree sous 7,75 faisait tomber
 # la marge sous FILET_MARGE_MIN.
 SUPPORT_TIRANT_L = 200.0          # vis H M10 x 200 ISO 4014
@@ -573,6 +573,11 @@ SUPPORT_TIRANT_FILET = 32.0       # longueur filetee (b = 2d + 12 pour L > 125)
 SUPPORT_RONDELLE_E = RONDELLE_M10_E
 SUPPORT_RONDELLES_ECROU = 4       # sous l'ecrou
 SUPPORT_ECROU_M10_H = 8.4         # ecrou H ISO 4032 M10
+# Deux ecrous H contre-bloques : le premier serre (COUPLE_M10), le second est
+# bloque contre lui en tenant le premier. Freinage tout metal, qui tient a
+# 150 C comme les ISO 7042 des autres vis M10. Deux H plutot que H + HM : c'est
+# le premier qui porte la precharge, et un HM ISO 4035 est un ecrou faible.
+SUPPORT_ECROUS_M10_N = 2
 SUPPORT_EMPILEMENT = (2 * EP_TOLE_REELLE + ECART_FLANCS + SUPPORT_TUBE_L + SUPPORT_N * EP_TOLE_REELLE
                       + SUPPORT_RONDELLE_E * (1 + SUPPORT_RONDELLES_ECROU))   # sous tete, ecrou exclu
 VIS_Y0 = COIN_Y0 + COIN_COURSE - 1.0                # bout de la tige filetee :
@@ -1112,8 +1117,8 @@ def boulonnerie():
     # vis de chape
     s = SUPPORT_EMPILEMENT
     out.append(dict(nom="vis de chape H M10 x %.0f" % SUPPORT_TIRANT_L, L=SUPPORT_TIRANT_L,
-                    serrage=s, ecrou=SUPPORT_ECROU_M10_H,
-                    depassement=SUPPORT_TIRANT_L - s - SUPPORT_ECROU_M10_H,
+                    serrage=s, ecrou=SUPPORT_ECROUS_M10_N * SUPPORT_ECROU_M10_H,
+                    depassement=SUPPORT_TIRANT_L - s - SUPPORT_ECROUS_M10_N * SUPPORT_ECROU_M10_H,
                     marge_filet=s - (SUPPORT_TIRANT_L - SUPPORT_TIRANT_FILET)))
     return out
 

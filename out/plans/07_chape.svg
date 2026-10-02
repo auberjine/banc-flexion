@@ -25,7 +25,7 @@
 <text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
 <text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
 <text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">V8 : 0,1 a 0,3 de jeu axial, puis contre-bloques. V7 : douille de 24 et cliquet, une cle plate bute sur les V9.</text>
-<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">V9 : tete et 1 rondelle derriere le flanc oppose, 4 rondelles et l ecrou cote platines ; ecrou sur le filet (marge 5,5) ; 35 N.m.</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">V9 : tete et 1 rondelle derriere le flanc oppose, 4 rondelles et 2 ecrous H cote platines ; le premier sur le filet (marge 5,5), 35 N.m, puis le contre-ecrou bloque contre lui.</text>
 <text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07b : 12,6 MPa chacune sous la commande, 92 environ avec la precharge des V9 (35 N.m, K = 0,2).</text>
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Platine : 130 MPa en flexion, coefficient 3,3 a 20 C et 3,0 a 150 C, fleche 0,14 mm.</text>
 <text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Commande 5,5 kN : le coin tire la tige, la tete V7 pousse la butee V6 ; platines et 07b comprimees ; V9 : 329 N au desserrage.</text>
@@ -200,9 +200,10 @@
 <path d="M 50.000 70.500 L 70.000 70.500 L 70.000 68.500 L 50.000 68.500 L 50.000 70.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 50.000 68.500 L 70.000 68.500 L 70.000 66.500 L 50.000 66.500 L 50.000 68.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 52.000 66.500 L 68.000 66.500 L 68.000 58.100 L 52.000 58.100 L 52.000 66.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 55.000 58.100 L 65.000 58.100 L 65.000 40.000 L 55.000 40.000 L 55.000 58.100 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="55.920" y1="58.100" x2="55.920" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="64.080" y1="58.100" x2="64.080" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 52.000 58.100 L 68.000 58.100 L 68.000 49.700 L 52.000 49.700 L 52.000 58.100 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 55.000 49.700 L 65.000 49.700 L 65.000 40.000 L 55.000 40.000 L 55.000 49.700 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="55.920" y1="49.700" x2="55.920" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="64.080" y1="49.700" x2="64.080" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="60.000" y1="249.400" x2="60.000" y2="37.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
 <path d="M 156.000 246.400 L 172.000 246.400 L 172.000 240.000 L 156.000 240.000 L 156.000 246.400 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 154.000 240.000 L 174.000 240.000 L 174.000 238.000 L 154.000 238.000 L 154.000 240.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
@@ -211,9 +212,10 @@
 <path d="M 154.000 70.500 L 174.000 70.500 L 174.000 68.500 L 154.000 68.500 L 154.000 70.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 154.000 68.500 L 174.000 68.500 L 174.000 66.500 L 154.000 66.500 L 154.000 68.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 156.000 66.500 L 172.000 66.500 L 172.000 58.100 L 156.000 58.100 L 156.000 66.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 159.000 58.100 L 169.000 58.100 L 169.000 40.000 L 159.000 40.000 L 159.000 58.100 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="159.920" y1="58.100" x2="159.920" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="168.080" y1="58.100" x2="168.080" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 156.000 58.100 L 172.000 58.100 L 172.000 49.700 L 156.000 49.700 L 156.000 58.100 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 159.000 49.700 L 169.000 49.700 L 169.000 40.000 L 159.000 40.000 L 159.000 49.700 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="159.920" y1="49.700" x2="159.920" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="168.080" y1="49.700" x2="168.080" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="164.000" y1="249.400" x2="164.000" y2="37.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
 <path d="M 104.000 230.000 L 120.000 230.000 L 120.000 108.500 L 104.000 108.500 L 104.000 230.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="105.227" y1="230.000" x2="105.227" y2="108.500" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
@@ -322,6 +324,6 @@
 <text x="312.500" y="194.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">ecrou M16 HM ISO 4035</text>
 <text x="354.500" y="194.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
 <text x="270.000" y="199.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">V9</text>
-<text x="312.500" y="199.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">vis H M10 x 200 + ecrou + 5 rondelles</text>
+<text x="312.500" y="199.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">vis H M10 x 200 + 2 ecrous + 5 rondelles</text>
 <text x="354.500" y="199.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
 </svg>

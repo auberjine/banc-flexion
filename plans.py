@@ -1887,8 +1887,9 @@ def plan_chape():
         % (f(sig, 0), c07_dec(p.RE_TOLE / sig), c07_dec(p.RE_TOLE_CHAUD / sig), f(fle, 2)),
         "%s : %s MPa chacune sous la commande, %s environ avec la precharge des V9 (%s N.m, K = %s)."
         % (r07b, f(sig_tube), f(sig_pre, 0), f(SPC.COUPLE_M10), f(C07_K_COUPLE)),
-        "V9 : tete et 1 rondelle derriere le flanc oppose, %d rondelles et l ecrou cote platines ; ecrou sur"
-        " le filet (marge %s) ; %s N.m." % (nron, f(v9["marge_filet"]), f(SPC.COUPLE_M10)),
+        "V9 : tete et 1 rondelle derriere le flanc oppose, %d rondelles et 2 ecrous H cote platines ; le"
+        " premier sur le filet (marge %s), %s N.m, puis le contre-ecrou bloque contre lui."
+        % (nron, f(v9["marge_filet"]), f(SPC.COUPLE_M10)),
         "V8 : 0,1 a 0,3 de jeu axial, puis contre-bloques. V7 : douille de %s et cliquet, une cle plate bute"
         " sur les V9." % f(p.VIS_TETE_D),
     ]
@@ -1956,7 +1957,7 @@ def plan_chape():
     yo, yf = -p.Y_FLANC_EXT, p.Y_FLANC_EXT        # faces exterieures des flancs
     yi, ye = p.COIN_Y_SUPPORT, p.SUPPORT_Y1       # faces des platines
     ron, nron = p.SUPPORT_RONDELLE_E, p.SUPPORT_RONDELLES_ECROU
-    ecr = p.SUPPORT_ECROU_M10_H
+    ecr = p.SUPPORT_ECROU_M10_H * p.SUPPORT_ECROUS_M10_N
     re_ = p.ENTRETOISE_DE / 2.0
     xf = xa1 + 6.0                                 # flancs rompus un peu au-dela des platines
     fente = p.FENTE_COIN_B / 2.0
@@ -2006,7 +2007,9 @@ def plan_chape():
         for k in range(nron):
             m.contour(c07_rect(x - C07_M10_RONDELLE_D / 2.0, ye + k * ron,
                                x + C07_M10_RONDELLE_D / 2.0, ye + (k + 1) * ron))
-        m.contour(c07_rect(x - C07_M10_S / 2.0, y_ecr, x + C07_M10_S / 2.0, y_ecr + ecr))
+        for k in range(p.SUPPORT_ECROUS_M10_N):     # ecrou serre puis contre-ecrou
+            m.contour(c07_rect(x - C07_M10_S / 2.0, y_ecr + k * p.SUPPORT_ECROU_M10_H,
+                               x + C07_M10_S / 2.0, y_ecr + (k + 1) * p.SUPPORT_ECROU_M10_H))
         m.contour(c07_rect(x - rt, y_ecr + ecr, x + rt, y_bout))
         r3 = c07_d3(p.SUPPORT_TIRANT_D, C07_M10_PAS) / 2.0
         for sg in (-1.0, 1.0):                     # bout filete vu : fond de filet en trait fin
@@ -2069,7 +2072,7 @@ def plan_chape():
         ("V6", c07_min(VS["V6"][1]), VS["V6"][2]),
         ("V7", "ecrou H + ecrou HM M%s, bloques" % f(p.VIS_D), VS["V7"][2]),
         ("V8", c07_min(VS["V8"][1]), VS["V8"][2]),
-        ("V9", "vis H M10 x %s + ecrou + %d rondelles" % (f(p.SUPPORT_TIRANT_L), 1 + nron), VS["V9"][2]),
+        ("V9", "vis H M10 x %s + 2 ecrous + %d rondelles" % (f(p.SUPPORT_TIRANT_L), 1 + nron), VS["V9"][2]),
     ]
     larg = (11.0, 74.0, 10.0)
     D.table(s, XP - sum(larg) / 2.0, 150.0, "Pieces du montage", ("rep.", "designation", "qte"),

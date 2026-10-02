@@ -89,12 +89,14 @@ def visserie():
          "bloques l un sur l autre cote interieur des platines, sur les rondelles V5, avec 0,1 a"
          " 0,3 de jeu axial : ils ne retiennent la tige qu au desserrage, %.0f N"
          % p.coin_desserrage()),
-        ("V9", "Vis H M10 x %g ISO 4014 8.8 zinguee (filetee sur %g) + ecrou H M10 ISO 4032"
+        ("V9", "Vis H M10 x %g ISO 4014 8.8 zinguee (filetee sur %g) + %d ecrous H M10 ISO 4032"
          " classe 8 + %d rondelles ISO 7089 M10"
-         % (p.SUPPORT_TIRANT_L, p.SUPPORT_TIRANT_FILET, 1 + p.SUPPORT_RONDELLES_ECROU), n_chape,
+         % (p.SUPPORT_TIRANT_L, p.SUPPORT_TIRANT_FILET, p.SUPPORT_ECROUS_M10_N,
+            1 + p.SUPPORT_RONDELLES_ECROU), n_chape,
          "vis de chape : tete et 1 rondelle derriere le flanc oppose, flanc, entretoise de cadre,"
-         " flanc, entretoise de butee, platines, %d rondelles, ecrou. Serrage %s, filet a partir"
-         " de %g : l ecrou y tombe avec %s de marge, la vis en depasse de %s ; %g N.m"
+         " flanc, entretoise de butee, platines, %d rondelles, ecrou serre puis contre-ecrou bloque"
+         " contre lui. Serrage %s, filet a partir de %g : le premier ecrou y tombe avec %s de"
+         " marge, la vis depasse du contre-ecrou de %s ; %g N.m sur le premier"
          % (p.SUPPORT_RONDELLES_ECROU, fr(v9["serrage"]),
             p.SUPPORT_TIRANT_L - p.SUPPORT_TIRANT_FILET, fr(v9["marge_filet"]),
             fr(v9["depassement"]), spec.COUPLE_M10)),
@@ -169,7 +171,7 @@ def ordre_de_montage():
         " serres sans bloquer." % (n_entr, n_entr - n_chape),
         "**Chape.** Enfiler sur les deux vis V9 les entretoises de butee de %s, puis le"
         " sous-ensemble de chape, la tige passant par la fente du coin ; %d rondelles et un"
-        " ecrou H par vis, %g N.m."
+        " ecrou H par vis, %g N.m, puis le contre-ecrou H bloque contre lui en tenant le premier."
         % (fr(p.SUPPORT_TUBE_L), p.SUPPORT_RONDELLES_ECROU, spec.COUPLE_M10),
         "**Pieds.** Dresser le cadre et le poser dans ses deux pieds couches, encoche dans"
         " encoche : les nodes serrent de %s par cote, chasser au maillet. Bloquer les V1 a"

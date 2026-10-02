@@ -357,8 +357,8 @@ precharge et les 329 N de desserrage.
 | Platines | 2 x tole 8, 70 de haut au droit de l'alesage, 140 de long |
 | Flexion d'une platine | 130 MPa, coefficient 3.3 a froid, 3.0 a 150 C, fleche 0.139 mm |
 | Entretoises de butee | tube de precision 20 x 4,5, L = 71.5 +/-0,2, 12.6 MPa de COMPRESSION chacune |
-| Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 302.7, tete et 1 rondelle derriere le flanc oppose, 4 rondelles + ecrou H cote platines |
-| Serrage sous tete | 173.5 mm, filet a partir de 168 : ecrou sur le filet avec 5.5 de marge, 18.1 de depassement |
+| Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 302.7, tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H contre-bloques cote platines |
+| Serrage sous tete | 173.5 mm, filet a partir de 168 : ecrou sur le filet avec 5.5 de marge, 9.7 de depassement |
 | Serrage | 35 N.m, aucun taraudage : les vis traversent les deux flancs |
 | Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la tige |
 | Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, 18 mm, desserrage seulement |
@@ -387,7 +387,7 @@ marge et le bout depasser de 3 pour que le freinage soit en prise.
 |---|---|---|---|---|
 | vis de cadre TH M10 x 100 | 80.0 | 10 | 10.0 | 6.0 |
 | tige filetee M10 x 90 de traverse | 52.0 | 10 | 9.0 | - |
-| vis de chape H M10 x 200 | 173.5 | 8.4 | 18.1 | 5.5 |
+| vis de chape H M10 x 200 | 173.5 | 16.8 | 9.7 | 5.5 |
 
 Ecrous de cadre et de traverse : ISO 7042 classe 8, autofreine tout metal. Pas d'ecrou a bague polyamide
 (ISO 7040, DIN 985) : la bague flue vers 120 C et ne freine plus a 150 C.

@@ -156,7 +156,7 @@ cadre, de part et d'autre de la vis, dans le plan de son axe.
 | Platines | 2 x tole 8, 70 de haut au droit de l'alesage, 140 de long |
 | Flexion d'une platine | 130 MPa, coefficient 3,3 a froid et 3,0 a 150 C, fleche 0,14 mm |
 | Entretoises | tube de precision 20 x 4,5, L = 71,5 +/- 0,2, **12,6 MPa de compression chacune** |
-| Fixation | 2 vis H M10 x 200 filetees sur 32, a x = +/- 52 dans le plan de l'axe de vis ; tete et 1 rondelle derriere le flanc oppose, 4 rondelles + ecrou H ISO 4032 (8,4) cote platines. Empilement sous tete 173,5, filet a partir de 168 : l'ecrou tombe sur le filet avec 5,5 de marge, la vis depasse de 18,1 |
+| Fixation | 2 vis H M10 x 200 filetees sur 32, a x = +/- 52 dans le plan de l'axe de vis ; tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H ISO 4032 (8,4) contre-bloques cote platines. Empilement sous tete 173,5, filet a partir de 168 : le premier ecrou tombe sur le filet avec 5,5 de marge, la vis depasse du contre-ecrou de 9,7 |
 | Serrage | 35 N.m, aucun taraudage : les vis traversent les deux flancs et une entretoise de cadre |
 | Butee a aiguilles | AXK 1730 + 2 rondelles AS, a plat sur la face EXTERIEURE |
 | Retenue interieure | 2 rondelles trempees AS 1730 (17 x 30 x 1) + 2 ecrous HM : 329 N au desserrage seulement |

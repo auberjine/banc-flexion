@@ -45,11 +45,14 @@ correction. Apres corrections : `params.py` 0 probleme, `verif_percages.py`
 - **C-03 et D-03** : hauteurs ISO. Ecrou H M10 ISO 4032 = 8,4 ; tete V7 =
   22,8 (ISO 4032 + ISO 4035 M16). La tige depasse desormais de 2,7 de la tete
   (plus d'un pas).
+- **D-10** : V9 freinee par un contre-ecrou H ISO 4032 (2 ecrous H, le second
+  bloque contre le premier), tout metal. M10 x 200 conservee : la vis depasse
+  du contre-ecrou de 4,9 a 12,7 sur toute la tolerance de tole. Une vis plus
+  longue a filetage partiel (ISO 4014) ne conviendrait pas : son filet
+  commencerait au-dela de l'empilement.
 
 ## A trancher
 
-- **D-10** : l'ecrou de V9 n'est pas freine, contrairement a la
-  regle « autofreine tout metal » de la visserie M10. Proposition : ISO 7042.
 - **D-09** : 12,6 MPa (SPEC, DEBOUT) contre 92 MPa avec precharge
   (planche 07). Le controle de `verifie()` ne compte que les 12,6.
 - **C-04** : la note de traverse donne 64 / 38 ; depuis les faces hautes

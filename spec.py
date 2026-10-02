@@ -588,7 +588,7 @@ def main():
       % (sig_pl, p.RE_TOLE / sig_pl, p.RE_TOLE_CHAUD / sig_pl, fle_pl))
     a("| Entretoises de butee | %s, L = %.1f %s, %.1f MPa de COMPRESSION chacune |"
       % (p.ENTRETOISE_BRUT, p.SUPPORT_TUBE_L, p.SUPPORT_TUBE_TOL, sig_tube))
-    a("| Fixation | 2 vis H M10 x %.0f ISO 4014 (filetees sur %.0f) a x = +/- %.0f, z %.1f, tete et 1 rondelle derriere le flanc oppose, %d rondelles + ecrou H cote platines |"
+    a("| Fixation | 2 vis H M10 x %.0f ISO 4014 (filetees sur %.0f) a x = +/- %.0f, z %.1f, tete et 1 rondelle derriere le flanc oppose, %d rondelles + 2 ecrous H contre-bloques cote platines |"
       % (p.SUPPORT_TIRANT_L, p.SUPPORT_TIRANT_FILET, p.SUPPORT_X, p.Z_VIS, p.SUPPORT_RONDELLES_ECROU))
     a("| Serrage sous tete | %.1f mm, filet a partir de %.0f : ecrou sur le filet avec %.1f de marge, %.1f de depassement |"
       % (v9["serrage"], p.SUPPORT_TIRANT_L - p.SUPPORT_TIRANT_FILET, v9["marge_filet"], v9["depassement"]))
