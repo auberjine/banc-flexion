@@ -1876,7 +1876,7 @@ def plan_chape():
 
     notes = [
         "%s : %s." % (r07, p.EXIGENCE_TOLE),
-        "%s : decoupe laser, aretes cassees %s x 45 deg ; %s et %s entre aretes fictives (au sommet R%s, la"
+        "%s : decoupe laser d apres support.dxf, aretes cassees %s x 45 deg ; %s et %s entre aretes fictives (au sommet R%s, la"
         " tole mesure %s)." % (r07, f(p.CHANFREIN), f(p.SUPPORT_B_BOUT), f(p.SUPPORT_B),
                                f(p.SUPPORT_R_CONGE), f(bz1 - bz0, 2)),
         "%s : %s %s, coupe a la longueur cotee, les %d a la meme butee, faces dressees."
@@ -2167,7 +2167,7 @@ def plan_assemblage():
         % (D.fmt(p.PILE_ECRAS_DIM, 2), D.fmt(p.CHARGE_DIM / 1000.0)),
         "Reglage par coin acier a %s deg et tige M%s normale aux flancs :"
         % (D.fmt(p.COIN_ANGLE), D.fmt(p.VIS_D)),
-        "%s mm de coulisseau et environ %.0f N par tour de tige." % (D.fmt(cpt[0], 2), cpt[1]),
+        "%s mm de coulisseau et environ %.0f N par tour de tige." % (D.fmt(cpt[0], 3), cpt[1]),
         "Hors tout couche sur pieds : %s x %s x %s (x, y, z) ; flancs %s."
         % (D.fmt(p.L_FLANC), D.fmt(p.PIED_Y), D.fmt(p.H_FLANC + p.PIED_SOL),
            D.fmt(p.ECART_FLANCS + 2 * p.EP_FLANC)),

@@ -26,8 +26,8 @@ notice. Indice A du 02/10/2026.
 | `fem_flanc.json` | resultat du calcul elements finis du flanc |
 | `flambement3.json` | flambement hors plan, mode symetrique (le facteur a retenir) |
 | `iso.json` | projection isometrique de l'assemblage, utilisee par les plans |
-| `perime_2026-10-02/` | fichiers perimes d'anciennes versions, DEPLACES et non supprimes ; ne rien envoyer a la fabrication depuis ce dossier |
-| `revue_brute.json` | les 89 propositions et 70 signalements de la revue du 11/09 |
+| `perime_2026-10-02/` | copie locale, hors depot (.gitignore) : fichiers perimes d'anciennes versions ; ne rien envoyer a la fabrication depuis ce dossier |
+| `revue_brute.json` | copie locale, hors depot (.gitignore) : les 89 propositions et 70 signalements de la revue du 11/09 |
 
 `export_dxf.py` vide `out/dxf` avant d'exporter et `build_freecad.py` vide
 `out/step` et `out/stl` : aucun fichier d'une generation precedente n'y survit.
@@ -48,8 +48,11 @@ Enchaine le controle des cotes et des ligaments de percage, le modele 3D
 FreeCAD (STEP, STL, masses, projection), les DXF, les plans et leur controle de
 lisibilite, le PDF des planches, la visionneuse, la nomenclature, la
 specification et le controle d'interference ; il termine par le nombre
-d'etapes en echec, qui doit etre 0. Il faut FreeCAD 1.0 installe dans
-`C:/Program Files/FreeCAD 1.0`, et Edge pour le PDF.
+d'etapes en echec, qui doit etre 0. Il faut Python 3 avec Pillow, FreeCAD 1.0
+(`freecadcmd`) et un navigateur Chromium sans interface (Edge, Chrome ou
+Chromium) pour le PDF. `outils.py` les trouve, sous Windows comme sous Linux :
+variable d'environnement `BANC_FREECAD`, `BANC_CCX` ou `BANC_NAVIGATEUR`
+d'abord, puis l'emplacement Windows habituel, puis le PATH.
 
 Avant de lancer une decoupe : mesurer la tole livree, regler `EP_TOLE_REELLE`
 dans `params.py` et regenerer les DXF. Encoches a mi-bois, nodes, fentes de
@@ -63,10 +66,14 @@ python plans.py
 "C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe" --headless --no-pdf-header-footer --print-to-pdf=out/plans/plans.pdf out/plans/plans.html
 ```
 
+Sous Linux : `chromium --headless --no-sandbox --no-pdf-header-footer
+--print-to-pdf=out/plans/plans.pdf out/plans/plans.html`. Pour relire les
+planches a l'oeil, `python rendu_planches.py` les rend en PNG dans `out/rendus/`.
+
 Pour le calcul elements finis, en deux temps parce qu'il dure plusieurs minutes :
 
 ```
-"C:/Program Files/FreeCAD 1.0/bin/freecadcmd.exe" fem_flanc.py
+freecadcmd fem_flanc.py        (sous Windows : "C:/Program Files/FreeCAD 1.0/bin/freecadcmd.exe")
 python fem_run.py
 ```
 
@@ -99,7 +106,9 @@ nodale, lance le solveur et depouille le `.frd`.
 | | fem_flamb2.py (deux flancs, liaisons en poutres B32 sur corps rigides) donne des facteurs a 1,00 : mecanisme numerique dans le couplage poutre / corps rigide, non resolu ; garde pour memoire, ne pas s y fier |
 | `verif_interference.py` | controle d interference sur l assemblage, et des CONTACTS obligatoires |
 | `verif_percages.py` | ligaments : chaque percage face aux autres et au contour ; largeur des fentes et des encoches ouvertes du contour |
-| `verif_plans.py` | planches : textes superposes, hors feuille ou traverses par un trait ; chaque piece nommee sur une planche |
+| `verif_plans.py` | planches : textes superposes, hors feuille ou traverses par un trait (traits fins compris, boite orientee) ; chaque piece nommee sur une planche |
+| `rendu_planches.py` | rend les planches en PNG (`out/rendus/`) pour les relire a l'oeil |
+| `outils.py` | chemins des outils externes (FreeCAD, CalculiX, navigateur), Windows et Linux ; empreinte du modele et date des resultats |
 
 `params.py` porte une fonction `verifie()` qui controle l'empilement vertical,
 la course de la pile et du coin, la butee, le contact de Hertz, la place du
@@ -124,8 +133,8 @@ crochets). `python params.py` l'execute et affiche le bilan.
   pile a plat et plafonne l'effort a 14,4 kN.
 - **Le conge R22 au raccordement membrure basse / montant n'est pas le
   levier.** Le point chaud est dans la membrure basse sous le montant, pas sur
-  l'arc : un balayage EF de R10 a R26 donne 151 a 160 MPa sans tendance, du
-  bruit de maillage.
+  l'arc : un balayage EF de R10 a R26 (16/09/2026, sur le flanc de 10 mm S355
+  de l'epoque) donne 151 a 160 MPa sans tendance, du bruit de maillage.
 - **Les patins se collent en place**, cadre monte, sous 0,5 kN de precharge.
   C'est l'epoxy qui rattrape l'hyperstaticite des quatre contacts. Colle sur la
   face superieure seulement : la rainure reste seche sur le bossage, qui doit
@@ -141,8 +150,9 @@ crochets). `python params.py` l'execute et affiche le bilan.
   la traverse et le dessus incline du coulisseau. Le sens des faces est
   essentiel : c'est lui qui fait que le coin ne se deplace que selon y et que
   l'axe de la vis reste fixe. Voir `DEBOUT.md`.
-- **Le noeud fait 65 mm de demi-largeur** et porte trois ouvertures : la fente
-  du coin au centre, les deux lumieres de guidage a x = +/- 44 ; les deux trous
+- **Le noeud fait 65 mm de demi-largeur** et porte quatre ouvertures : la fente
+  du coin au centre, les deux lumieres de guidage a x = +/- 44 et, plus haut,
+  la mortaise de traverse ; les deux trous
   des vis de chape sont au dessus, a x = +/- 52. C'est la zone la plus
   sollicitee apres les appuis. Ne pas y ajouter d'ouverture : il reste 14 mm de
   ligament du cote du bord du noeud et 15 du cote de la fente.

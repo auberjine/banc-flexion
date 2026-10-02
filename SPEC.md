@@ -357,7 +357,7 @@ precharge et les 329 N de desserrage.
 | Platines | 2 x tole 8, 70 de haut au droit de l'alesage, 140 de long |
 | Flexion d'une platine | 130 MPa, coefficient 3.3 a froid, 3.0 a 150 C, fleche 0.139 mm |
 | Entretoises de butee | tube de precision 20 x 4,5, L = 71.5 +/-0,2, 12.6 MPa de COMPRESSION chacune |
-| Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 303, tete et 1 rondelle derriere le flanc oppose, 3 rondelles + ecrou H cote platines |
+| Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 302.7, tete et 1 rondelle derriere le flanc oppose, 3 rondelles + ecrou H cote platines |
 | Serrage sous tete | 171.5 mm, filet a partir de 168 : ecrou sur le filet avec 3.5 de marge, 20.5 de depassement |
 | Serrage | 35 N.m, aucun taraudage : les vis traversent les deux flancs |
 | Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la tige |

@@ -67,7 +67,7 @@ def visserie():
          " de %s a chaque bout. Tole mesuree au dela de %s : prendre une M10 x %g (verifie() le"
          " signale)"
          % (fr(v2["serrage"]), fr(v2["depassement"]), fr(tole_max_v2, 2), p.TRAVERSE_TIRANT_L + 10)),
-        ("V3", "Goupille cylindrique %g m6 x %g" % (p.POUSSOIR_GOUPILLE_D, GOUPILLE_L), 2,
+        ("V3", "Goupille cylindrique ISO 2338 %g m6 x %g" % (p.POUSSOIR_GOUPILLE_D, GOUPILLE_L), 2,
          "reperage des plateaux du poussoir : serrees dans le patin de charge (%g H7, enfoncees"
          " de %s), libres dans les trous de %s des plateaux ; partent avec l eprouvette"
          % (p.POUSSOIR_GOUPILLE_D, fr(GOUPILLE_L - p.POUSSOIR_H), fr(p.POUSSOIR_GOUPILLE_PASSAGE))),

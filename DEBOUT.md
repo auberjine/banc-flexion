@@ -189,7 +189,7 @@ Ni l'une ni l'autre n'est plus un bloc.
 **La traverse** est faite de **six plaques verticales de 8, jointives**, dont
 le chant du bas forme la portee de 48 x 60 sur laquelle glisse le coin. Deux
 tenons par plaque s'engagent dans une mortaise de 52 x 20,4 percee dans le
-flanc a z 361,7 - 382,1, et prennent appui sur son arete SUPERIEURE. Chaque
+flanc a z 361,5 - 381,9, et prennent appui sur son arete SUPERIEURE. Chaque
 plaque est une poutre de 64 de haut appuyee a 68,5 d'entraxe : 7,6 MPa de
 flexion en majorant la charge concentree, coefficient 56. Le tenon mate a
 26,5 MPa sur sa portee nette (38,4 x 5,9 par flanc, aretes cassees et
