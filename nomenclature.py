@@ -241,9 +241,7 @@ def changement_eprouvette():
 
 
 def main():
-    data = json.load(open(os.path.join(HERE, "out", "masses.json")))
-    date_masses = time.strftime("%d/%m/%Y", time.localtime(
-        os.path.getmtime(os.path.join(HERE, "out", "masses.json"))))
+    data, date_masses = spec.lire_json("masses.json")
     masse = dict((it["nom"], it) for it in data["pieces"])
     specs = [s for s in P.all_parts() if s.name != "poutre"]
 

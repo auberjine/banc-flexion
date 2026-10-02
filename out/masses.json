@@ -204,5 +204,7 @@
  "total_kg": 57.45,
  "cadre_kg": 35.23,
  "indice": "A",
- "date": "02/10/2026"
+ "date": "02/10/2026",
+ "date_calcul": "02/10/2026",
+ "empreinte": "818f3431dcfa57aa"
 }

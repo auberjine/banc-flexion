@@ -49,6 +49,25 @@ def navigateur():
                      "chromium-browser", "chrome"])
 
 
+def empreinte_modele():
+    """Empreinte de params.py et parts.py (fins de ligne ramenees a LF). Un
+    resultat engendre l'enregistre : il est perime si elle a change depuis.
+    La date d'un fichier ne le dit pas : git ne la conserve pas, un depot tout
+    juste extrait a tous ses fichiers du meme instant."""
+    import hashlib
+    h = hashlib.sha1()
+    for nom in ("params.py", "parts.py"):
+        with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), nom), "rb") as f:
+            h.update(f.read().replace(b"\r\n", b"\n"))
+    return h.hexdigest()[:16]
+
+
+def aujourdhui():
+    """Date du jour jj/mm/aaaa, a enregistrer DANS un resultat de calcul."""
+    import time
+    return time.strftime("%d/%m/%Y")
+
+
 def options_navigateur():
     """Options communes du mode sans interface (Linux en conteneur : pas de bac a sable)."""
     o = ["--headless", "--disable-gpu", "--hide-scrollbars"]

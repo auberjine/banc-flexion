@@ -14,6 +14,7 @@ import params as p
 import parts as P
 import draw as D
 import json
+import outils
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(HERE, "out", "plans")
@@ -290,7 +291,7 @@ def plan_flanc():
     v2.cote_vx(0.0, p.BOSSAGE_RELIEF, xd, 0.0, 7.0, texte=D.fmt(p.BOSSAGE_RELIEF, 1), dt=6.5)
     v2.cote_hx(xb0, xb1, 0.0, 0.0, 0.0, texte="(%s)" % D.fmt(p.largeur_bossage(), 1), dt=-22.0, zl=-5.5)
     f_appui = p.CHARGE_DIM / 4.0
-    s.text(XD, 60.0, "Bombe R%s choisi pour le contact, %s kN par appui :"
+    s.text(XD, 60.0, "Bombe R%s choisi pour le contact, %s kN par bossage :"
            % (D.fmt(p.BOSSAGE_R), D.fmt(f_appui / 1000.0, 1)), 2.8, "middle")
     s.text(XD, 63.8, "Hertz %.0f MPa sur %s portants (%s - 2 x %s d'aretes cassees),"
            % (p.hertz_appui(), D.fmt(p.hertz_largeur(), 1), D.fmt(p.EP_FLANC), D.fmt(p.CHANFREIN)),
@@ -803,8 +804,8 @@ def plan_coulisseau():
               "M%g x %g prof. %s depuis le bout EPAIS, centre" % (p.VIS_D, p.VIS_PAS, f(p.COIN_TARAUD_L))
               + chr(10) + "sur l epaisseur ; passage %s debouchant" % f(p.VIS_PASSAGE_D),
               0.0, 48.0, fin="fleche")
-    c02_appel(vc, (Y1 - w / 2.0, zt + 1.0), 5.5, "B", 35.0)
-    c02_appel(vc, (Y1 - wb / 2.0, zb(Y1 - wb / 2.0) - 1.0), 5.5, "C", -30.0)
+    c02_appel(vc, (Y1 - w / 2.0 - 1.0, zt + 1.5), 5.0, "B", 35.0)
+    c02_appel(vc, (Y1 - wb / 2.0 - 1.0, zb(Y1 - wb / 2.0 - 1.0) - 1.0), 5.0, "C", -30.0)
 
     # ------------------------------------------------ detail B : rebord du dessus, 4:1
     KD = 4.0
@@ -826,7 +827,7 @@ def plan_coulisseau():
     # ------------------------------------------------ detail C : rebord du dessous, 4:1
     s.text(XCD, YD, "DETAIL C  (4:1)", 3.6, "middle", weight="bold")
     s.text(XCD, YD + 4.5, "rebords du dessous, 2 ex.", 2.8, "middle")
-    s.text(XCD, YD + 8.3, "largeur (%s) en projection" % f(wb, 2), 2.8, "middle")
+    s.text(XCD, YD + 8.3, "largeur (%s) en projection ; degagement R%s comme B" % (f(wb, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
     yc = Y1 - 6.0
     vd = D.View(s, KD, yc, zb(yc), XCD + 2.0, YD + 32.0)
     yd0 = Y1 - 13.0
@@ -1080,7 +1081,7 @@ def plan_traverse():
     v2.renvoi((lxr / 2.0 - 1.5 * p.EP_TOLE_REELLE, ta + 6.0),
               "%d tenons jointifs :" % p.TRAVERSE_N + chr(10) + "%d x tole reelle" % p.TRAVERSE_N,
               6.0, -40.0, fin="point")
-    s.text(XM, 104.0, "Largeur = %d x tole REELLE + 2 x R%s (EP_TOLE_REELLE) : l arete droite porte"
+    s.text(XM, 104.0, "Largeur = %d x tole REELLE + 2 x R%s (tole MESUREE a la livraison) : l arete droite porte"
            " sur toute la largeur du paquet." % (p.TRAVERSE_N, f(rm)), 2.8, "middle")
 
     # ======================================================== detail A, 10:1
@@ -1108,7 +1109,7 @@ def plan_traverse():
 
     # ======================================================== calcul et montage
     calc = [
-        "Sous %s kN (params.verifie) :" % f(p.CHARGE_DIM / 1000.0),
+        "Sous %s kN (verification de dimensionnement) :" % f(p.CHARGE_DIM / 1000.0),
         "- matage du tenon sur l arete de mortaise : %s MPa sur %s x %s par flanc (aretes cassees et"
         " degagement deduits) ;" % (f(p.matage_tenon()), f(lx), f(ly)),
         "- racine de tenon : %s MPa sur %s nets ; plaque (%s de haut, percee de %s, appuis a %s) : %s MPa, majorant ;"
@@ -1183,7 +1184,7 @@ def plan_patins():
         "%s : rainure %s = tole REELLE du flanc (EP_TOLE_REELLE = %s) + 2 x %s de jeu : mesurer la"
         " tole livree et regenerer ce plan." % (R["patin_appui"], P.fr(rb, 2), P.fr(p.EP_TOLE_REELLE, 2),
                                                P.fr(p.RAINURE_JEU, 2)),
-        "%s : le fond de rainure porte le bossage, %s kN par appui : Hertz %s MPa, limite %s MPa a"
+        "%s : le fond de rainure porte le bossage, %s kN par patin (4 contacts, 2 par appui) : Hertz %s MPa, limite %s MPa a"
         " 150 C, coefficient %s : %s au minimum."
         % (R["patin_appui"], f(p.CHARGE_DIM / 4000.0), f(p.hertz_appui(), 0), f(p.HERTZ_LIM, 0),
            f(p.hertz_coef(), 2), sa.material),
@@ -1259,8 +1260,10 @@ def plan_patins():
     v3.axe((-lc / 2.0, 0.0), (lc / 2.0, 0.0))
     v3.axe((0.0, -bc / 2.0), (0.0, bc / 2.0))
     for sx in (-1.0, 1.0):
-        v3.axe((sx * gx, -gd / 2.0), (sx * gx, gd / 2.0))
-    v3.cote_hx(-gx, gx, gd / 2.0 + 2.0, gd / 2.0 + 2.0, 0.0, zl=bc / 2.0 + 10.0)
+        # axe prolonge au-dela de la ligne de cote : il porte l'entraxe, sans
+        # attache en trait continu a travers la matiere
+        v3.axe((sx * gx, -gd / 2.0 - 2.0), (sx * gx, bc / 2.0 + 12.0), ext=0.0)
+    v3.cote_hx(-gx, gx, None, None, 0.0, zl=bc / 2.0 + 10.0)
     v3.cote_hx(-lc / 2.0, lc / 2.0, -bc / 2.0, -bc / 2.0, 0.0, zl=-bc / 2.0 - 10.0)
     v3.cote_vx(-bc / 2.0, bc / 2.0, -lc / 2.0, -lc / 2.0, 0.0, xl=-lc / 2.0 - 10.0)
     v3.rayon((lc / 2.0 - rc, bc / 2.0 - rc), rc, 45.0, "4 x R%s" % f(rc), 8.0)
@@ -1589,8 +1592,8 @@ def plan_petites():
         "%s : la longueur %s %s fixe l ecart des flancs : couper les %d en serie. Ne pas confondre avec %s"
         " (meme tube, L %s, planche 07)." % (rB, f(lE), p.ENTRETOISE_TOL, se.qty, R["entretoise_vis"],
                                             f(p.SUPPORT_TUBE_L)),
-        "%s / %s : pieces du commerce, rien a fabriquer ; entre les rebords du coin %s (%s dessus, %s"
-        " dessous), trous remplis de silicone HT." % (rC, rD, R["coin"], f(p.PLAQ_REBORD_L, 2),
+        "%s / %s : pieces du commerce, rien a fabriquer ; entre les rebords du coin %s (larges de %s dessus"
+        " et %s dessous), trous remplis de silicone HT." % (rC, rD, R["coin"], f(p.PLAQ_REBORD_L, 2),
                                                       f(p.PLAQ_REBORD_L_BAS, 2)),
     ]
     s = D.Sheet("TOURILLON, ENTRETOISES, PLAQUES", rA[:2],
@@ -1614,6 +1617,11 @@ def plan_petites():
     v.axe((0.0, 0.0), (0.0, lT))
     # attaches aux angles vifs fictifs : celles de la longueur et du diametre
     # se rejoignent au coin sans se croiser
+    for sx in (-1.0, 1.0):                       # angles vifs fictifs des chanfreins (ISO 129-1)
+        for z0, zc in ((0.0, cT), (lT, lT - cT)):
+            dz = 1.0 if z0 == 0.0 else -1.0
+            p06_ligne(v, (sx * rT, zc), (sx * rT, z0 - dz * 1.0 / k2))
+            p06_ligne(v, (sx * (rT - cT), z0), (sx * (rT + 1.0 / k2), z0))
     v.cote_vx(0.0, lT, rT, rT, 0.0, xl=rT + 10.0 / k2)
     v.cote_hx(-rT, rT, 0.0, 0.0, 0.0, zl=-12.0 / k2, texte="diam. %s %s" % (f(p.TOURILLON_D), ajust))
     v.renvoi((-rT + cT / 2.0, lT - cT / 2.0), "%s x 45 deg" % f(cT, 1) + chr(10) + "aux 2 bouts",
@@ -1630,6 +1638,8 @@ def plan_petites():
                           (sg * di / 2.0, lE)])
         v2.zone([paroi], "p06_h", w=0)
         v2.contour(paroi)
+    for z in (0.0, lE):                          # bord de l alesage aux deux bouts : arete vue
+        p06_ligne(v2, (-di / 2.0, z), (di / 2.0, z), D.TRAIT_FORT)
     v2.axe((0.0, 0.0), (0.0, lE))
     v2.cote_vx(0.0, lE, de / 2.0, de / 2.0, 0.0, xl=de / 2.0 + 10.0 / k2,
                texte="%s %s" % (f(lE), p.ENTRETOISE_TOL))
@@ -1660,6 +1670,11 @@ def plan_petites():
     for x in xt:                                 # axe du trou prolonge jusqu au bord : attache du 70
         vp.axe((x, -rt), (x, hb - 3.0))
     vp.cote_hx(xt[0], xt[-1], hb, hb, 0.0, zl=hb + 10.0)
+    for sy in (-1.0, 1.0):                       # angles vifs fictifs des R4 (ISO 129-1)
+        for sz in (-1.0, 1.0):
+            cy_, cz_ = yc + sy * hl, sz * hb
+            p06_ligne(vp, (cy_, cz_ - sz * rc), (cy_, cz_ + sz * 1.0))
+            p06_ligne(vp, (cy_ - sy * rc, cz_), (cy_ + sy * 1.0, cz_))
     vp.cote_hx(yc - hl, yc + hl, -hb, -hb, 0.0, zl=-hb - 10.0)
     vp.cote_vx(-hb, hb, yc + hl, yc + hl, 0.0, xl=yc + hl + 10.0)
     a60 = math.radians(60.0)
@@ -1943,6 +1958,7 @@ def plan_chape():
     s.motif("c07_hf", 45.0, 2.0)                   # flancs
     s.motif("c07_ht", -45.0, 1.4)                  # entretoises
     s.motif("c07_hp", 45.0, 1.2)                   # platines
+    s.motif("c07_hq", -45.0, 1.2)                  # platine du dessus : hachures croisees
     # -- flancs, coupes : trous des V9 et fente du coin ; bouts rompus
     for (ya, yb) in ((yo, yo + ep), (yf - ep, yf)):
         xs_ = [-xf, -xs - rm, -xs + rm, -fente, fente, xs - rm, xs + rm, xf]
@@ -1969,7 +1985,7 @@ def plan_chape():
         xs_ = [xa0, -xs - rm, -xs + rm, -rb, rb, xs - rm, xs + rm, xa1]
         for j in range(0, 8, 2):
             r_ = c07_rect(xs_[j], ya, xs_[j + 1], yb)
-            m.zone([r_], "c07_hp", w=0)
+            m.zone([r_], "c07_hp" if i == 0 else "c07_hq", w=0)
             m.contour(r_)
     # -- vis de chape V9 (non coupees)
     y_tete = yo - ron                              # dessous de tete
@@ -2483,14 +2499,22 @@ def plan_assemblage():
         s.text(ox, 144.0, "debout, les pieds couches restent sur la paillasse.", 2.8, "middle")
         # la perspective vient du dernier build_freecad : la dater, et le dire
         # si params.py ou parts.py ont change depuis
+        # date et empreinte ecrites par build_freecad dans iso.json : les dates
+        # de fichiers ne survivent pas a git
         import time
-        t_iso = os.path.getmtime(iso_path)
-        perime = t_iso < max(os.path.getmtime(p.__file__), os.path.getmtime(P.__file__))
+        iso_d = json.load(open(iso_path))
+        if iso_d.get("empreinte"):
+            perime = iso_d["empreinte"] != outils.empreinte_modele()
+            date_iso = iso_d.get("date_calcul", "?")
+        else:
+            t_iso = os.path.getmtime(iso_path)
+            perime = t_iso < max(os.path.getmtime(p.__file__), os.path.getmtime(P.__file__))
+            date_iso = time.strftime("%d/%m/%Y", time.localtime(t_iso))
         if perime:
-            print("ATTENTION : out/iso.json est plus ancien que params.py ou parts.py :"
+            print("ATTENTION : out/iso.json a ete construit sur d'autres params.py ou parts.py :"
                   " perspective de la planche 00 perimee, relancer build_freecad.py")
         s.text(ox + ech * (max(xs) - min(xs)) / 2.0, 135.0, "modele 3D du %s%s"
-               % (time.strftime("%d/%m/%Y", time.localtime(t_iso)), " : PERIME" if perime else ""),
+               % (date_iso, " : PERIME" if perime else ""),
                2.4, "end")
 
     return s.save(os.path.join(OUT, "00_assemblage.svg"))

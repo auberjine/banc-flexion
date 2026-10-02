@@ -38,12 +38,17 @@ def charge_fissuration(f_ct=4.0):
 
 
 def lire_json(nom):
-    """(contenu, date du fichier jj/mm/aaaa) d'un resultat de out/, ou ({}, "")."""
+    """(contenu, date du calcul jj/mm/aaaa) d'un resultat de out/, ou ({}, "").
+    La date est celle que le calcul a ecrite dans le fichier (date_calcul) ;
+    a defaut seulement, celle du fichier, que git ne conserve pas."""
     f = os.path.join(HERE, "out", nom)
     if not os.path.isfile(f):
         return {}, ""
     with open(f) as fh:
-        return json.load(fh), time.strftime("%d/%m/%Y", time.localtime(os.path.getmtime(f)))
+        d = json.load(fh)
+    if isinstance(d, dict) and d.get("date_calcul"):
+        return d, d["date_calcul"]
+    return d, time.strftime("%d/%m/%Y", time.localtime(os.path.getmtime(f)))
 
 
 def entretoises_de_cadre():
@@ -313,7 +318,11 @@ def main():
               % (min(vals), max(vals)))
             a("le rayon n'est pas le levier.")
         else:
-            a("Le rayon n'est pas le levier (balayage EF : bruit de maillage).")
+            # out/balayage_*.json n'est pas suivi par git (.gitignore) : un depot
+            # tout juste extrait ne l'a pas. Resultat historique, flanc de 10.
+            a("Un balayage du rayon de R10 a R26 (fem_balayage.py, 16/09/2026, sur le flanc de")
+            a("l'epoque) donne 151 a 160 MPa sans tendance : c'est du bruit de maillage,")
+            a("le rayon n'est pas le levier.")
         a("")
         a("NUANCE ET EPAISSEUR. Le cadre est en tole de %g mm %s, etat recuit +A" % (p.EP_FLANC, p.NUANCE_TOLE))
         a("(Re %.0f, %.0f a 150 C). L'EN 10083-3 ne garantit a l'etat +A qu'une durete"

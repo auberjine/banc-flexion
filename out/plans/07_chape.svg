@@ -96,6 +96,7 @@
 <defs><pattern id="c07_hf" patternUnits="userSpaceOnUse" width="2.000" height="2.000" patternTransform="rotate(45.00)"><line x1="1.000" y1="0" x2="1.000" y2="2.000" stroke="#000" stroke-width="0.130"/></pattern></defs>
 <defs><pattern id="c07_ht" patternUnits="userSpaceOnUse" width="1.400" height="1.400" patternTransform="rotate(-45.00)"><line x1="0.700" y1="0" x2="0.700" y2="1.400" stroke="#000" stroke-width="0.130"/></pattern></defs>
 <defs><pattern id="c07_hp" patternUnits="userSpaceOnUse" width="1.200" height="1.200" patternTransform="rotate(45.00)"><line x1="0.600" y1="0" x2="0.600" y2="1.200" stroke="#000" stroke-width="0.130"/></pattern></defs>
+<defs><pattern id="c07_hq" patternUnits="userSpaceOnUse" width="1.200" height="1.200" patternTransform="rotate(-45.00)"><line x1="0.600" y1="0" x2="0.600" y2="1.200" stroke="#000" stroke-width="0.130"/></pattern></defs>
 <path d="M 36.000 238.000 L 55.000 238.000 L 55.000 230.000 L 36.000 230.000 L 36.000 238.000 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
 <path d="M 36.000 238.000 L 55.000 238.000 L 55.000 230.000 L 36.000 230.000 L 36.000 238.000 Z" fill="url(#c07_hf)" fill-rule="evenodd" stroke="none"/>
 <line x1="36.000" y1="238.000" x2="55.000" y2="238.000" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
@@ -181,16 +182,16 @@
 <path d="M 169.000 90.500 L 182.000 90.500 L 182.000 82.500 L 169.000 82.500 L 169.000 90.500 Z" fill="url(#c07_hp)" fill-rule="evenodd" stroke="none"/>
 <path d="M 169.000 90.500 L 182.000 90.500 L 182.000 82.500 L 169.000 82.500 L 169.000 90.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 42.000 82.500 L 55.000 82.500 L 55.000 74.500 L 42.000 74.500 L 42.000 82.500 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
-<path d="M 42.000 82.500 L 55.000 82.500 L 55.000 74.500 L 42.000 74.500 L 42.000 82.500 Z" fill="url(#c07_hp)" fill-rule="evenodd" stroke="none"/>
+<path d="M 42.000 82.500 L 55.000 82.500 L 55.000 74.500 L 42.000 74.500 L 42.000 82.500 Z" fill="url(#c07_hq)" fill-rule="evenodd" stroke="none"/>
 <path d="M 42.000 82.500 L 55.000 82.500 L 55.000 74.500 L 42.000 74.500 L 42.000 82.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 65.000 82.500 L 103.000 82.500 L 103.000 74.500 L 65.000 74.500 L 65.000 82.500 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
-<path d="M 65.000 82.500 L 103.000 82.500 L 103.000 74.500 L 65.000 74.500 L 65.000 82.500 Z" fill="url(#c07_hp)" fill-rule="evenodd" stroke="none"/>
+<path d="M 65.000 82.500 L 103.000 82.500 L 103.000 74.500 L 65.000 74.500 L 65.000 82.500 Z" fill="url(#c07_hq)" fill-rule="evenodd" stroke="none"/>
 <path d="M 65.000 82.500 L 103.000 82.500 L 103.000 74.500 L 65.000 74.500 L 65.000 82.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 121.000 82.500 L 159.000 82.500 L 159.000 74.500 L 121.000 74.500 L 121.000 82.500 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
-<path d="M 121.000 82.500 L 159.000 82.500 L 159.000 74.500 L 121.000 74.500 L 121.000 82.500 Z" fill="url(#c07_hp)" fill-rule="evenodd" stroke="none"/>
+<path d="M 121.000 82.500 L 159.000 82.500 L 159.000 74.500 L 121.000 74.500 L 121.000 82.500 Z" fill="url(#c07_hq)" fill-rule="evenodd" stroke="none"/>
 <path d="M 121.000 82.500 L 159.000 82.500 L 159.000 74.500 L 121.000 74.500 L 121.000 82.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 169.000 82.500 L 182.000 82.500 L 182.000 74.500 L 169.000 74.500 L 169.000 82.500 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
-<path d="M 169.000 82.500 L 182.000 82.500 L 182.000 74.500 L 169.000 74.500 L 169.000 82.500 Z" fill="url(#c07_hp)" fill-rule="evenodd" stroke="none"/>
+<path d="M 169.000 82.500 L 182.000 82.500 L 182.000 74.500 L 169.000 74.500 L 169.000 82.500 Z" fill="url(#c07_hq)" fill-rule="evenodd" stroke="none"/>
 <path d="M 169.000 82.500 L 182.000 82.500 L 182.000 74.500 L 169.000 74.500 L 169.000 82.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 52.000 246.400 L 68.000 246.400 L 68.000 240.000 L 52.000 240.000 L 52.000 246.400 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 50.000 240.000 L 70.000 240.000 L 70.000 238.000 L 50.000 238.000 L 50.000 240.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>

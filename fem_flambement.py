@@ -318,7 +318,8 @@ def main(extra):
                       % (nom, facteurs[0], " ".join("%.2f" % f for f in facteurs[1:])))
         lignes.append("   sort du plan vers : " + "  ".join("(%d, %d)" % (z["x"], z["z"]) for z in zones[:5]))
     nom_json = "flambement_sup.json" if (extra and SEUL) else "flambement.json"
-    json.dump(dict(maille=MAILLE, noeuds=len(noeuds), extra=extra, cas=resultats),
+    json.dump(dict(maille=MAILLE, noeuds=len(noeuds), extra=extra, cas=resultats,
+                   date_calcul=outils.aujourdhui(), empreinte=outils.empreinte_modele()),
               io.open(os.path.join(HERE, "out", nom_json), "w"), indent=1)
     io.open(os.path.join(HERE, "out", nom_json.replace(".json", ".txt")), "w", encoding="utf-8").write("\n".join(lignes) + "\n")
     print("\n" + "\n".join(lignes))

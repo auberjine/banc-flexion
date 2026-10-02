@@ -39,6 +39,7 @@ from FreeCAD import Vector
 import geom2d as G
 import params as p
 import parts as P
+import outils
 
 
 OUT = os.path.join(HERE, "out")
@@ -272,6 +273,8 @@ def main():
                 polys.append([[round(q.x, 3), round(q.y, 3)] for q in pts])
             iso[nom] = polys
             print("projection %s : %d aretes visibles" % (nom, len(polys)))
+        iso["date_calcul"] = outils.aujourdhui()
+        iso["empreinte"] = outils.empreinte_modele()
         with open(os.path.join(OUT, "iso.json"), "w") as f:
             json.dump(iso, f)
     except Exception as e:
@@ -280,7 +283,8 @@ def main():
     with open(os.path.join(OUT, "masses.json"), "w") as f:
         json.dump(dict(pieces=masses, total_kg=round(total, 2),
                        cadre_kg=round(cadre, 2), indice=p.INDICE_REVISION,
-                       date=p.DATE_EDITION), f, indent=1)
+                       date=p.DATE_EDITION, date_calcul=outils.aujourdhui(),
+                       empreinte=outils.empreinte_modele()), f, indent=1)
 
     print("\ncontrole d'interference : lancer verif_interference.py")
     sys.stdout.flush()

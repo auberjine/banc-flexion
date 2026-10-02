@@ -190,10 +190,10 @@
 <line x1="262.250" y1="118.000" x2="268.250" y2="118.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <text x="269.250" y="117.200" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">M16 x 2 prof. 80 depuis le bout EPAIS, centre</text>
 <text x="269.250" y="120.800" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">sur l epaisseur ; passage 18 debouchant</text>
-<circle cx="368.725" cy="45.000" r="5.500" fill="none" stroke="#000" stroke-width="0.180"/>
-<text x="376.097" y="41.138" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">B</text>
-<circle cx="368.177" cy="78.702" r="5.500" fill="none" stroke="#000" stroke-width="0.180"/>
-<text x="375.971" y="84.502" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">C</text>
+<circle cx="367.725" cy="44.500" r="5.000" fill="none" stroke="#000" stroke-width="0.180"/>
+<text x="374.688" y="40.925" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">B</text>
+<circle cx="367.177" cy="78.914" r="5.000" fill="none" stroke="#000" stroke-width="0.180"/>
+<text x="374.538" y="84.464" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">C</text>
 <text x="286.000" y="132.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL B  (4:1)</text>
 <text x="286.000" y="136.500" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">rebords du dessus, 2 ex.</text>
 <text x="286.000" y="140.300" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">largeur (7,05) ; degagement centre sur l angle</text>
@@ -220,7 +220,7 @@
 <text x="322.271" y="145.929" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">R1</text>
 <text x="364.000" y="132.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL C  (4:1)</text>
 <text x="364.000" y="136.500" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">rebords du dessous, 2 ex.</text>
-<text x="364.000" y="140.300" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">largeur (8,15) en projection</text>
+<text x="364.000" y="140.300" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">largeur (8,15) en projection ; degagement R1,5 comme B</text>
 <path d="M 390.000 144.899 L 390.000 167.928" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 390.000 167.928 A 4.000 4.000 0 0 1 386.832 171.840" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 386.832 171.840 L 363.820 176.732" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>

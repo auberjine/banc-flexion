@@ -118,7 +118,7 @@
 <line x1="348.000" y1="34.000" x2="354.000" y2="34.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <text x="355.000" y="33.200" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">6 tenons jointifs :</text>
 <text x="355.000" y="36.800" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">6 x tole reelle</text>
-<text x="318.000" y="104.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Largeur = 6 x tole REELLE + 2 x R2 (EP_TOLE_REELLE) : l arete droite porte sur toute la largeur du paquet.</text>
+<text x="318.000" y="104.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Largeur = 6 x tole REELLE + 2 x R2 (tole MESUREE a la livraison) : l arete droite porte sur toute la largeur du paquet.</text>
 <text x="325.000" y="124.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL A  (10:1)</text>
 <text x="325.000" y="128.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">pied de tenon, 4 par plaque (ici en bas a droite)</text>
 <path d="M 300.000 195.000 L 300.000 175.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
@@ -141,7 +141,7 @@
 <text x="340.000" y="158.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">centree sur l angle vif fictif :</text>
 <text x="340.000" y="162.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">3 traits droits, jamais un conge</text>
 <text x="340.000" y="166.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">(il deborderait de l epaulement)</text>
-<text x="16.000" y="258.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">Sous 12 kN (params.verifie) :</text>
+<text x="16.000" y="258.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">Sous 12 kN (verification de dimensionnement) :</text>
 <text x="16.000" y="262.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">- matage du tenon sur l arete de mortaise : 26,5 MPa sur 38,4 x 5,9 par flanc (aretes cassees et degagement deduits) ;</text>
 <text x="16.000" y="267.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">- racine de tenon : 11,5 MPa sur 17 nets ; plaque (64 de haut, percee de 11, appuis a 68,5) : 7,6 MPa, majorant ;</text>
 <text x="16.000" y="271.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">- bronze 06c : 7,7 MPa sur 30 nets (5 joints dans ses 38) ; Re de la tole a 150 C : 390 MPa.</text>

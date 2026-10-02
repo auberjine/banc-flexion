@@ -173,7 +173,7 @@
 <path d="M 292.076 48.250 L 294.676 48.978 L 294.676 47.522 Z" fill="#000"/>
 <path d="M 391.924 48.250 L 389.324 47.522 L 389.324 48.978 Z" fill="#000"/>
 <text x="320.000" y="46.650" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">(66,6)</text>
-<text x="342.000" y="60.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Bombe R150 choisi pour le contact, 3 kN par appui :</text>
+<text x="342.000" y="60.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Bombe R150 choisi pour le contact, 3 kN par bossage :</text>
 <text x="342.000" y="63.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Hertz 339 MPa sur 6,4 portants (8 - 2 x 0,8 d'aretes cassees),</text>
 <text x="342.000" y="67.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">limite 480 MPa (patin S355 a 150 C), coefficient 1,42.</text>
 <text x="311.000" y="75.500" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL Y  (2:1)  graduation</text>

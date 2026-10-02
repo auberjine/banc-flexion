@@ -211,7 +211,8 @@ def main():
             resultats.append(dict(cas=cas, facteurs=[round(v, 3) for v in fac], mode1=zz))
             lignes.append("%-14s facteur critique %6.2f   vers %s"
                           % (cas, fac[0], "  ".join("(%d, %d)" % (q["x"], q["z"]) for q in zz[:4])))
-    json.dump(dict(plaque_L=PLAQUE_L, plaque_X=PLAQUE_X, noeuds=len(noeuds), cas=resultats),
+    json.dump(dict(plaque_L=PLAQUE_L, plaque_X=PLAQUE_X, noeuds=len(noeuds), cas=resultats,
+                   date_calcul=outils.aujourdhui(), empreinte=outils.empreinte_modele()),
               io.open(os.path.join(HERE, "out", "flambement3.json"), "w"), indent=1)
     io.open(os.path.join(HERE, "out", "flambement3.txt"), "w", encoding="utf-8").write("\n".join(lignes) + "\n")
     print("\n" + "\n".join(lignes))
