@@ -1,0 +1,208 @@
+{
+ "pieces": [
+  {
+   "nom": "flanc",
+   "designation": "Flanc en treillis",
+   "qte": 2,
+   "volume_cm3": 1300.19,
+   "masse_kg": 10.206,
+   "masse_totale_kg": 20.413,
+   "matiere": "42CrMo4 +A",
+   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+  },
+  {
+   "nom": "traverse",
+   "designation": "Plaque de traverse",
+   "qte": 6,
+   "volume_cm3": 32.64,
+   "masse_kg": 0.256,
+   "masse_totale_kg": 1.538,
+   "matiere": "42CrMo4 +A",
+   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+  },
+  {
+   "nom": "poussoir",
+   "designation": "Plateau de poussoir",
+   "qte": 3,
+   "volume_cm3": 41.09,
+   "masse_kg": 0.323,
+   "masse_totale_kg": 0.968,
+   "matiere": "42CrMo4 +A",
+   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+  },
+  {
+   "nom": "coulisseau",
+   "designation": "Coulisseau a tete inclinee",
+   "qte": 1,
+   "volume_cm3": 185.05,
+   "masse_kg": 1.453,
+   "masse_totale_kg": 1.453,
+   "matiere": "S355JR",
+   "brut": "plat 65 x 40, L 120 (fini 58 x 36,2 x 114)"
+  },
+  {
+   "nom": "guide",
+   "designation": "Vis de guidage CHC M8 x 12",
+   "qte": 4,
+   "volume_cm3": 1.67,
+   "masse_kg": 0.013,
+   "masse_totale_kg": 0.052,
+   "matiere": "8.8",
+   "brut": "CHC M8 x 12 ISO 4762 8.8, tete lisse (non moletee)"
+  },
+  {
+   "nom": "tourillon",
+   "designation": "Tourillon de centrage",
+   "qte": 1,
+   "volume_cm3": 37.31,
+   "masse_kg": 0.293,
+   "masse_totale_kg": 0.293,
+   "matiere": "C45+C",
+   "brut": "rond etire 25 h9 x 76"
+  },
+  {
+   "nom": "coin",
+   "designation": "Coin de commande",
+   "qte": 1,
+   "volume_cm3": 174.87,
+   "masse_kg": 1.373,
+   "masse_totale_kg": 1.373,
+   "matiere": "C45",
+   "brut": "plat 65 x 45, L 120 (fini 61 x 40 x 114,5)"
+  },
+  {
+   "nom": "plaquette_haute",
+   "designation": "Plaque de frottement, dessus",
+   "qte": 1,
+   "volume_cm3": 18.09,
+   "masse_kg": 0.148,
+   "masse_totale_kg": 0.148,
+   "matiere": "CuZn25Al5Mn4Fe3-C + graphite",
+   "brut": "norelem 23765-01-038100, 38 x 100 x 5"
+  },
+  {
+   "nom": "plaquette_basse",
+   "designation": "Plaque de frottement, dessous",
+   "qte": 1,
+   "volume_cm3": 18.09,
+   "masse_kg": 0.148,
+   "masse_totale_kg": 0.148,
+   "matiere": "CuZn25Al5Mn4Fe3-C + graphite",
+   "brut": "norelem 23765-01-038100, 38 x 100 x 5"
+  },
+  {
+   "nom": "vis",
+   "designation": "Tige filetee de commande M16",
+   "qte": 1,
+   "volume_cm3": 51.25,
+   "masse_kg": 0.402,
+   "masse_totale_kg": 0.402,
+   "matiere": "8.8",
+   "brut": "tige filetee M16 classe 8.8, coupee a 185"
+  },
+  {
+   "nom": "support",
+   "designation": "Platine de butee de la vis",
+   "qte": 2,
+   "volume_cm3": 57.46,
+   "masse_kg": 0.451,
+   "masse_totale_kg": 0.902,
+   "matiere": "42CrMo4 +A",
+   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+  },
+  {
+   "nom": "entretoise_vis",
+   "designation": "Entretoise de butee",
+   "qte": 2,
+   "volume_cm3": 15.67,
+   "masse_kg": 0.123,
+   "masse_totale_kg": 0.246,
+   "matiere": "E235+C EN 10305-1",
+   "brut": "tube de precision 20 x 4,5"
+  },
+  {
+   "nom": "patin_appui",
+   "designation": "Patin d'appui rainure",
+   "qte": 4,
+   "volume_cm3": 16.45,
+   "masse_kg": 0.129,
+   "masse_totale_kg": 0.517,
+   "matiere": "S355JR",
+   "brut": "tole 10 mm"
+  },
+  {
+   "nom": "patin_charge",
+   "designation": "Patin de charge",
+   "qte": 1,
+   "volume_cm3": 98.4,
+   "masse_kg": 0.772,
+   "masse_totale_kg": 0.772,
+   "matiere": "S355JR",
+   "brut": "tole 10 mm"
+  },
+  {
+   "nom": "plat_renfort",
+   "designation": "Plat de renfort colle",
+   "qte": 2,
+   "volume_cm3": 33.17,
+   "masse_kg": 0.26,
+   "masse_totale_kg": 0.521,
+   "matiere": "S235",
+   "brut": "feuillard 20 x 2 S235, coupe a 840"
+  },
+  {
+   "nom": "entretoise",
+   "designation": "Entretoise tubulaire",
+   "qte": 9,
+   "volume_cm3": 13.15,
+   "masse_kg": 0.103,
+   "masse_totale_kg": 0.929,
+   "matiere": "E235+C EN 10305-1",
+   "brut": "tube de precision 20 x 4,5"
+  },
+  {
+   "nom": "pied",
+   "designation": "Pied a mi-bois",
+   "qte": 4,
+   "volume_cm3": 109.8,
+   "masse_kg": 0.862,
+   "masse_totale_kg": 3.448,
+   "matiere": "42CrMo4 +A",
+   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+  },
+  {
+   "nom": "crochet",
+   "designation": "Crochet d etuve",
+   "qte": 4,
+   "volume_cm3": 22.1,
+   "masse_kg": 0.173,
+   "masse_totale_kg": 0.694,
+   "matiere": "42CrMo4 +A",
+   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+  },
+  {
+   "nom": "pile_belleville",
+   "designation": "Pile de 12 rondelles Belleville",
+   "qte": 1,
+   "volume_cm3": 52.44,
+   "masse_kg": 0.412,
+   "masse_totale_kg": 0.412,
+   "matiere": "51CrV4",
+   "brut": "12 rondelles DIN 2093 A50"
+  },
+  {
+   "nom": "poutre",
+   "designation": "Poutrelle beton",
+   "qte": 1,
+   "volume_cm3": 9257.27,
+   "masse_kg": 22.217,
+   "masse_totale_kg": 22.217,
+   "matiere": "beton non arme",
+   "brut": "-"
+  }
+ ],
+ "total_kg": 57.45,
+ "cadre_kg": 35.23,
+ "indice": "A",
+ "date": "02/10/2026"
+}

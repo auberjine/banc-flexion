@@ -1,0 +1,476 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#fff"/>
+<rect x="10.000" y="10.000" width="400.000" height="277.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<rect x="225.000" y="251.000" width="185.000" height="36.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<line x1="225.000" y1="263.000" x2="410.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="225.000" y1="275.000" x2="410.000" y2="275.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="251.000" x2="345.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="285.000" y1="263.000" x2="285.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="263.000" x2="345.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="229.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="5.00" fill="#000" text-anchor="start" font-weight="bold">FLANC EN TREILLIS</text>
+<line x1="385.000" y1="251.000" x2="385.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="397.500" y="256.200" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">indice A</text>
+<text x="397.500" y="261.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">02/10/2026</text>
+<text x="349.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="4.00" fill="#000" text-anchor="start" font-weight="normal">rep. 01</text>
+<text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
+<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">42CrMo4 +A</text>
+<text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tole 8 mm, cert. 3.1, Re &gt;= 430</text>
+<text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
+<text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2</text>
+<text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
+<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1:4  -  details 1,5:1 et 2:1</text>
+<text x="289.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">cotes en mm</text>
+<text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
+<text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
+<text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Masse : 10,2 kg.</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Planeite 0,5 sur 960, ne pas redresser a chaud ; sommets des bossages coplanaires a 0,3.</text>
+<text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">le second, tourne de 180 deg autour de Z, a sa graduation le long de la lumiere -X.</text>
+<text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Contour symetrique en X, graduation d'un seul cote : deux flancs identiques, face gravee a l'exterieur ;</text>
+<text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Aretes cassees 0,8 x 45 deg sur les deux faces, bossages compris (ils ne sont pas repris).</text>
+<text x="408.000" y="228.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe.</text>
+<text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Encoches et mortaise taillees sur la tole REELLE (encoches 8,4 = tole + jeu 0,4) :</text>
+<text x="408.000" y="220.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Matiere : 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re &gt;= 430 MPa a 20 C.</text>
+<text x="408.000" y="216.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Decoupe et gravure laser d'apres flanc.dxf : calque DECOUPE coupe, GRAVURE marque sans traverser (detail Y).</text>
+<text x="25.000" y="17.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="start" font-weight="bold">VUE DE LA FACE GRAVEE  (1:4)</text>
+<path d="M 25.000 24.845 L 25.000 131.155 A 0.250 0.250 0 0 0 25.404 131.352 L 29.574 128.094 L 29.639 127.567 L 30.165 127.632 L 30.101 128.158 L 30.932 129.222 L 31.458 129.287 L 31.393 129.813 L 30.867 129.749 L 27.278 132.553 A 0.250 0.250 0 0 0 27.432 133.000 L 81.200 133.000 A 0.250 0.250 0 0 0 81.450 132.750 L 81.450 131.375 L 81.075 131.000 L 81.450 130.625 L 81.825 131.000 L 83.175 131.000 L 83.550 130.625 L 83.925 131.000 L 83.550 131.375 L 83.550 132.750 A 0.250 0.250 0 0 0 83.800 133.000 L 206.200 133.000 A 0.250 0.250 0 0 0 206.450 132.750 L 206.450 131.375 L 206.075 131.000 L 206.450 130.625 L 206.825 131.000 L 208.175 131.000 L 208.550 130.625 L 208.925 131.000 L 208.550 131.375 L 208.550 132.750 A 0.250 0.250 0 0 0 208.800 133.000 L 262.568 133.000 A 0.250 0.250 0 0 0 262.722 132.553 L 259.133 129.749 L 258.607 129.813 L 258.542 129.287 L 259.068 129.222 L 259.899 128.158 L 259.835 127.632 L 260.361 127.567 L 260.426 128.094 L 264.596 131.352 A 0.250 0.250 0 0 0 265.000 131.155 L 265.000 24.845 A 0.250 0.250 0 0 0 264.596 24.648 L 260.426 27.906 L 260.361 28.433 L 259.835 28.368 L 259.899 27.842 L 259.068 26.778 L 258.542 26.713 L 258.607 26.187 L 259.133 26.251 L 262.722 23.447 A 0.250 0.250 0 0 0 262.568 23.000 L 27.432 23.000 A 0.250 0.250 0 0 0 27.278 23.447 L 30.867 26.251 L 31.393 26.187 L 31.458 26.713 L 30.932 26.778 L 30.101 27.842 L 30.165 28.368 L 29.639 28.433 L 29.574 27.906 L 25.404 24.648 A 0.250 0.250 0 0 0 25.000 24.845 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 36.250 44.077 L 36.250 117.500 A 5.500 5.500 0 0 0 41.750 123.000 L 42.929 123.000 A 2.500 2.500 0 0 0 43.449 122.945 A 37.500 37.500 0 0 1 59.051 122.945 A 2.500 2.500 0 0 0 59.571 123.000 L 230.429 123.000 A 2.500 2.500 0 0 0 230.949 122.945 A 37.500 37.500 0 0 1 246.551 122.945 A 2.500 2.500 0 0 0 247.071 123.000 L 248.250 123.000 A 5.500 5.500 0 0 0 253.750 117.500 L 253.750 44.077 A 5.000 5.000 0 0 0 247.207 39.321 L 165.572 65.797 A 6.250 6.250 0 0 0 161.250 71.742 L 161.250 75.250 A 3.750 3.750 0 0 1 157.500 79.000 L 132.500 79.000 A 3.750 3.750 0 0 1 128.750 75.250 L 128.750 71.742 A 6.250 6.250 0 0 0 124.428 65.797 L 42.793 39.321 A 5.000 5.000 0 0 0 36.250 44.077 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 132.250 71.300 L 132.250 67.600 A 1.750 1.750 0 0 1 135.750 67.600 L 135.750 71.300 A 1.750 1.750 0 0 1 132.250 71.300 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 154.250 71.300 L 154.250 67.600 A 1.750 1.750 0 0 1 157.750 67.600 L 157.750 71.300 A 1.750 1.750 0 0 1 154.250 71.300 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 139.500 52.572 L 139.500 67.893 A 1.000 1.000 0 0 0 140.500 68.893 L 149.500 68.893 A 1.000 1.000 0 0 0 150.500 67.893 L 150.500 52.572 A 1.000 1.000 0 0 0 149.500 51.572 L 140.500 51.572 A 1.000 1.000 0 0 0 139.500 52.572 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 138.500 38.022 L 138.500 42.122 A 0.500 0.500 0 0 0 139.000 42.622 L 151.000 42.622 A 0.500 0.500 0 0 0 151.500 42.122 L 151.500 38.022 A 0.500 0.500 0 0 0 151.000 37.522 L 139.000 37.522 A 0.500 0.500 0 0 0 138.500 38.022 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 126.405 40.650 A 10.150 10.150 0 0 0 106.106 40.650 A 10.150 10.150 0 0 0 126.405 40.650 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 103.848 37.570 A 7.070 7.070 0 0 0 89.708 37.570 A 7.070 7.070 0 0 0 103.848 37.570 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 87.385 35.322 A 4.822 4.822 0 0 0 77.740 35.322 A 4.822 4.822 0 0 0 87.385 35.322 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 75.369 33.682 A 3.182 3.182 0 0 0 69.005 33.682 A 3.182 3.182 0 0 0 75.369 33.682 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 183.894 40.650 A 10.150 10.150 0 0 0 163.595 40.650 A 10.150 10.150 0 0 0 183.894 40.650 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200.292 37.570 A 7.070 7.070 0 0 0 186.152 37.570 A 7.070 7.070 0 0 0 200.292 37.570 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 212.260 35.322 A 4.822 4.822 0 0 0 202.615 35.322 A 4.822 4.822 0 0 0 212.260 35.322 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 220.995 33.682 A 3.182 3.182 0 0 0 214.631 33.682 A 3.182 3.182 0 0 0 220.995 33.682 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 76.250 128.000 A 2.500 2.500 0 0 0 71.250 128.000 A 2.500 2.500 0 0 0 76.250 128.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 100.000 128.000 A 2.500 2.500 0 0 0 95.000 128.000 A 2.500 2.500 0 0 0 100.000 128.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 123.750 128.000 A 2.500 2.500 0 0 0 118.750 128.000 A 2.500 2.500 0 0 0 123.750 128.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 147.500 128.000 A 2.500 2.500 0 0 0 142.500 128.000 A 2.500 2.500 0 0 0 147.500 128.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 171.250 128.000 A 2.500 2.500 0 0 0 166.250 128.000 A 2.500 2.500 0 0 0 171.250 128.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 195.000 128.000 A 2.500 2.500 0 0 0 190.000 128.000 A 2.500 2.500 0 0 0 195.000 128.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 218.750 128.000 A 2.500 2.500 0 0 0 213.750 128.000 A 2.500 2.500 0 0 0 218.750 128.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 32.000 120.500 A 1.375 1.375 0 0 0 29.250 120.500 A 1.375 1.375 0 0 0 32.000 120.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="28.425" y1="120.500" x2="32.825" y2="120.500" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="30.625" y1="118.300" x2="30.625" y2="122.700" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 32.000 35.500 A 1.375 1.375 0 0 0 29.250 35.500 A 1.375 1.375 0 0 0 32.000 35.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="28.425" y1="35.500" x2="32.825" y2="35.500" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="30.625" y1="33.300" x2="30.625" y2="37.700" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 83.875 47.599 A 1.375 1.375 0 0 0 81.125 47.599 A 1.375 1.375 0 0 0 83.875 47.599 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="80.300" y1="47.599" x2="84.700" y2="47.599" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="82.500" y1="45.399" x2="82.500" y2="49.799" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 260.750 120.500 A 1.375 1.375 0 0 0 258.000 120.500 A 1.375 1.375 0 0 0 260.750 120.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="257.175" y1="120.500" x2="261.575" y2="120.500" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="259.375" y1="118.300" x2="259.375" y2="122.700" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 260.750 35.500 A 1.375 1.375 0 0 0 258.000 35.500 A 1.375 1.375 0 0 0 260.750 35.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="257.175" y1="35.500" x2="261.575" y2="35.500" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="259.375" y1="33.300" x2="259.375" y2="37.700" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 208.875 47.599 A 1.375 1.375 0 0 0 206.125 47.599 A 1.375 1.375 0 0 0 208.875 47.599 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="205.300" y1="47.599" x2="209.700" y2="47.599" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="207.500" y1="45.399" x2="207.500" y2="49.799" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 133.375 57.322 A 1.375 1.375 0 0 0 130.625 57.322 A 1.375 1.375 0 0 0 133.375 57.322 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="129.800" y1="57.322" x2="134.200" y2="57.322" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="132.000" y1="55.122" x2="132.000" y2="59.522" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 159.375 57.322 A 1.375 1.375 0 0 0 156.625 57.322 A 1.375 1.375 0 0 0 159.375 57.322 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="155.800" y1="57.322" x2="160.200" y2="57.322" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="158.000" y1="55.122" x2="158.000" y2="59.522" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 146.375 30.261 A 1.375 1.375 0 0 0 143.625 30.261 A 1.375 1.375 0 0 0 146.375 30.261 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="142.800" y1="30.261" x2="147.200" y2="30.261" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<line x1="145.000" y1="28.061" x2="145.000" y2="32.461" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="4 1 0.8 1"/>
+<path d="M 158.375 66.725 L 160.375 66.725" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 66.905 L 159.500 66.905" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 67.088 L 160.375 67.088" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 67.275 L 159.500 67.275" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 67.467 L 160.375 67.467" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 67.662 L 159.500 67.662" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 67.862 L 160.375 67.862" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 68.065 L 159.500 68.065" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 68.272 L 160.375 68.272" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 68.484 L 159.500 68.484" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 68.698 L 160.375 68.698" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 68.916 L 159.500 68.916" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 158.375 69.138 L 160.375 69.138" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="145.000" y1="135.500" x2="145.000" y2="20.500" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="82.500" y1="134.000" x2="82.500" y2="142.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="207.500" y1="134.000" x2="207.500" y2="142.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="82.500" y1="140.000" x2="207.500" y2="140.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 82.500 140.000 L 85.100 140.728 L 85.100 139.272 Z" fill="#000"/>
+<path d="M 207.500 140.000 L 204.900 139.272 L 204.900 140.728 Z" fill="#000"/>
+<text x="123.000" y="138.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">500</text>
+<line x1="51.250" y1="123.125" x2="51.250" y2="149.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="238.750" y1="123.125" x2="238.750" y2="149.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="51.250" y1="147.000" x2="238.750" y2="147.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 51.250 147.000 L 53.850 147.728 L 53.850 146.272 Z" fill="#000"/>
+<path d="M 238.750 147.000 L 236.150 146.272 L 236.150 147.728 Z" fill="#000"/>
+<text x="145.000" y="145.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">750 +/-0,3</text>
+<line x1="25.000" y1="134.000" x2="25.000" y2="156.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="265.000" y1="134.000" x2="265.000" y2="156.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="25.000" y1="154.000" x2="265.000" y2="154.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 25.000 154.000 L 27.600 154.728 L 27.600 153.272 Z" fill="#000"/>
+<path d="M 265.000 154.000 L 262.400 153.272 L 262.400 154.728 Z" fill="#000"/>
+<text x="145.000" y="152.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">960</text>
+<line x1="24.000" y1="133.000" x2="16.000" y2="133.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="24.000" y1="23.000" x2="16.000" y2="23.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="18.000" y1="133.000" x2="18.000" y2="23.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 18.000 133.000 L 18.728 130.400 L 17.272 130.400 Z" fill="#000"/>
+<path d="M 18.000 23.000 L 17.272 25.600 L 18.728 25.600 Z" fill="#000"/>
+<text x="16.400" y="78.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 16.400 78.000)">440</text>
+<line x1="259.375" y1="120.500" x2="268.434" y2="117.480" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="259.375" cy="120.500" r="0.55" fill="#000"/>
+<circle cx="271.375" cy="116.500" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="271.375" y="117.580" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">A</text>
+<line x1="259.375" y1="35.500" x2="268.434" y2="38.520" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="259.375" cy="35.500" r="0.55" fill="#000"/>
+<circle cx="271.375" cy="39.500" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="271.375" y="40.580" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">B</text>
+<line x1="207.500" y1="47.599" x2="212.423" y2="55.930" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="207.500" cy="47.599" r="0.55" fill="#000"/>
+<circle cx="214.000" cy="58.599" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="214.000" y="59.679" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">C</text>
+<line x1="158.000" y1="57.322" x2="158.000" y2="51.422" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="158.000" cy="57.322" r="0.55" fill="#000"/>
+<circle cx="158.000" cy="48.322" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="158.000" y="49.402" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">D</text>
+<line x1="145.000" y1="30.261" x2="150.421" y2="29.623" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="145.000" cy="30.261" r="0.55" fill="#000"/>
+<circle cx="153.500" cy="29.261" r="3.100" fill="#fff" stroke="#000" stroke-width="0.25"/>
+<text x="153.500" y="30.341" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">E</text>
+<circle cx="238.750" cy="122.625" r="8.500" fill="none" stroke="#000" stroke-width="0.180"/>
+<text x="230.265" y="115.440" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">X</text>
+<circle cx="159.062" cy="67.931" r="5.500" fill="none" stroke="#000" stroke-width="0.180"/>
+<text x="167.520" y="72.309" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">Y</text>
+<circle cx="262.242" cy="25.155" r="6.500" fill="none" stroke="#000" stroke-width="0.180"/>
+<text x="270.902" y="21.455" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">Z</text>
+<circle cx="82.500" cy="132.000" r="4.500" fill="none" stroke="#000" stroke-width="0.180"/>
+<text x="76.136" y="139.664" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">W</text>
+<text x="342.000" y="16.500" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL X  (1,5:1)</text>
+<text x="342.000" y="21.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">bossage d'appui, 2 ex.</text>
+<path d="M 287.576 40.000 L 292.076 40.000 A 15.000 15.000 0 0 0 295.196 39.672 A 225.000 225.000 0 0 1 388.804 39.672 A 15.000 15.000 0 0 0 391.924 40.000 L 394.924 40.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 287.576 40.000 L 287.576 45.900 L 286.076 47.000 L 289.076 48.000 L 287.576 49.100 L 287.576 55.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 287.576 55.000 L 339.650 55.000 L 340.750 56.500 L 341.750 53.500 L 342.850 55.000 L 394.924 55.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 394.924 55.000 L 394.924 49.100 L 396.424 48.000 L 393.424 47.000 L 394.924 45.900 L 394.924 40.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="342.000" y1="49.000" x2="342.000" y2="25.750" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="314.579" y1="36.427" x2="313.483" y2="27.494" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 314.579 36.427 L 314.174 39.096 L 315.619 38.919 Z" fill="#000"/>
+<text x="312.283" y="26.494" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">R150</text>
+<line x1="293.644" y1="39.918" x2="291.762" y2="22.016" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 293.644 39.918 L 294.097 37.256 L 292.648 37.408 Z" fill="#000"/>
+<text x="291.762" y="20.816" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">R10</text>
+<line x1="395.924" y1="40.000" x2="403.924" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="343.000" y1="34.750" x2="403.924" y2="34.750" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="401.924" y1="47.000" x2="401.924" y2="27.750" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 401.924 40.000 L 401.196 42.600 L 402.652 42.600 Z" fill="#000"/>
+<path d="M 401.924 34.750 L 402.652 32.150 L 401.196 32.150 Z" fill="#000"/>
+<text x="400.324" y="30.875" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 400.324 30.875)">3,5</text>
+<line x1="292.076" y1="41.000" x2="292.076" y2="50.250" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="391.924" y1="41.000" x2="391.924" y2="50.250" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="292.076" y1="48.250" x2="391.924" y2="48.250" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 292.076 48.250 L 294.676 48.978 L 294.676 47.522 Z" fill="#000"/>
+<path d="M 391.924 48.250 L 389.324 47.522 L 389.324 48.978 Z" fill="#000"/>
+<text x="320.000" y="46.650" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">(66,6)</text>
+<text x="342.000" y="60.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Bombe R150 choisi pour le contact, 3 kN par appui :</text>
+<text x="342.000" y="63.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Hertz 339 MPa sur 6,4 portants (8 - 2 x 0,8 d'aretes cassees),</text>
+<text x="342.000" y="67.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">limite 480 MPa (patin S355 a 150 C), coefficient 1,42.</text>
+<text x="311.000" y="75.500" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL Y  (2:1)  graduation</text>
+<path d="M 286.000 126.200 L 286.000 106.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 286.000 106.000 A 14.000 14.000 0 0 1 314.000 106.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 314.000 106.000 L 314.000 126.200" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 282.000 126.200 L 309.400 126.200 L 310.500 127.700 L 311.500 124.700 L 312.600 126.200 L 340.000 126.200" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="300.000" y1="126.200" x2="300.000" y2="82.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<path d="M 313.000 112.000 A 13.000 13.000 0 0 0 287.000 112.000 A 13.000 13.000 0 0 0 313.000 112.000 Z" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="6 1.2 0.8 1.2 0.8 1.2"/>
+<path d="M 319.000 99.000 L 335.000 99.000" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 100.437 L 328.000 100.437" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 101.904 L 335.000 101.904" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 103.404 L 328.000 103.404" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 104.935 L 335.000 104.935" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 106.499 L 328.000 106.499" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 108.094 L 335.000 108.094" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 109.721 L 328.000 109.721" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 111.380 L 335.000 111.380" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 113.068 L 328.000 113.068" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 114.786 L 335.000 114.786" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 116.531 L 328.000 116.531" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 319.000 118.301 L 335.000 118.301" fill="none" stroke="#000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="319.000" y1="98.000" x2="319.000" y2="82.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="300.000" y1="84.000" x2="319.000" y2="84.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 300.000 84.000 L 302.600 84.728 L 302.600 83.272 Z" fill="#000"/>
+<path d="M 319.000 84.000 L 316.400 83.272 L 316.400 84.728 Z" fill="#000"/>
+<text x="309.500" y="82.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">9,5</text>
+<line x1="319.000" y1="98.000" x2="319.000" y2="82.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="335.000" y1="98.000" x2="335.000" y2="82.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="319.000" y1="84.000" x2="335.000" y2="84.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 319.000 84.000 L 321.600 84.728 L 321.600 83.272 Z" fill="#000"/>
+<path d="M 335.000 84.000 L 332.400 83.272 L 332.400 84.728 Z" fill="#000"/>
+<text x="327.000" y="82.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">8</text>
+<text x="336.500" y="100.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">0 kN</text>
+<text x="336.500" y="109.094" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">6 kN</text>
+<text x="336.500" y="119.301" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">12 kN</text>
+<text x="352.000" y="96.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">Traits graves, sans chiffres,</text>
+<text x="352.000" y="100.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">de 4,5 aux kN impairs.</text>
+<text x="352.000" y="104.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">Zero : tangente haute de la</text>
+<text x="352.000" y="108.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">tete de guide (trait mixte),</text>
+<text x="352.000" y="112.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">pile libre, Z 265,10.</text>
+<text x="352.000" y="116.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">Z de chaque trait : tableau</text>
+<text x="352.000" y="120.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">GRADUATION.</text>
+<text x="316.000" y="134.500" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL Z  (2:1)</text>
+<text x="316.000" y="139.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">encoche de coin, 4 ex. symetriques</text>
+<path d="M 346.000 198.000 L 346.000 160.760" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 346.000 160.760 A 2.000 2.000 0 0 0 342.769 159.184" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 342.769 159.184 L 309.407 185.249" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 309.407 185.249 L 308.890 189.460" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 308.890 189.460 L 304.679 188.943" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 304.679 188.943 L 305.196 184.732" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 305.196 184.732 L 298.547 176.222" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 298.547 176.222 L 294.336 175.705" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 294.336 175.705 L 294.853 171.494" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 294.853 171.494 L 299.064 172.011" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 299.064 172.011 L 327.779 149.576" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 327.779 149.576 A 2.000 2.000 0 0 0 326.548 146.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 326.548 146.000 L 286.000 146.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 286.000 146.000 L 286.000 170.400 L 284.500 171.500 L 287.500 172.500 L 286.000 173.600 L 286.000 198.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 286.000 198.000 L 314.400 198.000 L 315.500 199.500 L 316.500 196.500 L 317.600 198.000 L 346.000 198.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 326.548 146.000 L 349.000 146.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 346.000 160.760 L 346.000 143.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="346.000" y1="146.000" x2="297.143" y2="184.171" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<path d="M 314.000 146.000 A 32.000 32.000 0 0 0 320.784 165.701" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 314.000 146.000 L 313.272 148.600 L 314.728 148.600 Z" fill="#000"/>
+<path d="M 320.784 165.701 L 319.757 163.204 L 318.609 164.101 Z" fill="#000"/>
+<text x="314.325" y="158.059" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">38 deg</text>
+<line x1="346.616" y1="146.788" x2="356.466" y2="159.396" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="355.235" y1="157.820" x2="311.106" y2="192.297" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 355.235 157.820 L 352.738 158.847 L 353.634 159.995 Z" fill="#000"/>
+<path d="M 311.106 192.297 L 313.603 191.270 L 312.707 190.123 Z" fill="#000"/>
+<text x="332.186" y="173.798" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-38.00 332.186 173.798)">28</text>
+<line x1="309.506" y1="190.248" x2="312.338" y2="193.873" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="306.156" y1="166.470" x2="316.499" y2="179.708" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 306.156 166.470 L 307.183 168.967 L 308.330 168.070 Z" fill="#000"/>
+<path d="M 316.499 179.708 L 315.472 177.211 L 314.325 178.108 Z" fill="#000"/>
+<text x="315.051" y="175.256" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(52.00 315.051 175.256)">8,4</text>
+<text x="378.000" y="134.500" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL W  (2:1)</text>
+<text x="378.000" y="139.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">encoche du chant bas, 2 ex.</text>
+<path d="M 360.000 176.000 L 367.600 176.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 367.600 176.000 A 2.000 2.000 0 0 0 369.600 174.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 369.600 174.000 L 369.600 163.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 369.600 163.000 L 366.600 160.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 366.600 160.000 L 369.600 157.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 369.600 157.000 L 372.600 160.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 372.600 160.000 L 383.400 160.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 383.400 160.000 L 386.400 157.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 386.400 157.000 L 389.400 160.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 389.400 160.000 L 386.400 163.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 386.400 163.000 L 386.400 174.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 386.400 174.000 A 2.000 2.000 0 0 0 388.400 176.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 388.400 176.000 L 400.000 176.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 360.000 176.000 L 360.000 164.600 L 361.500 163.500 L 358.500 162.500 L 360.000 161.400 L 360.000 150.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 360.000 150.000 L 378.400 150.000 L 379.500 151.500 L 380.500 148.500 L 381.600 150.000 L 400.000 150.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 400.000 150.000 L 400.000 161.400 L 398.500 162.500 L 401.500 163.500 L 400.000 164.600 L 400.000 176.000" fill="none" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="378.000" y1="177.000" x2="378.000" y2="154.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="369.600" y1="177.000" x2="369.600" y2="186.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="386.400" y1="177.000" x2="386.400" y2="186.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="369.600" y1="184.000" x2="386.400" y2="184.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 369.600 184.000 L 372.200 184.728 L 372.200 183.272 Z" fill="#000"/>
+<path d="M 386.400 184.000 L 383.800 183.272 L 383.800 184.728 Z" fill="#000"/>
+<text x="378.000" y="182.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">8,4</text>
+<line x1="390.400" y1="160.000" x2="397.400" y2="160.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="395.400" y1="176.000" x2="395.400" y2="160.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 395.400 176.000 L 396.128 173.400 L 394.672 173.400 Z" fill="#000"/>
+<path d="M 395.400 160.000 L 394.672 162.600 L 396.128 162.600 Z" fill="#000"/>
+<text x="393.800" y="168.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 393.800 168.000)">8</text>
+<text x="346.000" y="203.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Details Z et W : angles du fond degages par une poche carree de 2,1</text>
+<text x="346.000" y="207.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">tournee a 45 deg, centree sur l'angle vif (3 traits) ; bouches R1.</text>
+<text x="13.000" y="168.500" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="bold">PERCAGES  (X depuis l'axe, Z depuis le chant bas)</text>
+<rect x="13.000" y="170.000" width="106.000" height="26.400" fill="none" stroke="#000" stroke-width="0.350"/>
+<line x1="13.000" y1="174.400" x2="119.000" y2="174.400" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="22.000" y1="170.000" x2="22.000" y2="196.400" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="30.000" y1="170.000" x2="30.000" y2="196.400" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="49.000" y1="170.000" x2="49.000" y2="196.400" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="64.000" y1="170.000" x2="64.000" y2="196.400" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="75.000" y1="170.000" x2="75.000" y2="196.400" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<text x="17.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">rep</text>
+<text x="26.000" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">nb</text>
+<text x="39.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">X</text>
+<text x="56.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">Z</text>
+<text x="69.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">diam</text>
+<text x="97.000" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">fonction</text>
+<text x="17.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">A</text>
+<text x="26.000" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="39.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-457,5</text>
+<text x="56.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">50</text>
+<text x="69.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">11</text>
+<text x="97.000" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise basse</text>
+<text x="17.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">B</text>
+<text x="26.000" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="39.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-457,5</text>
+<text x="56.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">390</text>
+<text x="69.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">11</text>
+<text x="97.000" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise haute</text>
+<text x="17.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">C</text>
+<text x="26.000" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="39.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-250</text>
+<text x="56.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">341,6</text>
+<text x="69.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">11</text>
+<text x="97.000" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise de bielle</text>
+<text x="17.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">D</text>
+<text x="26.000" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="39.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-52</text>
+<text x="56.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">302,7</text>
+<text x="69.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">11</text>
+<text x="97.000" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise et tirant de chape</text>
+<text x="17.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">E</text>
+<text x="26.000" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">1</text>
+<text x="39.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">0</text>
+<text x="56.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">411</text>
+<text x="69.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">11</text>
+<text x="97.000" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise de sommet</text>
+<text x="140.000" y="168.500" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="bold">AJOURS  (meme origine)</text>
+<rect x="140.000" y="170.000" width="56.000" height="39.600" fill="none" stroke="#000" stroke-width="0.350"/>
+<line x1="140.000" y1="174.400" x2="196.000" y2="174.400" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="149.000" y1="170.000" x2="149.000" y2="209.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="168.000" y1="170.000" x2="168.000" y2="209.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="183.000" y1="170.000" x2="183.000" y2="209.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<text x="144.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">nb</text>
+<text x="158.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">X</text>
+<text x="175.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">Z</text>
+<text x="189.500" y="172.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">diam</text>
+<text x="144.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="158.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-115</text>
+<text x="175.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">369,4</text>
+<text x="189.500" y="177.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">81,2</text>
+<text x="144.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="158.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-192,9</text>
+<text x="175.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">381,7</text>
+<text x="189.500" y="181.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">56,6</text>
+<text x="144.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="158.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-249,8</text>
+<text x="175.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">390,7</text>
+<text x="189.500" y="186.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">38,6</text>
+<text x="144.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="158.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-291,3</text>
+<text x="175.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">397,3</text>
+<text x="189.500" y="190.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">25,5</text>
+<text x="144.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">1</text>
+<text x="158.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">0</text>
+<text x="175.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="189.500" y="194.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="144.500" y="199.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="158.500" y="199.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-95</text>
+<text x="175.500" y="199.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="189.500" y="199.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="144.500" y="203.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="158.500" y="203.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-190</text>
+<text x="175.500" y="203.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="189.500" y="203.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="144.500" y="208.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="158.500" y="208.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-285</text>
+<text x="175.500" y="208.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="189.500" y="208.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">20</text>
+<text x="13.000" y="206.500" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="bold">FENETRE  (sommets en coins vifs fictifs)</text>
+<rect x="13.000" y="208.000" width="92.000" height="22.000" fill="none" stroke="#000" stroke-width="0.350"/>
+<line x1="13.000" y1="212.400" x2="105.000" y2="212.400" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="49.000" y1="208.000" x2="49.000" y2="230.000" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="57.000" y1="208.000" x2="57.000" y2="230.000" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="76.000" y1="208.000" x2="76.000" y2="230.000" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="91.000" y1="208.000" x2="91.000" y2="230.000" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<text x="31.000" y="210.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">sommet</text>
+<text x="53.000" y="210.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">nb</text>
+<text x="66.500" y="210.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">X</text>
+<text x="83.500" y="210.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">Z</text>
+<text x="98.000" y="210.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">conge</text>
+<text x="31.000" y="215.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">angle bas</text>
+<text x="53.000" y="215.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="66.500" y="215.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-435</text>
+<text x="83.500" y="215.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">40</text>
+<text x="98.000" y="215.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">R22</text>
+<text x="31.000" y="219.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">tete de montant</text>
+<text x="53.000" y="219.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="66.500" y="219.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-435</text>
+<text x="83.500" y="219.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">383,2</text>
+<text x="98.000" y="219.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">R20</text>
+<text x="31.000" y="224.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">aisselle de noeud</text>
+<text x="53.000" y="224.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="66.500" y="224.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-65</text>
+<text x="83.500" y="224.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">263,2</text>
+<text x="98.000" y="224.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">R25</text>
+<text x="31.000" y="228.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">angle bas du noeud</text>
+<text x="53.000" y="228.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="66.500" y="228.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-65</text>
+<text x="83.500" y="228.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">216</text>
+<text x="98.000" y="228.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">R15</text>
+<text x="13.000" y="234.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">Sommets relies par des droites ; arete de bielle a 17,97 deg ;</text>
+<text x="13.000" y="238.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="start" font-weight="normal">bossages d'appui : cote 750 et detail X.</text>
+<text x="13.000" y="250.500" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="bold">DECOUPES INTERIEURES  (X de l'axe de la decoupe)</text>
+<rect x="13.000" y="252.000" width="112.000" height="17.600" fill="none" stroke="#000" stroke-width="0.350"/>
+<line x1="13.000" y1="256.400" x2="125.000" y2="256.400" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="46.000" y1="252.000" x2="46.000" y2="269.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="54.000" y1="252.000" x2="54.000" y2="269.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="69.000" y1="252.000" x2="69.000" y2="269.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="96.000" y1="252.000" x2="96.000" y2="269.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="112.000" y1="252.000" x2="112.000" y2="269.600" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<text x="29.500" y="254.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">decoupe</text>
+<text x="50.000" y="254.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">nb</text>
+<text x="61.500" y="254.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">X</text>
+<text x="82.500" y="254.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">Z bas a haut</text>
+<text x="104.000" y="254.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">largeur</text>
+<text x="118.500" y="254.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">angles</text>
+<text x="29.500" y="259.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">fente du coin</text>
+<text x="50.000" y="259.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">1</text>
+<text x="61.500" y="259.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">0</text>
+<text x="82.500" y="259.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">256,4 a 325,7</text>
+<text x="104.000" y="259.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">44</text>
+<text x="118.500" y="259.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">R4</text>
+<text x="29.500" y="263.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">lumiere oblongue</text>
+<text x="50.000" y="263.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="61.500" y="263.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">+/-44</text>
+<text x="82.500" y="263.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">239,8 a 268,6</text>
+<text x="104.000" y="263.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">14</text>
+<text x="118.500" y="263.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">R7</text>
+<text x="29.500" y="268.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">mortaise de traverse</text>
+<text x="50.000" y="268.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">1</text>
+<text x="61.500" y="268.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">0</text>
+<text x="82.500" y="268.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">361,5 a 381,9</text>
+<text x="104.000" y="268.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">52</text>
+<text x="118.500" y="268.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">R2</text>
+<text x="140.000" y="217.500" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="bold">GRADUATION  (detail Y)</text>
+<rect x="140.000" y="219.000" width="50.000" height="35.200" fill="none" stroke="#000" stroke-width="0.350"/>
+<line x1="140.000" y1="223.400" x2="190.000" y2="223.400" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="149.000" y1="219.000" x2="149.000" y2="254.200" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="165.000" y1="219.000" x2="165.000" y2="254.200" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<line x1="174.000" y1="219.000" x2="174.000" y2="254.200" stroke="#000" stroke-width="0.250" stroke-linecap="round"/>
+<text x="144.500" y="221.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">kN</text>
+<text x="157.000" y="221.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">Z</text>
+<text x="169.500" y="221.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">kN</text>
+<text x="182.000" y="221.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="bold">Z</text>
+<text x="144.500" y="226.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">0</text>
+<text x="157.000" y="226.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">265,10</text>
+<text x="169.500" y="226.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">7</text>
+<text x="182.000" y="226.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">259,74</text>
+<text x="144.500" y="230.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">1</text>
+<text x="157.000" y="230.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">264,38</text>
+<text x="169.500" y="230.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">8</text>
+<text x="182.000" y="230.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">258,91</text>
+<text x="144.500" y="235.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
+<text x="157.000" y="235.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">263,65</text>
+<text x="169.500" y="235.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">9</text>
+<text x="182.000" y="235.100" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">258,07</text>
+<text x="144.500" y="239.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">3</text>
+<text x="157.000" y="239.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">262,90</text>
+<text x="169.500" y="239.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">10</text>
+<text x="182.000" y="239.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">257,21</text>
+<text x="144.500" y="243.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">4</text>
+<text x="157.000" y="243.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">262,13</text>
+<text x="169.500" y="243.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">11</text>
+<text x="182.000" y="243.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">256,33</text>
+<text x="144.500" y="248.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">5</text>
+<text x="157.000" y="248.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">261,35</text>
+<text x="169.500" y="248.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">12</text>
+<text x="182.000" y="248.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">255,45</text>
+<text x="144.500" y="252.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">6</text>
+<text x="157.000" y="252.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">260,55</text>
+<text x="169.500" y="252.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal"></text>
+<text x="182.000" y="252.700" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal"></text>
+</svg>

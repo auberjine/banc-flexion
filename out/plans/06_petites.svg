@@ -1,0 +1,125 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#fff"/>
+<rect x="10.000" y="10.000" width="400.000" height="277.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<rect x="225.000" y="251.000" width="185.000" height="36.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<line x1="225.000" y1="263.000" x2="410.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="225.000" y1="275.000" x2="410.000" y2="275.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="251.000" x2="345.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="285.000" y1="263.000" x2="285.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="263.000" x2="345.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="229.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="5.00" fill="#000" text-anchor="start" font-weight="bold">TOURILLON, ENTRETOISES, PLAQUES</text>
+<line x1="385.000" y1="251.000" x2="385.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="397.500" y="256.200" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">indice A</text>
+<text x="397.500" y="261.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">02/10/2026</text>
+<text x="349.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="4.00" fill="#000" text-anchor="start" font-weight="normal">rep. 06</text>
+<text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
+<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">C45+C / E235+C / CuZn (achat)</text>
+<text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">rond 25 h9 / tube 20 x 4,5</text>
+<text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
+<text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1 + 9 + 1 + 1 (06a a 06d)</text>
+<text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
+<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2:1 - plaque 06c/06d 1:1</text>
+<text x="289.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">cotes en mm</text>
+<text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
+<text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
+<text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06c / 06d : pieces du commerce, rien a fabriquer ; entre les rebords du coin 02c (7,05 dessus, 8,15 dessous), trous remplis de silicone HT.</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06b : la longueur 60 +0,1/0 fixe l ecart des flancs : couper les 9 en serie. Ne pas confondre avec 07b (meme tube, L 71,5, planche 07).</text>
+<text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06b : 7 serrees chacune par une V1 (vis TH M10 x 100 + ecrou autofreine tout metal), les 2 de la chape par les V9 (vis H M10 x 200).</text>
+<text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06a : flottant, il centre la pile de rondelles 02e ; rond etire h9 NON repris : jeu de 0,4 au moins dans les diam. 25,4 de la pile et des alesages.</text>
+<text x="75.000" y="20.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06a  TOURILLON  (2:1)</text>
+<text x="75.000" y="24.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">C45+C, 1 ex.</text>
+<text x="75.000" y="28.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">brut rond etire 25 h9 x 76</text>
+<path d="M 53.000 197.000 L 97.000 197.000 L 100.000 194.000 L 100.000 48.000 L 97.000 45.000 L 53.000 45.000 L 50.000 48.000 L 50.000 194.000 L 53.000 197.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="50.000" y1="194.000" x2="100.000" y2="194.000" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
+<line x1="50.000" y1="48.000" x2="100.000" y2="48.000" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
+<line x1="75.000" y1="200.000" x2="75.000" y2="42.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="101.000" y1="197.000" x2="112.000" y2="197.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="101.000" y1="45.000" x2="112.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="110.000" y1="197.000" x2="110.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 110.000 197.000 L 110.728 194.400 L 109.272 194.400 Z" fill="#000"/>
+<path d="M 110.000 45.000 L 109.272 47.600 L 110.728 47.600 Z" fill="#000"/>
+<text x="108.400" y="121.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 108.400 121.000)">76</text>
+<line x1="50.000" y1="198.000" x2="50.000" y2="211.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="100.000" y1="198.000" x2="100.000" y2="211.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="50.000" y1="209.000" x2="100.000" y2="209.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 50.000 209.000 L 52.600 209.728 L 52.600 208.272 Z" fill="#000"/>
+<path d="M 100.000 209.000 L 97.400 208.272 L 97.400 209.728 Z" fill="#000"/>
+<text x="75.000" y="207.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">diam. 25 h9</text>
+<line x1="51.500" y1="46.500" x2="42.500" y2="38.500" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 51.500 46.500 L 50.040 44.229 L 49.073 45.317 Z" fill="#000"/>
+<line x1="42.500" y1="38.500" x2="38.500" y2="38.500" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="37.500" y="37.700" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">1,5 x 45 deg</text>
+<text x="37.500" y="41.300" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">aux 2 bouts</text>
+<text x="185.000" y="20.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06b  ENTRETOISE DE CADRE, COUPE AXIALE  (2:1)</text>
+<text x="185.000" y="24.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">E235+C EN 10305-1, 9 ex.</text>
+<text x="185.000" y="28.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">brut tube de precision 20 x 4,5</text>
+<defs><pattern id="p06_h" patternUnits="userSpaceOnUse" width="2.000" height="2.000" patternTransform="rotate(45.00)"><line x1="1.000" y1="0" x2="1.000" y2="2.000" stroke="#000" stroke-width="0.130"/></pattern></defs>
+<path d="M 174.000 165.000 L 165.000 165.000 L 165.000 45.000 L 174.000 45.000 L 174.000 165.000 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
+<path d="M 174.000 165.000 L 165.000 165.000 L 165.000 45.000 L 174.000 45.000 L 174.000 165.000 Z" fill="url(#p06_h)" fill-rule="evenodd" stroke="none"/>
+<path d="M 174.000 165.000 L 165.000 165.000 L 165.000 45.000 L 174.000 45.000 L 174.000 165.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 196.000 165.000 L 205.000 165.000 L 205.000 45.000 L 196.000 45.000 L 196.000 165.000 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
+<path d="M 196.000 165.000 L 205.000 165.000 L 205.000 45.000 L 196.000 45.000 L 196.000 165.000 Z" fill="url(#p06_h)" fill-rule="evenodd" stroke="none"/>
+<path d="M 196.000 165.000 L 205.000 165.000 L 205.000 45.000 L 196.000 45.000 L 196.000 165.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="185.000" y1="168.000" x2="185.000" y2="42.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="206.000" y1="165.000" x2="217.000" y2="165.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="206.000" y1="45.000" x2="217.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="215.000" y1="165.000" x2="215.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 215.000 165.000 L 215.728 162.400 L 214.272 162.400 Z" fill="#000"/>
+<path d="M 215.000 45.000 L 214.272 47.600 L 215.728 47.600 Z" fill="#000"/>
+<text x="213.400" y="105.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 213.400 105.000)">60 +0,1/0</text>
+<line x1="174.000" y1="166.000" x2="174.000" y2="177.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="196.000" y1="166.000" x2="196.000" y2="177.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="174.000" y1="175.000" x2="196.000" y2="175.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 174.000 175.000 L 176.600 175.728 L 176.600 174.272 Z" fill="#000"/>
+<path d="M 196.000 175.000 L 193.400 174.272 L 193.400 175.728 Z" fill="#000"/>
+<text x="185.000" y="173.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">diam. 11</text>
+<line x1="165.000" y1="166.000" x2="165.000" y2="185.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="205.000" y1="166.000" x2="205.000" y2="185.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="165.000" y1="183.000" x2="205.000" y2="183.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 165.000 183.000 L 167.600 183.728 L 167.600 182.272 Z" fill="#000"/>
+<path d="M 205.000 183.000 L 202.400 182.272 L 202.400 183.728 Z" fill="#000"/>
+<text x="185.000" y="181.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">diam. 20</text>
+<line x1="200.500" y1="45.000" x2="212.500" y2="38.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 200.500 45.000 L 203.113 44.319 L 202.379 43.061 Z" fill="#000"/>
+<line x1="212.500" y1="38.000" x2="217.500" y2="38.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="218.500" y="37.200" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2 faces dressees</text>
+<text x="218.500" y="40.800" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">paralleles a 0,05</text>
+<text x="325.000" y="20.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06c / 06d  PLAQUE DE FROTTEMENT  (1:1)</text>
+<text x="325.000" y="24.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">piece du commerce : norelem 23765-01-038100</text>
+<text x="325.000" y="28.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">CuZn25Al5Mn4Fe3-C + graphite, epaisseur 5</text>
+<text x="325.000" y="32.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">1 dessus (06c) + 1 dessous (06d), identiques</text>
+<path d="M 371.000 109.000 L 279.000 109.000 A 4.000 4.000 0 0 1 275.000 105.000 L 275.000 75.000 A 4.000 4.000 0 0 1 279.000 71.000 L 371.000 71.000 A 4.000 4.000 0 0 1 375.000 75.000 L 375.000 105.000 A 4.000 4.000 0 0 1 371.000 109.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 290.000 85.500 A 4.500 4.500 0 0 1 290.000 94.500 A 4.500 4.500 0 0 1 290.000 85.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 360.000 85.500 A 4.500 4.500 0 0 1 360.000 94.500 A 4.500 4.500 0 0 1 360.000 85.500 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="272.000" y1="90.000" x2="378.000" y2="90.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="325.000" y1="111.000" x2="325.000" y2="69.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="290.000" y1="97.500" x2="290.000" y2="71.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="360.000" y1="97.500" x2="360.000" y2="71.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="290.000" y1="70.000" x2="290.000" y2="59.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="360.000" y1="70.000" x2="360.000" y2="59.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="290.000" y1="61.000" x2="360.000" y2="61.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 290.000 61.000 L 292.600 61.728 L 292.600 60.272 Z" fill="#000"/>
+<path d="M 360.000 61.000 L 357.400 60.272 L 357.400 61.728 Z" fill="#000"/>
+<text x="325.000" y="59.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">70</text>
+<line x1="275.000" y1="110.000" x2="275.000" y2="121.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="375.000" y1="110.000" x2="375.000" y2="121.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="275.000" y1="119.000" x2="375.000" y2="119.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 275.000 119.000 L 277.600 119.728 L 277.600 118.272 Z" fill="#000"/>
+<path d="M 375.000 119.000 L 372.400 118.272 L 372.400 119.728 Z" fill="#000"/>
+<text x="325.000" y="117.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">100</text>
+<line x1="376.000" y1="109.000" x2="387.000" y2="109.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="376.000" y1="71.000" x2="387.000" y2="71.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="385.000" y1="109.000" x2="385.000" y2="71.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 385.000 109.000 L 385.728 106.400 L 384.272 106.400 Z" fill="#000"/>
+<path d="M 385.000 71.000 L 384.272 73.600 L 385.728 73.600 Z" fill="#000"/>
+<text x="383.400" y="90.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 383.400 90.000)">38</text>
+<line x1="362.250" y1="86.103" x2="368.250" y2="62.103" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 362.250 86.103 L 363.587 83.757 L 362.174 83.404 Z" fill="#000"/>
+<line x1="368.250" y1="62.103" x2="373.250" y2="62.103" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="374.250" y="63.103" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2 x diam. 9</text>
+<line x1="276.172" y1="72.172" x2="270.515" y2="66.515" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 276.172 72.172 L 277.495 74.525 L 278.525 73.495 Z" fill="#000"/>
+<text x="269.315" y="65.515" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">(4 x R4)</text>
+</svg>

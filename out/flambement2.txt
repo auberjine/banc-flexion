@@ -1,0 +1,8 @@
+flambement hors plan, deux flancs relies par des poutres, tole 8 mm, 12000 N par flanc, maille 9 mm
+
+tubes_couche     facteur critique   1.00  mode symetrique  vers (-480, 440)  (-440, 440)  (480, 440)  (440, 440)
+mibois_couche    facteur critique   1.00  mode symetrique  vers (-480, 440)  (-440, 440)  (480, 440)  (440, 440)
+plaque_couche    facteur critique   0.99  mode symetrique  vers (-480, 440)  (-440, 440)  (480, 440)  (440, 440)
+tubes_debout     facteur critique   0.99  mode antisymetrique  vers (480, 440)  (480, 400)  (440, 440)  (480, 360)
+mibois_debout    facteur critique   1.00  mode antisymetrique  vers (480, 440)  (480, 400)  (440, 440)  (440, 400)
+plaque_debout    facteur critique   0.99  mode antisymetrique  vers (480, 440)  (480, 400)  (440, 440)  (440, 400)

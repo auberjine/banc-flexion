@@ -1,0 +1,10 @@
+flambement hors plan du flanc, tole 8 mm, charge 12000 N par flanc, maille 9 mm
+
+diaphragmes_couche     facteur critique   2.53   (modes suivants 9.37 16.12 24.21)
+   sort du plan vers : (0, 440)  (-40, 440)  (40, 440)  (-80, 440)  (80, 440)
+entretoises_couche     facteur critique  31.85   (modes suivants 39.95 58.11 73.32)
+   sort du plan vers : (0, 440)  (-40, 440)  (-80, 440)  (40, 440)  (-40, 240)
+diaphragmes_debout     facteur critique   3.66   (modes suivants 10.36 17.51 25.49)
+   sort du plan vers : (480, 440)  (440, 440)  (400, 440)  (360, 440)  (320, 440)
+entretoises_debout     facteur critique  31.85   (modes suivants 39.95 58.11 73.32)
+   sort du plan vers : (0, 440)  (-40, 440)  (-80, 440)  (40, 440)  (-40, 240)
