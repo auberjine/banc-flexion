@@ -276,7 +276,7 @@ def main():
     if not p.ETUVE_CONFIRMEE:
         attente = [s.name for s in specs if s.dxf_avertissement]
         out.append("- **Etuve %g x %g x %g A CONFIRMER** : %s (%s)."
-                   % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR, p.ALERTE_ETUVE,
+                   % (p.ETUVE_INTERIEUR, p.ETUVE_Y, p.ETUVE_HAUTEUR, p.ALERTE_ETUVE,
                       ", ".join(attente)))
     out.append("")
 

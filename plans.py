@@ -1425,7 +1425,7 @@ def plan_pied():
                                                        f(p.PIED_SOL)),
         "%s : fentes de calage a +/- %s de l axe (entraxe %s) : crochets a %s des parois laterales,"
         " colonnes de trous %s." % (rp, fr(p.PIED_FENTE_Y, 2), fr(2.0 * p.PIED_FENTE_Y, 2),
-                                    fr(p.ETUVE_INTERIEUR / 2.0 - p.PIED_FENTE_Y, 2), confirmer),
+                                    fr(p.ETUVE_Y / 2.0 - p.PIED_FENTE_Y, 2), confirmer),
         "%s : pend par %d langues a bec dans les trous carres de %s (pas %s) de la paroi de %s, qui passe"
         " dans la gorge ; la dent cale le pied." % (rc, p.CROCHET_N_LANGUES, f(p.ETUVE_TROU),
                                                     " / ".join(f(v) for v in p.ETUVE_TROU_PAS),
@@ -2177,7 +2177,7 @@ def plan_assemblage():
            D.fmt(p.ECART_FLANCS + 2 * p.EP_FLANC)),
         "Debout dans l etuve : %s de haut, %s x %s en plan ; etuve %s x %s x %s%s."
         % (D.fmt(p.L_FLANC + ex, 1), D.fmt(p.H_FLANC + 2.0 * ez, 1), D.fmt(p.PIED_Y),
-           D.fmt(p.ETUVE_INTERIEUR), D.fmt(p.ETUVE_INTERIEUR), D.fmt(p.ETUVE_HAUTEUR), a_conf),
+           D.fmt(p.ETUVE_INTERIEUR), D.fmt(p.ETUVE_Y, 1), D.fmt(p.ETUVE_HAUTEUR), a_conf),
         ("Masse du cadre %s kg. " % D.fmt(m_cadre, 1) if m_cadre > 0 else "")
         + "Reperes : NOMENCLATURE.md (Vn : visserie).",
     ]
@@ -2454,7 +2454,7 @@ def plan_assemblage():
            " monte a l envers, la tige ne retiendrait rien." % p.SUPPORT_N, 2.9, "middle")
     s.text(124.0, 279.0, "Douille sur la tete : %s mm devant le bout de tige dans l etuve de %s%s, %s de"
            " marge pour le decentrage du cadre."
-           % (D.fmt(p.DEGAGEMENT_DOUILLE), D.fmt(p.ETUVE_INTERIEUR), a_conf, D.fmt(p.ETUVE_GARDE)),
+           % (D.fmt(p.DEGAGEMENT_DOUILLE), D.fmt(p.ETUVE_Y, 1), a_conf, D.fmt(p.ETUVE_GARDE)),
            2.9, "middle")
     s.text(124.0, 283.5, "En trait mixte a deux tirets, le coin %s en fin de course : %s depuis le repos."
            % (R["coin"], D.fmt(p.COIN_COURSE, 1)), 2.9, "middle")

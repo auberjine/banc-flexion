@@ -237,7 +237,7 @@ def main():
     a("(coin recule) a +%.0f (bout des vis de chape), soit %.1f mm ; les pieds font %g."
       % (y_max, y_max - y_min, p.PIED_Y))
     a("Etuve %g x %g x %g mm (%s) : le cadre y travaille DEBOUT sur son"
-      % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR,
+      % (p.ETUVE_INTERIEUR, p.ETUVE_Y, p.ETUVE_HAUTEUR,
          "largeur confirmee, hauteur a confirmer" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
     a("about, pose par deux pieds en V sur quatre crochets pendus aux parois ; sur")
     a("la paillasse il travaille couche sur deux pieds. Voir `DEBOUT.md`.")
@@ -369,7 +369,7 @@ def main():
     a("## 7 bis. Commande par coin")
     a("")
     a("L'etuve fait %g x %g x %g (%s) et n'offre aucun passage de paroi"
-      % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR,
+      % (p.ETUVE_INTERIEUR, p.ETUVE_Y, p.ETUVE_HAUTEUR,
          "largeur confirmee" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
     a("utilisable. Le cadre y est debout : un axe de vis dans le plan des flancs")
     a("regarderait une paroi a %.0f mm, inaccessible. La commande est donc NORMALE"
@@ -599,7 +599,7 @@ def main():
     a("| Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, %.0f mm, desserrage seulement |"
       % (p.SUPPORT_RONDELLE + p.SUPPORT_ECROU_H))
     a("| Bout de tige | y %.0f, soit %.0f mm de degagement pour la douille, cadre decentre au pire dans l'etuve de %g (%.0f centre) |"
-      % (p.Y_BOUT_VIS, p.DEGAGEMENT_DOUILLE, p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR / 2.0 - p.Y_BOUT_VIS))
+      % (p.Y_BOUT_VIS, p.DEGAGEMENT_DOUILLE, p.ETUVE_Y, p.ETUVE_Y / 2.0 - p.Y_BOUT_VIS))
     a("| Manoeuvre | douille de 24 et cliquet SEULEMENT : les bouts des vis de chape (y %.0f) depassent la tete de manoeuvre dans son plan, une cle plate bute dessus |"
       % p.Y_BOUT_TIRANT)
     a("")

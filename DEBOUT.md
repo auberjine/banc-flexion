@@ -1,6 +1,6 @@
 # Position debout : commande normale aux flancs
 
-Etuve 538 x 538 x 1400 mm utiles (largeur confirmee le 05/10/2026, hauteur a confirmer), aucun passage de paroi
+Etuve 538 x 528,4 x 1400 mm utiles (chambre un peu asymetrique : 538 entre les parois des crochets, confirme le 05/10/2026 ; 528,4 = pieds de 518,4 et 5 mm de chaque cote dans l'autre sens ; hauteur a confirmer), aucun passage de paroi
 utilisable. La poutrelle est verticale, le cadre repose sur son about bas par
 deux pieds en V, poses sur quatre crochets pendus aux parois.
 
@@ -8,7 +8,7 @@ deux pieds en V, poses sur quatre crochets pendus aux parois.
 |---|---|---|---|
 | verticale | 960 ; 969,5 avec les pieds en V | 1400 | 430 mm en tout, partages entre dessus et dessous selon la hauteur des crochets |
 | axe des 440 mm du cadre | 440 ; 447 entre les aretes de pose des pieds en V | 538 | 49 mm de chaque cote du cadre, ou se logent les pieds en V et les crochets |
-| epaisseur du cadre | 76 aux flancs ; 245,5 avec le coin et la chape (y -85,5 a +160) ; pieds de 518,4 | 538 | 231 mm de chaque cote des flancs ; 9,8 aux bouts des pieds |
+| epaisseur du cadre | 76 aux flancs ; 245,5 avec le coin et la chape (y -85,5 a +160) ; pieds de 518,4 | 528,4 | 226 mm de chaque cote des flancs ; 5 aux bouts des pieds |
 
 Toute la place est dans la direction de l'EPAISSEUR du cadre. La commande doit
 donc y arriver, en traversant les flancs.
@@ -104,9 +104,9 @@ donc pas dessus. C'est la tige M16 qui tient la charge, son angle d'helice
 bas d'un filet acier sur acier monte a la pate cuivre (0,08 : 5,3 degres,
 marge x2,1).
 
-Le bout de la tige sort a y 155. Dans l'etuve de 538, cadre centre, il reste
-114 mm jusqu'a la paroi ; 94 en comptant 20 de garde (les pieds de 518,4
-ne laissent que 9,8 mm de chaque cote : la garde est large). Une douille de 24 et un
+Le bout de la tige sort a y 155. Dans ce sens la chambre fait 528,4 : cadre centre, il reste
+109 mm jusqu'a la paroi ; 99 en comptant 10 de garde (5 de jeu des pieds
+de 518,4, plus 5 de marge). Une douille de 24 et un
 cliquet y passent. Une douille SEULEMENT : les vis de chape depassent de leur
 ecrou jusqu'a y 160, a 52 mm de l'axe de la tige et dans son plan ; une cle
 plate posee sur la tete de manoeuvre bute dessus deux fois par tour.
@@ -336,7 +336,7 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   40 et 30 en alternance : chaque crochet pend par quatre langues de 6 a bec, la plus basse a 10 du bas du crochet,
   de 3 (tete de 9, qui passe le trou de face avant de descendre), et porte en bas un appui de 60 avec une dent
   qui entre dans une fente du pied a 5 du bout : le cadre est cale. La largeur
-  interieure, 538, confirmee le 05/10/2026, place la dent sur l'appui a 47,2
+  interieure entre ces parois, 538, confirmee le 05/10/2026, place la dent sur l'appui a 47,2
   de la paroi ; le pied et le crochet sont bons a decouper.
 - **Entree dans l'etuve.** On accroche d'abord les quatre crochets. La porte
   est du cote de la tige : les pieds de 518,4 entrent selon y, et leur bout

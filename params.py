@@ -53,7 +53,8 @@ ECART_FLANCS = 60.0       # distance interieure entre les deux flancs
 # ne se construit plus) et le crochet est a redessiner. Le pied et le
 # crochet en dependent : leurs DXF portent ALERTE_ETUVE tant que
 # ETUVE_CONFIRMEE est faux.
-ETUVE_INTERIEUR = 538.0   # largeur interieure retenue (05/10/2026 : 538 pour garder de la marge), dans les deux directions transverses, CONFIRMEE le 05/10/2026
+# La chambre est un peu asymetrique (05/10/2026) : deux largeurs distinctes.
+ETUVE_INTERIEUR = 538.0   # entre les DEUX PAROIS OU PENDENT LES CROCHETS (sens des 440 du cadre debout) : place la dent ; CONFIRMEE le 05/10/2026
 ETUVE_HAUTEUR = 1400.0    # hauteur interieure : le cadre y est DEBOUT, sur son about  (A CONFIRMER)
 ETUVE_CONFIRMEE = True    # 538 confirmee par l utilisateur le 05/10/2026
 ALERTE_ETUVE = "NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE"
@@ -63,8 +64,10 @@ ETUVE_TROU_PAS = (40.0, 30.0)   # entraxes verticaux successifs des trous, de ha
 # Ce que le banc peut occuper selon y, de part et d autre de son plan median.
 # La garde couvre un decentrage du cadre (pieds de 518,4 dans 538 : 9,8 mm) et
 # 10 mm de marge. Remplace les 250 ecrits en dur de l ancienne etuve de 500.
-ETUVE_GARDE = 20.0
-Y_ETUVE_LIBRE = ETUVE_INTERIEUR / 2.0 - ETUVE_GARDE    # 250
+ETUVE_JEU_PIED = 5.0      # jeu de chaque cote du pied dans l autre sens
+# l AUTRE largeur, dans le sens des pieds (y) : le pied et 5 de chaque cote
+ETUVE_Y = None           # fixee plus bas, une fois PIED_Y connu
+ETUVE_GARDE = 2.0 * ETUVE_JEU_PIED   # decentrage du cadre (jeu du pied) + 5 de marge
 Y_FLANC = (ECART_FLANCS + EP_FLANC) / 2.0     # 34, plan median d'un flanc
 
 L_FLANC = 960.0
@@ -586,7 +589,7 @@ VIS_Y0 = COIN_Y0 + COIN_COURSE - 1.0                # bout de la tige filetee :
 # de manoeuvre (cadre decentre au pire dans l etuve, voir Y_ETUVE_LIBRE).
 Y_BOUT_VIS = VIS_Y0 + VIS_L
 Y_BOUT_TIRANT = -Y_FLANC_EXT - SUPPORT_RONDELLE_E + SUPPORT_TIRANT_L
-DEGAGEMENT_DOUILLE = Y_ETUVE_LIBRE - Y_BOUT_VIS
+DEGAGEMENT_DOUILLE = None   # calcule apres ETUVE_Y (voir plus bas)
 
 Z_MEMB_HAUTE = H_FLANC - W_MEMBRURE                 # 420
 
@@ -732,6 +735,9 @@ CROCHET_H = -CROCHET_LANGUE_Z[-1] + CROCHET_LANGUE_H + CROCHET_GARDE_BAS   # hau
 CROCHET_Z_APPUI = -CROCHET_H + CROCHET_BANDE                                # dessus de l appui
 # fente de calage du pied et dent de l appui
 PIED_FENTE_BORD = PIED_FENTE_BORD_INIT     # du bout du pied a la fente
+ETUVE_Y = PIED_Y + 2.0 * ETUVE_JEU_PIED     # 528,4 : largeur de la chambre dans le sens des pieds
+Y_ETUVE_LIBRE = ETUVE_Y / 2.0 - ETUVE_GARDE    # ce que le banc peut occuper selon y
+DEGAGEMENT_DOUILLE = Y_ETUVE_LIBRE - Y_BOUT_VIS
 PIED_COIN_R = 2.0         # rayon des angles du bout du pied
 PIED_FENTE_JEU = 0.2      # jeu par cote de la dent du crochet dans la fente
 PIED_FENTE_B = EP_TOLE_REELLE + 2.0 * PIED_FENTE_JEU    # 8,4 : la dent, de l epaisseur du crochet, y passe
@@ -1403,8 +1409,8 @@ def verifie():
     if CROCHET_LANGUE_L - CROCHET_BEC_L < 0.5 * CROCHET_E:
         pb.append("encoche de bec du crochet de %.1f : moins de la demi-epaisseur,"
                   " le laser ne la degage pas" % (CROCHET_LANGUE_L - CROCHET_BEC_L))
-    if PIED_Y / 2.0 + 2.0 > ETUVE_INTERIEUR / 2.0:
-        pb.append("pied de %g plus large que l etuve de %g" % (PIED_Y, ETUVE_INTERIEUR))
+    if PIED_Y / 2.0 + 2.0 > ETUVE_Y / 2.0:
+        pb.append("pied de %g plus large que la chambre de %g" % (PIED_Y, ETUVE_Y))
     # de part et d autre de la dent, il faut la place des conges R3 des angles
     # de l appui (parts.crochet_profile) : sinon le profil ne se construit plus
     if not CROCHET_CORPS + CROCHET_DENT_B / 2.0 + 3.0 <= CROCHET_DENT_Y <= CROCHET_S - CROCHET_DENT_B / 2.0 - 3.0:
@@ -1414,7 +1420,7 @@ def verifie():
         pb.append("le pied en V touche le corps du crochet ou la paroi")
     if abs(2.0 * PIED_FENTE_Y - PIED_FENTE_ENTRAXE) > 1e-6:
         pb.append("fentes du pied a %.1f d entraxe au lieu de %g" % (2.0 * PIED_FENTE_Y, PIED_FENTE_ENTRAXE))
-    if PIED_FENTE_Y + PIED_E / 2.0 + 2.0 > ETUVE_INTERIEUR / 2.0:
+    if PIED_FENTE_Y + PIED_E / 2.0 + 2.0 > ETUVE_Y / 2.0:
         pb.append("les crochets, a y = +/- %.1f, sortent de l etuve" % PIED_FENTE_Y)
     if CROCHET_DENT_B / math.cos(math.radians(PIED_DEBOUT_ANGLE)) > PIED_E + 2.0 * PIED_FENTE_H * math.tan(math.radians(PIED_DEBOUT_ANGLE)) - 1.0:
         pb.append("la dent est trop large pour la fente du pied incline")
@@ -1743,7 +1749,7 @@ if __name__ == "__main__":
               % (b["nom"], b["serrage"], b["depassement"],
                  "" if b["marge_filet"] is None else ", marge de filet %.1f" % b["marge_filet"]))
 
-    print("\nEtuve %.0f x %.0f x %.0f%s :" % (ETUVE_INTERIEUR, ETUVE_INTERIEUR, ETUVE_HAUTEUR,
+    print("\nEtuve %g x %g x %g%s :" % (ETUVE_INTERIEUR, ETUVE_Y, ETUVE_HAUTEUR,
                                           "" if ETUVE_CONFIRMEE else " (A CONFIRMER)"))
     print("   degagement de la douille  %.0f mm devant le bout de tige (y %.0f)"
           % (DEGAGEMENT_DOUILLE, Y_BOUT_VIS))
