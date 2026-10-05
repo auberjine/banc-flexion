@@ -119,7 +119,7 @@ z = 0 au bord inferieur du flanc.
 
 Encombrement des flancs 960 x 440 x 76 mm. Selon y, le banc va de -85.5
 (coin recule) a +160 (bout des vis de chape), soit 245.5 mm ; les pieds font 510.
-Etuve 538 x 538 x 1400 mm (A CONFIRMER) : le cadre y travaille DEBOUT sur son
+Etuve 538 x 538 x 1400 mm (largeur confirmee, hauteur a confirmer) : le cadre y travaille DEBOUT sur son
 about, pose par deux pieds en V sur quatre crochets pendus aux parois ; sur
 la paillasse il travaille couche sur deux pieds. Voir `DEBOUT.md`.
 
@@ -202,7 +202,7 @@ qui travaille en traction.
 
 ## 7 bis. Commande par coin
 
-L'etuve fait 538 x 538 x 1400 (A CONFIRMER) et n'offre aucun passage de paroi
+L'etuve fait 538 x 538 x 1400 (largeur confirmee) et n'offre aucun passage de paroi
 utilisable. Le cadre y est debout : un axe de vis dans le plan des flancs
 regarderait une paroi a 49 mm, inaccessible. La commande est donc NORMALE
 AUX FLANCS. Un coin en ACIER, qui porte le taraudage, coulisse selon y entre
@@ -449,10 +449,8 @@ Masses du modele 3D (out/masses.json, construit le 05/10/2026).
 
 ## 11. Points ouverts
 
-- **Largeur d'etuve 538, A CONFIRMER.** Elle place la dent du crochet (a 47.2
-  de la paroi) et a fixe la largeur des pieds (510). Tant qu'elle n'est pas
-  confirmee, les DXF du pied et du crochet portent : NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE.
-  La hauteur (1400) est aussi a confirmer.
+- **Hauteur d'etuve 1400, a confirmer.** La largeur 538 est confirmee : elle
+  place la dent du crochet a 47.2 de la paroi ; pied et crochet sont a decouper.
 - **Epaisseur reelle de la tole** : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe (EP_TOLE_REELLE = 8 pour une
   tole nominale de 8). Encoches, nodes, fentes, mortaise et rainures des
   patins en derivent ; le 3D et le calcul restent a la cote nominale.

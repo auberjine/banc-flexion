@@ -18,7 +18,7 @@ notice. Indice A du 02/10/2026.
 | `stl/*.stl` | maillages ; `*_montes.stl` contient tous les exemplaires places |
 | `dxf/*.dxf` | profils de DECOUPE, contours fermes, arcs exacts ; la traverse et le patin de charge y sont au brut (surepaisseur, avant-trous) |
 | `dxf/tole_*.dxf` | tous les exemplaires d'une epaisseur et d'une nuance, ranges en etageres de 3000 mm de large au plus : controle de quantites, pas une imbrication |
-| `dxf/*_EN_ATTENTE.dxf` | pieces a NE PAS decouper encore : pied et crochet, tant que la largeur d'etuve n'est pas confirmee |
+| `dxf/*_EN_ATTENTE.dxf` | pieces a NE PAS decouper encore, si `ETUVE_CONFIRMEE` est faux (aucune depuis le 05/10/2026 : largeur de 538 confirmee) |
 | `dxf/LISTE.txt` | fichiers, epaisseur, nuance, quantite et statut ; signification des calques |
 | `plans/*.svg` | huit planches A3 cotees |
 | `plans/plans.pdf` | les memes planches en un seul PDF |

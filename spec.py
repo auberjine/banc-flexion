@@ -236,8 +236,9 @@ def main():
       % (p.L_FLANC, p.H_FLANC, p.ECART_FLANCS + 2 * p.EP_FLANC, y_min))
     a("(coin recule) a +%.0f (bout des vis de chape), soit %.1f mm ; les pieds font %.0f."
       % (y_max, y_max - y_min, p.PIED_Y))
-    a("Etuve %g x %g x %g mm (A CONFIRMER) : le cadre y travaille DEBOUT sur son"
-      % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR))
+    a("Etuve %g x %g x %g mm (%s) : le cadre y travaille DEBOUT sur son"
+      % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR,
+         "largeur confirmee, hauteur a confirmer" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
     a("about, pose par deux pieds en V sur quatre crochets pendus aux parois ; sur")
     a("la paillasse il travaille couche sur deux pieds. Voir `DEBOUT.md`.")
     a("")
@@ -367,8 +368,9 @@ def main():
 
     a("## 7 bis. Commande par coin")
     a("")
-    a("L'etuve fait %g x %g x %g (A CONFIRMER) et n'offre aucun passage de paroi"
-      % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR))
+    a("L'etuve fait %g x %g x %g (%s) et n'offre aucun passage de paroi"
+      % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR,
+         "largeur confirmee" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
     a("utilisable. Le cadre y est debout : un axe de vis dans le plan des flancs")
     a("regarderait une paroi a %.0f mm, inaccessible. La commande est donc NORMALE"
       % ((p.ETUVE_INTERIEUR - p.H_FLANC) / 2.0))
@@ -689,11 +691,17 @@ def main():
 
     a("## 11. Points ouverts")
     a("")
-    a("- **Largeur d'etuve %g, A CONFIRMER.** Elle place la dent du crochet (a %.1f"
-      % (p.ETUVE_INTERIEUR, p.CROCHET_DENT_Y))
-    a("  de la paroi) et a fixe la largeur des pieds (%g). Tant qu'elle n'est pas" % p.PIED_Y)
-    a("  confirmee, les DXF du pied et du crochet portent : %s." % p.ALERTE_ETUVE)
-    a("  La hauteur (%g) est aussi a confirmer." % p.ETUVE_HAUTEUR)
+    if p.ETUVE_CONFIRMEE:
+        a("- **Hauteur d'etuve %g, a confirmer.** La largeur %g est confirmee : elle"
+          % (p.ETUVE_HAUTEUR, p.ETUVE_INTERIEUR))
+        a("  place la dent du crochet a %.1f de la paroi ; pied et crochet sont a decouper."
+          % p.CROCHET_DENT_Y)
+    else:
+        a("- **Largeur d'etuve %g, A CONFIRMER.** Elle place la dent du crochet (a %.1f"
+          % (p.ETUVE_INTERIEUR, p.CROCHET_DENT_Y))
+        a("  de la paroi) et a fixe la largeur des pieds (%g). Tant qu'elle n'est pas" % p.PIED_Y)
+        a("  confirmee, les DXF du pied et du crochet portent : %s." % p.ALERTE_ETUVE)
+        a("  La hauteur (%g) est aussi a confirmer." % p.ETUVE_HAUTEUR)
     a("- **Epaisseur reelle de la tole** : %s (EP_TOLE_REELLE = %g pour une" % (p.NOTE_TOLE_REELLE, p.EP_TOLE_REELLE))
     a("  tole nominale de %g). Encoches, nodes, fentes, mortaise et rainures des" % p.EP_FLANC)
     a("  patins en derivent ; le 3D et le calcul restent a la cote nominale.")

@@ -54,9 +54,9 @@ ECART_FLANCS = 60.0       # distance interieure entre les deux flancs
 # ne se construit plus) et le crochet est a redessiner. Le pied et le
 # crochet en dependent : leurs DXF portent ALERTE_ETUVE tant que
 # ETUVE_CONFIRMEE est faux.
-ETUVE_INTERIEUR = 538.0   # largeur interieure retenue (05/10/2026 : 538 pour garder de la marge), dans les deux directions transverses  (A CONFIRMER)
+ETUVE_INTERIEUR = 538.0   # largeur interieure retenue (05/10/2026 : 538 pour garder de la marge), dans les deux directions transverses, CONFIRMEE le 05/10/2026
 ETUVE_HAUTEUR = 1400.0    # hauteur interieure : le cadre y est DEBOUT, sur son about  (A CONFIRMER)
-ETUVE_CONFIRMEE = False
+ETUVE_CONFIRMEE = True    # 538 confirmee par l utilisateur le 05/10/2026
 ALERTE_ETUVE = "NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE"
 ETUVE_PAROI_E = 1.0       # tole de paroi interieure
 ETUVE_TROU = 10.0         # trous CARRES de paroi ou s accrochent les crochets

@@ -105,7 +105,7 @@ qu'en decision. [Il a ete applique le 17/09, en 42CrMo4 : voir la section 5.]
   recul possible de la camera et donc la faisabilite optique de la correlation
   d'images. A verifier avant de commander la tole. [02/10 : etuve supposee
   540 x 540 x 1400, toujours A CONFIRMER ; le pied et le crochet en
-  dependent.]
+  dependent. 05/10 : largeur 538 confirmee.]
 - **Planeite de la tole a la livraison** : l'EN 10029 autorise 9 mm de fleche
   sur 1000 mm en classe N. Demander la classe A, ou faire dresser les flancs
   avant percage des appuis.

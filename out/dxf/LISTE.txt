@@ -10,8 +10,7 @@ poussoir.dxf                           8  42CrMo4 +A      3  a decouper
 support.dxf                            8  42CrMo4 +A      2  a decouper
 patin_appui.dxf                       10  S355JR          4  a decouper
 patin_charge.dxf                      10  S355JR          1  a decouper (brut, reprise)
-pied.dxf                               8  42CrMo4 +A      4  NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE
-crochet.dxf                            8  42CrMo4 +A      4  NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE
-tole_8mm_42crmo4.dxf                   8  42CrMo4 +A     13  groupe a decouper : flanc, traverse, poussoir, support ; 2 etagere(s), 2905 x 538
-tole_8mm_42crmo4_EN_ATTENTE.dxf        8  42CrMo4 +A      8  NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE : pied, crochet
+pied.dxf                               8  42CrMo4 +A      4  a decouper
+crochet.dxf                            8  42CrMo4 +A      4  a decouper
+tole_8mm_42crmo4.dxf                   8  42CrMo4 +A     21  groupe a decouper : flanc, traverse, poussoir, support, pied, crochet ; 2 etagere(s), 2966 x 545
 tole_10mm_s355.dxf                    10  S355JR          5  groupe a decouper : patin_appui, patin_charge ; 1 etagere(s), 560 x 100

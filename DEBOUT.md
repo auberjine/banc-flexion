@@ -1,6 +1,6 @@
 # Position debout : commande normale aux flancs
 
-Etuve 538 x 538 x 1400 mm utiles (A CONFIRMER), aucun passage de paroi
+Etuve 538 x 538 x 1400 mm utiles (largeur confirmee le 05/10/2026, hauteur a confirmer), aucun passage de paroi
 utilisable. La poutrelle est verticale, le cadre repose sur son about bas par
 deux pieds en V, poses sur quatre crochets pendus aux parois.
 
@@ -336,9 +336,8 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   40 et 50 en alternance : chaque crochet pend par trois langues de 6 a bec
   de 3 (tete de 9, qui passe le trou de face avant de descendre), et porte en bas un appui de 60 avec une dent
   qui entre dans une fente du pied a 5 du bout : le cadre est cale. La largeur
-  interieure, retenue a 538, est A CONFIRMER : c'est elle qui place la dent sur
-  l'appui, a 47,2 de la paroi. Tant qu'elle ne l'est pas, les DXF du pied et
-  du crochet portent NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE.
+  interieure, 538, confirmee le 05/10/2026, place la dent sur l'appui a 47,2
+  de la paroi ; le pied et le crochet sont bons a decouper.
 - **Entree dans l'etuve.** On accroche d'abord les quatre crochets. La porte
   est du cote de la tige : les pieds de 510 entrent selon y, et leur bout
   arriere doit passer au dessus des dents de 4,5 mm des deux crochets cote

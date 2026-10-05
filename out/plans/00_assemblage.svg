@@ -25,7 +25,7 @@
 <text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
 <text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
 <text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Masse du cadre 35,2 kg. Reperes : NOMENCLATURE.md (Vn : visserie).</text>
-<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Debout dans l etuve : 969,5 de haut, 458,6 x 510 en plan ; etuve 538 x 538 x 1400 A CONFIRMER.</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Debout dans l etuve : 969,5 de haut, 458,6 x 510 en plan ; etuve 538 x 538 x 1400.</text>
 <text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Hors tout couche sur pieds : 960 x 510 x 470 (x, y, z) ; flancs 76.</text>
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">0,425 mm de coulisseau et environ 549 N par tour de tige.</text>
 <text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Reglage par coin acier a 12 deg et tige M16 normale aux flancs :</text>
@@ -465,7 +465,7 @@
 <text x="242.000" y="215.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">V9</text>
 <text x="124.000" y="270.000" font-family="Helvetica,Arial,sans-serif" font-size="2.90" fill="#000" text-anchor="middle" font-weight="normal">Le coin AVANCE VERS LA CHAPE en chargeant ; repousse vers son bout epais, il TIRE la tige vers l interieur :</text>
 <text x="124.000" y="274.500" font-family="Helvetica,Arial,sans-serif" font-size="2.90" fill="#000" text-anchor="middle" font-weight="normal">la tete appuie, par la butee a aiguilles, sur la face exterieure des 2 platines ; monte a l envers, la tige ne retiendrait rien.</text>
-<text x="124.000" y="279.000" font-family="Helvetica,Arial,sans-serif" font-size="2.90" fill="#000" text-anchor="middle" font-weight="normal">Douille sur la tete : 94 mm devant le bout de tige dans l etuve de 538 A CONFIRMER, 20 de marge pour le decentrage du cadre.</text>
+<text x="124.000" y="279.000" font-family="Helvetica,Arial,sans-serif" font-size="2.90" fill="#000" text-anchor="middle" font-weight="normal">Douille sur la tete : 94 mm devant le bout de tige dans l etuve de 538, 20 de marge pour le decentrage du cadre.</text>
 <text x="124.000" y="283.500" font-family="Helvetica,Arial,sans-serif" font-size="2.90" fill="#000" text-anchor="middle" font-weight="normal">En trait mixte a deux tirets, le coin 02c en fin de course : 56,5 depuis le repos.</text>
 <text x="322.000" y="151.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="bold">NIVEAUX (z depuis le chant bas des flancs)</text>
 <rect x="322.000" y="152.500" width="86.000" height="58.800" fill="none" stroke="#000" stroke-width="0.350"/>
