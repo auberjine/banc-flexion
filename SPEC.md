@@ -119,7 +119,7 @@ z = 0 au bord inferieur du flanc.
 
 Encombrement des flancs 960 x 440 x 76 mm. Selon y, le banc va de -85.5
 (coin recule) a +160 (bout des vis de chape), soit 245.5 mm ; les pieds font 518.4.
-Etuve 538 x 528.4 x 1400 mm (largeur confirmee, hauteur a confirmer) : le cadre y travaille DEBOUT sur son
+Etuve 538 x 528.4 x 1400 mm (largeur x profondeur x hauteur ; largeur confirmee, profondeur = pieds + 5 de chaque cote, hauteur a confirmer) : le cadre y travaille DEBOUT sur son
 about, pose par deux pieds en V sur quatre crochets pendus aux parois ; sur
 la paillasse il travaille couche sur deux pieds. Voir `DEBOUT.md`.
 
@@ -202,7 +202,7 @@ qui travaille en traction.
 
 ## 7 bis. Commande par coin
 
-L'etuve fait 538 x 528.4 x 1400 (largeur confirmee) et n'offre aucun passage de paroi
+L'etuve fait 538 x 528.4 x 1400 (largeur x profondeur x hauteur, largeur confirmee) et n'offre aucun passage de paroi
 utilisable. Le cadre y est debout : un axe de vis dans le plan des flancs
 regarderait une paroi a 49 mm, inaccessible. La commande est donc NORMALE
 AUX FLANCS. Un coin en ACIER, qui porte le taraudage, coulisse selon y entre

@@ -53,7 +53,8 @@ ECART_FLANCS = 60.0       # distance interieure entre les deux flancs
 # ne se construit plus) et le crochet est a redessiner. Le pied et le
 # crochet en dependent : leurs DXF portent ALERTE_ETUVE tant que
 # ETUVE_CONFIRMEE est faux.
-# La chambre est un peu asymetrique (05/10/2026) : deux largeurs distinctes.
+# Chambre : LARGEUR 538 (parois laterales, ou pendent les crochets) et
+# PROFONDEUR (porte - fond, sens des pieds) = pied + 5 de chaque cote (05/10/2026).
 ETUVE_INTERIEUR = 538.0   # entre les DEUX PAROIS OU PENDENT LES CROCHETS (sens des 440 du cadre debout) : place la dent ; CONFIRMEE le 05/10/2026
 ETUVE_HAUTEUR = 1400.0    # hauteur interieure : le cadre y est DEBOUT, sur son about  (A CONFIRMER)
 ETUVE_CONFIRMEE = True    # 538 confirmee par l utilisateur le 05/10/2026
@@ -65,7 +66,7 @@ ETUVE_TROU_PAS = (40.0, 30.0)   # entraxes verticaux successifs des trous, de ha
 # La garde couvre un decentrage du cadre (pieds de 518,4 dans 538 : 9,8 mm) et
 # 10 mm de marge. Remplace les 250 ecrits en dur de l ancienne etuve de 500.
 ETUVE_JEU_PIED = 5.0      # jeu de chaque cote du pied dans l autre sens
-# l AUTRE largeur, dans le sens des pieds (y) : le pied et 5 de chaque cote
+# PROFONDEUR utile, sens porte - fond (y, celui des pieds) : le pied et 5 de chaque cote
 ETUVE_Y = None           # fixee plus bas, une fois PIED_Y connu
 ETUVE_GARDE = 2.0 * ETUVE_JEU_PIED   # decentrage du cadre (jeu du pied) + 5 de marge
 Y_FLANC = (ECART_FLANCS + EP_FLANC) / 2.0     # 34, plan median d'un flanc
@@ -735,7 +736,7 @@ CROCHET_H = -CROCHET_LANGUE_Z[-1] + CROCHET_LANGUE_H + CROCHET_GARDE_BAS   # hau
 CROCHET_Z_APPUI = -CROCHET_H + CROCHET_BANDE                                # dessus de l appui
 # fente de calage du pied et dent de l appui
 PIED_FENTE_BORD = PIED_FENTE_BORD_INIT     # du bout du pied a la fente
-ETUVE_Y = PIED_Y + 2.0 * ETUVE_JEU_PIED     # 528,4 : largeur de la chambre dans le sens des pieds
+ETUVE_Y = PIED_Y + 2.0 * ETUVE_JEU_PIED     # 528,4 : profondeur utile de la chambre (porte - fond)
 Y_ETUVE_LIBRE = ETUVE_Y / 2.0 - ETUVE_GARDE    # ce que le banc peut occuper selon y
 DEGAGEMENT_DOUILLE = Y_ETUVE_LIBRE - Y_BOUT_VIS
 PIED_COIN_R = 2.0         # rayon des angles du bout du pied

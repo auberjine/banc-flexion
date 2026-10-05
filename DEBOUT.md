@@ -1,6 +1,6 @@
 # Position debout : commande normale aux flancs
 
-Etuve 538 x 528,4 x 1400 mm utiles (chambre un peu asymetrique : 538 entre les parois des crochets, confirme le 05/10/2026 ; 528,4 = pieds de 518,4 et 5 mm de chaque cote dans l'autre sens ; hauteur a confirmer), aucun passage de paroi
+Etuve 538 x 528,4 x 1400 mm utiles (largeur x profondeur x hauteur : largeur 538 entre les parois laterales ou pendent les crochets, confirmee le 05/10/2026 ; profondeur porte - fond 528,4 = pieds de 518,4 et 5 mm de chaque cote ; hauteur a confirmer), aucun passage de paroi
 utilisable. La poutrelle est verticale, le cadre repose sur son about bas par
 deux pieds en V, poses sur quatre crochets pendus aux parois.
 
@@ -104,7 +104,7 @@ donc pas dessus. C'est la tige M16 qui tient la charge, son angle d'helice
 bas d'un filet acier sur acier monte a la pate cuivre (0,08 : 5,3 degres,
 marge x2,1).
 
-Le bout de la tige sort a y 155. Dans ce sens la chambre fait 528,4 : cadre centre, il reste
+Le bout de la tige sort a y 155. En profondeur la chambre fait 528,4 : cadre centre, il reste
 109 mm jusqu'a la paroi ; 99 en comptant 10 de garde (5 de jeu des pieds
 de 518,4, plus 5 de marge). Une douille de 24 et un
 cliquet y passent. Une douille SEULEMENT : les vis de chape depassent de leur

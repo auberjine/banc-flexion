@@ -238,7 +238,7 @@ def main():
       % (y_max, y_max - y_min, p.PIED_Y))
     a("Etuve %g x %g x %g mm (%s) : le cadre y travaille DEBOUT sur son"
       % (p.ETUVE_INTERIEUR, p.ETUVE_Y, p.ETUVE_HAUTEUR,
-         "largeur confirmee, hauteur a confirmer" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
+         "largeur x profondeur x hauteur ; largeur confirmee, profondeur = pieds + 5 de chaque cote, hauteur a confirmer" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
     a("about, pose par deux pieds en V sur quatre crochets pendus aux parois ; sur")
     a("la paillasse il travaille couche sur deux pieds. Voir `DEBOUT.md`.")
     a("")
@@ -370,7 +370,7 @@ def main():
     a("")
     a("L'etuve fait %g x %g x %g (%s) et n'offre aucun passage de paroi"
       % (p.ETUVE_INTERIEUR, p.ETUVE_Y, p.ETUVE_HAUTEUR,
-         "largeur confirmee" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
+         "largeur x profondeur x hauteur, largeur confirmee" if p.ETUVE_CONFIRMEE else "A CONFIRMER"))
     a("utilisable. Le cadre y est debout : un axe de vis dans le plan des flancs")
     a("regarderait une paroi a %.0f mm, inaccessible. La commande est donc NORMALE"
       % ((p.ETUVE_INTERIEUR - p.H_FLANC) / 2.0))
