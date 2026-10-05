@@ -267,10 +267,17 @@ def main():
         iso = {}
         for nom, direction, shp in (("ensemble", (1.0, 1.0, 0.55), comp),):
             res = TechDraw.projectEx(shp, Vector(*direction))
+            # projectEx rend (visibles vives, visibles lisses, coutures,
+            # CONTOURS APPARENTS, isos, puis les cachees) : sans le 4e groupe,
+            # un cylindre (tube, tige, ecrou) n'a pas de generatrices de bord.
+            # Fleche de 0,03 : a 0,6 un trou de 11 n'avait que 6 cotes.
             polys = []
-            for e in res[0].Edges:
-                pts = e.discretize(Deflection=0.6)
-                polys.append([[round(q.x, 3), round(q.y, 3)] for q in pts])
+            for groupe in (res[0], res[3]):
+                if groupe is None:
+                    continue
+                for e in groupe.Edges:
+                    pts = e.discretize(Deflection=0.03)
+                    polys.append([[round(q.x, 2), round(q.y, 2)] for q in pts])
             iso[nom] = polys
             print("projection %s : %d aretes visibles" % (nom, len(polys)))
         iso["date_calcul"] = outils.aujourdhui()

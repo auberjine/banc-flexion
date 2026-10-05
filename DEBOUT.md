@@ -1,14 +1,14 @@
 # Position debout : commande normale aux flancs
 
-Etuve 540 x 540 x 1400 mm utiles (A CONFIRMER), aucun passage de paroi
+Etuve 538 x 538 x 1400 mm utiles (A CONFIRMER), aucun passage de paroi
 utilisable. La poutrelle est verticale, le cadre repose sur son about bas par
 deux pieds en V, poses sur quatre crochets pendus aux parois.
 
 | direction | cote du cadre | cote d'etuve | degagement |
 |---|---|---|---|
 | verticale | 960 ; 969,5 avec les pieds en V | 1400 | 430 mm en tout, partages entre dessus et dessous selon la hauteur des crochets |
-| axe des 440 mm du cadre | 440 ; 447 entre les aretes de pose des pieds en V | 540 | 50 mm de chaque cote du cadre, ou se logent les pieds en V et les crochets |
-| epaisseur du cadre | 76 aux flancs ; 245,5 avec le coin et la chape (y -85,5 a +160) ; pieds de 510 | 540 | 232 mm de chaque cote des flancs ; 15 aux bouts des pieds |
+| axe des 440 mm du cadre | 440 ; 447 entre les aretes de pose des pieds en V | 538 | 49 mm de chaque cote du cadre, ou se logent les pieds en V et les crochets |
+| epaisseur du cadre | 76 aux flancs ; 245,5 avec le coin et la chape (y -85,5 a +160) ; pieds de 510 | 538 | 231 mm de chaque cote des flancs ; 14 aux bouts des pieds |
 
 Toute la place est dans la direction de l'EPAISSEUR du cadre. La commande doit
 donc y arriver, en traversant les flancs.
@@ -104,9 +104,9 @@ donc pas dessus. C'est la tige M16 qui tient la charge, son angle d'helice
 bas d'un filet acier sur acier monte a la pate cuivre (0,08 : 5,3 degres,
 marge x2,1).
 
-Le bout de la tige sort a y 155. Dans l'etuve de 540, cadre centre, il reste
-115 mm jusqu'a la paroi ; 95 si le cadre est decentre au pire (les pieds de 510
-laissent 15 mm de chaque cote, plus 5 de marge). Une douille de 24 et un
+Le bout de la tige sort a y 155. Dans l'etuve de 538, cadre centre, il reste
+114 mm jusqu'a la paroi ; 94 si le cadre est decentre au pire (les pieds de 510
+laissent 14 mm de chaque cote, plus 5 de marge). Une douille de 24 et un
 cliquet y passent. Une douille SEULEMENT : les vis de chape depassent de leur
 ecrou jusqu'a y 160, a 52 mm de l'axe de la tige et dans son plan ; une cle
 plate posee sur la tete de manoeuvre bute dessus deux fois par tour.
@@ -336,8 +336,8 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   40 et 50 en alternance : chaque crochet pend par trois langues de 6 a bec
   de 3 (tete de 9, qui passe le trou de face avant de descendre), et porte en bas un appui de 60 avec une dent
   qui entre dans une fente du pied a 5 du bout : le cadre est cale. La largeur
-  interieure, supposee 540, est A CONFIRMER : c'est elle qui place la dent sur
-  l'appui, a 48,2 de la paroi. Tant qu'elle ne l'est pas, les DXF du pied et
+  interieure, retenue a 538, est A CONFIRMER : c'est elle qui place la dent sur
+  l'appui, a 47,2 de la paroi. Tant qu'elle ne l'est pas, les DXF du pied et
   du crochet portent NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE.
 - **Entree dans l'etuve.** On accroche d'abord les quatre crochets. La porte
   est du cote de la tige : les pieds de 510 entrent selon y, et leur bout

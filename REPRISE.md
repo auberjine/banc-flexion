@@ -40,7 +40,7 @@ bien placees ».
 - V5 : 2 rondelles AS 1730 a la place d'une rondelle trempee 30 x 2 (introuvable en M16).
 - Couple de serrage M10 : 35 N.m (V1 et V9), a valider puis a passer dans params.py.
 - Centrage selon x du paquet de traverse dans sa mortaise (constat 03-11).
-- Largeur d'etuve 540 A CONFIRMER : crochet et pied marques NE PAS DECOUPER.
+- Largeur d'etuve 538 (retenue le 05/10) A CONFIRMER : crochet et pied marques NE PAS DECOUPER.
 - Calage de la poutrelle en position debout : point ouvert assume.
 
 ## Environnement (Linux)

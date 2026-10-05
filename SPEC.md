@@ -1,6 +1,6 @@
 # Banc de flexion 3 points - specification
 
-Indice A du 02/10/2026. Fichier engendre par `spec.py` a partir de `params.py`,
+Indice B du 05/10/2026. Fichier engendre par `spec.py` a partir de `params.py`,
 du calcul elements finis et du modele 3D. Ne pas le modifier a la main.
 
 ## 1. Objet
@@ -119,7 +119,7 @@ z = 0 au bord inferieur du flanc.
 
 Encombrement des flancs 960 x 440 x 76 mm. Selon y, le banc va de -85.5
 (coin recule) a +160 (bout des vis de chape), soit 245.5 mm ; les pieds font 510.
-Etuve 540 x 540 x 1400 mm (A CONFIRMER) : le cadre y travaille DEBOUT sur son
+Etuve 538 x 538 x 1400 mm (A CONFIRMER) : le cadre y travaille DEBOUT sur son
 about, pose par deux pieds en V sur quatre crochets pendus aux parois ; sur
 la paillasse il travaille couche sur deux pieds. Voir `DEBOUT.md`.
 
@@ -202,9 +202,9 @@ qui travaille en traction.
 
 ## 7 bis. Commande par coin
 
-L'etuve fait 540 x 540 x 1400 (A CONFIRMER) et n'offre aucun passage de paroi
+L'etuve fait 538 x 538 x 1400 (A CONFIRMER) et n'offre aucun passage de paroi
 utilisable. Le cadre y est debout : un axe de vis dans le plan des flancs
-regarderait une paroi a 50 mm, inaccessible. La commande est donc NORMALE
+regarderait une paroi a 49 mm, inaccessible. La commande est donc NORMALE
 AUX FLANCS. Un coin en ACIER, qui porte le taraudage, coulisse selon y entre
 le dessous plat de la traverse et le dessus du coulisseau taille au meme
 angle. Le coin ne se deplace que selon y : son dessus reste plaque sous la
@@ -304,7 +304,7 @@ deux lumieres de guidage reportees a x = +/- 44. Il reste alors 58 mm
 de section nette dans le noeud, soit 12.9 MPa nominal pour les 6000 N par flanc.
 
 La suppression de la vis verticale a ramene la hauteur du cadre de 480 a
-440 mm : debout dans l'etuve de 540, il reste 50 mm de chaque cote, ou se
+440 mm : debout dans l'etuve de 538, il reste 49 mm de chaque cote, ou se
 logent les pieds en V et les crochets. Elle a aussi permis de descendre le
 noeud : la profondeur du treillis passe de 139,5 a 148.4 mm.
 
@@ -362,7 +362,7 @@ precharge et les 329 N de desserrage.
 | Serrage | 35 N.m, aucun taraudage : les vis traversent les deux flancs |
 | Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la tige |
 | Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, 18 mm, desserrage seulement |
-| Bout de tige | y 155, soit 95 mm de degagement pour la douille, cadre decentre au pire dans l'etuve de 540 (115 centre) |
+| Bout de tige | y 155, soit 94 mm de degagement pour la douille, cadre decentre au pire dans l'etuve de 538 (114 centre) |
 | Manoeuvre | douille de 24 et cliquet SEULEMENT : les bouts des vis de chape (y 160) depassent la tete de manoeuvre dans son plan, une cle plate bute dessus |
 
 Tout sort du debit deja commande : les platines nichent dans la tole de 8
@@ -449,7 +449,7 @@ Masses du modele 3D (out/masses.json, construit le 05/10/2026).
 
 ## 11. Points ouverts
 
-- **Largeur d'etuve 540, A CONFIRMER.** Elle place la dent du crochet (a 48.2
+- **Largeur d'etuve 538, A CONFIRMER.** Elle place la dent du crochet (a 47.2
   de la paroi) et a fixe la largeur des pieds (510). Tant qu'elle n'est pas
   confirmee, les DXF du pied et du crochet portent : NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE.
   La hauteur (1400) est aussi a confirmer.

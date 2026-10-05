@@ -1,4 +1,4 @@
-DXF de decoupe, ind. A du 02/10/2026
+DXF de decoupe, ind. B du 05/10/2026
 fentes et encoches taillees pour une tole reelle de 8,00 mm : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe
 calques : DECOUPE = couper ; GRAVURE = marquer sans couper ; TEXTE = ni couper ni marquer
 Pieces du commerce, sans DXF : guide, plaquette_haute, plaquette_basse, vis, plat_renfort, pile_belleville.

@@ -54,7 +54,7 @@ ECART_FLANCS = 60.0       # distance interieure entre les deux flancs
 # ne se construit plus) et le crochet est a redessiner. Le pied et le
 # crochet en dependent : leurs DXF portent ALERTE_ETUVE tant que
 # ETUVE_CONFIRMEE est faux.
-ETUVE_INTERIEUR = 540.0   # largeur interieure, dans les deux directions transverses  (A CONFIRMER)
+ETUVE_INTERIEUR = 538.0   # largeur interieure retenue (05/10/2026 : 538 pour garder de la marge), dans les deux directions transverses  (A CONFIRMER)
 ETUVE_HAUTEUR = 1400.0    # hauteur interieure : le cadre y est DEBOUT, sur son about  (A CONFIRMER)
 ETUVE_CONFIRMEE = False
 ALERTE_ETUVE = "NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE"
@@ -62,7 +62,7 @@ ETUVE_PAROI_E = 1.0       # tole de paroi interieure
 ETUVE_TROU = 10.0         # trous CARRES de paroi ou s accrochent les crochets
 ETUVE_TROU_PAS = (40.0, 50.0)   # entraxes verticaux successifs des trous : 40 et 50 en alternance (bords a 30 puis 40)
 # Ce que le banc peut occuper selon y, de part et d autre de son plan median.
-# La garde couvre un decentrage du cadre (pieds de 510 dans 540 : 15 mm) et
+# La garde couvre un decentrage du cadre (pieds de 510 dans 538 : 14 mm) et
 # 5 mm de marge. Remplace les 250 ecrits en dur de l ancienne etuve de 500.
 ETUVE_GARDE = 20.0
 Y_ETUVE_LIBRE = ETUVE_INTERIEUR / 2.0 - ETUVE_GARDE    # 250
@@ -806,8 +806,8 @@ BRUT_PAS = 5.0
 
 # Indice et date portes par les cartouches et les DXF : plusieurs generations
 # de fichiers ont cohabite dans out/, l'atelier doit savoir laquelle il tient.
-INDICE_REVISION = "A"
-DATE_EDITION = "02/10/2026"
+INDICE_REVISION = "B"
+DATE_EDITION = "05/10/2026"
 
 # ============================================================ grandeurs derivees
 
