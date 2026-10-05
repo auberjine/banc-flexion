@@ -187,7 +187,7 @@ def plan_flanc():
     _, _, bm, bn = P.ligne_bielle(1)        # arete de bielle : tete de montant -> aisselle
     pente = math.degrees(P.bielle_angle())
     a_enc = math.radians(p.PIED_DEBOUT_ANGLE)
-    w2 = p.ENCOCHE_PIED_B / 2.0
+    w2 = p.ENCOCHE_FLANC_B / 2.0             # encoches du flanc : elles recoivent un pied S355
     r_bouche = min(sg[2] for sg in outer if sg[0] == 'A')     # bouches des encoches
     # graduation : un trait par kN, dans l'ordre de parts.flanc_gravure
     gx0 = grav[0][0][1][0]                                     # depart commun des traits
@@ -205,10 +205,11 @@ def plan_flanc():
     notes = ["Decoupe et gravure laser d'apres flanc.dxf : calque DECOUPE coupe, GRAVURE marque"
              " sans traverser (detail %s)." % DY,
              "Matiere : %s." % p.EXIGENCE_TOLE,
-             "Encoches et mortaise taillees sur la tole REELLE (encoches %s = tole + jeu %s ;"
-             " mortaise %s = %d x tole + jeu %s) :"
-             % (D.fmt(p.ENCOCHE_PIED_B), D.fmt(p.PIED_JEU), D.fmt(p.TRAVERSE_LX_REEL + p.TRAVERSE_JEU_X),
-                p.TRAVERSE_N, D.fmt(p.TRAVERSE_JEU_X)),
+             "Encoches et mortaise taillees sur la tole S355 REELLE des pieds et de la traverse"
+             " (EP_TOLE_REELLE_S355 = %s) : encoches %s = tole + jeu %s ;"
+             % (P.fr(p.EP_TOLE_REELLE_S355, 2), D.fmt(p.ENCOCHE_FLANC_B), D.fmt(p.PIED_JEU)),
+             "mortaise %s = %d x tole + jeu %s."
+             % (D.fmt(p.TRAVERSE_LX_REEL + p.TRAVERSE_JEU_X), p.TRAVERSE_N, D.fmt(p.TRAVERSE_JEU_X)),
              p.NOTE_TOLE_REELLE[0].upper() + p.NOTE_TOLE_REELLE[1:] + ".",
              "Aretes cassees %s x 45 deg sur les deux faces, bossages compris (ils ne sont pas repris)."
              % D.fmt(p.CHANFREIN),
@@ -373,7 +374,7 @@ def plan_flanc():
     tl = 22.0
     j1 = (c0[0] + dd[0] * tl - nn[0] * w2, c0[1] + dd[1] * tl - nn[1] * w2)
     j2 = (c0[0] + dd[0] * tl + nn[0] * w2, c0[1] + dd[1] * tl + nn[1] * w2)
-    v4._cote_iso(v4.P(j1), v4.P(j2), D.fmt(p.ENCOCHE_PIED_B), dt=4.0)
+    v4._cote_iso(v4.P(j1), v4.P(j2), D.fmt(p.ENCOCHE_FLANC_B), dt=4.0)
 
     # ------------------------------------------------ detail W : encoche du chant bas, 2:1
     xw = -p.PIED_X_POS
@@ -387,7 +388,7 @@ def plan_flanc():
     v5.rupture((xw - 9.0, zw1), (xw + 11.0, zw1))
     v5.rupture((xw + 11.0, zw1), (xw + 11.0, 0.0))
     v5.axe((xw, -0.5), (xw, p.PIED_CROIX_FLANC + 3.0), ext=0.0)
-    v5.cote_hx(xw - w2, xw + w2, 0.0, 0.0, 0.0, texte=D.fmt(p.ENCOCHE_PIED_B), zl=-4.0)
+    v5.cote_hx(xw - w2, xw + w2, 0.0, 0.0, 0.0, texte=D.fmt(p.ENCOCHE_FLANC_B), zl=-4.0)
     v5.cote_vx(0.0, p.PIED_CROIX_FLANC, None, xw + w2 + p.PIED_R, 6.0, texte=D.fmt(p.PIED_CROIX_FLANC))
     yn = 203.0
     s.text(346.0, yn, "Details %s et %s : angles du fond degages par une poche carree de %s"
@@ -1009,7 +1010,8 @@ def plan_traverse():
     n_joints = int(round((p.PLAQ_B - p.portee_coin()) / (2.0 * p.CHANFREIN)))
 
     notes = [
-        "Matiere : %s." % p.EXIGENCE_TOLE,
+        "Matiere : %s ; chant fraise frottant sur le bronze-graphite : admis a %s MPa et a cette vitesse."
+        % (p.EXIGENCE_TOLE_COURANTE, f(p.pressions_plaquettes()[0])),
         "Decoupe laser d apres %s.dxf (calque DECOUPE) : le DXF est le BRUT, chant du bas descendu"
         " de %s (%s de haut au lieu de %s)."
         % (st.name, f(p.TRAVERSE_SUREP), f(p.TRAVERSE_H + p.TRAVERSE_SUREP), f(p.TRAVERSE_H)),
@@ -1077,7 +1079,7 @@ def plan_traverse():
     v2.contour(mort)
     lxr = p.TRAVERSE_LX_REEL
     for i in range(p.TRAVERSE_N + 1):
-        x = -lxr / 2.0 + i * p.EP_TOLE_REELLE
+        x = -lxr / 2.0 + i * p.EP_TOLE_REELLE_S355
         t03_ligne(v2, (x, ta), (x, tb), D.TRAIT_FIN, T03_MIXTE2)
     t03_axe(v2, (0.0, mz1), (0.0, mz1 + 2.0), 0.0, 0.0)
     t03_axe(v2, (0.0, mz0), (0.0, mz0 - 1.5), 0.0, 0.0)
@@ -1085,10 +1087,10 @@ def plan_traverse():
     v2.cote_hx(mx0, mx1, mz0, mz0, 0.0, zl=mz0 - 4.0, texte="(%s)" % f(mx1 - mx0), dt=14.0)
     v2.cote_vx(mz0, mz1, mx1, mx1, 0.0, xl=mx1 + 4.0, texte="(%s)" % f(mz1 - mz0))
     t03_rayon_trou(v2, (mx0 + rm, mz1 - rm), rm, 135.0, "(4 x R%s)" % f(rm), 8.0)
-    v2.renvoi((lxr / 2.0 - 1.5 * p.EP_TOLE_REELLE, ta + 6.0),
+    v2.renvoi((lxr / 2.0 - 1.5 * p.EP_TOLE_REELLE_S355, ta + 6.0),
               "%d tenons jointifs :" % p.TRAVERSE_N + chr(10) + "%d x tole reelle" % p.TRAVERSE_N,
               6.0, -40.0, fin="point")
-    s.text(XM, 104.0, "Largeur = %d x tole REELLE + 2 x R%s (tole MESUREE a la livraison) : l arete droite porte"
+    s.text(XM, 104.0, "Largeur = %d x tole S355 REELLE + 2 x R%s (EP_TOLE_REELLE_S355, MESUREE) : l arete droite porte"
            " sur toute la largeur du paquet." % (p.TRAVERSE_N, f(rm)), 2.8, "middle")
 
     # ======================================================== detail A, 10:1
@@ -1121,9 +1123,9 @@ def plan_traverse():
         " degagement deduits) ;" % (f(p.matage_tenon()), f(lx), f(ly)),
         "- racine de tenon : %s MPa sur %s nets ; plaque (%s de haut, percee de %s, appuis a %s) : %s MPa, majorant ;"
         % (f(sig_t), f(hn), f(p.TRAVERSE_H), f(2.0 * rh), f(entraxe), f(sig_p)),
-        "- bronze %s : %s MPa sur %s nets (%d joints dans ses %s) ; Re de la tole a 150 C : %s MPa."
+        "- bronze %s : %s MPa sur %s nets (%d joints dans ses %s) ; Re du %s a 150 C : %s MPa."
         % (R["plaquette_haute"], f(p_haut), f(p.portee_coin()), n_joints, f(p.PLAQ_B),
-           f(p.RE_TOLE_CHAUD)),
+           p.NUANCE_TOLE_COURANTE, f(p.RE_TOLE_COURANTE_CHAUD)),
         "MONTAGE : serrer le paquet sur %s, engager les tenons dans un flanc, chants fraises du cote"
         " du coin, puis presenter le second flanc." % vis,
     ]
@@ -1188,8 +1190,8 @@ def plan_patins():
         "Aretes vives des patins cassees %s x 45 deg ; plat ebavure." % f(sa.chanfrein),
         "%s : decoupe laser d apres %s.dxf (calque DECOUPE), PUIS rainure fraisee sur toute la"
         " longueur de la face d appui." % (R["patin_appui"], sa.name),
-        "%s : rainure %s = tole REELLE du flanc (EP_TOLE_REELLE = %s) + 2 x %s de jeu : mesurer la"
-        " tole livree et regenerer ce plan." % (R["patin_appui"], P.fr(rb, 2), P.fr(p.EP_TOLE_REELLE, 2),
+        "%s : rainure %s = tole REELLE du flanc (EP_TOLE_REELLE_42 = %s) + 2 x %s de jeu : mesurer la"
+        " tole 42CrMo4 livree et regenerer ce plan." % (R["patin_appui"], P.fr(rb, 2), P.fr(p.EP_TOLE_REELLE_42, 2),
                                                P.fr(p.RAINURE_JEU, 2)),
         "%s : le fond de rainure porte le bossage, %s kN par patin (4 contacts, 2 par appui) : Hertz %s MPa, limite %s MPa a"
         " 150 C, coefficient %s : %s au minimum."
@@ -1385,7 +1387,7 @@ def plan_pied():
     hb, bb = p.PIED_BOSSAGE_H, p.PIED_BOSSAGE_B
     fb, fw, fh = p.PIED_FENTE_BORD, p.PIED_FENTE_B, p.PIED_FENTE_H
     yf, w2 = p.Y_FLANC, p.ENCOCHE_PIED_B / 2.0
-    wn = p.EP_TOLE_REELLE / 2.0 - p.PIED_NODE_SERRE       # demi-passage au node
+    wn = p.EP_TOLE_REELLE_42 / 2.0 - p.PIED_NODE_SERRE    # demi-passage au node : recoit le flanc
     zb = h - p.PIED_CROIX                                   # fond d encoche
     zn1 = zb + (p.PIED_CROIX - p.PIED_NODE_L) / 2.0         # bas du node
     zn2 = zn1 + p.PIED_NODE_L                               # haut du node
@@ -1412,11 +1414,13 @@ def plan_pied():
     notes = [
         "Decoupe laser d apres %s.dxf et %s.dxf (calque DECOUPE) ; aretes cassees %s x 45 deg sur les"
         " deux faces." % (sp.name, sc.name, fr(sp.chanfrein, 2)),
-        "Matiere : %s." % p.EXIGENCE_TOLE,
-        "Tole REELLE e (EP_TOLE_REELLE = %s) : encoches %s = e + %s, fentes %s = e + 2 x %s, passage"
-        " aux nodes %s = e - 2 x %s (serrage)."
-        % (fr(p.EP_TOLE_REELLE, 2), fr(p.ENCOCHE_PIED_B, 2), fr(p.PIED_JEU, 2), fr(fw, 2),
-           fr(p.PIED_FENTE_JEU, 2), fr(2.0 * wn, 2), fr(p.PIED_NODE_SERRE, 2)),
+        "Matiere : %s." % p.EXIGENCE_TOLE_COURANTE,
+        "%s : encoches %s = e + %s et passage aux nodes %s = e - 2 x %s (serrage), e = tole REELLE du flanc"
+        " 42CrMo4 (EP_TOLE_REELLE_42 = %s) ;"
+        % (rp, fr(p.ENCOCHE_PIED_B, 2), fr(p.PIED_JEU, 2), fr(2.0 * wn, 2), fr(p.PIED_NODE_SERRE, 2),
+           fr(p.EP_TOLE_REELLE_42, 2)),
+        "%s : fentes de calage %s = e' + 2 x %s, e' = tole REELLE du crochet S355 (EP_TOLE_REELLE_S355 = %s)."
+        % (rp, fr(fw, 2), fr(p.PIED_FENTE_JEU, 2), fr(p.EP_TOLE_REELLE_S355, 2)),
         p.NOTE_TOLE_REELLE[0].upper() + p.NOTE_TOLE_REELLE[1:] + ".",
         "%s : 2 sous le chant bas des flancs (couche), 2 en V aux coins de l about a %s deg (debout),"
         " aretes de pose a %s." % (rp, a_deb, f(p.pied_debout_base(), 0)),
@@ -1876,7 +1880,7 @@ def plan_chape():
     nron = p.SUPPORT_RONDELLES_ECROU
 
     notes = [
-        "%s : %s." % (r07, p.EXIGENCE_TOLE),
+        "%s : %s ; meme tole que les flancs, platines imbriquees dans leurs chutes." % (r07, p.EXIGENCE_TOLE),
         "%s : decoupe laser d apres support.dxf, aretes cassees %s x 45 deg ; %s et %s entre aretes fictives (au sommet R%s, la"
         " tole mesure %s)." % (r07, f(p.CHANFREIN), f(p.SUPPORT_B_BOUT), f(p.SUPPORT_B),
                                f(p.SUPPORT_R_CONGE), f(bz1 - bz0, 2)),

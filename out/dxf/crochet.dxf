@@ -957,7 +957,7 @@ TEXTE
 40
 8.000000
 1
-CROCHET  ep8  42CrMo4 +A  x4
+CROCHET  ep8  S355JR  x4
 0
 TEXT
 8
@@ -971,7 +971,7 @@ TEXTE
 40
 5.000000
 1
-brut : tole 8 mm, cert. 3.1, Re >= 430
+brut : tole 8 mm, cert. 2.2
 0
 TEXT
 8
@@ -985,7 +985,7 @@ TEXTE
 40
 5.000000
 1
-ind. B du 05/10/2026  -  fentes et encoches taillees pour une tole reelle de 8,00 mm
+ind. B du 05/10/2026  -  tole S355JR reelle prise a 8,00 mm (fentes ou serrages qui recoivent cette piece)
 0
 TEXT
 8

@@ -199,8 +199,8 @@ degagements deduits), et sa racine travaille a 11,5 MPa.
 Le jeu de la mortaise en largeur, 4 mm, vaut exactement deux fois le rayon de
 ses conges : l'arete portante droite fait donc tout juste les 48 mm du paquet
 de tenons. Six toles empilees cumulent six fois la tolerance d'epaisseur
-(EN 10029) : c'est pourquoi la mortaise est taillee sur la tole MESUREE
-(`EP_TOLE_REELLE`), et non sur la cote nominale. En hauteur au contraire le jeu
+(EN 10029) : c'est pourquoi la mortaise est taillee sur la tole S355 MESUREE
+des plaques (`EP_TOLE_REELLE_S355`), et non sur la cote nominale. En hauteur au contraire le jeu
 reste a 0,4, parce que la hauteur du tenon est une cote de DECOUPE, pas
 d'empilage.
 

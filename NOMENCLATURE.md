@@ -9,27 +9,28 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 
 ## Exigences de commande
 
-- **Tole de 8 en 42CrMo4** (flancs, traverse, poussoir, platines, pieds, crochets) : 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C. C est elle qui porte toute la marge du flanc. Les cartouches et la colonne brut l abregent en "tole 8 mm, cert. 3.1, Re >= 430".
-- **Epaisseur reelle** : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe. Encoches a mi-bois, nodes, fentes de calage, mortaise de traverse et rainures des patins en derivent (EP_TOLE_REELLE = 8 aujourd hui).
+- **Tole de 8 en 42CrMo4** (flancs, platines de butee imbriquees dans les chutes des flancs) : 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C. C est elle qui porte toute la marge du flanc. Les cartouches et la colonne brut l abregent en "tole 8 mm, cert. 3.1, Re >= 430".
+- **Tole de 8 en S355JR** (pieds, crochets, plaques de traverse, plateaux du poussoir) : S355JR, tole 8 mm du commerce : certificat 2.2 EN 10204, sans autre exigence ; abregee en "tole 8 mm, cert. 2.2". Ces pieces travaillent a quelques dizaines de MPa au plus (traverse 8 MPa en flexion et 26 au matage).
+- **Epaisseurs reelles** : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe. Chaque decoupe suit la tole qu elle RECOIT : EP_TOLE_REELLE_S355 (8 aujourd hui) pour les encoches a mi-bois et la mortaise de traverse du flanc et les fentes de calage du pied ; EP_TOLE_REELLE_42 (8) pour les encoches et nodes du pied et les rainures des patins.
 - **Entretoises** : E235+C EN 10305-1, tube de precision 20 x 4,5 ; 9 coupees a 60 +0,1/0 et 2 a 71,5 +/-0,2, faces dressees // 0,05 : ce sont elles qui fixent l ecart des flancs.
 
 ## Pieces fabriquees
 
 | rep | designation | qte | matiere | brut | masse u. | masse tot. | operations |
 |---|---|---|---|---|---|---|---|
-| 01 | Flanc en treillis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 10.21 kg | 20.41 kg | decoupe laser, aretes cassees 0,8 x 45 deg, bossages non repris ; encoches a mi-bois et mortaise taillees sur la tole REELLE : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe ; graduation de charge gravee (calque GRAVURE) d un seul cote de la lumiere, face gravee montee a l exterieur |
-| 03 | Plaque de traverse | 6 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.26 kg | 1.54 kg | DXF = brut : chant du bas + 1 (65 / 39) ; chants du bas FRAISES EN PAQUET serre, paquet aligne sur les faces HAUTES des tenons, a la cote finie 64 / 38, Ra 1,6 : c est le plan de glissement |
-| 02b | Plateau de poussoir | 3 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.32 kg | 0.97 kg | 3 plateaux perces : alesage 25,4 traversant ; 2 trous de passage 8,3 decoupes au laser a +/- 35, goupilles 8 m6 x 30 libres, serrees dans le patin de charge qui fait fond |
+| 01 | Flanc en treillis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 10.21 kg | 20.41 kg | decoupe laser, aretes cassees 0,8 x 45 deg, bossages non repris ; encoches a mi-bois et mortaise taillees sur la tole REELLE S355 des pieces qu elles recoivent : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe ; graduation de charge gravee (calque GRAVURE) d un seul cote de la lumiere, face gravee montee a l exterieur |
+| 03 | Plaque de traverse | 6 | S355JR | tole 8 mm, cert. 2.2 | 0.26 kg | 1.54 kg | DXF = brut : chant du bas + 1 (65 / 39) ; chants du bas FRAISES EN PAQUET serre, paquet aligne sur les faces HAUTES des tenons, a la cote finie 64 / 38, Ra 1,6 : c est le plan de glissement |
+| 02b | Plateau de poussoir | 3 | S355JR | tole 8 mm, cert. 2.2 | 0.32 kg | 0.97 kg | 3 plateaux perces : alesage 25,4 traversant ; 2 trous de passage 8,3 decoupes au laser a +/- 35, goupilles 8 m6 x 30 libres, serrees dans le patin de charge qui fait fond |
 | 02a | Coulisseau a tete inclinee | 1 | S355JR | plat 65 x 40, L 120 (fini 58 x 36,2 x 114) | 1.45 kg | 1.45 kg | dessus a 12 degres sur toute la section ; alesage 25,4 prof. 20 par dessous ; 4 taraudages M8 prof. 16 dans les faces laterales (avant-trou 6,8 prof. 19), axe a 12 du dessous, x = +/- 44 |
 | 06a | Tourillon de centrage | 1 | C45+C | rond etire 25 h9 x 76 | 0.29 kg | 0.29 kg | rond etire h9 NON repris : tronconne, chanfrein 1,5 x 45 deg aux deux bouts ; flottant, centre la pile et enfile le poussoir et le coulisseau |
 | 02c | Coin de commande | 1 | C45 | plat 65 x 45, L 120 (fini 61 x 40 x 114,5) | 1.37 kg | 1.37 kg | acier taraude M16 sur 80 depuis le bout EPAIS, passage 18 au dela ; porte les deux plaques de frottement du commerce entre rebords de 3 : dessus 7,05, dessous 8,15 (faces normales a la pente) |
-| 07 | Platine de butee de la vis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.45 kg | 0.90 kg | meme tole que les flancs, empilees et serrees par les deux vis H M10 x 200 de la chape |
+| 07 | Platine de butee de la vis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.45 kg | 0.90 kg | meme tole 42CrMo4 que les flancs (imbriquees dans leurs chutes), empilees et serrees par les deux vis H M10 x 200 de la chape |
 | 07b | Entretoise de butee | 2 | E235+C EN 10305-1 | tube de precision 20 x 4,5 | 0.12 kg | 0.25 kg | coupee a 71,5 +/-0,2, faces dressees ; en compression pure : c est elle qui porte l effort de commande |
 | 04a | Patin d'appui rainure | 4 | S355JR | tole 10 mm | 0.13 kg | 0.52 kg | decoupe laser PUIS rainure 9,5 x 1,5 fraisee sur toute la longueur de la face d appui (0,75 de jeu par cote sur la tole reelle du flanc) ; colle en place, cadre monte, sous 0,5 kN de precharge ; un jeu par eprouvette |
 | 04b | Patin de charge | 1 | S355JR | tole 10 mm | 0.77 kg | 0.77 kg | DXF = 2 avant-trous 6 a +/- 35, PERCES ET ALESES 8 H7 apres decoupe (goupilles 8 m6 serrees) ; colle en place en meme temps que les patins d appui ; un par eprouvette |
 | 06b | Entretoise tubulaire | 9 | E235+C EN 10305-1 | tube de precision 20 x 4,5 | 0.10 kg | 0.93 kg | coupee a 60 +0,1/0, faces dressees // 0,05 : c est elle qui fixe l ecart des flancs ; 7 serrees par vis TH M10 x 100 + ecrou ISO 7042 classe 8, autofreine tout metal, les 2 de la chape par les vis H M10 x 200 |
-| 05 | Pied a mi-bois | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.87 kg | 3.48 kg | ajoure, bossages aux deux bouts qui posent sur les crochets d etuve, fente de calage 8,4 x 7 a 5 du bout ; encoches, nodes et fente taillees sur la tole REELLE : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe ; meme plaque pour les deux positions : 2 dans le chant bas (couche), 2 aux coins de l about a 38 degres (debout), aretes de pose a 447 |
-| 05c | Crochet d etuve | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.17 kg | 0.69 kg | cadre DEBOUT : pend par 4 langues a bec dans la colonne de trous carres de 10 (paroi 1), dans le plan des flancs ; l arete du pied en V pose sur son appui, calee par la dent dans la fente du pied. Le fond de l etuve ne porte rien ; dent a 47,2 de la paroi pour une etuve de 538 |
+| 05 | Pied a mi-bois | 4 | S355JR | tole 8 mm, cert. 2.2 | 0.87 kg | 3.48 kg | ajoure, bossages aux deux bouts qui posent sur les crochets d etuve, fente de calage 8,4 x 7 a 5 du bout ; encoches et nodes taillees sur la tole REELLE du flanc (42CrMo4), fente sur celle du crochet (S355) : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe ; meme plaque pour les deux positions : 2 dans le chant bas (couche), 2 aux coins de l about a 38 degres (debout), aretes de pose a 447 |
+| 05c | Crochet d etuve | 4 | S355JR | tole 8 mm, cert. 2.2 | 0.17 kg | 0.69 kg | cadre DEBOUT : pend par 4 langues a bec dans la colonne de trous carres de 10 (paroi 1), dans le plan des flancs ; l arete du pied en V pose sur son appui, calee par la dent dans la fente du pied. Le fond de l etuve ne porte rien ; dent a 47,2 de la paroi pour une etuve de 538 |
 
 ## Pieces du commerce
 
@@ -63,7 +64,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du 05/10/2026 ; la liste tenue a jour par `export_dxf.py` est `out/dxf/LISTE.txt`.
 
 - **Calques** : DECOUPE = contour a couper ; GRAVURE = marquage laser, sans traverser, sur la face superieure de decoupe (graduation de charge du flanc, d un seul cote de la lumiere : face gravee montee a l exterieur) ; TEXTE = identification, ni coupe ni marquage.
-- **Tole reelle** : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe.
+- **Toles reelles** : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe. Le texte de chaque DXF cite l epaisseur pour laquelle ses fentes et encoches ont ete taillees.
 - **Brut de decoupe** : le DXF de la traverse porte 1 mm de surepaisseur sur le chant du bas (fraise ensuite en paquet), celui du patin de charge des avant-trous de 6 (perces et aleses 8 H7 ensuite).
 - **Groupes** : `tole_<ep>mm_<nuance>.dxf` reprend tous les exemplaires d une epaisseur et d une nuance, ranges en etageres de 3000 mm de large au plus. C est un controle de quantites, pas une imbrication : le decoupeur imbrique sur son format. Les pieces en attente sont dans un groupe a part, suffixe `_EN_ATTENTE`.
 - Les pieces du commerce n ont pas de DXF.
@@ -71,13 +72,16 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | fichier | epaisseur | matiere | nombre | statut |
 |---|---|---|---|---|
 | flanc.dxf | 8 mm | 42CrMo4 +A | 2 | a decouper |
-| traverse.dxf | 8 mm | 42CrMo4 +A | 6 | a decouper ; DXF = brut, reprise apres decoupe |
-| poussoir.dxf | 8 mm | 42CrMo4 +A | 3 | a decouper |
+| traverse.dxf | 8 mm | S355JR | 6 | a decouper ; DXF = brut, reprise apres decoupe |
+| poussoir.dxf | 8 mm | S355JR | 3 | a decouper |
 | support.dxf | 8 mm | 42CrMo4 +A | 2 | a decouper |
 | patin_appui.dxf | 10 mm | S355JR | 4 | a decouper |
 | patin_charge.dxf | 10 mm | S355JR | 1 | a decouper ; DXF = brut, reprise apres decoupe |
-| pied.dxf | 8 mm | 42CrMo4 +A | 4 | a decouper |
-| crochet.dxf | 8 mm | 42CrMo4 +A | 4 | a decouper |
+| pied.dxf | 8 mm | S355JR | 4 | a decouper |
+| crochet.dxf | 8 mm | S355JR | 4 | a decouper |
+| tole_8mm_42crmo4.dxf | 8 mm | 42CrMo4 +A | 4 | groupe : flanc, support |
+| tole_8mm_s355.dxf | 8 mm | S355JR | 17 | groupe : traverse, poussoir, pied, crochet |
+| tole_10mm_s355.dxf | 10 mm | S355JR | 5 | groupe : patin_appui, patin_charge |
 
 ## Reglages et constantes d'essai
 

@@ -1613,7 +1613,7 @@ TEXTE
 40
 8.000000
 1
-PIED  ep8  42CrMo4 +A  x4
+PIED  ep8  S355JR  x4
 0
 TEXT
 8
@@ -1627,7 +1627,7 @@ TEXTE
 40
 5.000000
 1
-brut : tole 8 mm, cert. 3.1, Re >= 430
+brut : tole 8 mm, cert. 2.2
 0
 TEXT
 8
@@ -1641,7 +1641,7 @@ TEXTE
 40
 5.000000
 1
-ind. B du 05/10/2026  -  fentes et encoches taillees pour une tole reelle de 8,00 mm
+ind. B du 05/10/2026  -  encoches et nodes taillees pour la tole 42CrMo4 reelle de 8,00 mm (flanc), fentes pour la tole S355JR reelle de 8,00 mm (crochet)
 0
 TEXT
 8

@@ -24,8 +24,10 @@ autre nuance y etaient restees a cote des bonnes), puis ecrit :
 
 Calques : DECOUPE = contour a couper ; GRAVURE = marquage laser, ne pas couper ;
 TEXTE = indications, ni coupe ni marquage. Chaque fichier porte l'indice de
-revision et la date d'edition de params, et l'epaisseur de tole reelle pour
-laquelle fentes et encoches ont ete taillees.
+revision et la date d'edition de params et, pour les pieces des deux toles de
+8 (42CrMo4 : flancs, platines ; S355JR : pieds, crochets, traverse, poussoir),
+l'epaisseur REELLE de la tole pour laquelle ses fentes, encoches et mortaises
+ont ete taillees : celle de la tole qu'elles RECOIVENT (voir tole_reelle).
 """
 
 import os
@@ -57,15 +59,48 @@ def edition():
     return "ind. %s du %s" % (p.INDICE_REVISION, p.DATE_EDITION)
 
 
-def tole_reelle():
-    return ("fentes et encoches taillees pour une tole reelle de %s mm"
-            % ("%.2f" % p.EP_TOLE_REELLE).replace(".", ","))
+def mm(v):
+    return ("%.2f" % v).replace(".", ",")
+
+
+def ep_reelle(matiere):
+    """Epaisseur reelle de la tole de 8 d'ou sort une piece de cette matiere."""
+    return p.EP_TOLE_REELLE_42 if matiere == p.MATIERE_TOLE else p.EP_TOLE_REELLE_S355
+
+
+def toles_reelles():
+    """Les deux toles de 8, telles que mesurees (LISTE.txt)."""
+    return ("toles reelles : %s %s mm (EP_TOLE_REELLE_42), %s %s mm (EP_TOLE_REELLE_S355)"
+            % (p.NUANCE_TOLE, mm(p.EP_TOLE_REELLE_42), p.NUANCE_TOLE_COURANTE,
+               mm(p.EP_TOLE_REELLE_S355)))
+
+
+def tole_reelle(nom, matiere):
+    """
+    Texte du DXF d'une piece des toles de 8. Chaque fente, encoche ou mortaise
+    suit l'epaisseur de la tole qu'elle RECOIT : le flanc (42CrMo4) recoit les
+    pieds et le paquet de traverse (S355) ; le pied (S355) recoit le flanc
+    (42CrMo4) dans ses encoches et la dent du crochet (S355) dans ses fentes.
+    Les autres pieces n'ont pas de fente : leur propre tole regle celles qui
+    les recoivent.
+    """
+    if nom == "flanc":
+        return ("encoches et mortaise taillees pour la tole %s reelle de %s mm (pieds, traverse)"
+                % (p.NUANCE_TOLE_COURANTE, mm(p.EP_TOLE_REELLE_S355)))
+    if nom == "pied":
+        return ("encoches et nodes taillees pour la tole %s reelle de %s mm (flanc),"
+                " fentes pour la tole %s reelle de %s mm (crochet)"
+                % (p.NUANCE_TOLE, mm(p.EP_TOLE_REELLE_42), p.NUANCE_TOLE_COURANTE,
+                   mm(p.EP_TOLE_REELLE_S355)))
+    return ("tole %s reelle prise a %s mm (fentes ou serrages qui recoivent cette piece)"
+            % (matiere.split()[0], mm(ep_reelle(matiere))))
 
 
 def de_la_tole(ep, matiere):
-    """Piece dans la tole des flancs : ses fentes et encoches (ou celles qui la
-    recoivent) suivent EP_TOLE_REELLE. Les patins de 10 n'en dependent pas."""
-    return ep == p.EP_FLANC and matiere == getattr(p, "MATIERE_TOLE", matiere)
+    """Piece de l'une des deux toles de 8 : ses fentes et encoches (ou celles
+    qui la recoivent) suivent EP_TOLE_REELLE_42 ou EP_TOLE_REELLE_S355. Les
+    patins de 10 n'en dependent pas."""
+    return ep == p.EP_FLANC and matiere in (p.MATIERE_TOLE, p.MATIERE_TOLE_COURANTE)
 
 
 # Pieces dont le DXF n'est PAS la piece finie (PartSpec.dxf_profile) : ce que
@@ -144,8 +179,8 @@ def ecrire_piece(it):
     x0, z0, x1, z1 = G.bbox(it["outer"])
     lignes = [(8.0, "%s  ep%g  %s  x%d" % (it["nom"].upper(), it["ep"], it["mat"], it["qte"])),
               (5.0, "brut : %s" % it["brut"]),
-              (5.0, "%s  -  %s" % (edition(), tole_reelle()) if de_la_tole(it["ep"], it["mat"])
-               else edition())]
+              (5.0, "%s  -  %s" % (edition(), tole_reelle(it["nom"], it["mat"]))
+               if de_la_tole(it["ep"], it["mat"]) else edition())]
     if it["reprise"]:
         lignes.append((5.0, it["reprise"]))
     lignes.append((4.0, LEGENDE))
@@ -216,7 +251,11 @@ def ecrire_groupe(nom_fichier, items, alerte=""):
                % (it0["ep"], it0["mat"], sum(i["qte"] for i in items), edition())),
               (5.0, "brut : %s" % " / ".join(bruts))]
     if de_la_tole(it0["ep"], it0["mat"]):
-        entete.append((5.0, "%s : %s" % (tole_reelle(), p.NOTE_TOLE_REELLE)))
+        entete.append((5.0, "tole %s reelle prise a %s mm : %s"
+                       % (it0["mat"].split()[0], mm(ep_reelle(it0["mat"])), p.NOTE_TOLE_REELLE)))
+        for it in items:
+            if it["nom"] in ("flanc", "pied"):
+                entete.append((5.0, "%s : %s" % (it["nom"], tole_reelle(it["nom"], it["mat"]))))
     entete += [(5.0, "rangement en etageres de %g mm au plus, pas une imbrication :"
                     " le decoupeur imbrique sur son format" % LARGEUR_GROUPE),
               (4.0, LEGENDE)]
@@ -269,7 +308,10 @@ def main():
 
     with open(os.path.join(OUT, LISTE), "w", newline="\r\n") as fh:
         fh.write("DXF de decoupe, %s\n" % edition())
-        fh.write("%s : %s\n" % (tole_reelle(), p.NOTE_TOLE_REELLE))
+        fh.write("%s : %s\n" % (toles_reelles(), p.NOTE_TOLE_REELLE))
+        fh.write("Fentes, encoches et mortaises : chacune suit la tole qu elle RECOIT (flanc : tole"
+                 " %s ; pied : %s pour les encoches et nodes, %s pour les fentes).\n"
+                 % (p.NUANCE_TOLE_COURANTE, p.NUANCE_TOLE, p.NUANCE_TOLE_COURANTE))
         fh.write("%s\n" % LEGENDE)
         achetees = [s.name for s in P.all_parts() if getattr(s, "achete", False)]
         fh.write("Pieces du commerce, sans DXF : %s.\n\n" % ", ".join(achetees))

@@ -80,7 +80,7 @@ face inferieure.
 | grandeur | valeur |
 |---|---|
 | Patins d'appui | 90 x 20 x 10, S355JR, colles en place |
-| Rainure de guidage | 9.5 x 1.5, fraisee apres decoupe, jeu 0.75 par cote sur la tole reelle |
+| Rainure de guidage | 9.5 x 1.5, fraisee apres decoupe, jeu 0.75 par cote sur la tole reelle du flanc (EP_TOLE_REELLE_42) |
 | Bossage | R150, relief 3.5, largeur totale 66.6 |
 | Pression de Hertz a 12 kN | 339 MPa sur 6.4 mm portants (flanc de 8 moins ses deux aretes cassees de 0.8) |
 | Limite au contact a 150 degres C | 480 MPa, 1,6 Re a chaud du corps le plus mou (le patin S355JR) ; coefficient 1.42 |
@@ -171,7 +171,7 @@ Un balayage du rayon de R10 a R26 (fem_balayage.py, 16/09/2026, sur le flanc de
 l'epoque) donne 151 a 160 MPa sans tendance : c'est du bruit de maillage,
 le rayon n'est pas le levier.
 
-NUANCE ET EPAISSEUR. Le cadre est en tole de 8 mm 42CrMo4, etat recuit +A
+NUANCE ET EPAISSEUR. Le flanc est en tole de 8 mm 42CrMo4, etat recuit +A
 (Re 430, 390 a 150 C). L'EN 10083-3 ne garantit a l'etat +A qu'une durete
 maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
@@ -180,6 +180,19 @@ Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 et 35.3 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
+
+DEUX TOLES DE 8 (decision du 05/10/2026). Seul le flanc a besoin du 42CrMo4 :
+
+| piece | nuance | pourquoi |
+|---|---|---|
+| Flanc | 42CrMo4 +A, tole 8 mm, cert. 3.1, Re >= 430 | 213 MPa a l'EF : toute la marge du cadre |
+| Platine de butee | 42CrMo4 +A, tole 8 mm, cert. 3.1, Re >= 430 | 130 MPa : en S355JR elle n'aurait plus que 2.3 a 150 C, sous le seuil de 2,5 de `verifie()` ; imbriquee dans les chutes de la tole des flancs |
+| Plaques de traverse | S355JR, tole 8 mm, cert. 2.2 | 8 MPa en flexion, 26 au matage ; chant fraise frottant sur la plaque bronze-graphite, acceptable a 8 MPa et a cette vitesse |
+| Crochets, pieds, plateaux du poussoir | S355JR, tole 8 mm, cert. 2.2 | une quinzaine de MPa au crochet, quelques MPa ailleurs |
+
+Les deux toles se mesurent SEPAREMENT (EP_TOLE_REELLE_42, EP_TOLE_REELLE_S355) :
+chaque fente, encoche ou mortaise suit la tole qu'elle RECOIT (voir le
+paragraphe des points ouverts).
 
 ## 7. Tete de charge
 
@@ -380,7 +393,8 @@ et les epaulements de la traverse gardent 0.4 de jeu selon y (0.2 de chaque
 cote) : la traverse n'est jamais pincee.
 
 Boulonnerie M10 du cadre, toutes longueurs controlees par `verifie()` sur la
-tole reelle (EP_TOLE_REELLE) : l'ecrou doit tomber sur le filet avec 2.5 de
+tole reelle (EP_TOLE_REELLE_42 au travers des flancs et des platines, paquet de
+traverse a TRAVERSE_LX_REEL en S355) : l'ecrou doit tomber sur le filet avec 2.5 de
 marge et le bout depasser de 3 pour que le freinage soit en prise.
 
 | boulonnerie | serrage | ecrou | depassement | marge de filet |
@@ -451,9 +465,11 @@ Masses du modele 3D (out/masses.json, construit le 05/10/2026).
 
 - **Hauteur d'etuve 1400, a confirmer.** La largeur 538 est confirmee : elle
   place la dent du crochet a 47.2 de la paroi ; pied et crochet sont a decouper.
-- **Epaisseur reelle de la tole** : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe (EP_TOLE_REELLE = 8 pour une
-  tole nominale de 8). Encoches, nodes, fentes, mortaise et rainures des
-  patins en derivent ; le 3D et le calcul restent a la cote nominale.
+- **Epaisseurs reelles des deux toles** : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe (EP_TOLE_REELLE_42 = 8 et
+  EP_TOLE_REELLE_S355 = 8 pour des toles nominales de 8). Chaque decoupe suit
+  la tole qu'elle RECOIT : S355 pour les encoches et la mortaise du flanc et
+  les fentes de calage du pied ; 42CrMo4 pour les encoches et nodes du pied et
+  les rainures des patins. Le 3D et le calcul restent a la cote nominale.
 - **Calage de la poutrelle debout** : rien ne la retient selon x, devenu
   vertical, que le frottement aux appuis. Point ouvert, assume : voir
   `DEBOUT.md`, paragraphe 6.

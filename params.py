@@ -32,18 +32,27 @@ PLAT_R = 0.0              # angles vifs : plat du commerce scie a longueur
 
 # ============================================================ cadre
 
-EP_FLANC = 8.0            # epaisseur NOMINALE de tole : 8 en 42CrMo4 (voir RE_TOLE) ; repli 10 en S355
-# EPAISSEUR REELLE DE LA TOLE LIVREE. Une tole de 8 du commerce sort avec une
-# tolerance de l ordre de -0,5 / +1,2 (EN 10029 classe A, a confirmer avec le
-# fournisseur) : des fentes calculees sur 8,00 juste n accepteraient plus une
-# tole de 8,5. Toutes les largeurs DECOUPEES qui recoivent une autre tole --
-# encoches a mi-bois du flanc et du pied, nodes, fente de calage du pied,
-# mortaise de traverse -- et la rainure des patins derivent de EP_TOLE_REELLE.
-# Le modele 3D, les masses et le calcul EF restent a la cote NOMINALE. Avec la
-# valeur par defaut, la geometrie est identique au micron.
-EP_TOLE_REELLE = EP_FLANC
-NOTE_TOLE_REELLE = ("mesurer la tole livree, regler EP_TOLE_REELLE et regenerer"
-                    " les DXF avant decoupe")
+EP_FLANC = 8.0            # epaisseur NOMINALE des deux toles de 8 (42CrMo4 et S355JR, voir NUANCES) ; repli 10 en S355
+# EPAISSEURS REELLES DES DEUX TOLES LIVREES. Les pieces de 8 sortent de DEUX
+# toles (voir NUANCES DES TOLES) : 42CrMo4 pour les flancs et les platines de
+# butee, S355JR pour les pieds, les crochets, les plaques de traverse et les
+# plateaux du poussoir. Une tole de 8 du commerce sort avec une tolerance de
+# l ordre de -0,5 / +1,2 (EN 10029 classe A, a confirmer avec le fournisseur) :
+# des fentes calculees sur 8,00 juste n accepteraient plus une tole de 8,5. Les
+# deux toles se MESURENT SEPAREMENT, et toute largeur DECOUPEE qui recoit une
+# autre tole suit l epaisseur de la tole qu elle RECOIT :
+#   EP_TOLE_REELLE_S355 : encoches a mi-bois du flanc (chant bas et coins :
+#     elles recoivent un pied), mortaise de traverse (TRAVERSE_LX_REEL), fente
+#     de calage du pied (elle recoit la dent du crochet) ;
+#   EP_TOLE_REELLE_42 : encoches a mi-bois et nodes du pied (ils recoivent un
+#     flanc), rainure des patins d appui (bossage du flanc), serrages de
+#     boulonnerie a travers les flancs et les platines.
+# Le modele 3D, les masses et le calcul EF restent a la cote NOMINALE. Avec les
+# valeurs par defaut, la geometrie est identique au micron.
+EP_TOLE_REELLE_42 = EP_FLANC      # tole 42CrMo4 MESUREE : flancs, platines de butee
+EP_TOLE_REELLE_S355 = EP_FLANC    # tole S355JR MESUREE : pieds, crochets, traverse, poussoir
+NOTE_TOLE_REELLE = ("mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et"
+                    " EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe")
 ECART_FLANCS = 60.0       # distance interieure entre les deux flancs
 # ETUVE. Les 500 etaient une valeur avec marge ; des pieds de 518,4 (crochets
 # a 500 d entraxe) imposent au moins 530. Largeur de 538 confirmee le 05/10/2026.
@@ -132,9 +141,10 @@ PATIN_L = 90.0            # longueur (x)
 PATIN_E = 10.0
 PATIN_R = 3.0             # angles du patin d appui, en plan
 # Rainure de guidage, fraisee apres decoupe. Elle suit la tole REELLE du
-# bossage qu elle recoit : 9,5 avec la tole de 8, 11,5 en repli sur du 10.
+# bossage qu elle recoit, celle du flanc (42CrMo4) : 9,5 avec la tole de 8,
+# 11,5 en repli sur du 10.
 RAINURE_JEU = 0.75        # jeu par cote du bossage dans la rainure
-RAINURE_B = EP_TOLE_REELLE + 2.0 * RAINURE_JEU     # 9,5
+RAINURE_B = EP_TOLE_REELLE_42 + 2.0 * RAINURE_JEU     # 9,5
 RAINURE_P = 1.5           # profondeur ; LE CONTACT A LIEU AU FOND DE LA RAINURE
 
 PATIN_CHARGE_L = 100.0
@@ -490,7 +500,7 @@ SUPPORT_TIRANT_D = 10.0   # vis H M10 x 200 ISO 4014, filetees sur 32, tete derr
 TRAVERSE_EP = EP_FLANC
 TRAVERSE_N = 6            # 6 x 8 = 48, plus large que le coin et son jeu de fente
 TRAVERSE_LX = TRAVERSE_N * TRAVERSE_EP              # 48 selon x, plus large que le coin
-TRAVERSE_LX_REEL = TRAVERSE_N * EP_TOLE_REELLE      # le paquet tel qu il sera livre : la mortaise en derive
+TRAVERSE_LX_REEL = TRAVERSE_N * EP_TOLE_REELLE_S355     # le paquet tel qu il sera livre (tole S355) : la mortaise du flanc en derive
 TRAVERSE_B = ECART_FLANCS
 TRAVERSE_JEU = 0.4        # jeu du tenon dans la mortaise, en HAUTEUR
 # Selon y, les epaulements de la plaque laissent TRAVERSE_JEU_Y / 2 de chaque
@@ -500,7 +510,7 @@ TRAVERSE_JEU_Y = 0.4
 # En largeur, le tenon est un EMPILAGE de TRAVERSE_N toles : la tolerance
 # d'epaisseur de tole (EN 10029) s'y ajoute six fois. C'est pourquoi la
 # mortaise est taillee sur TRAVERSE_LX_REEL, donc sur la tole MESUREE
-# (EP_TOLE_REELLE), et non sur la cote nominale.
+# des plaques (EP_TOLE_REELLE_S355), et non sur la cote nominale.
 # Le jeu en largeur vaut exactement DEUX FOIS le rayon de conge : l'arete
 # superieure droite fait alors tout juste la largeur du paquet de tenons, qui
 # porte sur toute sa largeur sans deborder sur un conge.
@@ -581,7 +591,7 @@ SUPPORT_ECROU_M10_H = 8.4         # ecrou H ISO 4032 M10
 # 150 C comme les ISO 7042 des autres vis M10. Deux H plutot que H + HM : c'est
 # le premier qui porte la precharge, et un HM ISO 4035 est un ecrou faible.
 SUPPORT_ECROUS_M10_N = 2
-SUPPORT_EMPILEMENT = (2 * EP_TOLE_REELLE + ECART_FLANCS + SUPPORT_TUBE_L + SUPPORT_N * EP_TOLE_REELLE
+SUPPORT_EMPILEMENT = (2 * EP_TOLE_REELLE_42 + ECART_FLANCS + SUPPORT_TUBE_L + SUPPORT_N * EP_TOLE_REELLE_42
                       + SUPPORT_RONDELLE_E * (1 + SUPPORT_RONDELLES_ECROU))   # sous tete, ecrou exclu
 VIS_Y0 = COIN_Y0 + COIN_COURSE - 1.0                # bout de la tige filetee :
 # il s'arrete a 1 mm du bout epais du coin quand celui-ci est en fin de course.
@@ -668,16 +678,19 @@ FLANC_ENCOCHES = True     # False : flanc sans encoches de pied, pour la referen
 PIED_E = EP_FLANC
 # Largeur du pied DERIVEE de l entraxe des colonnes de trous de l etuve, ou
 # pendent les crochets (05/10/2026 : 500), avec PIED_FENTE_BORD_INIT de matiere
-# au dela de chaque fente (fente = tole + 2 x 0,2) : 518,4 pour une tole de 8.
+# au dela de chaque fente (fente = tole S355 du crochet + 2 x 0,2) : 518,4
+# pour une tole de 8.
 PIED_FENTE_ENTRAXE = 500.0     # entraxe des fentes = entraxe des crochets = colonnes de trous
 PIED_FENTE_BORD_INIT = 5.0     # matiere entre la fente et le bout du pied : peu, mais impose
-PIED_Y = PIED_FENTE_ENTRAXE + (EP_TOLE_REELLE + 2 * 0.2) + 2 * PIED_FENTE_BORD_INIT   # largeur : les deux bouts posent sur les crochets d etuve
+PIED_Y = PIED_FENTE_ENTRAXE + (EP_TOLE_REELLE_S355 + 2 * 0.2) + 2 * PIED_FENTE_BORD_INIT   # largeur : les deux bouts posent sur les crochets d etuve
 PIED_CROIX = 20.0         # encoche du PIED : ce qu il embrasse du flanc
 PIED_CROIX_FLANC = 8.0    # encoche du FLANC : juste de quoi le situer en x ; la membrure garde 32 de ses 40
 PIED_SOL = 30.0           # du fond d encoche du pied au sol
 PIED_H = PIED_SOL + PIED_CROIX + PIED_CROIX_FLANC   # 58 : le pied depasse le fond d encoche du flanc de PIED_CROIX
 PIED_JEU = 0.4            # jeu total dans chaque encoche
-ENCOCHE_PIED_B = EP_TOLE_REELLE + PIED_JEU          # 8,4 : largeur decoupee des encoches a mi-bois, flanc et pied
+# Largeurs decoupees des encoches a mi-bois : chacune suit la tole qu elle RECOIT.
+ENCOCHE_FLANC_B = EP_TOLE_REELLE_S355 + PIED_JEU    # 8,4 : encoches du FLANC (chant bas, coins), recoivent un pied S355
+ENCOCHE_PIED_B = EP_TOLE_REELLE_42 + PIED_JEU       # 8,4 : encoches du PIED, recoivent un flanc 42CrMo4
 PIED_X_POS = 250.0        # plan des pieds couches, entre deux ajours, hors du champ de contrainte des appuis
 # PIEDS DEBOUT : les memes plaques, emboitees aux QUATRE COINS du flanc, dans
 # une encoche inclinee de PIED_DEBOUT_ANGLE sur le grand cote. Le conge R_COIN
@@ -741,7 +754,7 @@ Y_ETUVE_LIBRE = ETUVE_Y / 2.0 - ETUVE_GARDE    # ce que le banc peut occuper sel
 DEGAGEMENT_DOUILLE = Y_ETUVE_LIBRE - Y_BOUT_VIS
 PIED_COIN_R = 2.0         # rayon des angles du bout du pied
 PIED_FENTE_JEU = 0.2      # jeu par cote de la dent du crochet dans la fente
-PIED_FENTE_B = EP_TOLE_REELLE + 2.0 * PIED_FENTE_JEU    # 8,4 : la dent, de l epaisseur du crochet, y passe
+PIED_FENTE_B = EP_TOLE_REELLE_S355 + 2.0 * PIED_FENTE_JEU    # 8,4 : la dent du crochet (tole S355) y passe
 PIED_FENTE_H = 7.0        # assez pour la dent meme sur le pied debout, incline de PIED_DEBOUT_ANGLE
 # La dent PORTE le pied : le fond de la fente pose dessus. Comme le pied en V
 # est incline, le fond de sa fente l est aussi : le dessus de la dent est coupe
@@ -759,8 +772,8 @@ MASSE_TOTALE_ESTIMEE = 70.0   # kg, cadre et poutrelle, pour les crochets
 CROCHET_Z_PAROI = H_FLANC / 2.0 - ETUVE_INTERIEUR / 2.0   # paroi face au coin bas, cadre couche ; l autre par symetrie
 PIED_R = 1.5              # degagements de fond d encoche (3 traits, poche de 2.1 mm)
 # NODES : sur chaque joue d encoche du pied, une bosse de PIED_NODE_L de long qui
-# ramene le passage de ENCOCHE_PIED_B (8,4) a EP_TOLE_REELLE - 2 x
-# PIED_NODE_SERRE (7,8) : le flanc y entre avec PIED_NODE_SERRE de SERRAGE par
+# ramene le passage de ENCOCHE_PIED_B (8,4) a EP_TOLE_REELLE_42 - 2 x
+# PIED_NODE_SERRE (7,8) : le flanc (42CrMo4) y entre avec PIED_NODE_SERRE de SERRAGE par
 # cote et l assemblage ne prend plus de jeu ; le reste de la joue garde
 # PIED_JEU. C est la pratique courante des assemblages laser a tenons.
 PIED_NODE_L = 8.0
@@ -780,7 +793,19 @@ CHANFREIN = 0.8
 # ============================================================ matiere
 
 RHO_ACIER = 7850.0
-# NUANCE DE LA TOLE. Le cadre est passe de 10 mm S355 a 8 mm 42CrMo4 (environ
+# NUANCES DES TOLES DE 8 (decision du 05/10/2026) : DEUX toles.
+# - 42CrMo4 +A (MATIERE_TOLE, BRUT_TOLE) : FLANCS et PLATINES DE BUTEE ; les
+#   platines s imbriquent dans les chutes de la tole des flancs.
+# - S355JR (MATIERE_TOLE_COURANTE, BRUT_TOLE_COURANTE), tole de 8 du commerce,
+#   certificat 2.2 : PIEDS, CROCHETS, PLAQUES DE TRAVERSE, PLATEAUX DU POUSSOIR.
+# Seul le flanc (213 MPa a l EF) a besoin du 42CrMo4. La platine (130 MPa)
+# garderait en S355 un coefficient de 2,3 a 150 C, sous le seuil de 2,5 de
+# verifie() : elle reste en 42CrMo4. La traverse travaille a 8 MPa en flexion
+# et 26 en matage, les crochets a environ 15 MPa, les pieds et le poussoir a
+# quelques MPa : le S355 suffit largement. Les plaques de traverse en S355
+# frottent sur la plaque bronze-graphite par leur chant fraise : acceptable a
+# environ 8 MPa et a cette vitesse.
+# TOLE 42CrMo4. Le cadre est passe de 10 mm S355 a 8 mm 42CrMo4 (environ
 # 9 kg de moins). Limite elastique retenue : etat RECUIT (+A), le plus mou que
 # puisse livrer un fournisseur ; a l'etat +QT elle depasse 650. Or l'EN 10083-3
 # ne garantit a l'etat +A qu'une durete maximale, pas de Re : toute la marge du
@@ -795,8 +820,16 @@ MATIERE_TOLE = "%s +A" % NUANCE_TOLE
 BRUT_TOLE = "tole %g mm, cert. 3.1, Re >= %.0f" % (EP_FLANC, RE_TOLE)     # tient dans une case de cartouche
 EXIGENCE_TOLE = ("%s recuit +A, tole %g mm : certificat 3.1 EN 10204 avec essai de"
                  " traction, Re >= %.0f MPa a 20 C" % (NUANCE_TOLE, EP_FLANC, RE_TOLE))
-RE_S355 = 355.0           # coulisseau, patins, pieces en plat
+RE_S355 = 355.0           # coulisseau, patins, tole courante
 RE_S355_CHAUD = 300.0     # limite elastique a 150 degres C
+# TOLE COURANTE S355JR : pieds, crochets, plaques de traverse, plateaux du poussoir.
+NUANCE_TOLE_COURANTE = "S355JR"
+MATIERE_TOLE_COURANTE = NUANCE_TOLE_COURANTE
+RE_TOLE_COURANTE = RE_S355
+RE_TOLE_COURANTE_CHAUD = RE_S355_CHAUD
+BRUT_TOLE_COURANTE = "tole %g mm, cert. 2.2" % EP_FLANC      # tient dans une case de cartouche
+EXIGENCE_TOLE_COURANTE = ("%s, tole %g mm du commerce : certificat 2.2 EN 10204"
+                          % (NUANCE_TOLE_COURANTE, EP_FLANC))
 # Contact bossage / fond de rainure : la limite est celle du plus mou des deux
 # corps, le patin en S355 (1,6 Re a chaud = 480 MPa), et non celle de la tole.
 HERTZ_LIM = 1.6 * min(RE_S355_CHAUD, RE_TOLE_CHAUD)
@@ -903,7 +936,7 @@ def pied_debout_coins():
     a = math.radians(PIED_DEBOUT_ANGLE)
     d = (math.cos(a), -math.sin(a))          # direction de l encoche, vers la matiere
     n = (math.sin(a), math.cos(a))           # normale, cote chant haut
-    w2 = ENCOCHE_PIED_B / 2.0
+    w2 = ENCOCHE_FLANC_B / 2.0               # encoche du flanc : recoit le pied
     t = PIED_DEBOUT_PROF
     x0, z0 = -L_FLANC / 2.0, H_FLANC
     ca = (x0 + d[0] * t + n[0] * w2, z0 + d[1] * t + n[1] * w2)
@@ -1114,11 +1147,13 @@ def boulonnerie():
     Renvoie une liste de dict : nom, longueur L, serrage (rondelles comprises,
     sous tete ou entre ecrous), hauteur d'ecrou, depassement au dela de
     l'ecrou, marge de filet (None pour une tige entierement filetee).
-    Les epaisseurs de tole sont prises a EP_TOLE_REELLE.
+    Les epaisseurs de tole sont prises a la tole REELLE de chaque piece :
+    EP_TOLE_REELLE_42 pour les flancs et les platines, TRAVERSE_LX_REEL (tole
+    S355) pour le paquet de traverse.
     """
     out = []
     # vis de cadre : rondelle, flanc, tube, flanc, rondelle
-    s = 2.0 * EP_TOLE_REELLE + ENTRETOISE_L + 2.0 * RONDELLE_M10_E
+    s = 2.0 * EP_TOLE_REELLE_42 + ENTRETOISE_L + 2.0 * RONDELLE_M10_E
     out.append(dict(nom="vis de cadre TH M10 x %.0f" % ENTR_VIS_L, L=ENTR_VIS_L,
                     serrage=s, ecrou=ECROU_FREIN_H,
                     depassement=ENTR_VIS_L - s - ECROU_FREIN_H,
@@ -1376,9 +1411,9 @@ def verifie():
         pb.append("pied trop bas sous l encoche")
     if abs(PIED_H - PIED_SOL - PIED_CROIX - PIED_CROIX_FLANC) > 1e-6:
         pb.append("le pied doit depasser le fond d encoche du flanc d une profondeur d encoche, sinon rien ne porte")
-    if AJOUR_BASSE and PIED_X_POS - ENCOCHE_PIED_B / 2.0 - 10.0 < AJOUR_BASSE_MARGE + AJOUR_BASSE_R + 10.0:
+    if AJOUR_BASSE and PIED_X_POS - ENCOCHE_FLANC_B / 2.0 - 10.0 < AJOUR_BASSE_MARGE + AJOUR_BASSE_R + 10.0:
         pb.append("encoche de pied couche trop pres d un ajour de membrure basse")
-    if PIED_X_POS + ENCOCHE_PIED_B / 2.0 + 10.0 > X_APPUI - 20.0:
+    if PIED_X_POS + ENCOCHE_FLANC_B / 2.0 + 10.0 > X_APPUI - 20.0:
         pb.append("encoche de pied couche trop pres de l appui")
     if PIED_BOSSAGE_Y + PIED_BOSSAGE_B / 2.0 > PIED_Y / 2.0 + 1e-6:
         pb.append("bossage de pied hors de la plaque")
@@ -1386,9 +1421,11 @@ def verifie():
     # rester des fentes
     if not 0.0 < PIED_NODE_SERRE < PIED_JEU:
         pb.append("nodes de pied : serrage %.2f hors de ]0, PIED_JEU[" % PIED_NODE_SERRE)
-    if abs(EP_TOLE_REELLE - EP_FLANC) > 1.5:
-        pb.append("EP_TOLE_REELLE = %.2f pour une tole nominale de %g : ce n est pas la"
-                  " meme tole, revoir EP_FLANC" % (EP_TOLE_REELLE, EP_FLANC))
+    for nom_ep, ep_r in (("EP_TOLE_REELLE_42", EP_TOLE_REELLE_42),
+                         ("EP_TOLE_REELLE_S355", EP_TOLE_REELLE_S355)):
+        if abs(ep_r - EP_FLANC) > 1.5:
+            pb.append("%s = %.2f pour une tole nominale de %g : ce n est pas la"
+                      " meme tole, revoir EP_FLANC" % (nom_ep, ep_r, EP_FLANC))
     if PIED_AJOUR:
         wc = Y_FLANC - ENCOCHE_PIED_B / 2.0 - PIED_AJOUR_POST
         y_ext0 = Y_FLANC + ENCOCHE_PIED_B / 2.0 + PIED_AJOUR_POST
@@ -1433,11 +1470,11 @@ def verifie():
     f_bec = f_pied * bras / (CROCHET_H - CROCHET_LANGUE_H / 2.0)   # langue haute tiree, bas du corps contre la paroi
     if (f_pied / CROCHET_N_LANGUES + f_bec) / (CROCHET_E * ETUVE_PAROI_E) > 120.0:
         pb.append("bord du trou de paroi a %.0f MPa sous la langue haute" % ((f_pied / CROCHET_N_LANGUES + f_bec) / (CROCHET_E * ETUVE_PAROI_E)))
-    if f_pied * bras / (CROCHET_E * CROCHET_BANDE ** 2 / 6.0) > 0.3 * RE_TOLE:
+    if f_pied * bras / (CROCHET_E * CROCHET_BANDE ** 2 / 6.0) > 0.3 * RE_TOLE_COURANTE:   # crochet en S355
         pb.append("appui de crochet trop charge")
     # pieds debout : aux quatre coins, inclines
     ang = math.radians(PIED_DEBOUT_ANGLE)
-    w2 = ENCOCHE_PIED_B / 2.0
+    w2 = ENCOCHE_FLANC_B / 2.0               # encoche de coin du flanc
     bouche = w2 * max(math.tan(ang), 1.0 / math.tan(ang))     # ou la joue la plus longue sort du chant
     if PIED_DEBOUT_PROF - bouche < (PIED_CROIX + PIED_NODE_L) / 2.0 + 2.0:
         pb.append("encoche de coin trop courte : les nodes du pied ne portent pas sur le flanc")
@@ -1604,12 +1641,13 @@ def verifie():
                   % (TRAVERSE_JEU_Y / 2.0))
     if abs(ENTRETOISE_L - ECART_FLANCS) > 1e-9:
         pb.append("les entretoises de %.1f ne font pas l'ecart des flancs" % ENTRETOISE_L)
-    # tenons et plaques : portee reelle, aretes cassees et degagements deduits
-    if matage_tenon() > 0.5 * RE_TOLE:
+    # tenons et plaques : portee reelle, aretes cassees et degagements deduits.
+    # Plaques en S355 (tole courante), le plus mou des deux au matage.
+    if matage_tenon() > 0.5 * RE_TOLE_COURANTE:
         pb.append("matage du tenon sur l'arete de mortaise : %.0f MPa" % matage_tenon())
-    if flexion_tenon()[0] > 0.4 * RE_TOLE:
+    if flexion_tenon()[0] > 0.4 * RE_TOLE_COURANTE:
         pb.append("racine de tenon a %.0f MPa en flexion" % flexion_tenon()[0])
-    if flexion_traverse()[0] > 0.4 * RE_TOLE:
+    if flexion_traverse()[0] > 0.4 * RE_TOLE_COURANTE:
         pb.append("plaques de traverse a %.0f MPa en flexion" % flexion_traverse()[0])
     if TRAVERSE_SUREP < 0.3 or TRAVERSE_SUREP > 2.0:
         pb.append("surepaisseur de fraisage de la traverse de %.1f : hors 0,3 - 2" % TRAVERSE_SUREP)
@@ -1636,7 +1674,7 @@ def verifie():
         pb.append("tourillon trop court pour tenir dans les deux alesages")
 
     # appui : rainure du patin et contact de Hertz
-    j_rain = (RAINURE_B - EP_TOLE_REELLE) / 2.0
+    j_rain = (RAINURE_B - EP_TOLE_REELLE_42) / 2.0
     if not 0.5 <= j_rain <= 1.0:
         pb.append("jeu de rainure du patin de %.2f par cote, hors 0,5 - 1,0" % j_rain)
     if (PATIN_B - RAINURE_B) / 2.0 < 4.0:
@@ -1723,7 +1761,7 @@ if __name__ == "__main__":
     print("   largeur du bossage        %.1f mm sous un patin de %.0f"
           % (largeur_bossage(), PATIN_L))
     print("   rainure du patin          %.1f x %.1f, jeu %.2f par cote"
-          % (RAINURE_B, RAINURE_P, (RAINURE_B - EP_TOLE_REELLE) / 2.0))
+          % (RAINURE_B, RAINURE_P, (RAINURE_B - EP_TOLE_REELLE_42) / 2.0))
 
     print("\nCommande :")
     print("   bronze sur traverse       %.1f mm nets, %.1f MPa ; sur coulisseau %.1f MPa"

@@ -262,13 +262,20 @@ def main():
     out.append("")
 
     out.append("## Exigences de commande\n")
-    out.append("- **Tole de %g en %s** (flancs, traverse, poussoir, platines, pieds, crochets) :"
-               " %s. C est elle qui porte toute la marge du flanc. Les cartouches et la colonne"
-               " brut l abregent en \"%s\"."
+    out.append("- **Tole de %g en %s** (flancs, platines de butee imbriquees dans les chutes des"
+               " flancs) : %s. C est elle qui porte toute la marge du flanc. Les cartouches et la"
+               " colonne brut l abregent en \"%s\"."
                % (p.EP_FLANC, p.NUANCE_TOLE, p.EXIGENCE_TOLE, p.BRUT_TOLE))
-    out.append("- **Epaisseur reelle** : %s. Encoches a mi-bois, nodes, fentes de calage, mortaise"
-               " de traverse et rainures des patins en derivent (EP_TOLE_REELLE = %g aujourd hui)."
-               % (p.NOTE_TOLE_REELLE, p.EP_TOLE_REELLE))
+    out.append("- **Tole de %g en %s** (pieds, crochets, plaques de traverse, plateaux du poussoir) :"
+               " %s, sans autre exigence ; abregee en \"%s\". Ces pieces travaillent a quelques"
+               " dizaines de MPa au plus (traverse %.0f MPa en flexion et %.0f au matage)."
+               % (p.EP_FLANC, p.NUANCE_TOLE_COURANTE, p.EXIGENCE_TOLE_COURANTE, p.BRUT_TOLE_COURANTE,
+                  p.flexion_traverse()[0], p.matage_tenon()))
+    out.append("- **Epaisseurs reelles** : %s. Chaque decoupe suit la tole qu elle RECOIT :"
+               " EP_TOLE_REELLE_S355 (%g aujourd hui) pour les encoches a mi-bois et la mortaise"
+               " de traverse du flanc et les fentes de calage du pied ; EP_TOLE_REELLE_42 (%g) pour"
+               " les encoches et nodes du pied et les rainures des patins."
+               % (p.NOTE_TOLE_REELLE, p.EP_TOLE_REELLE_S355, p.EP_TOLE_REELLE_42))
     out.append("- **Entretoises** : %s, %s ; %d coupees a %g %s et %d a %s %s, faces dressees //"
                " 0,05 : ce sont elles qui fixent l ecart des flancs."
                % (p.ENTRETOISE_MATIERE, p.ENTRETOISE_BRUT, P.n_entretoises(), p.ENTRETOISE_L,
@@ -328,7 +335,8 @@ def main():
                " sur la face superieure de decoupe (graduation de charge du flanc, d un seul cote"
                " de la lumiere : face gravee montee a l exterieur) ; TEXTE = identification, ni"
                " coupe ni marquage.")
-    out.append("- **Tole reelle** : %s." % p.NOTE_TOLE_REELLE)
+    out.append("- **Toles reelles** : %s. Le texte de chaque DXF cite l epaisseur pour laquelle"
+               " ses fentes et encoches ont ete taillees." % p.NOTE_TOLE_REELLE)
     out.append("- **Brut de decoupe** : le DXF de la traverse porte %s mm de surepaisseur sur le chant"
                " du bas (fraise ensuite en paquet), celui du patin de charge des avant-trous de %s"
                " (perces et aleses %g H7 ensuite)."
@@ -349,6 +357,18 @@ def main():
                 statut += " ; DXF = brut, reprise apres decoupe"
             out.append("| %s.dxf | %g mm | %s | %d | %s |"
                        % (s.name, s.thickness, s.material, s.qty, statut))
+    # un groupe par epaisseur ET par nuance, comme export_dxf
+    groupes = []
+    for s in specs:
+        if s.flat and not s.achete:
+            cle = (s.thickness, s.material)
+            if cle not in [g[0] for g in groupes]:
+                groupes.append((cle, []))
+            [g for g in groupes if g[0] == cle][0][1].append(s)
+    for (ep, mat), lst in sorted(groupes, key=lambda g: (g[0][0], g[0][1])):
+        fichier = "tole_%gmm_%s.dxf" % (ep, mat.split()[0].lower().replace("jr", ""))
+        out.append("| %s | %g mm | %s | %d | groupe : %s |"
+                   % (fichier, ep, mat, sum(s.qty for s in lst), ", ".join(s.name for s in lst)))
     out.append("")
 
     out.append("## Reglages et constantes d'essai\n")

@@ -72,14 +72,25 @@ def main():
         # un PDF ouvert dans une visionneuse est verrouille : Edge n'y ecrit
         # pas, sans toujours le dire. On juge sur la date du fichier.
         if c == 0 and (not os.path.isfile(pdf) or os.path.getmtime(pdf) < os.path.getmtime(html)):
-            print("!! %s n'a pas ete reecrit (ouvert ailleurs ?) : le fermer et relancer" % pdf)
-            c = 1
+            # verrouille par un lecteur : on ecrit le PDF a cote, au nom de
+            # l'indice, plutot que de laisser un PDF perime sans en avoir d'autre
+            import params as _p
+            secours = os.path.join(HERE, "out", "plans", "plans_indice%s.pdf" % _p.INDICE_REVISION)
+            c = etape("PDF des planches, a cote (plans.pdf est ouvert)", [edge] + outils.options_navigateur()
+                      + ["--no-pdf-header-footer", "--print-to-pdf=" + secours, html])
+            if c == 0 and os.path.isfile(secours) and os.path.getmtime(secours) >= os.path.getmtime(html):
+                print("!! %s est ouvert ailleurs et n'a pas ete reecrit : PDF a jour dans %s"
+                      % (pdf, os.path.basename(secours)))
+            else:
+                print("!! PDF des planches non regenere (%s ouvert ?)" % pdf)
+                c = 1
         codes.append(c)
     else:
         print("\n!! aucun navigateur Chromium (Edge, Chrome, Chromium) : PDF des planches NON regenere ; voir outils.py")
         codes.append(1)
     codes.append(etape("visionneuse 3D", [sys.executable, "viewer3d.py"]))
     codes.append(etape("nomenclature", [sys.executable, "nomenclature.py"]))
+    codes.append(etape("nomenclature Excel", [sys.executable, "nomenclature_xlsx.py"]))
     codes.append(etape("specification", [sys.executable, "spec.py"]))
     codes.append(etape("controle d interference", [FREECAD, "verif_interference.py"],
                        attendus=(" 0 interference(s) reelle(s)", " 0 rompu(s)")))

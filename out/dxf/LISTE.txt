@@ -1,16 +1,18 @@
 DXF de decoupe, ind. B du 05/10/2026
-fentes et encoches taillees pour une tole reelle de 8,00 mm : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe
+toles reelles : 42CrMo4 8,00 mm (EP_TOLE_REELLE_42), S355JR 8,00 mm (EP_TOLE_REELLE_S355) : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe
+Fentes, encoches et mortaises : chacune suit la tole qu elle RECOIT (flanc : tole S355JR ; pied : 42CrMo4 pour les encoches et nodes, S355JR pour les fentes).
 calques : DECOUPE = couper ; GRAVURE = marquer sans couper ; TEXTE = ni couper ni marquer
 Pieces du commerce, sans DXF : guide, plaquette_haute, plaquette_basse, vis, plat_renfort, pile_belleville.
 
 fichier                               ep  matiere       qte  statut
 flanc.dxf                              8  42CrMo4 +A      2  a decouper
-traverse.dxf                           8  42CrMo4 +A      6  a decouper (brut, reprise)
-poussoir.dxf                           8  42CrMo4 +A      3  a decouper
+traverse.dxf                           8  S355JR          6  a decouper (brut, reprise)
+poussoir.dxf                           8  S355JR          3  a decouper
 support.dxf                            8  42CrMo4 +A      2  a decouper
 patin_appui.dxf                       10  S355JR          4  a decouper
 patin_charge.dxf                      10  S355JR          1  a decouper (brut, reprise)
-pied.dxf                               8  42CrMo4 +A      4  a decouper
-crochet.dxf                            8  42CrMo4 +A      4  a decouper
-tole_8mm_42crmo4.dxf                   8  42CrMo4 +A     21  groupe a decouper : flanc, traverse, poussoir, support, pied, crochet ; 2 etagere(s), 2966 x 545
+pied.dxf                               8  S355JR          4  a decouper
+crochet.dxf                            8  S355JR          4  a decouper
+tole_8mm_42crmo4.dxf                   8  42CrMo4 +A      4  groupe a decouper : flanc, support ; 1 etagere(s), 2275 x 440
+tole_8mm_s355.dxf                      8  S355JR         17  groupe a decouper : traverse, poussoir, pied, crochet ; 2 etagere(s), 2611 x 224
 tole_10mm_s355.dxf                    10  S355JR          5  groupe a decouper : patin_appui, patin_charge ; 1 etagere(s), 560 x 100

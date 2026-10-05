@@ -100,9 +100,10 @@ def coin_encoche(c, p0, ua, ub):
     (vecteur unitaire du chant d arrivee, oriente en s eloignant du coin) et
     repart le long de ub. Chaque joue sort sur son chant la ou elle le coupe,
     le fond est a PIED_DEBOUT_PROF du coin vif le long de l encoche, ses angles
-    degages. Largeur ENCOCHE_PIED_B : la tole reelle du pied plus PIED_JEU.
+    degages. Largeur ENCOCHE_FLANC_B : la tole reelle du pied (S355,
+    EP_TOLE_REELLE_S355) plus PIED_JEU.
     """
-    w2 = p.ENCOCHE_PIED_B / 2.0
+    w2 = p.ENCOCHE_FLANC_B / 2.0
     ang = math.radians(p.PIED_DEBOUT_ANGLE)
     # direction de l encoche : composante cos sur le chant long (celui des deux
     # qui est selon x), sin sur le chant court, toutes deux vers la matiere
@@ -140,7 +141,7 @@ def flanc_contour():
     """
     L2 = p.L_FLANC / 2.0
     H = p.H_FLANC
-    w2 = p.ENCOCHE_PIED_B / 2.0
+    w2 = p.ENCOCHE_FLANC_B / 2.0       # encoche du flanc : tole REELLE du pied (S355) + PIED_JEU
     d = p.PIED_CROIX_FLANC
     c = G.Contour("flanc contour")
 
@@ -590,7 +591,7 @@ def pied_profile():
     a porter 40 kg.
     """
     y2 = p.PIED_Y / 2.0
-    w2 = p.ENCOCHE_PIED_B / 2.0        # encoche : tole REELLE du flanc + PIED_JEU
+    w2 = p.ENCOCHE_PIED_B / 2.0        # encoche : tole REELLE du flanc (42CrMo4) + PIED_JEU
     h = p.PIED_H                       # le pied monte de PIED_CROIX au dessus du fond d encoche du flanc
     hb = p.PIED_BOSSAGE_H
     bb = p.PIED_BOSSAGE_B
@@ -617,8 +618,9 @@ def pied_profile():
     # chaque encoche : joue a PIED_JEU, puis un NODE de PIED_NODE_L qui serre le
     # flanc de PIED_NODE_SERRE par cote, centre dans la profondeur, puis le fond
     # degage. Rampes a 45 degres de part et d autre du node. Le passage au node
-    # vaut EP_TOLE_REELLE - 2 x PIED_NODE_SERRE (7,8 sur une tole de 8).
-    wn = p.EP_TOLE_REELLE / 2.0 - p.PIED_NODE_SERRE
+    # vaut EP_TOLE_REELLE_42 - 2 x PIED_NODE_SERRE (7,8 sur une tole de 8) : il
+    # recoit le flanc, en 42CrMo4.
+    wn = p.EP_TOLE_REELLE_42 / 2.0 - p.PIED_NODE_SERRE
     zb = h - p.PIED_CROIX
     z1 = zb + (p.PIED_CROIX - p.PIED_NODE_L) / 2.0      # bas du node
     z2 = z1 + p.PIED_NODE_L                              # haut du node
@@ -918,15 +920,16 @@ def all_parts():
         text_at=(0.0, p.H_FLANC / 2.0 - 60.0),
         instances=[dict(t=(0, 0, 0)), dict(t=(0, 0, 0), mirror_y=True)],
         note="decoupe laser, aretes cassees %s x 45 deg, bossages non repris ; encoches a mi-bois"
-             " et mortaise taillees sur la tole REELLE : %s ; graduation de charge gravee"
+             " et mortaise taillees sur la tole REELLE S355 des pieces qu elles recoivent : %s ;"
+             " graduation de charge gravee"
              " (calque GRAVURE) d un seul cote de la lumiere, face gravee montee a l exterieur"
              % (fr(p.CHANFREIN), p.NOTE_TOLE_REELLE)))
 
     hf = p.TRAVERSE_H
     hs = p.Z_TAB0 - p.Z_TRAVERSE_BAS
     parts.append(PartSpec(
-        "traverse", "Plaque de traverse", p.TRAVERSE_N, p.MATIERE_TOLE,
-        p.BRUT_TOLE, p.TRAVERSE_EP, traverse_profile, 'yz',
+        "traverse", "Plaque de traverse", p.TRAVERSE_N, p.MATIERE_TOLE_COURANTE,
+        p.BRUT_TOLE_COURANTE, p.TRAVERSE_EP, traverse_profile, 'yz',
         (-p.TRAVERSE_LX / 2.0, 0.0, 0.0), flat=True,
         text_at=(0.0, p.Z_TRAVERSE_BAS + 18.0),
         instances=[dict(t=(i * p.TRAVERSE_EP, 0, 0)) for i in range(p.TRAVERSE_N)],
@@ -938,8 +941,8 @@ def all_parts():
                 fr(hf), fr(hs))))
 
     parts.append(PartSpec(
-        "poussoir", "Plateau de poussoir", p.POUSSOIR_N, p.MATIERE_TOLE,
-        p.BRUT_TOLE, p.POUSSOIR_EP, poussoir_profile, 'xy',
+        "poussoir", "Plateau de poussoir", p.POUSSOIR_N, p.MATIERE_TOLE_COURANTE,
+        p.BRUT_TOLE_COURANTE, p.POUSSOIR_EP, poussoir_profile, 'xy',
         (0.0, 0.0, p.Z_POUSSOIR_BAS), flat=True,
         instances=[dict(t=(0, 0, i * p.POUSSOIR_EP)) for i in range(p.POUSSOIR_N)],
         note="%d plateaux perces : alesage %s traversant ; 2 trous de passage %s decoupes au laser"
@@ -1021,7 +1024,7 @@ def all_parts():
         (0.0, p.COIN_Y_SUPPORT, 0.0), flat=True,
         text_at=(p.SUPPORT_X / 2.0, p.Z_VIS + p.SUPPORT_B / 4.0),
         instances=[dict(t=(0, i * p.SUPPORT_EP, 0)) for i in range(p.SUPPORT_N)],
-        note="meme tole que les flancs, empilees et serrees par les deux vis H M10 x %g de la chape"
+        note="meme tole 42CrMo4 que les flancs (imbriquees dans leurs chutes), empilees et serrees par les deux vis H M10 x %g de la chape"
              % p.SUPPORT_TIRANT_L))
 
     parts.append(PartSpec(
@@ -1087,7 +1090,7 @@ def all_parts():
     rx, rz = r * math.cos(ang), r * math.sin(ang)
     alerte = "" if p.ETUVE_CONFIRMEE else p.ALERTE_ETUVE
     parts.append(PartSpec(
-        "pied", "Pied a mi-bois", 4, p.MATIERE_TOLE, p.BRUT_TOLE, p.PIED_E,
+        "pied", "Pied a mi-bois", 4, p.MATIERE_TOLE_COURANTE, p.BRUT_TOLE_COURANTE, p.PIED_E,
         pied_profile, 'yz', (-p.PIED_E / 2.0, 0.0, -p.PIED_SOL),
         dxf_avertissement=alerte,
         instances=[dict(t=(-p.PIED_X_POS, 0, 0)), dict(t=(p.PIED_X_POS, 0, 0)),
@@ -1097,7 +1100,8 @@ def all_parts():
                         t=(-p.L_FLANC / 2.0 + rx, 0, p.H_FLANC - rz))],
         text_at=(0.0, p.PIED_H / 2.0),
         note=("ajoure, bossages aux deux bouts qui posent sur les crochets d etuve, fente de calage"
-              " %s x %s a %s du bout ; encoches, nodes et fente taillees sur la tole REELLE : %s ;"
+              " %s x %s a %s du bout ; encoches et nodes taillees sur la tole REELLE du flanc"
+              " (42CrMo4), fente sur celle du crochet (S355) : %s ;"
               % (fr(p.PIED_FENTE_B), fr(p.PIED_FENTE_H), fr(p.PIED_FENTE_BORD), p.NOTE_TOLE_REELLE))
              + " meme plaque pour les deux positions : 2 dans le chant bas (couche), 2 aux coins"
                " de l about a %.0f degres (debout), aretes de pose a %.0f"
@@ -1114,7 +1118,7 @@ def all_parts():
     x0 = xf - p.CROCHET_Z_APPUI - p.CROCHET_DENT_H
     zw = p.CROCHET_Z_PAROI
     parts.append(PartSpec(
-        "crochet", "Crochet d etuve", 4, p.MATIERE_TOLE, p.BRUT_TOLE, p.CROCHET_E,
+        "crochet", "Crochet d etuve", 4, p.MATIERE_TOLE_COURANTE, p.BRUT_TOLE_COURANTE, p.CROCHET_E,
         crochet_profile, 'zx', (0.0, -p.CROCHET_E / 2.0, 0.0),
         dxf_avertissement=alerte,
         instances=[dict(t=(x0, -p.PIED_FENTE_Y, zw)), dict(t=(x0, p.PIED_FENTE_Y, zw)),

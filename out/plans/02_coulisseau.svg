@@ -13,7 +13,7 @@
 <text x="397.500" y="261.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">05/10/2026</text>
 <text x="349.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="4.00" fill="#000" text-anchor="start" font-weight="normal">rep. 02</text>
 <text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
-<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">S355JR / 42CrMo4 +A / C45</text>
+<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">S355JR / S355JR / C45</text>
 <text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
 <text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">voir sous les titres</text>
 <text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
@@ -236,7 +236,7 @@
 <path d="M 349.587 167.489 L 349.415 170.183 L 350.840 169.881 Z" fill="#000"/>
 <text x="349.334" y="174.508" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">3</text>
 <text x="80.000" y="180.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">02b  PLATEAU DE POUSSOIR, 3 empiles  (1:1)</text>
-<text x="80.000" y="184.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">42CrMo4 +A, 3 ex., brut tole 8 mm, cert. 3.1, Re &gt;= 430</text>
+<text x="80.000" y="184.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">S355JR, 3 ex., brut tole 8 mm, cert. 2.2</text>
 <path d="M 30.000 197.000 L 30.000 247.000 A 4.000 4.000 0 0 0 34.000 251.000 L 126.000 251.000 A 4.000 4.000 0 0 0 130.000 247.000 L 130.000 197.000 A 4.000 4.000 0 0 0 126.000 193.000 L 34.000 193.000 A 4.000 4.000 0 0 0 30.000 197.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 92.700 222.000 A 12.700 12.700 0 0 0 67.300 222.000 A 12.700 12.700 0 0 0 92.700 222.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 49.150 222.000 A 4.150 4.150 0 0 0 40.850 222.000 A 4.150 4.150 0 0 0 49.150 222.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>

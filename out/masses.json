@@ -17,8 +17,8 @@
    "volume_cm3": 32.64,
    "masse_kg": 0.256,
    "masse_totale_kg": 1.538,
-   "matiere": "42CrMo4 +A",
-   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+   "matiere": "S355JR",
+   "brut": "tole 8 mm, cert. 2.2"
   },
   {
    "nom": "poussoir",
@@ -27,8 +27,8 @@
    "volume_cm3": 41.09,
    "masse_kg": 0.323,
    "masse_totale_kg": 0.968,
-   "matiere": "42CrMo4 +A",
-   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+   "matiere": "S355JR",
+   "brut": "tole 8 mm, cert. 2.2"
   },
   {
    "nom": "coulisseau",
@@ -167,8 +167,8 @@
    "volume_cm3": 110.87,
    "masse_kg": 0.87,
    "masse_totale_kg": 3.481,
-   "matiere": "42CrMo4 +A",
-   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+   "matiere": "S355JR",
+   "brut": "tole 8 mm, cert. 2.2"
   },
   {
    "nom": "crochet",
@@ -177,8 +177,8 @@
    "volume_cm3": 22.09,
    "masse_kg": 0.173,
    "masse_totale_kg": 0.694,
-   "matiere": "42CrMo4 +A",
-   "brut": "tole 8 mm, cert. 3.1, Re >= 430"
+   "matiere": "S355JR",
+   "brut": "tole 8 mm, cert. 2.2"
   },
   {
    "nom": "pile_belleville",
@@ -206,5 +206,5 @@
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "05/10/2026",
- "empreinte": "b35b9f467678600b"
+ "empreinte": "13a31896e45c8661"
 }

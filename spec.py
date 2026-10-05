@@ -187,7 +187,7 @@ def main():
     a("| grandeur | valeur |")
     a("|---|---|")
     a("| Patins d'appui | %.0f x %.0f x %.0f, S355JR, colles en place |" % (p.PATIN_L, p.PATIN_B, p.PATIN_E))
-    a("| Rainure de guidage | %.1f x %.1f, fraisee apres decoupe, jeu %.2f par cote sur la tole reelle |"
+    a("| Rainure de guidage | %.1f x %.1f, fraisee apres decoupe, jeu %.2f par cote sur la tole reelle du flanc (EP_TOLE_REELLE_42) |"
       % (p.RAINURE_B, p.RAINURE_P, p.RAINURE_JEU))
     a("| Bossage | R%.0f, relief %.1f, largeur totale %.1f |"
       % (p.BOSSAGE_R, p.BOSSAGE_RELIEF, p.largeur_bossage()))
@@ -325,7 +325,7 @@ def main():
             a("l'epoque) donne 151 a 160 MPa sans tendance : c'est du bruit de maillage,")
             a("le rayon n'est pas le levier.")
         a("")
-        a("NUANCE ET EPAISSEUR. Le cadre est en tole de %g mm %s, etat recuit +A" % (p.EP_FLANC, p.NUANCE_TOLE))
+        a("NUANCE ET EPAISSEUR. Le flanc est en tole de %g mm %s, etat recuit +A" % (p.EP_FLANC, p.NUANCE_TOLE))
         a("(Re %.0f, %.0f a 150 C). L'EN 10083-3 ne garantit a l'etat +A qu'une durete"
           % (p.RE_TOLE, p.RE_TOLE_CHAUD))
         a("maximale, pas de limite elastique : toute la marge du flanc repose sur Re,")
@@ -339,6 +339,27 @@ def main():
             a("et environ 9 kg de moins.")
         a("Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :")
         a("EP_FLANC = 10 et tout suit.")
+        a("")
+        sig_pl_n = p.platine_contrainte()[0]
+        a("DEUX TOLES DE 8 (decision du 05/10/2026). Seul le flanc a besoin du %s :"
+          % p.NUANCE_TOLE)
+        a("")
+        a("| piece | nuance | pourquoi |")
+        a("|---|---|---|")
+        a("| Flanc | %s, %s | %.0f MPa a l'EF : toute la marge du cadre |"
+          % (p.MATIERE_TOLE, p.BRUT_TOLE, fem_vm))
+        a("| Platine de butee | %s, %s | %.0f MPa : en %s elle n'aurait plus que %.1f a 150 C, sous le seuil de 2,5 de `verifie()` ; imbriquee dans les chutes de la tole des flancs |"
+          % (p.MATIERE_TOLE, p.BRUT_TOLE, sig_pl_n, p.NUANCE_TOLE_COURANTE,
+             p.RE_TOLE_COURANTE_CHAUD / sig_pl_n))
+        a("| Plaques de traverse | %s, %s | %.0f MPa en flexion, %.0f au matage ; chant fraise frottant sur la plaque bronze-graphite, acceptable a %.0f MPa et a cette vitesse |"
+          % (p.MATIERE_TOLE_COURANTE, p.BRUT_TOLE_COURANTE, p.flexion_traverse()[0],
+             p.matage_tenon(), p.pressions_plaquettes()[0]))
+        a("| Crochets, pieds, plateaux du poussoir | %s, %s | une quinzaine de MPa au crochet, quelques MPa ailleurs |"
+          % (p.MATIERE_TOLE_COURANTE, p.BRUT_TOLE_COURANTE))
+        a("")
+        a("Les deux toles se mesurent SEPAREMENT (EP_TOLE_REELLE_42, EP_TOLE_REELLE_S355) :")
+        a("chaque fente, encoche ou mortaise suit la tole qu'elle RECOIT (voir le")
+        a("paragraphe des points ouverts).")
         a("")
 
     a("## 7. Tete de charge")
@@ -624,7 +645,8 @@ def main():
         a("cote) : la traverse n'est jamais pincee.")
     a("")
     a("Boulonnerie M10 du cadre, toutes longueurs controlees par `verifie()` sur la")
-    a("tole reelle (EP_TOLE_REELLE) : l'ecrou doit tomber sur le filet avec %g de"
+    a("tole reelle (EP_TOLE_REELLE_42 au travers des flancs et des platines, paquet de")
+    a("traverse a TRAVERSE_LX_REEL en S355) : l'ecrou doit tomber sur le filet avec %g de"
       % p.FILET_MARGE_MIN)
     a("marge et le bout depasser de %g pour que le freinage soit en prise." % p.FILET_DEPASSE_MIN)
     a("")
@@ -702,9 +724,12 @@ def main():
         a("  de la paroi) et a fixe la largeur des pieds (%g). Tant qu'elle n'est pas" % p.PIED_Y)
         a("  confirmee, les DXF du pied et du crochet portent : %s." % p.ALERTE_ETUVE)
         a("  La hauteur (%g) est aussi a confirmer." % p.ETUVE_HAUTEUR)
-    a("- **Epaisseur reelle de la tole** : %s (EP_TOLE_REELLE = %g pour une" % (p.NOTE_TOLE_REELLE, p.EP_TOLE_REELLE))
-    a("  tole nominale de %g). Encoches, nodes, fentes, mortaise et rainures des" % p.EP_FLANC)
-    a("  patins en derivent ; le 3D et le calcul restent a la cote nominale.")
+    a("- **Epaisseurs reelles des deux toles** : %s (EP_TOLE_REELLE_42 = %g et" % (p.NOTE_TOLE_REELLE, p.EP_TOLE_REELLE_42))
+    a("  EP_TOLE_REELLE_S355 = %g pour des toles nominales de %g). Chaque decoupe suit"
+      % (p.EP_TOLE_REELLE_S355, p.EP_FLANC))
+    a("  la tole qu'elle RECOIT : S355 pour les encoches et la mortaise du flanc et")
+    a("  les fentes de calage du pied ; 42CrMo4 pour les encoches et nodes du pied et")
+    a("  les rainures des patins. Le 3D et le calcul restent a la cote nominale.")
     a("- **Calage de la poutrelle debout** : rien ne la retient selon x, devenu")
     a("  vertical, que le frottement aux appuis. Point ouvert, assume : voir")
     a("  `DEBOUT.md`, paragraphe 6.")

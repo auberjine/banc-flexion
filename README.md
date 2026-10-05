@@ -3,8 +3,10 @@
 Poutrelle beton non arme 103 x 107 x 840, portee 750, capacite 12 kN, pour
 fissuration controlee en etuve avec fibre optique et correlation d'images.
 
-Cadre 960 x 440 x 76 mm (flancs), 35,2 kg, tole de 8 mm en 42CrMo4 recuit +A,
-commandee avec certificat 3.1 et Re >= 430 MPa. Tout est parametrique : une cote
+Cadre 960 x 440 x 76 mm (flancs), 35,2 kg. Flancs et platines de butee en tole
+de 8 mm 42CrMo4 recuit +A, commandee avec certificat 3.1 et Re >= 430 MPa ;
+pieds, crochets, plaques de traverse et plateaux du poussoir en tole de 8 mm
+S355JR du commerce (seul le flanc a besoin du 42CrMo4). Tout est parametrique : une cote
 se change dans `params.py`, et `make.py` refait le 3D, les DXF, les plans et la
 notice. Indice A du 02/10/2026.
 
@@ -48,16 +50,18 @@ Enchaine le controle des cotes et des ligaments de percage, le modele 3D
 FreeCAD (STEP, STL, masses, projection), les DXF, les plans et leur controle de
 lisibilite, le PDF des planches, la visionneuse, la nomenclature, la
 specification et le controle d'interference ; il termine par le nombre
-d'etapes en echec, qui doit etre 0. Il faut Python 3 avec Pillow, FreeCAD 1.0
+d'etapes en echec, qui doit etre 0. Il faut Python 3 avec Pillow et openpyxl, FreeCAD 1.0
 (`freecadcmd`) et un navigateur Chromium sans interface (Edge, Chrome ou
 Chromium) pour le PDF. `outils.py` les trouve, sous Windows comme sous Linux :
 variable d'environnement `BANC_FREECAD`, `BANC_CCX` ou `BANC_NAVIGATEUR`
 d'abord, puis l'emplacement Windows habituel, puis le PATH.
 
-Avant de lancer une decoupe : mesurer la tole livree, regler `EP_TOLE_REELLE`
-dans `params.py` et regenerer les DXF. Encoches a mi-bois, nodes, fentes de
-calage, mortaise et rainures des patins en derivent ; le 3D et le calcul restent
-a la cote nominale.
+Avant de lancer une decoupe : mesurer SEPAREMENT les deux toles livrees,
+regler `EP_TOLE_REELLE_42` (42CrMo4) et `EP_TOLE_REELLE_S355` (S355JR) dans
+`params.py` et regenerer les DXF. Chaque decoupe suit la tole qu'elle RECOIT :
+S355 pour les encoches a mi-bois et la mortaise de traverse du flanc et les
+fentes de calage du pied ; 42CrMo4 pour les encoches et nodes du pied et les
+rainures des patins. Le 3D et le calcul restent a la cote nominale.
 
 Pour refaire seulement les plans et leur PDF (make.py le fait deja) :
 
@@ -95,6 +99,7 @@ nodale, lance le solveur et depouille le `.frd`.
 | `viewer3d.py` | visionneuse 3D autonome : maillages ET three.js (`vendor/three.min.js`, r160) embarques dans `out/banc_3d.html`, qui s ouvre sans reseau |
 | `spec.py` | engendre `SPEC.md` depuis le modele |
 | `nomenclature.py` | engendre `NOMENCLATURE.md` |
+| `nomenclature_xlsx.py` | engendre `out/NOMENCLATURE.xlsx` depuis `NOMENCLATURE.md` (un onglet par tableau, montage ; masses totales en formules) |
 | `fem_flanc.py`, `fem_run.py` | calcul elements finis du flanc |
 | `fem_balayage.py` | balaye un parametre par le calcul EF (remaille, resout, restaure) ; resultat dans `out/balayage_<param>.json` |
 | | `fem_run` refuse un `.inp` deja charge, et ne charge que l arete DROITE |
@@ -174,7 +179,8 @@ crochets). `python params.py` l'execute et affiche le bilan.
 - **Le jeu en largeur de la mortaise vaut DEUX FOIS le rayon de ses conges.**
   L'arete portante droite fait alors exactement la largeur du paquet de tenons.
   Le paquet cumule six fois la tolerance d'epaisseur de tole : la mortaise est
-  taillee sur la tole mesuree (`EP_TOLE_REELLE`), pas sur la cote nominale.
+  taillee sur la tole S355 mesuree des plaques (`EP_TOLE_REELLE_S355`), pas sur
+  la cote nominale.
 - **Les coins de la mortaise sont des CONGES, pas des degagements d'angle.** Un
   os de chien ne se justifie que si la piece conjuguee doit porter dans l'angle.
   Ici le paquet a 2 mm de jeu par cote, et le degagement creusait une entaille
