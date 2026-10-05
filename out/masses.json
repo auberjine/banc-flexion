@@ -174,9 +174,9 @@
    "nom": "crochet",
    "designation": "Crochet d etuve",
    "qte": 4,
-   "volume_cm3": 21.55,
-   "masse_kg": 0.169,
-   "masse_totale_kg": 0.677,
+   "volume_cm3": 22.09,
+   "masse_kg": 0.173,
+   "masse_totale_kg": 0.694,
    "matiere": "42CrMo4 +A",
    "brut": "tole 8 mm, cert. 3.1, Re >= 430"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 57.43,
- "cadre_kg": 35.22,
+ "total_kg": 57.45,
+ "cadre_kg": 35.23,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "05/10/2026",
- "empreinte": "11d2b0fbdd2d926a"
+ "empreinte": "b82e8675503eec36"
 }

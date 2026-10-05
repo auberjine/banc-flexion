@@ -333,7 +333,7 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   aretes des deux pieds en V ; chaque pied pose par son arete basse sur deux
   appuis, a 245,8 de part et d'autre de l'axe, et la dent de chaque appui entre
   dans la fente du pied. Parois de 1 mm percees de trous carres de 10 au pas de
-  40 et 50 en alternance : chaque crochet pend par trois langues de 6 a bec
+  40 et 30 en alternance : chaque crochet pend par quatre langues de 6 a bec, la plus basse a 10 du bas du crochet,
   de 3 (tete de 9, qui passe le trou de face avant de descendre), et porte en bas un appui de 60 avec une dent
   qui entre dans une fente du pied a 5 du bout : le cadre est cale. La largeur
   interieure, 538, confirmee le 05/10/2026, place la dent sur l'appui a 47,2

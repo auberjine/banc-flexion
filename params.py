@@ -60,7 +60,7 @@ ETUVE_CONFIRMEE = True    # 538 confirmee par l utilisateur le 05/10/2026
 ALERTE_ETUVE = "NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE"
 ETUVE_PAROI_E = 1.0       # tole de paroi interieure
 ETUVE_TROU = 10.0         # trous CARRES de paroi ou s accrochent les crochets
-ETUVE_TROU_PAS = (40.0, 50.0)   # entraxes verticaux successifs des trous : 40 et 50 en alternance (bords a 30 puis 40)
+ETUVE_TROU_PAS = (40.0, 30.0)   # entraxes verticaux successifs des trous, de haut en bas : 40 et 30 en alternance (corrige le 05/10/2026, avant 40 / 50)
 # Ce que le banc peut occuper selon y, de part et d autre de son plan median.
 # La garde couvre un decentrage du cadre (pieds de 510 dans 538 : 14 mm) et
 # 5 mm de marge. Remplace les 250 ecrits en dur de l ancienne etuve de 500.
@@ -705,10 +705,10 @@ PIED_AJOUR_R = 6.0
 # des langues le retiennent ; le bas du corps s appuie sur la paroi. Pose :
 # la tete (langue + bec) passe le trou DE FACE, crochet a l horizontale, puis
 # on le laisse descendre : le bec retombe derriere la paroi. Un crochet rigide a
-# trois langues ne peut pas s incliner pour engager une tete plus haute que le
+# plusieurs langues ne peut pas s incliner pour engager une tete plus haute que le
 # trou (12,7 deg au plus entre deux langues), d ou langue 6 + bec 3 < 10.
 CROCHET_E = EP_FLANC      # 8 dans un carre de 10 : 1 de jeu par cote
-CROCHET_N_LANGUES = 3
+CROCHET_N_LANGUES = 4     # 4 trous au lieu de 3 : l effort se repartit sur une paroi de 1 sans allonger le crochet
 CROCHET_LANGUE_H = ETUVE_TROU - 4.0        # 6 : descend de 4 apres le passage de la tete
 CROCHET_BEC = 3.0         # retombee derriere la paroi : tete de 9 dans le carre de 10
 CROCHET_BEC_L = 5.0       # sa longueur, au dela de la paroi
@@ -720,8 +720,12 @@ CROCHET_BANDE = 20.0      # hauteur de l appui
 CROCHET_CORPS = 12.0      # largeur du corps le long de la paroi : la dent doit passer a cote
 CROCHET_S = 60.0          # appui, de la paroi vers l interieur
 CROCHET_LANGUE_Z = tuple(-sum(ETUVE_TROU_PAS[j % 2] for j in range(i)) for i in range(CROCHET_N_LANGUES))  # dessus des langues
-CROCHET_Z_APPUI = CROCHET_LANGUE_Z[-1] - CROCHET_LANGUE_H - 10.0   # dessus de l appui : 10 sous la langue basse
-CROCHET_H = -CROCHET_Z_APPUI + CROCHET_BANDE                        # hauteur totale
+# La langue basse descend au niveau de l appui (elle est cote paroi, l appui
+# de l autre cote du corps) : 10 au plus entre le dessous de la langue basse
+# et le bas du crochet.
+CROCHET_GARDE_BAS = 10.0
+CROCHET_H = -CROCHET_LANGUE_Z[-1] + CROCHET_LANGUE_H + CROCHET_GARDE_BAS   # hauteur totale
+CROCHET_Z_APPUI = -CROCHET_H + CROCHET_BANDE                                # dessus de l appui
 # fente de calage du pied et dent de l appui
 PIED_FENTE_BORD = 5.0     # du bout du pied a la fente
 PIED_COIN_R = 2.0         # rayon des angles du bout du pied
@@ -1413,7 +1417,7 @@ def verifie():
     # la paroi de 1 : bord du trou de la langue haute, poids et couple de l appui
     f_pied = MASSE_TOTALE_ESTIMEE / 4.0 * 9.81
     bras = CROCHET_DENT_Y
-    f_bec = f_pied * bras / (-CROCHET_LANGUE_Z[-1] + CROCHET_LANGUE_H / 2.0 + 10.0)
+    f_bec = f_pied * bras / (CROCHET_H - CROCHET_LANGUE_H / 2.0)   # langue haute tiree, bas du corps contre la paroi
     if (f_pied / CROCHET_N_LANGUES + f_bec) / (CROCHET_E * ETUVE_PAROI_E) > 120.0:
         pb.append("bord du trou de paroi a %.0f MPa sous la langue haute" % ((f_pied / CROCHET_N_LANGUES + f_bec) / (CROCHET_E * ETUVE_PAROI_E)))
     if f_pied * bras / (CROCHET_E * CROCHET_BANDE ** 2 / 6.0) > 0.3 * RE_TOLE:

@@ -429,7 +429,7 @@ Masses du modele 3D (out/masses.json, construit le 05/10/2026).
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
 | Entretoise tubulaire | 9 | 0.10 kg | 0.93 kg |
 | Pied a mi-bois | 4 | 0.86 kg | 3.45 kg |
-| Crochet d etuve | 4 | 0.17 kg | 0.68 kg |
+| Crochet d etuve | 4 | 0.17 kg | 0.69 kg |
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
