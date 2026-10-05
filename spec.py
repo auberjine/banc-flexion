@@ -234,7 +234,7 @@ def main():
     a("")
     a("Encombrement des flancs %.0f x %.0f x %.0f mm. Selon y, le banc va de %.1f"
       % (p.L_FLANC, p.H_FLANC, p.ECART_FLANCS + 2 * p.EP_FLANC, y_min))
-    a("(coin recule) a +%.0f (bout des vis de chape), soit %.1f mm ; les pieds font %.0f."
+    a("(coin recule) a +%.0f (bout des vis de chape), soit %.1f mm ; les pieds font %g."
       % (y_max, y_max - y_min, p.PIED_Y))
     a("Etuve %g x %g x %g mm (%s) : le cadre y travaille DEBOUT sur son"
       % (p.ETUVE_INTERIEUR, p.ETUVE_INTERIEUR, p.ETUVE_HAUTEUR,

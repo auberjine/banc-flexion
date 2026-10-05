@@ -45,9 +45,8 @@ EP_TOLE_REELLE = EP_FLANC
 NOTE_TOLE_REELLE = ("mesurer la tole livree, regler EP_TOLE_REELLE et regenerer"
                     " les DXF avant decoupe")
 ECART_FLANCS = 60.0       # distance interieure entre les deux flancs
-# ETUVE. Les 500 etaient une valeur avec marge ; des pieds de 510 et des
-# crochets de 8 contre les parois imposent au moins 530. A CONFIRMER sur
-# l etuve, ainsi que la tole de paroi et les trous qui recoivent les crochets.
+# ETUVE. Les 500 etaient une valeur avec marge ; des pieds de 518,4 (crochets
+# a 500 d entraxe) imposent au moins 530. Largeur de 538 confirmee le 05/10/2026.
 # verifie() passe pour ETUVE_INTERIEUR de 530 a 551 (balayage du 02/10/2026) :
 # en dessous, la douille de manoeuvre n'a plus ses 90 mm ; au dessus, la dent
 # du crochet n'a plus la place du conge R3 de l'angle de l'appui (le profil
@@ -62,8 +61,8 @@ ETUVE_PAROI_E = 1.0       # tole de paroi interieure
 ETUVE_TROU = 10.0         # trous CARRES de paroi ou s accrochent les crochets
 ETUVE_TROU_PAS = (40.0, 30.0)   # entraxes verticaux successifs des trous, de haut en bas : 40 et 30 en alternance (corrige le 05/10/2026, avant 40 / 50)
 # Ce que le banc peut occuper selon y, de part et d autre de son plan median.
-# La garde couvre un decentrage du cadre (pieds de 510 dans 538 : 14 mm) et
-# 5 mm de marge. Remplace les 250 ecrits en dur de l ancienne etuve de 500.
+# La garde couvre un decentrage du cadre (pieds de 518,4 dans 538 : 9,8 mm) et
+# 10 mm de marge. Remplace les 250 ecrits en dur de l ancienne etuve de 500.
 ETUVE_GARDE = 20.0
 Y_ETUVE_LIBRE = ETUVE_INTERIEUR / 2.0 - ETUVE_GARDE    # 250
 Y_FLANC = (ECART_FLANCS + EP_FLANC) / 2.0     # 34, plan median d'un flanc
@@ -663,7 +662,12 @@ R_FEN_NOEUD_BAS = 15.0
 # cadre est auto-reactif, le sol ne recoit que son poids.
 FLANC_ENCOCHES = True     # False : flanc sans encoches de pied, pour la reference EF seulement
 PIED_E = EP_FLANC
-PIED_Y = 510.0            # largeur : les deux bouts posent sur les crochets d etuve
+# Largeur du pied DERIVEE de l entraxe des colonnes de trous de l etuve, ou
+# pendent les crochets (05/10/2026 : 500), avec PIED_FENTE_BORD_INIT de matiere
+# au dela de chaque fente (fente = tole + 2 x 0,2) : 518,4 pour une tole de 8.
+PIED_FENTE_ENTRAXE = 500.0     # entraxe des fentes = entraxe des crochets = colonnes de trous
+PIED_FENTE_BORD_INIT = 5.0     # matiere entre la fente et le bout du pied : peu, mais impose
+PIED_Y = PIED_FENTE_ENTRAXE + (EP_TOLE_REELLE + 2 * 0.2) + 2 * PIED_FENTE_BORD_INIT   # largeur : les deux bouts posent sur les crochets d etuve
 PIED_CROIX = 20.0         # encoche du PIED : ce qu il embrasse du flanc
 PIED_CROIX_FLANC = 8.0    # encoche du FLANC : juste de quoi le situer en x ; la membrure garde 32 de ses 40
 PIED_SOL = 30.0           # du fond d encoche du pied au sol
@@ -727,7 +731,7 @@ CROCHET_GARDE_BAS = 10.0
 CROCHET_H = -CROCHET_LANGUE_Z[-1] + CROCHET_LANGUE_H + CROCHET_GARDE_BAS   # hauteur totale
 CROCHET_Z_APPUI = -CROCHET_H + CROCHET_BANDE                                # dessus de l appui
 # fente de calage du pied et dent de l appui
-PIED_FENTE_BORD = 5.0     # du bout du pied a la fente
+PIED_FENTE_BORD = PIED_FENTE_BORD_INIT     # du bout du pied a la fente
 PIED_COIN_R = 2.0         # rayon des angles du bout du pied
 PIED_FENTE_JEU = 0.2      # jeu par cote de la dent du crochet dans la fente
 PIED_FENTE_B = EP_TOLE_REELLE + 2.0 * PIED_FENTE_JEU    # 8,4 : la dent, de l epaisseur du crochet, y passe
@@ -1408,6 +1412,8 @@ def verifie():
     enc_z, enc_x = pied_debout_encombrement()
     if H_FLANC / 2.0 + enc_z > ETUVE_INTERIEUR / 2.0 - CROCHET_CORPS - 2.0:
         pb.append("le pied en V touche le corps du crochet ou la paroi")
+    if abs(2.0 * PIED_FENTE_Y - PIED_FENTE_ENTRAXE) > 1e-6:
+        pb.append("fentes du pied a %.1f d entraxe au lieu de %g" % (2.0 * PIED_FENTE_Y, PIED_FENTE_ENTRAXE))
     if PIED_FENTE_Y + PIED_E / 2.0 + 2.0 > ETUVE_INTERIEUR / 2.0:
         pb.append("les crochets, a y = +/- %.1f, sortent de l etuve" % PIED_FENTE_Y)
     if CROCHET_DENT_B / math.cos(math.radians(PIED_DEBOUT_ANGLE)) > PIED_E + 2.0 * PIED_FENTE_H * math.tan(math.radians(PIED_DEBOUT_ANGLE)) - 1.0:

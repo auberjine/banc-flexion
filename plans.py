@@ -1458,7 +1458,8 @@ def plan_pied():
     for sy in (-1.0, 1.0):                                     # axes des encoches = attaches du 68
         v.axe((sy * yf, zb - 2.0), (sy * yf, z68 + 2.0 / k1), ext=0.0)
     v.cote_hx(-yf, yf, None, None, 0.0, zl=z68)
-    v.cote_hx(-y2, y2, 0.0, 0.0, -10.0)
+    v.cote_hx(-p.PIED_FENTE_Y, p.PIED_FENTE_Y, 0.0, 0.0, -10.0, texte="%s  entraxe des fentes (crochets)" % fr(2.0 * p.PIED_FENTE_Y, 1))
+    v.cote_hx(-y2, y2, 0.0, 0.0, -18.0)
     v.cote_vx(0.0, h, y2, y2, 10.0)
     v.rayon(c6, r6, 70.0, "2 x R%s" % f(r6), 7.0)
     v.bulle((-y2, 10.0), "A", -9.0, -4.0, fin="fleche")

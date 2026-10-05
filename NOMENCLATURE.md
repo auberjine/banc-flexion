@@ -4,7 +4,7 @@ Indice B du 05/10/2026. Fichier engendre par `nomenclature.py` ; ne pas le modif
 
 Poutrelle beton non arme 103 x 107 x 840, portee 750, capacite 12 kN.
 
-Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +160 (bout des vis de chape), soit 245,5 ; pieds de 510.
+Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +160 (bout des vis de chape), soit 245,5 ; pieds de 518.4.
 
 
 ## Exigences de commande
@@ -28,7 +28,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 04a | Patin d'appui rainure | 4 | S355JR | tole 10 mm | 0.13 kg | 0.52 kg | decoupe laser PUIS rainure 9,5 x 1,5 fraisee sur toute la longueur de la face d appui (0,75 de jeu par cote sur la tole reelle du flanc) ; colle en place, cadre monte, sous 0,5 kN de precharge ; un jeu par eprouvette |
 | 04b | Patin de charge | 1 | S355JR | tole 10 mm | 0.77 kg | 0.77 kg | DXF = 2 avant-trous 6 a +/- 35, PERCES ET ALESES 8 H7 apres decoupe (goupilles 8 m6 serrees) ; colle en place en meme temps que les patins d appui ; un par eprouvette |
 | 06b | Entretoise tubulaire | 9 | E235+C EN 10305-1 | tube de precision 20 x 4,5 | 0.10 kg | 0.93 kg | coupee a 60 +0,1/0, faces dressees // 0,05 : c est elle qui fixe l ecart des flancs ; 7 serrees par vis TH M10 x 100 + ecrou ISO 7042 classe 8, autofreine tout metal, les 2 de la chape par les vis H M10 x 200 |
-| 05 | Pied a mi-bois | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.86 kg | 3.45 kg | ajoure, bossages aux deux bouts qui posent sur les crochets d etuve, fente de calage 8,4 x 7 a 5 du bout ; encoches, nodes et fente taillees sur la tole REELLE : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe ; meme plaque pour les deux positions : 2 dans le chant bas (couche), 2 aux coins de l about a 38 degres (debout), aretes de pose a 447 |
+| 05 | Pied a mi-bois | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.87 kg | 3.48 kg | ajoure, bossages aux deux bouts qui posent sur les crochets d etuve, fente de calage 8,4 x 7 a 5 du bout ; encoches, nodes et fente taillees sur la tole REELLE : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe ; meme plaque pour les deux positions : 2 dans le chant bas (couche), 2 aux coins de l about a 38 degres (debout), aretes de pose a 447 |
 | 05c | Crochet d etuve | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.17 kg | 0.69 kg | cadre DEBOUT : pend par 4 langues a bec dans la colonne de trous carres de 10 (paroi 1), dans le plan des flancs ; l arete du pied en V pose sur son appui, calee par la dent dans la fente du pied. Le fond de l etuve ne porte rien ; dent a 47,2 de la paroi pour une etuve de 538 |
 
 ## Pieces du commerce
@@ -42,7 +42,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
 | 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles DIN 2093 A50 | 51CrV4 | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 
-**Masse du cadre complet : 35.2 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 05/10/2026).
+**Masse du cadre complet : 35.3 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 05/10/2026).
 
 ## Visserie et petites pieces du commerce
 

@@ -8,7 +8,7 @@ deux pieds en V, poses sur quatre crochets pendus aux parois.
 |---|---|---|---|
 | verticale | 960 ; 969,5 avec les pieds en V | 1400 | 430 mm en tout, partages entre dessus et dessous selon la hauteur des crochets |
 | axe des 440 mm du cadre | 440 ; 447 entre les aretes de pose des pieds en V | 538 | 49 mm de chaque cote du cadre, ou se logent les pieds en V et les crochets |
-| epaisseur du cadre | 76 aux flancs ; 245,5 avec le coin et la chape (y -85,5 a +160) ; pieds de 510 | 538 | 231 mm de chaque cote des flancs ; 14 aux bouts des pieds |
+| epaisseur du cadre | 76 aux flancs ; 245,5 avec le coin et la chape (y -85,5 a +160) ; pieds de 518,4 | 538 | 231 mm de chaque cote des flancs ; 9,8 aux bouts des pieds |
 
 Toute la place est dans la direction de l'EPAISSEUR du cadre. La commande doit
 donc y arriver, en traversant les flancs.
@@ -105,8 +105,8 @@ bas d'un filet acier sur acier monte a la pate cuivre (0,08 : 5,3 degres,
 marge x2,1).
 
 Le bout de la tige sort a y 155. Dans l'etuve de 538, cadre centre, il reste
-114 mm jusqu'a la paroi ; 94 si le cadre est decentre au pire (les pieds de 510
-laissent 14 mm de chaque cote, plus 5 de marge). Une douille de 24 et un
+114 mm jusqu'a la paroi ; 94 en comptant 20 de garde (les pieds de 518,4
+ne laissent que 9,8 mm de chaque cote : la garde est large). Une douille de 24 et un
 cliquet y passent. Une douille SEULEMENT : les vis de chape depassent de leur
 ecrou jusqu'a y 160, a 52 mm de l'axe de la tige et dans son plan ; une cle
 plate posee sur la tete de manoeuvre bute dessus deux fois par tour.
@@ -313,7 +313,7 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
 - **Socle : les memes pieds a mi-bois que couche, aux coins, inclines.**
   Chaque coin du flanc porte une encoche inclinee de 38 degres sur le grand
   cote (le conge R20 a disparu, l'encoche le remplace), profonde de 28 depuis
-  le coin vif ; les deux pieds de l'about font un V, larges de 510, et posent
+  le coin vif ; les deux pieds de l'about font un V, larges de 518,4 (fentes a 500 d'entraxe, 5 de bord), et posent
   par leur arete basse, 9,5 mm sous l'about, sur les appuis des crochets qui
   les calent par leurs dents : c'est la, et non a la largeur de la base (447
   entre aretes), que le cadre tient debout. Pourquoi 38 et non 45 : a 45, avec
@@ -339,7 +339,7 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   interieure, 538, confirmee le 05/10/2026, place la dent sur l'appui a 47,2
   de la paroi ; le pied et le crochet sont bons a decouper.
 - **Entree dans l'etuve.** On accroche d'abord les quatre crochets. La porte
-  est du cote de la tige : les pieds de 510 entrent selon y, et leur bout
+  est du cote de la tige : les pieds de 518,4 entrent selon y, et leur bout
   arriere doit passer au dessus des dents de 4,5 mm des deux crochets cote
   porte. On entre donc le cadre pieds tenus 5 mm au dessus des appuis jusqu'au
   fond, puis on le descend sur les quatre dents.

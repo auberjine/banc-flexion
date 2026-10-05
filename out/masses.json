@@ -164,9 +164,9 @@
    "nom": "pied",
    "designation": "Pied a mi-bois",
    "qte": 4,
-   "volume_cm3": 109.8,
-   "masse_kg": 0.862,
-   "masse_totale_kg": 3.448,
+   "volume_cm3": 110.87,
+   "masse_kg": 0.87,
+   "masse_totale_kg": 3.481,
    "matiere": "42CrMo4 +A",
    "brut": "tole 8 mm, cert. 3.1, Re >= 430"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 57.45,
- "cadre_kg": 35.23,
+ "total_kg": 57.48,
+ "cadre_kg": 35.27,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "05/10/2026",
- "empreinte": "b82e8675503eec36"
+ "empreinte": "b6bcd8e7ec048562"
 }

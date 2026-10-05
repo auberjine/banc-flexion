@@ -118,7 +118,7 @@ z = 0 au bord inferieur du flanc.
 | 440.0 | hors tout |
 
 Encombrement des flancs 960 x 440 x 76 mm. Selon y, le banc va de -85.5
-(coin recule) a +160 (bout des vis de chape), soit 245.5 mm ; les pieds font 510.
+(coin recule) a +160 (bout des vis de chape), soit 245.5 mm ; les pieds font 518.4.
 Etuve 538 x 538 x 1400 mm (largeur confirmee, hauteur a confirmer) : le cadre y travaille DEBOUT sur son
 about, pose par deux pieds en V sur quatre crochets pendus aux parois ; sur
 la paillasse il travaille couche sur deux pieds. Voir `DEBOUT.md`.
@@ -177,7 +177,7 @@ maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
 Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 150 C, contre 1,91 a chaud pour le cadre precedent en 10 mm S355 (157 MPa)
-et 35.2 kg de cadre au lieu de 44,5.
+et 35.3 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
 
@@ -428,12 +428,12 @@ Masses du modele 3D (out/masses.json, construit le 05/10/2026).
 | Patin de charge | 1 | 0.77 kg | 0.77 kg |
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
 | Entretoise tubulaire | 9 | 0.10 kg | 0.93 kg |
-| Pied a mi-bois | 4 | 0.86 kg | 3.45 kg |
+| Pied a mi-bois | 4 | 0.87 kg | 3.48 kg |
 | Crochet d etuve | 4 | 0.17 kg | 0.69 kg |
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
-**Cadre complet 35.2 kg**, poutrelle 22.2 kg.
+**Cadre complet 35.3 kg**, poutrelle 22.2 kg.
 
 ## 10. Conduite d'essai
 
