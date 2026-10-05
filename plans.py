@@ -1768,7 +1768,7 @@ C07_M10_K = 6.4
 C07_M10_S = 16.0
 C07_M10_RONDELLE_D = 20.0
 C07_M10_PAS = 1.5
-C07_K_COUPLE = 0.2
+C07_K_COUPLE = p.K_COUPLE
 
 
 def c07_titre(s, x, y, titre, sous=()):

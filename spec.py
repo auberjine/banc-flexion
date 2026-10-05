@@ -18,9 +18,9 @@ import parts as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# Couple de serrage des vis M10 8.8 du cadre (V1) et de la chape (V9). Precharge
-# d'environ 17 kN : 80 MPa dans un tube d'entretoise, sans l'ecraser.
-COUPLE_M10 = 35.0
+# Couple de serrage des vis M10 du cadre (V1) et de la chape (V9) : defini
+# dans params.py, repris ici pour les generateurs qui le lisent sur spec.
+COUPLE_M10 = p.COUPLE_M10
 
 
 def charge_fissuration(f_ct=4.0):

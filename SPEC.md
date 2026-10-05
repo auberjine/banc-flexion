@@ -145,7 +145,7 @@ charge de 6000 N au noeud, appuis glissants sur les deux bossages :
 | Coefficient a froid, 42CrMo4 +A (Re 430) | 2.02 |
 | Coefficient a 150 degres C (Re 390) | 1.83 |
 | Fleche du flanc | 0.335 mm |
-| Flambement hors plan, mode symetrique (fem_flamb3, 22/09/2026) | facteur 39.0 couche, 39.1 debout, avec les 9 entretoises |
+| Flambement hors plan, mode symetrique (fem_flamb3, 05/10/2026) | facteur 38.2 couche, 38.3 debout, avec les 9 entretoises |
 | Flambement, flancs en sens contraire (fem_flambement, 18/09/2026) | facteur 31.9 au moins : calcul fait avant les entretoises de chape et de sommet, qui ne peuvent que le relever |
 
 Points les plus charges :
@@ -177,7 +177,7 @@ maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
 Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 150 C, contre 1,91 a chaud pour le cadre precedent en 10 mm S355 (157 MPa)
-et 35.3 kg de cadre au lieu de 44,5.
+et 34.7 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
 
@@ -369,10 +369,10 @@ precharge et les 329 N de desserrage.
 |---|---|
 | Platines | 2 x tole 8, 70 de haut au droit de l'alesage, 140 de long |
 | Flexion d'une platine | 130 MPa, coefficient 3.3 a froid, 3.0 a 150 C, fleche 0.139 mm |
-| Entretoises de butee | tube de precision 20 x 4,5, L = 71.5 +/-0,2, 12.6 MPa de COMPRESSION chacune |
+| Entretoises de butee | tube de precision 20 x 2, L = 71.5 +/-0,2, 24.5 MPa de COMPRESSION chacune |
 | Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 302.7, tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H contre-bloques cote platines |
 | Serrage sous tete | 173.5 mm, filet a partir de 168 : ecrou sur le filet avec 5.5 de marge, 9.7 de depassement |
-| Serrage | 35 N.m, aucun taraudage : les vis traversent les deux flancs |
+| Serrage | 25 N.m, aucun taraudage : les vis traversent les deux flancs |
 | Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la tige |
 | Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, 18 mm, desserrage seulement |
 | Bout de tige | y 155, soit 99 mm de degagement pour la douille, cadre decentre au pire dans l'etuve de 528.4 (109 centre) |
@@ -437,17 +437,17 @@ Masses du modele 3D (out/masses.json, construit le 05/10/2026).
 | Plaque de frottement, dessous | 1 | 0.15 kg | 0.15 kg |
 | Tige filetee de commande M16 | 1 | 0.41 kg | 0.41 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
-| Entretoise de butee | 2 | 0.12 kg | 0.25 kg |
+| Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
 | Patin d'appui rainure | 4 | 0.13 kg | 0.52 kg |
 | Patin de charge | 1 | 0.77 kg | 0.77 kg |
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
-| Entretoise tubulaire | 9 | 0.10 kg | 0.93 kg |
+| Entretoise tubulaire | 9 | 0.05 kg | 0.48 kg |
 | Pied a mi-bois | 4 | 0.87 kg | 3.48 kg |
 | Crochet d etuve | 4 | 0.17 kg | 0.69 kg |
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
-**Cadre complet 35.3 kg**, poutrelle 22.2 kg.
+**Cadre complet 34.7 kg**, poutrelle 22.2 kg.
 
 ## 10. Conduite d'essai
 

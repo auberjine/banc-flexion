@@ -100,8 +100,18 @@ Z_BIELLE_NOEUD = 300.0
 # Tube de PRECISION : un tube de construction S235 commence a 21,3 de diametre.
 # C est la longueur des entretoises qui fixe l ecart des flancs, donc le jeu des
 # epaulements de traverse (TRAVERSE_JEU_Y) : coupe a +0,1/0, faces dressees.
+# 20 x 2 depuis le 06/10/2026 (avant 20 x 4,5) : la precharge des M10, reduite
+# a COUPLE_M10 = 25 N.m, y fait environ 110 MPa ; le voilement des flancs,
+# tenu en partie par la flexion des tubes, a ete recalcule (fem_flamb3.py).
 ENTRETOISE_DE = 20.0
-ENTRETOISE_DI = 11.0
+ENTRETOISE_DI = 16.0
+ENTRETOISE_RE = 235.0     # Re retenu pour le tube : celui du E235 normalise, sans compter le gain de l etat +C
+ENTRETOISE_RE_CHAUD = 190.0   # a 150 C, meme abattement que le S235
+# Serrage des vis M10 8.8 du cadre (V1) et de la chape (V9), et precharge
+# F = C / (K d) avec K = 0,2 (acier zingue, sec).
+COUPLE_M10 = 25.0
+K_COUPLE = 0.2
+PRECHARGE_M10 = COUPLE_M10 * 1000.0 / (K_COUPLE * 10.0)     # N, 12,5 kN a 25 N.m
 ENTRETOISE_L = ECART_FLANCS
 ENTRETOISE_MATIERE = "E235+C EN 10305-1"
 ENTRETOISE_BRUT = "tube de precision %g x %s" % (ENTRETOISE_DE, ("%g" % ((ENTRETOISE_DE - ENTRETOISE_DI) / 2.0)).replace(".", ","))
@@ -1249,6 +1259,11 @@ def flexion_traverse():
 
 def verifie():
     pb = []
+    # entretoises 20 x 2 : la precharge des M10 ne doit pas les ecraser, a chaud
+    s_pre = PRECHARGE_M10 / (math.pi / 4.0 * (ENTRETOISE_DE ** 2 - ENTRETOISE_DI ** 2))
+    if s_pre > ENTRETOISE_RE_CHAUD / 1.5:
+        pb.append("entretoises a %.0f MPa sous la precharge de %.1f kN : serrer moins"
+                  % (s_pre, PRECHARGE_M10 / 1000.0))
 
     if abs(Z_POUTRE_BAS - (Z_BOSSAGE - RAINURE_P + PATIN_E + PLAT_E)) > 1e-9:
         pb.append("empilement bas incoherent")

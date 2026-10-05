@@ -1,6 +1,6 @@
 flambement hors plan, mode symetrique, liaisons en ressorts 6EI/L, tole 8 mm, plaque 600 (-250,0,250)
 
-tubes_couche   facteur critique  39.03   vers (-40, 400)  (-40, 280)  (-40, 240)  (-400, 40)
-plaque_couche  facteur critique  41.91   vers (-40, 400)  (-40, 280)  (-40, 240)  (0, 400)
-tubes_debout   facteur critique  39.06   vers (-40, 400)  (-400, 40)  (-40, 280)  (400, 40)
-plaque_debout  facteur critique  41.92   vers (-40, 400)  (-40, 280)  (-400, 40)  (-40, 240)
+tubes_couche   facteur critique  38.21   vers (-40, 400)  (-40, 280)  (-40, 240)  (400, 0)
+plaque_couche  facteur critique  40.96   vers (-40, 400)  (0, 440)  (-40, 280)  (-40, 240)
+tubes_debout   facteur critique  38.25   vers (400, 0)  (-80, 440)  (-40, 440)  (-40, 400)
+plaque_debout  facteur critique  40.98   vers (0, 440)  (400, 0)  (-40, 400)  (-40, 440)

@@ -1,6 +1,6 @@
 flambement hors plan du flanc, tole 8 mm, charge 12000 N par flanc, maille 9 mm
 
-supplement_couche      facteur critique   2.53   (modes suivants 9.34 16.16 24.16)
-   sort du plan vers : (0, 440)  (-40, 440)  (40, 440)  (-80, 440)  (80, 440)
-supplement_debout      facteur critique   3.66   (modes suivants 10.34 17.55 25.44)
+supplement_couche      facteur critique   2.55   (modes suivants 9.36 16.19 24.19)
+   sort du plan vers : (-40, 440)  (0, 440)  (-80, 440)  (-120, 440)  (40, 440)
+supplement_debout      facteur critique   3.68   (modes suivants 10.36 17.59 25.48)
    sort du plan vers : (480, 440)  (440, 440)  (400, 440)  (360, 440)  (320, 440)

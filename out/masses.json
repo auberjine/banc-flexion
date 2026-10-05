@@ -114,11 +114,11 @@
    "nom": "entretoise_vis",
    "designation": "Entretoise de butee",
    "qte": 2,
-   "volume_cm3": 15.67,
-   "masse_kg": 0.123,
-   "masse_totale_kg": 0.246,
+   "volume_cm3": 8.09,
+   "masse_kg": 0.063,
+   "masse_totale_kg": 0.127,
    "matiere": "E235+C EN 10305-1",
-   "brut": "tube de precision 20 x 4,5"
+   "brut": "tube de precision 20 x 2"
   },
   {
    "nom": "patin_appui",
@@ -154,11 +154,11 @@
    "nom": "entretoise",
    "designation": "Entretoise tubulaire",
    "qte": 9,
-   "volume_cm3": 13.15,
-   "masse_kg": 0.103,
-   "masse_totale_kg": 0.929,
+   "volume_cm3": 6.79,
+   "masse_kg": 0.053,
+   "masse_totale_kg": 0.479,
    "matiere": "E235+C EN 10305-1",
-   "brut": "tube de precision 20 x 4,5"
+   "brut": "tube de precision 20 x 2"
   },
   {
    "nom": "pied",
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 57.48,
- "cadre_kg": 35.27,
+ "total_kg": 56.91,
+ "cadre_kg": 34.7,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "05/10/2026",
- "empreinte": "13a31896e45c8661"
+ "empreinte": "565568c34fa0aa40"
 }

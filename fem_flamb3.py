@@ -12,7 +12,7 @@ de 6 E I / L sur ses deux axes de flexion (rien en torsion : les deux bouts
 tournent ensemble). Les pieds, eux, sont tenus par le sol : u_z = 0.
 
 Variantes :
-  tubes    les six entretoises tubulaires 20 x 4,5 seulement
+  tubes    les entretoises tubulaires (20 x 2 depuis le 06/10/2026) seulement
   mibois   + deux plaques verticales 340 x 20 x 8 a mi-bois dans le chant haut
   plaque   + une plaque de DESSUS PLAQUE_L x 76 x 8 posee sur le chant haut,
              tenons-mortaises a PLAQUE_X ; chaque tenon porte sa part de plaque

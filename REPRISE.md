@@ -58,7 +58,7 @@ bien placees ».
   `plans.py`, `verif_plans.py`, `spec.py`, `nomenclature.py`,
   `export_dxf.py`.
 - Les calculs EF (`fem_*.py`) ne sont pas a relancer : la geometrie du flanc
-  n'a pas change (213 MPa, coefficient 2,02 / 1,83 ; flambement 39,0 / 39,1).
+  n'a pas change (213 MPa, coefficient 2,02 / 1,83 ; flambement 38,2 / 38,3 avec les entretoises 20 x 2).
 
 ## Pieges connus
 

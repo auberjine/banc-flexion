@@ -15,7 +15,7 @@
 <text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
 <text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">42CrMo4 +A, Re &gt;= 430 / E235+C</text>
 <text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
-<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tole 8 cert.3.1 / tube 20 x 4,5</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tole 8 cert.3.1 / tube 20 x 2</text>
 <text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
 <text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2 + 2 (07, 07b)</text>
 <text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
@@ -25,11 +25,11 @@
 <text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
 <text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
 <text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">V8 : 0,1 a 0,3 de jeu axial, puis contre-bloques. V7 : douille de 24 et cliquet, une cle plate bute sur les V9.</text>
-<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">V9 : tete et 1 rondelle derriere le flanc oppose, 4 rondelles et 2 ecrous H cote platines ; le premier sur le filet (marge 5,5), 35 N.m, puis le contre-ecrou bloque contre lui.</text>
-<text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07b : 12,6 MPa chacune sous la commande, 92 environ avec la precharge des V9 (35 N.m, K = 0,2).</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">V9 : tete et 1 rondelle derriere le flanc oppose, 4 rondelles et 2 ecrous H cote platines ; le premier sur le filet (marge 5,5), 25 N.m, puis le contre-ecrou bloque contre lui.</text>
+<text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07b : 24,5 MPa chacune sous la commande, 135 environ avec la precharge des V9 (25 N.m, K = 0,2).</text>
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Platine : 130 MPa en flexion, coefficient 3,3 a 20 C et 3,0 a 150 C, fleche 0,14 mm.</text>
 <text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Commande 5,5 kN : le coin tire la tige, la tete V7 pousse la butee V6 ; platines et 07b comprimees ; V9 : 329 N au desserrage.</text>
-<text x="408.000" y="228.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07b : tube de precision 20 x 4,5 E235+C EN 10305-1, coupe a la longueur cotee, les 2 a la meme butee, faces dressees.</text>
+<text x="408.000" y="228.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07b : tube de precision 20 x 2 E235+C EN 10305-1, coupe a la longueur cotee, les 2 a la meme butee, faces dressees.</text>
 <text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07 : decoupe laser d apres support.dxf, aretes cassees 0,8 x 45 deg ; 40 et 70 entre aretes fictives (au sommet R12, la tole mesure 69,46).</text>
 <text x="408.000" y="220.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07 : 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re &gt;= 430 MPa a 20 C ; meme tole que les flancs, platines imbriquees dans leurs chutes.</text>
 <text x="312.000" y="17.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">07  PLATINE DE BUTEE  (1:1)</text>
@@ -303,7 +303,7 @@
 <text x="312.500" y="162.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise de cadre, L 60 (planche 06)</text>
 <text x="354.500" y="162.300" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
 <text x="270.000" y="166.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">07b</text>
-<text x="312.500" y="166.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise de butee, tube 20 x 4,5 (ci-contre)</text>
+<text x="312.500" y="166.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">entretoise de butee, tube 20 x 2 (ci-contre)</text>
 <text x="354.500" y="166.900" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">2</text>
 <text x="270.000" y="171.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">07</text>
 <text x="312.500" y="171.500" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">platine de butee (ci-dessus)</text>

@@ -12,7 +12,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 - **Tole de 8 en 42CrMo4** (flancs, platines de butee imbriquees dans les chutes des flancs) : 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C. C est elle qui porte toute la marge du flanc. Les cartouches et la colonne brut l abregent en "tole 8 mm, cert. 3.1, Re >= 430".
 - **Tole de 8 en S355JR** (pieds, crochets, plaques de traverse, plateaux du poussoir) : S355JR, tole 8 mm du commerce : certificat 2.2 EN 10204, sans autre exigence ; abregee en "tole 8 mm, cert. 2.2". Ces pieces travaillent a quelques dizaines de MPa au plus (traverse 8 MPa en flexion et 26 au matage).
 - **Epaisseurs reelles** : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe. Chaque decoupe suit la tole qu elle RECOIT : EP_TOLE_REELLE_S355 (8 aujourd hui) pour les encoches a mi-bois et la mortaise de traverse du flanc et les fentes de calage du pied ; EP_TOLE_REELLE_42 (8) pour les encoches et nodes du pied et les rainures des patins.
-- **Entretoises** : E235+C EN 10305-1, tube de precision 20 x 4,5 ; 9 coupees a 60 +0,1/0 et 2 a 71,5 +/-0,2, faces dressees // 0,05 : ce sont elles qui fixent l ecart des flancs.
+- **Entretoises** : E235+C EN 10305-1, tube de precision 20 x 2 ; 9 coupees a 60 +0,1/0 et 2 a 71,5 +/-0,2, faces dressees // 0,05 : ce sont elles qui fixent l ecart des flancs.
 
 ## Pieces fabriquees
 
@@ -25,10 +25,10 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 06a | Tourillon de centrage | 1 | C45+C | rond etire 25 h9 x 76 | 0.29 kg | 0.29 kg | rond etire h9 NON repris : tronconne, chanfrein 1,5 x 45 deg aux deux bouts ; flottant, centre la pile et enfile le poussoir et le coulisseau |
 | 02c | Coin de commande | 1 | C45 | plat 65 x 45, L 120 (fini 61 x 40 x 114,5) | 1.37 kg | 1.37 kg | acier taraude M16 sur 80 depuis le bout EPAIS, passage 18 au dela ; porte les deux plaques de frottement du commerce entre rebords de 3 : dessus 7,05, dessous 8,15 (faces normales a la pente) |
 | 07 | Platine de butee de la vis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.45 kg | 0.90 kg | meme tole 42CrMo4 que les flancs (imbriquees dans leurs chutes), empilees et serrees par les deux vis H M10 x 200 de la chape |
-| 07b | Entretoise de butee | 2 | E235+C EN 10305-1 | tube de precision 20 x 4,5 | 0.12 kg | 0.25 kg | coupee a 71,5 +/-0,2, faces dressees ; en compression pure : c est elle qui porte l effort de commande |
+| 07b | Entretoise de butee | 2 | E235+C EN 10305-1 | tube de precision 20 x 2 | 0.06 kg | 0.13 kg | coupee a 71,5 +/-0,2, faces dressees ; en compression pure : c est elle qui porte l effort de commande |
 | 04a | Patin d'appui rainure | 4 | S355JR | tole 10 mm | 0.13 kg | 0.52 kg | decoupe laser PUIS rainure 9,5 x 1,5 fraisee sur toute la longueur de la face d appui (0,75 de jeu par cote sur la tole reelle du flanc) ; colle en place, cadre monte, sous 0,5 kN de precharge ; un jeu par eprouvette |
 | 04b | Patin de charge | 1 | S355JR | tole 10 mm | 0.77 kg | 0.77 kg | DXF = 2 avant-trous 6 a +/- 35, PERCES ET ALESES 8 H7 apres decoupe (goupilles 8 m6 serrees) ; colle en place en meme temps que les patins d appui ; un par eprouvette |
-| 06b | Entretoise tubulaire | 9 | E235+C EN 10305-1 | tube de precision 20 x 4,5 | 0.10 kg | 0.93 kg | coupee a 60 +0,1/0, faces dressees // 0,05 : c est elle qui fixe l ecart des flancs ; 7 serrees par vis TH M10 x 100 + ecrou ISO 7042 classe 8, autofreine tout metal, les 2 de la chape par les vis H M10 x 200 |
+| 06b | Entretoise tubulaire | 9 | E235+C EN 10305-1 | tube de precision 20 x 2 | 0.05 kg | 0.48 kg | coupee a 60 +0,1/0, faces dressees // 0,05 : c est elle qui fixe l ecart des flancs ; 7 serrees par vis TH M10 x 100 + ecrou ISO 7042 classe 8, autofreine tout metal, les 2 de la chape par les vis H M10 x 200 |
 | 05 | Pied a mi-bois | 4 | S355JR | tole 8 mm, cert. 2.2 | 0.87 kg | 3.48 kg | ajoure, bossages aux deux bouts qui posent sur les crochets d etuve, fente de calage 8,4 x 7 a 5 du bout ; encoches et nodes taillees sur la tole REELLE du flanc (42CrMo4), fente sur celle du crochet (S355) : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe ; meme plaque pour les deux positions : 2 dans le chant bas (couche), 2 aux coins de l about a 38 degres (debout), aretes de pose a 447 |
 | 05c | Crochet d etuve | 4 | S355JR | tole 8 mm, cert. 2.2 | 0.17 kg | 0.69 kg | cadre DEBOUT : pend par 4 langues a bec dans la colonne de trous carres de 10 (paroi 1), dans le plan des flancs ; l arete du pied en V pose sur son appui, calee par la dent dans la fente du pied. Le fond de l etuve ne porte rien ; dent a 47,2 de la paroi pour une etuve de 538 |
 
@@ -43,13 +43,13 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
 | 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles DIN 2093 A50 | 51CrV4 | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 
-**Masse du cadre complet : 35.3 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 05/10/2026).
+**Masse du cadre complet : 34.7 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 05/10/2026).
 
 ## Visserie et petites pieces du commerce
 
 | rep | designation | qte | remarque |
 |---|---|---|---|
-| V1 | Vis TH M10 x 100 ISO 4014 8.8 zinguee + ecrou ISO 7042 classe 8, autofreine tout metal + 2 rondelles ISO 7089 M10 | 7 | entretoises de cadre : 4 de coin, 2 de bielle, 1 de sommet. Serrage 80 : l ecrou tombe sur le filet avec 6 de marge, la vis en depasse de 10 ; 35 N.m. Pas d ecrou a bague polyamide (ISO 7040, DIN 985) : elle ne freine plus a 150 C. Acier, pas inox : meme dilatation que les flancs, la precharge tient a chaud |
+| V1 | Vis TH M10 x 100 ISO 4014 8.8 zinguee + ecrou ISO 7042 classe 8, autofreine tout metal + 2 rondelles ISO 7089 M10 | 7 | entretoises de cadre : 4 de coin, 2 de bielle, 1 de sommet. Serrage 80 : l ecrou tombe sur le filet avec 6 de marge, la vis en depasse de 10 ; 25 N.m. Pas d ecrou a bague polyamide (ISO 7040, DIN 985) : elle ne freine plus a 150 C. Acier, pas inox : meme dilatation que les flancs, la precharge tient a chaud |
 | V2 | Tige filetee M10 x 90 classe 8.8 + 2 rondelles ISO 7089 M10 + 2 ecrous ISO 7042 classe 8, autofreine tout metal | 1 | tirant du paquet de plaques de traverse, ne reprend aucune charge. Serrage 52, depasse de 9 a chaque bout. Tole mesuree au dela de 10 : prendre une M10 x 100 (verifie() le signale) |
 | V3 | Goupille cylindrique ISO 2338 8 m6 x 30 | 2 | reperage des plateaux du poussoir : serrees dans le patin de charge (8 H7, enfoncees de 6), libres dans les trous de 8,3 des plateaux ; partent avec l eprouvette |
 | V4 | Cale de rattrapage D50 / D26, feuillard acier, ep. 1 et 2 mm | 2 | une de chaque, entre le poussoir et la pile, si l empilement mesure au montage est court : le coin doit toucher a moins de 5 mm de son repos |
@@ -57,7 +57,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | V6 | Butee a aiguilles AXK 1730 + 2 rondelles AS 1730 | 1 | face EXTERIEURE des platines : c est elle qui encaisse les 5.5 kN de commande |
 | V7 | Ecrou M16 H ISO 4032 classe 8 + ecrou M16 HM ISO 4035, bloques | 1 | tete de manoeuvre, 22,8 de haut, en appui sur la butee a aiguilles. Douille de 24 et cliquet : une cle plate bute sur les bouts des vis V9 |
 | V8 | Ecrou M16 HM ISO 4035 | 2 | bloques l un sur l autre cote interieur des platines, sur les rondelles V5, avec 0,1 a 0,3 de jeu axial : ils ne retiennent la tige qu au desserrage, 329 N |
-| V9 | Vis H M10 x 200 ISO 4014 8.8 zinguee (filetee sur 32) + 2 ecrous H M10 ISO 4032 classe 8 + 5 rondelles ISO 7089 M10 | 2 | vis de chape : tete et 1 rondelle derriere le flanc oppose, flanc, entretoise de cadre, flanc, entretoise de butee, platines, 4 rondelles, ecrou serre puis contre-ecrou bloque contre lui. Serrage 173,5, filet a partir de 168 : le premier ecrou y tombe avec 5,5 de marge, la vis depasse du contre-ecrou de 9,7 ; 35 N.m sur le premier |
+| V9 | Vis H M10 x 200 ISO 4014 8.8 zinguee (filetee sur 32) + 2 ecrous H M10 ISO 4032 classe 8 + 5 rondelles ISO 7089 M10 | 2 | vis de chape : tete et 1 rondelle derriere le flanc oppose, flanc, entretoise de cadre, flanc, entretoise de butee, platines, 4 rondelles, ecrou serre puis contre-ecrou bloque contre lui. Serrage 173,5, filet a partir de 168 : le premier ecrou y tombe avec 5,5 de marge, la vis depasse du contre-ecrou de 9,7 ; 25 N.m sur le premier |
 
 ## Pieces planes a decouper
 
@@ -100,7 +100,7 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | Course par tour | 0.425 mm de coulisseau, environ 549 N |
 | Precharge de collage, 0,5 kN | 0.84 tour de tige apres le contact (0.36 mm de pile, 1.7 mm de coin) |
 | Couple sur la vis a 12 kN | 9.4 N.m |
-| Couple de serrage des vis M10 (V1, V9) | 35 N.m |
+| Couple de serrage des vis M10 (V1, V9) | 25 N.m |
 | Irreversibilite du filet | helice 2.48 deg / frottement 5.28 deg a mu 0.08 (acier sur acier, pate cuivre), marge x2.13 |
 | Coin | autobloquant seulement si mu > 0.106 ; desserrage 329 N a mu 0.12 |
 | Flancs du filet, taraude dans l acier | 9.2 MPa pour 12 admis, 80 mm filetes, engagement utile 24 mm |
@@ -114,7 +114,7 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | Jauge fibre sur la membrure haute | 18.8 microdef/kN |
 | Calcul EF du flanc a 12 kN | von Mises 213 MPa, coefficient 2.02 a froid, fleche 0.335 mm |
 | Coefficient a 150 C | 1.83 en 42CrMo4 +A de 8 mm (Re 390 a chaud, pour 430 a 20 C EXIGES au certificat) |
-| Flambement hors plan des flancs | facteur critique 39.0 couche, 39.1 debout (les deux flancs penchent ensemble, tenus par la flexion des 9 entretoises tubulaires, bouts serres) |
+| Flambement hors plan des flancs | facteur critique 38.2 couche, 38.3 debout (les deux flancs penchent ensemble, tenus par la flexion des 9 entretoises tubulaires, bouts serres) |
 | Flambement, flancs en sens contraire | au moins 31.9 (calcul du 18/09/2026, avant les entretoises de chape et de sommet) |
 
 Graduation de charge gravee sur le flanc, loi non lineaire :
@@ -142,8 +142,8 @@ Le cadre se monte A PLAT : les entretoises, la traverse et la tete de charge doi
 8. **Poutrelle.** La coucher dans la fenetre du flanc, plats vers les bossages, SANS ses patins d appui, sur cales de 6,5 sous sa face laterale (elle descend de 13,5 sous le flanc).
 9. **Tete de charge.** Encoller le patin de charge sur sa face inferieure et le poser au milieu de la poutrelle, goupilles vers la tete ; enfiler sur les goupilles les 3 plateaux du poussoir, poser la cale eventuelle (V4), le tourillon, la pile TETE-BECHE (grand diametre aux deux bouts) et le coulisseau, cote epais de sa pente vers la chape. De cet encollage a la precharge, tout doit tenir dans la vie en pot de la colle : faire d abord les etapes 2 a 5 et preparer la visserie. Si elle est trop courte, coller le patin de charge la veille sur la poutrelle, centre au trace, sous une masse.
 10. **Second flanc.** Le presenter face gravee DESSUS : il enfile les 9 vis, les tenons de la traverse et la poutrelle dans sa fenetre. Poser les 7 ecrous V1 sur rondelle, serres sans bloquer.
-11. **Chape.** Enfiler sur les deux vis V9 les entretoises de butee de 71,5, puis le sous-ensemble de chape, la tige passant par la fente du coin ; 4 rondelles et un ecrou H par vis, 35 N.m, puis le contre-ecrou H bloque contre lui en tenant le premier.
-12. **Pieds.** Dresser le cadre et le poser dans ses deux pieds couches, encoche dans encoche : les nodes serrent de 0,1 par cote, chasser au maillet. Bloquer les V1 a 35 N.m. La poutrelle, sans patins, repose sur les bossages.
+11. **Chape.** Enfiler sur les deux vis V9 les entretoises de butee de 71,5, puis le sous-ensemble de chape, la tige passant par la fente du coin ; 4 rondelles et un ecrou H par vis, 25 N.m, puis le contre-ecrou H bloque contre lui en tenant le premier.
+12. **Pieds.** Dresser le cadre et le poser dans ses deux pieds couches, encoche dans encoche : les nodes serrent de 0,1 par cote, chasser au maillet. Bloquer les V1 a 25 N.m. La poutrelle, sans patins, repose sur les bossages.
 13. **Patins d appui, coin non engage.** Soulever la poutrelle d environ 9,5 mm, glisser les 4 patins par la fenetre, rainure SECHE sur le bossage (c est un balancier, il doit basculer) et colle sur la face superieure seulement, contre le plat ; reposer.
 14. **Guides.** Visser les 4 CHC M8 x 12 au travers des lumieres dans les taraudages du coulisseau. C est la TETE qui guide : jamais de vis a tete fraisee.
 15. **Coin.** Pate cuivre dans son taraudage ; l engager du cote des tetes de V9, bout MINCE en premier, par la fente du flanc, entre la traverse et le coulisseau ; visser la tige jusqu au contact. Le bout epais doit alors etre a moins de 5 mm de sa position de repos, 47,5 mm hors de la face exterieure du flanc ; sinon revoir les cales (etape 5).

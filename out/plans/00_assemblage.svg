@@ -24,7 +24,7 @@
 <text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
 <text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
 <text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
-<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Masse du cadre 35,3 kg. Reperes : NOMENCLATURE.md (Vn : visserie).</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Masse du cadre 34,7 kg. Reperes : NOMENCLATURE.md (Vn : visserie).</text>
 <text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Debout dans l etuve : 969,5 de haut, 458,6 x 518,4 en plan ; etuve 538 x 528,4 x 1400.</text>
 <text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Hors tout couche sur pieds : 960 x 518,4 x 470 (x, y, z) ; flancs 76.</text>
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">0,425 mm de coulisseau et environ 549 N par tour de tige.</text>
@@ -1775,30 +1775,16 @@
 <path d="M 265.81 122.91 L 267.73 123.60" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 265.71 122.84 L 265.81 122.91" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 265.71 122.71 L 265.77 122.67" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 355.50 90.91 L 355.51 91.06" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 355.51 91.06 L 355.49 91.24 L 355.45 91.43 L 355.37 91.60 L 355.27 91.76 L 355.14 91.89" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 355.50 45.64 L 355.51 45.80" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 355.51 45.80 L 355.49 45.97 L 355.45 46.16 L 355.37 46.33 L 355.27 46.49 L 355.14 46.62" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 326.92 58.21 L 326.94 57.97 L 326.98 57.72 L 327.06 57.48 L 327.17 57.24 L 327.30 57.03 L 327.45 56.84 L 327.61 56.69 L 327.78 56.58 L 327.94 56.51 L 328.10 56.47 L 328.25 56.46 L 328.34 56.48 L 328.42 56.50" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 327.45 59.18 L 327.32 59.12 L 327.21 59.03 L 327.11 58.91 L 327.03 58.76 L 326.97 58.59 L 326.93 58.38 L 326.92 58.21" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 334.53 59.68 L 334.55 59.84" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 334.55 59.84 L 334.53 60.01 L 334.49 60.20 L 334.41 60.37 L 334.31 60.53 L 334.18 60.66" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 255.45 122.94 L 255.47 122.70 L 255.52 122.45 L 255.60 122.21 L 255.70 121.97 L 255.83 121.76 L 255.98 121.57 L 256.15 121.42 L 256.31 121.31 L 256.48 121.24 L 256.63 121.20 L 256.78 121.19 L 256.87 121.20 L 256.95 121.23" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 255.98 123.91 L 255.85 123.85 L 255.74 123.76 L 255.64 123.64 L 255.56 123.49 L 255.50 123.32 L 255.46 123.11 L 255.45 122.94" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 263.07 124.41 L 263.08 124.57" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 263.08 124.57 L 263.06 124.74 L 263.02 124.93 L 262.94 125.10 L 262.84 125.26 L 262.71 125.39" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 255.45 77.67 L 255.47 77.43 L 255.52 77.18 L 255.60 76.94 L 255.70 76.70 L 255.83 76.49 L 255.98 76.30 L 256.15 76.15 L 256.31 76.04 L 256.48 75.97 L 256.63 75.93 L 256.78 75.92 L 256.87 75.94 L 256.95 75.96" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 255.98 78.65 L 255.85 78.58 L 255.74 78.49 L 255.64 78.37 L 255.56 78.23 L 255.50 78.05 L 255.46 77.85 L 255.45 77.67" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 263.07 79.14 L 263.08 79.30" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 263.08 79.30 L 263.06 79.48 L 263.02 79.66 L 262.94 79.83 L 262.84 79.99 L 262.71 80.12" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 284.03 77.99 L 284.04 78.14" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 284.04 78.14 L 284.03 78.32 L 283.98 78.51 L 283.90 78.68 L 283.80 78.84 L 283.67 78.97" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 296.42 74.44 L 296.43 74.21 L 296.48 73.96 L 296.56 73.71 L 296.66 73.48 L 296.80 73.26 L 296.95 73.08 L 297.11 72.93 L 297.27 72.82 L 297.44 72.74 L 297.60 72.70 L 297.74 72.70 L 297.83 72.71 L 297.91 72.73" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 296.71 75.28 L 296.61 75.16 L 296.53 75.01 L 296.46 74.84 L 296.43 74.64 L 296.42 74.44" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 301.67 58.13 L 301.68 57.89 L 301.73 57.64 L 301.81 57.40 L 301.92 57.16 L 302.05 56.95 L 302.20 56.76 L 302.36 56.61 L 302.53 56.50 L 302.69 56.43 L 302.85 56.39 L 303.00 56.38 L 303.08 56.39 L 303.16 56.42" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 301.77 58.68 L 301.71 58.50 L 301.68 58.29 L 301.67 58.21 L 301.67 58.13" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 309.28 59.60 L 309.29 59.76" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 309.29 59.76 L 309.28 59.93 L 309.23 60.12 L 309.15 60.29 L 309.05 60.45 L 308.92 60.58" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 357.52 110.83 L 357.50 110.65 L 357.46 110.46 L 357.38 110.28 L 357.25 110.09" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 357.25 110.09 L 357.24 110.08" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 336.21 107.09 L 336.22 107.28 L 336.27 107.48 L 336.35 107.67 L 336.41 107.79 L 336.49 107.90" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
