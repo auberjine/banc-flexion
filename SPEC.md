@@ -408,7 +408,7 @@ resolution suffisante, et un col serait une entaille de plus.
 
 ## 9. Masses
 
-Masses du modele 3D (out/masses.json, construit le 02/10/2026).
+Masses du modele 3D (out/masses.json, construit le 05/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
@@ -421,7 +421,7 @@ Masses du modele 3D (out/masses.json, construit le 02/10/2026).
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
 | Plaque de frottement, dessus | 1 | 0.15 kg | 0.15 kg |
 | Plaque de frottement, dessous | 1 | 0.15 kg | 0.15 kg |
-| Tige filetee de commande M16 | 1 | 0.40 kg | 0.40 kg |
+| Tige filetee de commande M16 | 1 | 0.41 kg | 0.41 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
 | Entretoise de butee | 2 | 0.12 kg | 0.25 kg |
 | Patin d'appui rainure | 4 | 0.13 kg | 0.52 kg |
@@ -429,7 +429,7 @@ Masses du modele 3D (out/masses.json, construit le 02/10/2026).
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
 | Entretoise tubulaire | 9 | 0.10 kg | 0.93 kg |
 | Pied a mi-bois | 4 | 0.86 kg | 3.45 kg |
-| Crochet d etuve | 4 | 0.17 kg | 0.69 kg |
+| Crochet d etuve | 4 | 0.17 kg | 0.68 kg |
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 

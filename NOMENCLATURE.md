@@ -30,7 +30,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 04b | Patin de charge | 1 | S355JR | tole 10 mm | 0.77 kg | 0.77 kg | DXF = 2 avant-trous 6 a +/- 35, PERCES ET ALESES 8 H7 apres decoupe (goupilles 8 m6 serrees) ; colle en place en meme temps que les patins d appui ; un par eprouvette |
 | 06b | Entretoise tubulaire | 9 | E235+C EN 10305-1 | tube de precision 20 x 4,5 | 0.10 kg | 0.93 kg | coupee a 60 +0,1/0, faces dressees // 0,05 : c est elle qui fixe l ecart des flancs ; 7 serrees par vis TH M10 x 100 + ecrou ISO 7042 classe 8, autofreine tout metal, les 2 de la chape par les vis H M10 x 200 |
 | 05 | Pied a mi-bois | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.86 kg | 3.45 kg | ajoure, bossages aux deux bouts qui posent sur les crochets d etuve, fente de calage 8,4 x 7 a 5 du bout ; encoches, nodes et fente taillees sur la tole REELLE : mesurer la tole livree, regler EP_TOLE_REELLE et regenerer les DXF avant decoupe ; meme plaque pour les deux positions : 2 dans le chant bas (couche), 2 aux coins de l about a 38 degres (debout), aretes de pose a 447 ; largeur choisie pour l etuve : NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE |
-| 05c | Crochet d etuve | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.17 kg | 0.69 kg | cadre DEBOUT : pend par 3 langues a bec dans la colonne de trous carres de 10 (paroi 1), dans le plan des flancs ; l arete du pied en V pose sur son appui, calee par la dent dans la fente du pied. Le fond de l etuve ne porte rien ; dent a 48,2 de la paroi pour une etuve de 540 : NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE |
+| 05c | Crochet d etuve | 4 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.17 kg | 0.68 kg | cadre DEBOUT : pend par 3 langues a bec dans la colonne de trous carres de 10 (paroi 1), dans le plan des flancs ; l arete du pied en V pose sur son appui, calee par la dent dans la fente du pied. Le fond de l etuve ne porte rien ; dent a 48,2 de la paroi pour une etuve de 540 : NE PAS DECOUPER AVANT CONFIRMATION DE LA LARGEUR D'ETUVE |
 
 ## Pieces du commerce
 
@@ -39,11 +39,11 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 02f | Vis de guidage CHC M8 x 12 | 4 | CHC M8 x 12 ISO 4762 8.8, tete lisse (non moletee) | 8.8 | 0.01 kg | piece du commerce ; 12 sous tete, toute la tige dans le taraudage de 16 ; c est la TETE (13 x 8) qui guide : cylindre sur plan, contact lineique |
 | 06c | Plaque de frottement, dessus | 1 | norelem 23765-01-038100, 38 x 100 x 5 | CuZn25Al5Mn4Fe3-C + graphite | 0.15 kg | piece du commerce, autolubrifiante ; entre ses deux rebords sur le dessus du coin, trous remplis de silicone HT, glisse sous la traverse |
 | 06d | Plaque de frottement, dessous | 1 | norelem 23765-01-038100, 38 x 100 x 5 | CuZn25Al5Mn4Fe3-C + graphite | 0.15 kg | meme plaque du commerce ; entre ses deux rebords sous le coin, trous remplis de silicone HT, glisse sur la pente du coulisseau |
-| 02d | Tige filetee de commande M16 | 1 | tige filetee M16 classe 8.8, coupee a 185 | 8.8 | 0.40 kg | piece du commerce, coupee a longueur, montee a la pate cuivre ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
+| 02d | Tige filetee de commande M16 | 1 | tige filetee M16 classe 8.8, coupee a 185 | 8.8 | 0.41 kg | piece du commerce, coupee a longueur, montee a la pate cuivre ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
 | 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles DIN 2093 A50 | 51CrV4 | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 
-**Masse du cadre complet : 35.2 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 02/10/2026).
+**Masse du cadre complet : 35.2 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 05/10/2026).
 
 ## Visserie et petites pieces du commerce
 

@@ -94,9 +94,9 @@
    "nom": "vis",
    "designation": "Tige filetee de commande M16",
    "qte": 1,
-   "volume_cm3": 51.25,
-   "masse_kg": 0.402,
-   "masse_totale_kg": 0.402,
+   "volume_cm3": 51.78,
+   "masse_kg": 0.407,
+   "masse_totale_kg": 0.407,
    "matiere": "8.8",
    "brut": "tige filetee M16 classe 8.8, coupee a 185"
   },
@@ -174,9 +174,9 @@
    "nom": "crochet",
    "designation": "Crochet d etuve",
    "qte": 4,
-   "volume_cm3": 22.1,
-   "masse_kg": 0.173,
-   "masse_totale_kg": 0.694,
+   "volume_cm3": 21.55,
+   "masse_kg": 0.169,
+   "masse_totale_kg": 0.677,
    "matiere": "42CrMo4 +A",
    "brut": "tole 8 mm, cert. 3.1, Re >= 430"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 57.45,
- "cadre_kg": 35.23,
+ "total_kg": 57.43,
+ "cadre_kg": 35.22,
  "indice": "A",
  "date": "02/10/2026",
- "date_calcul": "02/10/2026",
- "empreinte": "818f3431dcfa57aa"
+ "date_calcul": "05/10/2026",
+ "empreinte": "f57d32e0589da539"
 }
