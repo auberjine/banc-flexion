@@ -211,14 +211,14 @@ def plan_flanc():
              "mortaise %s = %d x tole + jeu %s."
              % (D.fmt(p.TRAVERSE_LX_REEL + p.TRAVERSE_JEU_X), p.TRAVERSE_N, D.fmt(p.TRAVERSE_JEU_X)),
              p.NOTE_TOLE_REELLE[0].upper() + p.NOTE_TOLE_REELLE[1:] + ".",
-             "Aretes cassees %s x 45 deg deux faces, bossages compris (non repris), puis microbillage"
+             "Aretes cassees %s x 45 deg deux faces, bossages compris (non repris), puis sablage corindon"
              " et brunissage noir mat." % D.fmt(p.CHANFREIN),
              "Contour symetrique en X, graduation d'un seul cote : deux flancs identiques, face gravee"
              " a l'exterieur ;",
              "le second, tourne de 180 deg autour de Z, a sa graduation le long de la lumiere -X.",
              "Planeite 0,5 sur %s, ne pas redresser a chaud ; sommets des bossages coplanaires a 0,3."
              % D.fmt(p.L_FLANC),
-             "Huile de brunissage essuyee avant la 1re chauffe ; graduation repassee en peinture blanche HT."]
+             "Sabler les 2 faces a l'identique (planeite) ; huile ester HT en film essuye, ni minerale ni silicone."]
     if m > 0:
         notes[-1] += "  Masse : %s kg." % D.fmt(m, 1)
     s = D.Sheet("FLANC EN TREILLIS", "01", spec.material, spec.stock, spec.qty,
@@ -334,7 +334,8 @@ def plan_flanc():
                            "tete de guide (trait mixte),",
                            "pile libre, Z %s." % D.fmt(g_z[0], 2),
                            "Z de chaque trait : tableau",
-                           "GRADUATION."]):
+                           "GRADUATION. Profondeur %s mini," % D.fmt(p.GRAVURE_PROF_MIN),
+                           "traits repasses en blanc HT."]):
         s.text(xn, 96.0 + 4.0 * j, t, 2.8, "start")
 
     # ------------------------------------------------ detail Z : encoche de coin, 2:1

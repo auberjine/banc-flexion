@@ -280,7 +280,7 @@ def main():
                % (p.EP_FLANC, p.NUANCE_TOLE_COURANTE, p.EXIGENCE_TOLE_COURANTE, p.BRUT_TOLE_COURANTE,
                   p.flexion_traverse()[0], p.matage_tenon()))
     out.append("- **Finition des flancs** : %s ; %s. Noir mat pour la correlation d images, et"
-               " sans epaisseur : ni les jeux des encoches ni les serrages des entretoises n en"
+               " quasi sans epaisseur : ni les jeux des encoches ni les serrages des entretoises n en"
                " dependent. Les autres pieces restent brutes."
                % (p.FINITION_FLANC, p.FINITION_GRAVURE))
     out.append("- **Epaisseurs reelles** : %s. Chaque decoupe suit la tole qu elle RECOIT :"

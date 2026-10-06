@@ -875,17 +875,26 @@ MATIERE_TOLE = "%s +A" % NUANCE_TOLE
 BRUT_TOLE = "tole %g mm, cert. 3.1, Re >= %.0f" % (EP_FLANC, RE_TOLE)     # tient dans une case de cartouche
 EXIGENCE_TOLE = ("%s recuit +A, tole %g mm : certificat 3.1 EN 10204 avec essai de"
                  " traction, Re >= %.0f MPa a 20 C" % (NUANCE_TOLE, EP_FLANC, RE_TOLE))
-# FINITION DES FLANCS (06/10/2026) : microbillage puis brunissage (oxydation
-# noire a chaud). Noir MAT autour de la poutrelle : pas de reflet de l eclairage
+# FINITION DES FLANCS (06/10/2026) : sablage corindon puis brunissage (oxydation
+# noire a chaud). Le sablage anguleux casse le reflet mieux que les billes de
+# verre (satine). Noir MAT autour de la poutrelle : pas de reflet de l eclairage
 # d etuve vers la camera de correlation. Epaisseur de l ordre du micron : aucun
 # jeu d encoche ou de mortaise touche, et rien sous les vis serrees qui puisse
 # fluer a 150 C (une peinture poudre ramollit des 60 a 80 C et ferait perdre
 # la precharge des entretoises). Rien a masquer, bossages compris. Les autres
-# pieces restent brutes.
-FINITION_FLANC = ("apres decoupe et aretes cassees : MICROBILLAGE puis BRUNISSAGE noir"
-                  " (oxydation a chaud), aspect mat ; huile de protection legere,"
-                  " ESSUYEE avant la premiere chauffe (elle fume a 150 C)")
-FINITION_GRAVURE = "traits de graduation repasses a la peinture blanche haute temperature apres brunissage"
+# pieces restent brutes. Sabler les DEUX faces a l identique, pression moderee :
+# une tole de 8 sablee plus fort d un cote se voile (planeite 0,5 sur 960).
+# HUILE : ester synthetique haute temperature (type huile de chaine de four),
+# film essuye. Ni huile minerale (vernit a 150 C, s evapore et voile le hublot
+# de l etuve devant la camera), ni silicone (migre et fait decoller les patins
+# colles et le mouchetis de la poutrelle).
+FINITION_FLANC = ("apres decoupe et aretes cassees : SABLAGE corindon des deux faces a l identique,"
+                  " pression moderee (planeite), puis BRUNISSAGE noir (oxydation a chaud), aspect"
+                  " mat ; degraisser l huile de sortie de bain, puis film d huile ESTER synthetique"
+                  " haute temperature passe au chiffon et ESSUYE ; ni huile minerale ni silicone")
+GRAVURE_PROF_MIN = 0.2    # graduation : profondeur mini, pour survivre au sablage
+FINITION_GRAVURE = ("graduation gravee a %g de profondeur au moins, traits repasses a la peinture"
+                    " blanche haute temperature apres brunissage" % GRAVURE_PROF_MIN)
 RE_S355 = 355.0           # coulisseau, patins, tole courante
 RE_S355_CHAUD = 300.0     # limite elastique a 150 degres C
 # TOLE COURANTE S355JR : pieds, crochets, plaques de traverse, plateaux du poussoir.
