@@ -23,7 +23,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 02b | Plateau de poussoir | 3 | S355JR | tole 8 mm, cert. 2.2 | 0.33 kg | 0.97 kg | 3 plateaux perces : alesage 25,4 traversant ; 2 trous de passage 6,6 decoupes au laser a +/- 38 ; assembles en bloc par 2 vis H M6 x 35, tete en dessous, ecrou au dessus, 8 N.m ; le patin de charge fait fond |
 | 02a | Coulisseau a tete inclinee | 1 | S355JR | plat 65 x 40, L 120 (fini 58 x 36,2 x 114) | 1.46 kg | 1.46 kg | dessus a 12 degres sur toute la section ; alesage 25 H8 prof. 20 par dessous ; 4 taraudages M8 prof. 16 dans les faces laterales (avant-trou 6,8 prof. 19), axe a 12 du dessous, x = +/- 44 |
 | 06a | Tourillon de centrage | 1 | C45+C | rond etire 25 h9 x 79.5 | 0.31 kg | 0.31 kg | rond etire h9 NON repris : tronconne, chanfrein 1,5 x 45 deg aux deux bouts ; COLLE au fond de l alesage du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; centre la pile et coulisse dans le poussoir : 7,9 au repos, 4,3 de garde au dessus du patin a la butee |
-| 02c | Coin de commande | 1 | C45 | plat 65 x 45, L 120 (fini 61 x 40 x 114,5) | 1.37 kg | 1.37 kg | acier taraude M16 sur 80 depuis le bout EPAIS, passage 18 au dela ; porte les deux plaques de frottement du commerce entre rebords de 3 : dessus 7,05, dessous 8,15 (faces normales a la pente) |
+| 02c | Coin de commande | 1 | C45 | plat 65 x 45, L 120 (fini 61 x 40 x 114,5) | 1.38 kg | 1.38 kg | acier taraude M16 sur 80 depuis le bout EPAIS, passage 18 au dela ; porte les deux plaques de frottement du commerce entre rebords de 3 : dessus 6,25, dessous 7,36 (faces normales a la pente) |
 | 07 | Platine de butee de la vis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.45 kg | 0.90 kg | meme tole 42CrMo4 que les flancs (imbriquees dans leurs chutes), empilees et serrees par les deux vis H M10 x 200 de la chape |
 | 07b | Entretoise de butee | 2 | E235+C EN 10305-1 | tube de precision 20 x 2 | 0.06 kg | 0.13 kg | coupee a 71,5 +/-0,2, faces dressees ; en compression pure : c est elle qui porte l effort de commande |
 | 04a | Patin d'appui rainure | 4 | S355JR | tole 10 mm | 0.13 kg | 0.52 kg | decoupe laser PUIS rainure 9,5 x 1,5 fraisee sur toute la longueur de la face d appui (0,75 de jeu par cote sur la tole reelle du flanc) ; colle en place, cadre monte, sous 0,5 kN de precharge ; un jeu par eprouvette |
@@ -105,7 +105,7 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | Coin | autobloquant seulement si mu > 0.106 ; desserrage 329 N a mu 0.12 |
 | Flancs du filet, taraude dans l acier | 9.2 MPa pour 12 admis, 80 mm filetes, engagement utile 24 mm |
 | Plaques de frottement | norelem 23765-01-038100, 38 x 100 x 5, CuZn25Al5Mn4Fe3-C + graphite ; 7.7 MPa au plus pour 35 admis |
-| Rebords des plaquettes | 7.05 (dessus) et 8.15 (dessous) x 3, 6.5 MPa de flexion, garde 2 sous le bronze |
+| Rebords des plaquettes | 6.25 (dessus) et 7.36 (dessous) x 3, 8.3 MPa de flexion, garde 2 sous le bronze |
 | Portee de la plaquette haute | 30.0 x 51.8 mm (sur 60) en fin de course, 7.7 MPa |
 | Portee de la plaquette basse | 38.0 x 48.6 mm (sur 58) en fin de course, 6.5 MPa |
 | Arete cassee des pieces de tole | 0.8 x 45 degres sur les deux faces |

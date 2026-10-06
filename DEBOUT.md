@@ -87,8 +87,9 @@ montage ; la dilatation differentielle n'y met que 0,14 MPa de cisaillement.
 Aucune pate sur les plaques ni sur leurs sieges : elles sont autolubrifiantes,
 et le silicone ne prend pas sur une pate.
 
-Pied de rebord DEGAGE et non conge : l'angle vif de la plaque doit porter sur
-toute la hauteur. Sur la face inclinee, la face interieure du rebord est
+Pied de rebord SANS degagement : la fraise y laisse son angle (R1 au plus), et
+le logement fait 102 pour une plaque de 100, si bien que l'angle du bronze ne
+monte pas sur le conge. Sur la face inclinee, la face interieure du rebord est
 NORMALE A LA PENTE et non verticale, comme le chant de la plaque : dessinees
 verticales, elles la mordaient de 1,1 mm en bas.
 

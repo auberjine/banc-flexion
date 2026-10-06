@@ -275,7 +275,7 @@ Un coin de bronze plein aurait demande 2,7 kg de barre, une section qu'il
 faut faire debiter. Or le bronze n'est utile que sur les deux faces de
 glissement : il est reporte sur deux plaques de frottement autolubrifiantes
 norelem 23765-01-038100 (38 x 100 x 5), et le coin devient un bloc d'acier C45
-de 1.37 kg, usine dans un plat 65 x 45, L 120 (fini 61 x 40 x 114,5).
+de 1.38 kg, usine dans un plat 65 x 45, L 120 (fini 61 x 40 x 114,5).
 
 La basse pourrait etre posee sur la pente du coulisseau, ou elle ne ferait
 que 58 de long au lieu de 100. Elle est mise sur le coin comme la
@@ -288,8 +288,8 @@ s'approfondit donc de 5.1 mm.
 Aucune vis : le coin ne fait que 40 de large et le percage de la tige en
 prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un
 ligament d'epaisseur. Chaque plaquette est prise entre DEUX REBORDS usines
-dans la masse, 7.05 (dessus) et 8.15 (dessous) x 3, qui encaissent les 1.44 kN
-d'entrainement dans l'axe de la vis : flexion 6.5 MPa au pied, matage du chant 12 MPa.
+dans la masse, 6.25 (dessus) et 7.36 (dessous) x 3, qui encaissent les 1.44 kN
+d'entrainement dans l'axe de la vis : flexion 8.3 MPa au pied, matage du chant 18 MPa.
 Elles ne sont PAS collees a l epoxy. Bronze et acier ne se dilatent pas
 pareil : a 150 C la plaquette s allonge de 0.08 mm de plus que son siege,
 et un joint rigide sur toute la longueur encaisserait 30 a 80 MPa de
@@ -301,8 +301,9 @@ cisaillement thermique dans le joint. Aucune pate sur les plaques ni sur
 leurs sieges : elles sont autolubrifiantes, et le silicone ne prend pas sur
 une pate.
 
-Pied de rebord DEGAGE et non conge : l'angle vif de la plaquette doit
-porter sur toute la hauteur. Et sur la face inclinee, la face interieure
+Pied de rebord SANS degagement : la fraise y laisse son angle (R1 au plus),
+et le logement fait 102 pour une plaquette de 100, si bien que l'angle du
+bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure
 du rebord est NORMALE A LA PENTE et non verticale, comme le chant de la
 plaquette : dessinees verticales, elles la mordaient de 1.1 mm en bas.
 
@@ -436,7 +437,7 @@ Masses du modele 3D (out/masses.json, construit le 06/10/2026).
 | Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
-| Coin de commande | 1 | 1.37 kg | 1.37 kg |
+| Coin de commande | 1 | 1.38 kg | 1.38 kg |
 | Plaque de frottement, dessus | 1 | 0.15 kg | 0.15 kg |
 | Plaque de frottement, dessous | 1 | 0.15 kg | 0.15 kg |
 | Tige filetee de commande M16 | 1 | 0.41 kg | 0.41 kg |

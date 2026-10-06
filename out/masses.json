@@ -64,9 +64,9 @@
    "nom": "coin",
    "designation": "Coin de commande",
    "qte": 1,
-   "volume_cm3": 174.87,
-   "masse_kg": 1.373,
-   "masse_totale_kg": 1.373,
+   "volume_cm3": 175.37,
+   "masse_kg": 1.377,
+   "masse_totale_kg": 1.377,
    "matiere": "C45",
    "brut": "plat 65 x 45, L 120 (fini 61 x 40 x 114,5)"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.61,
- "cadre_kg": 34.39,
+ "total_kg": 56.62,
+ "cadre_kg": 34.4,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "06/10/2026",
- "empreinte": "3c16083d42099754"
+ "empreinte": "a18ae01731f2581c"
 }

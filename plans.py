@@ -661,7 +661,7 @@ def plan_coulisseau():
         return zt - p.COIN_T_BOUT_MINCE - (Y1 - y) * tg
 
     d1_vis = p.VIS_D - 1.082532 * p.VIS_PAS  # diametre du fond de filet femelle (ISO 724)
-    logement = p.PLAQ_L + 2.0 * p.PLAQ_JEU   # 100,4 entre rebords
+    logement = p.PLAQ_L + 2.0 * p.PLAQ_JEU   # 102 entre rebords
     psi, rho, marge = p.filet_marge()
     # filet trapezoidal Tr16x4 (ISO 2904 : pas 4, d2 14, flanc 15 deg) au meme frottement
     tr_psi = math.degrees(math.atan(4.0 / (math.pi * 14.0)))
@@ -800,14 +800,14 @@ def plan_coulisseau():
              D.TRAIT_FIN, C02_CACHE)
     c02_axe(vc, (Y0, p.Z_VIS), (Y1, p.Z_VIS), 3.0, 0.0)
     # cotes
-    vc.cote_hx(Y0 + w, Y1 - w, zr, zr, 7.0, texte="%s +0,2/0" % f(logement))
+    vc.cote_hx(Y0 + w, Y1 - w, zr, zr, 7.0, texte="%s +0,5/0" % f(logement))
     vc.cote_hx(Y0, Y1, zr, zr, 14.0)
     vc.cote_vx(zt - p.COIN_T_BOUT_EPAIS, zt, Y0, Y0, -7.0, texte=f(p.COIN_T_BOUT_EPAIS))
     vc.cote_vx(p.Z_VIS, zt, Y1, Y1, 7.0, texte=f(p.COIN_VIS_SOUS))
     vc.cote_vx(zt - p.COIN_T_BOUT_MINCE, zt, Y1, Y1, 14.0, texte=f(p.COIN_T_BOUT_MINCE), dt=7.0)
     y0b, y1b = Y0 + wb, Y1 - wb
     c02_cote_alignee(vc, (y0b + hr * sa_, zb(y0b) - hr * ca_), (y1b + hr * sa_, zb(y1b) - hr * ca_),
-                     -8.0, "%s +0,2/0" % f(logement))
+                     -8.0, "%s +0,5/0" % f(logement))
     vc.renvoi((Y0 + 4.5, p.Z_VIS - p.VIS_D / 2.0),
               "M%g x %g prof. %s depuis le bout EPAIS, centre" % (p.VIS_D, p.VIS_PAS, f(p.COIN_TARAUD_L))
               + chr(10) + "sur l epaisseur ; passage %s debouchant" % f(p.VIS_PASSAGE_D),
@@ -820,7 +820,7 @@ def plan_coulisseau():
     XB, XCD, YD = 286.0, 364.0, 132.0
     s.text(XB, YD, "DETAIL B  (4:1)", 3.6, "middle", weight="bold")
     s.text(XB, YD + 4.5, "rebords du dessus, 2 ex.", 2.8, "middle")
-    s.text(XB, YD + 8.3, "largeur (%s) ; degagement centre sur l angle" % f(w, 2), 2.8, "middle")
+    s.text(XB, YD + 8.3, "largeur (%s) ; pied : angle de fraise, R%s maxi" % (f(w, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
     vb = D.View(s, KD, Y1 - 8.0, zt, XB, YD + 30.0)
     yb0, zb0 = Y1 - 15.5, zt - 3.0
     for sg in c02_decoupe(coin, yb0, zb0, Y1 + 1.0, zr + 1.0):
@@ -828,14 +828,14 @@ def plan_coulisseau():
     vb.rupture((yb0, zt), (yb0, zb0))
     vb.rupture((yb0, zb0), (Y1, zb0))
     vb.cote_vx(zt, zr, None, Y1 - w, 0.0, xl=Y1 - w - 6.0, texte=f(hr))
-    c02_rayon_creux(vb, (Y1 - w, zt), p.PLAQ_REBORD_R, -45.0, "R%s" % f(p.PLAQ_REBORD_R),
-                    lg=5.0, palier=-5.0)
+    c02_rayon_creux(vb, (Y1 - w - p.PLAQ_REBORD_R, zt + p.PLAQ_REBORD_R), p.PLAQ_REBORD_R, -45.0,
+                    "R%s maxi" % f(p.PLAQ_REBORD_R), lg=17.0, palier=-4.0)
     vb.rayon((Y1 - r1, zr - r1), r1, 45.0, "R%s" % f(r1), 6)
 
     # ------------------------------------------------ detail C : rebord du dessous, 4:1
     s.text(XCD, YD, "DETAIL C  (4:1)", 3.6, "middle", weight="bold")
     s.text(XCD, YD + 4.5, "rebords du dessous, 2 ex.", 2.8, "middle")
-    s.text(XCD, YD + 8.3, "largeur (%s) en projection ; degagement R%s comme B" % (f(wb, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
+    s.text(XCD, YD + 8.3, "largeur (%s) en projection ; pied R%s maxi comme B" % (f(wb, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
     yc = Y1 - 6.0
     vd = D.View(s, KD, yc, zb(yc), XCD + 2.0, YD + 32.0)
     yd0 = Y1 - 13.0
@@ -2407,7 +2407,7 @@ def plan_assemblage():
     y_tete = ye + p.SUPPORT_BUTEE_H
     v3.zone([rect(y_tete, zv - rtete, y_tete + p.VIS_TETE_H, zv + rtete, 0)], w=MOY)
     # coin en fin de course, trait mixte a deux tirets : son enveloppe (dessus
-    # des rebords, deux bouts, dessous incline), sans les degagements de pied
+    # des rebords, deux bouts, dessous incline), sans les conges de pied
     # de rebord qui, en tirets, ne se lisent plus
     zr_ = p.Z_COIN_HAUT + p.PLAQ_REBORD_H
 

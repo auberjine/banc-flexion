@@ -407,11 +407,16 @@ PLAQ_P_ADM = 35.0          # pression dynamique admissible du fabricant
 # il passe sous la traverse, et s'il affleurait ce serait de l'acier sur acier
 # qu'on ferait glisser. Il en reste donc PLAQ_EP - PLAQ_REBORD_H de garde.
 PLAQ_REBORD_H = 3.0        # hauteur du rebord au dessus de la portee : 2 de garde sous les 5 du bronze
-PLAQ_JEU = 0.2             # jeu de la plaquette entre les deux rebords
+# PIEDS DE REBORD SANS DEGAGEMENT (06/10/2026) : la fraise laisse son angle,
+# vif ou un conge de PLAQ_REBORD_R au plus, et c est le logement qui s allonge
+# pour que l angle de la plaquette ne monte pas dessus. Elle a donc un peu de
+# jeu en y avant de venir en butee, par son arete, au pied du rebord : 2.(JEU - R)
+# au plus. Un usinage de moins par rebord, et rien a tenir au centieme.
+PLAQ_JEU = 1.0             # jeu de la plaquette a chaque bout, entre les deux rebords
 # la plaquette est une piece du commerce de longueur fixe : c est la largeur
 # des rebords qui s en deduit, et non l inverse
 PLAQ_REBORD_L = (COIN_L - PLAQ_L - 2.0 * PLAQ_JEU) / 2.0    # rebords du dessus, selon y
-PLAQ_REBORD_R = 1.5        # degagement de pied : l'angle vif de la plaquette doit porter
+PLAQ_REBORD_R = 1.0        # conge de pied laisse par la fraise, au plus (angle vif admis)
 
 # FIXATION DES PLAQUETTES : pas d epoxy. Bronze et acier ne se dilatent pas
 # pareil (18,5 contre 12 microdef/K) : a 150 C, une plaquette de 100 mm
@@ -1109,7 +1114,7 @@ def rebord_contrainte():
     w = COIN_B * PLAQ_REBORD_L ** 2 / 6.0
     return (f / aire,
             f * (PLAQ_REBORD_H / 2.0) / w,
-            f / (COIN_B * PLAQ_REBORD_H))
+            f / (COIN_B * (PLAQ_REBORD_H - PLAQ_REBORD_R)))   # le conge ne porte pas
 
 
 def filet_marge():
@@ -1510,7 +1515,10 @@ def verifie():
     if pres > 40.0:
         pb.append("chant de la plaquette matte a %.0f MPa contre le rebord" % pres)
     if PLAQ_REBORD_R > PLAQ_REBORD_H / 2.0:
-        pb.append("degagement de pied plus haut que la moitie du rebord")
+        pb.append("conge de pied plus haut que la moitie du rebord")
+    if PLAQ_JEU < PLAQ_REBORD_R:
+        pb.append("logement des plaquettes trop court : l angle du bronze monte sur le conge"
+                  " de pied (jeu %.1f, conge R%.1f)" % (PLAQ_JEU, PLAQ_REBORD_R))
     if PLAQ_EP < 4.0:
         pb.append("plaquette de bronze trop mince pour etre rectifiee et usee")
     # fixation des plaquettes : la dilatation differentielle bronze/acier doit

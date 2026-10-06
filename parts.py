@@ -367,9 +367,10 @@ def coin_profile():
     Le bout EPAIS est du cote oppose a la chape : le coin avance vers elle.
 
     Les DEUX faces portent une plaquette de bronze, chacune tenue entre deux
-    REBORDS qui prennent son entrainement dans l'axe de la vis. Leur pied est
-    DEGAGE et non conge : la plaquette doit porter par son angle vif sur toute
-    la hauteur du rebord, pas s'appuyer sur un rayon de fraise.
+    REBORDS qui prennent son entrainement dans l'axe de la vis. Leur pied
+    garde l'angle de la fraise (conge PLAQ_REBORD_R au plus), sans degagement :
+    c'est le logement, plus long de 2.PLAQ_JEU, qui laisse l'angle de la
+    plaquette hors du conge.
     """
     zt = p.Z_COIN_HAUT
     zr = zt + p.PLAQ_REBORD_H
@@ -396,14 +397,14 @@ def coin_profile():
     c = G.Contour("coin")
     c.add(p.COIN_Y0, zr, 1.0)
     c.add(p.COIN_Y0 + w, zr, 1.0)
-    c.add(p.COIN_Y0 + w, zt, p.PLAQ_REBORD_R, relief=True)
-    c.add(p.COIN_Y1 - w, zt, p.PLAQ_REBORD_R, relief=True)
+    c.add(p.COIN_Y0 + w, zt, p.PLAQ_REBORD_R)
+    c.add(p.COIN_Y1 - w, zt, p.PLAQ_REBORD_R)
     c.add(p.COIN_Y1 - w, zr, 1.0)
     c.add(p.COIN_Y1, zr, 1.0)
     c.add(p.COIN_Y1, zb(p.COIN_Y1) - dr, 1.0)
     c.add(y1 + h * sa, zb(y1) - h * ca, 1.0)
-    c.add(y1, zb(y1), p.PLAQ_REBORD_R, relief=True)
-    c.add(y0, zb(y0), p.PLAQ_REBORD_R, relief=True)
+    c.add(y1, zb(y1), p.PLAQ_REBORD_R)
+    c.add(y0, zb(y0), p.PLAQ_REBORD_R)
     c.add(y0 + h * sa, zb(y0) - h * ca, 1.0)
     c.add(p.COIN_Y0, zb(p.COIN_Y0) - dr, 1.0)
     return c.build(), []

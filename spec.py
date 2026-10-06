@@ -524,8 +524,10 @@ def main():
     a("leurs sieges : elles sont autolubrifiantes, et le silicone ne prend pas sur")
     a("une pate.")
     a("")
-    a("Pied de rebord DEGAGE et non conge : l'angle vif de la plaquette doit")
-    a("porter sur toute la hauteur. Et sur la face inclinee, la face interieure")
+    a("Pied de rebord SANS degagement : la fraise y laisse son angle (R%g au plus)," % p.PLAQ_REBORD_R)
+    a("et le logement fait %g pour une plaquette de %g, si bien que l'angle du"
+      % (p.PLAQ_L + 2.0 * p.PLAQ_JEU, p.PLAQ_L))
+    a("bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure")
     a("du rebord est NORMALE A LA PENTE et non verticale, comme le chant de la")
     a("plaquette : dessinees verticales, elles la mordaient de %.1f mm en bas."
       % (p.PLAQ_EP * p.COIN_TAN))
