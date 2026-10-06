@@ -27,34 +27,34 @@
 <text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06c / 06d : pieces du commerce, rien a fabriquer ; entre les rebords du coin 02c (larges de 7,05 dessus et 8,15 dessous), trous remplis de silicone HT.</text>
 <text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06b : la longueur 60 +0,1/0 fixe l ecart des flancs : couper les 9 en serie. Ne pas confondre avec 07b (meme tube, L 71,5, planche 07).</text>
 <text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06b : 7 serrees chacune par une V1 (vis TH M10 x 100 + ecrou autofreine tout metal), les 2 de la chape par les V9 (vis H M10 x 200).</text>
-<text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06a : flottant, il centre la pile de rondelles 02e ; rond etire h9 NON repris : jeu de 0,4 au moins dans les diam. 25,4 de la pile et des alesages.</text>
+<text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06a : colle au fond de l alesage 25 H8 du coulisseau (Loctite 648) ; il centre la pile 02e et coulisse dans le poussoir (jeu de 0,4 au moins dans les diam. 25,4). Rond etire h9 NON repris.</text>
 <text x="75.000" y="20.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06a  TOURILLON  (2:1)</text>
 <text x="75.000" y="24.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">C45+C, 1 ex.</text>
-<text x="75.000" y="28.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">brut rond etire 25 h9 x 76</text>
-<path d="M 53.000 197.000 L 97.000 197.000 L 100.000 194.000 L 100.000 48.000 L 97.000 45.000 L 53.000 45.000 L 50.000 48.000 L 50.000 194.000 L 53.000 197.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="50.000" y1="194.000" x2="100.000" y2="194.000" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
+<text x="75.000" y="28.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">brut rond etire 25 h9 x 79.5</text>
+<path d="M 53.000 204.000 L 97.000 204.000 L 100.000 201.000 L 100.000 48.000 L 97.000 45.000 L 53.000 45.000 L 50.000 48.000 L 50.000 201.000 L 53.000 204.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="50.000" y1="201.000" x2="100.000" y2="201.000" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
 <line x1="50.000" y1="48.000" x2="100.000" y2="48.000" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
-<line x1="75.000" y1="200.000" x2="75.000" y2="42.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
-<line x1="50.000" y1="194.000" x2="50.000" y2="198.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="53.000" y1="197.000" x2="49.000" y2="197.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="75.000" y1="207.000" x2="75.000" y2="42.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="50.000" y1="201.000" x2="50.000" y2="205.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="53.000" y1="204.000" x2="49.000" y2="204.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="50.000" y1="48.000" x2="50.000" y2="44.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="53.000" y1="45.000" x2="49.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="100.000" y1="194.000" x2="100.000" y2="198.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="97.000" y1="197.000" x2="101.000" y2="197.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="100.000" y1="201.000" x2="100.000" y2="205.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="97.000" y1="204.000" x2="101.000" y2="204.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="100.000" y1="48.000" x2="100.000" y2="44.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="97.000" y1="45.000" x2="101.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="101.000" y1="197.000" x2="112.000" y2="197.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="101.000" y1="204.000" x2="112.000" y2="204.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="101.000" y1="45.000" x2="112.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="110.000" y1="197.000" x2="110.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 110.000 197.000 L 110.728 194.400 L 109.272 194.400 Z" fill="#000"/>
+<line x1="110.000" y1="204.000" x2="110.000" y2="45.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 110.000 204.000 L 110.728 201.400 L 109.272 201.400 Z" fill="#000"/>
 <path d="M 110.000 45.000 L 109.272 47.600 L 110.728 47.600 Z" fill="#000"/>
-<text x="108.400" y="121.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 108.400 121.000)">76</text>
-<line x1="50.000" y1="198.000" x2="50.000" y2="211.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="100.000" y1="198.000" x2="100.000" y2="211.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="50.000" y1="209.000" x2="100.000" y2="209.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 50.000 209.000 L 52.600 209.728 L 52.600 208.272 Z" fill="#000"/>
-<path d="M 100.000 209.000 L 97.400 208.272 L 97.400 209.728 Z" fill="#000"/>
-<text x="75.000" y="207.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">diam. 25 h9</text>
+<text x="108.400" y="124.500" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 108.400 124.500)">79,5</text>
+<line x1="50.000" y1="205.000" x2="50.000" y2="218.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="100.000" y1="205.000" x2="100.000" y2="218.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="50.000" y1="216.000" x2="100.000" y2="216.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 50.000 216.000 L 52.600 216.728 L 52.600 215.272 Z" fill="#000"/>
+<path d="M 100.000 216.000 L 97.400 215.272 L 97.400 216.728 Z" fill="#000"/>
+<text x="75.000" y="214.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">diam. 25 h9</text>
 <line x1="51.500" y1="46.500" x2="42.500" y2="38.500" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <path d="M 51.500 46.500 L 50.040 44.229 L 49.073 45.317 Z" fill="#000"/>
 <line x1="42.500" y1="38.500" x2="38.500" y2="38.500" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>

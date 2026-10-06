@@ -368,7 +368,7 @@ def main():
     a("des flancs, coin de commande qui glisse sous elle sur ses plaques de bronze,")
     a("coulisseau guide par les tetes de quatre CHC M%g dans les lumieres, pile de"
       % p.GUIDE_VIS_D)
-    a("rondelles sur tourillon flottant, poussoir, patin de charge colle. La")
+    a("rondelles sur tourillon colle dans le coulisseau, poussoir, patin de charge colle. La")
     a("reaction remonte par les montants et les bielles dans la membrure haute,")
     a("qui travaille en traction.")
     a("")
@@ -381,8 +381,9 @@ def main():
       % (p.GUIDE_VIS_D, p.GUIDE_VIS_L, p.GUIDE_TETE_D, p.LUMIERE_B, p.GUIDE_VIS_D, p.GUIDE_TARAUD_P))
     a("| Poussoir | %d plateaux de tole %g perces, reperes par 2 goupilles %g m6 serrees dans le patin de charge, qui fait fond |"
       % (p.POUSSOIR_N, p.POUSSOIR_EP, p.POUSSOIR_GOUPILLE_D))
-    a("| Tourillon | %s, rond etire %g h9 non repris, flottant, engage de %.1f mm dans chaque alesage au repos |"
-      % (p.TOURILLON_MATIERE, p.TOURILLON_D, (p.TOURILLON_L - p.PILE_H_LIBRE) / 2.0))
+    t_rep, t_but, t_cal = p.tourillon_course()
+    a("| Tourillon | %s, rond etire %g h9 x %g non repris, COLLE au fond du coulisseau (%s) ; dans le poussoir : %.1f au repos, %.1f avec les cales, %.1f de garde au dessus du patin a la butee |"
+      % (p.TOURILLON_MATIERE, p.TOURILLON_D, p.TOURILLON_L, p.TOURILLON_COLLE, t_rep, t_cal, t_but))
     a("| Tige filetee | immobile axialement dans la chape, le coin est son ecrou |")
     a("| Butee de course | bas de la lumiere, interdit l'aplatissement de la pile |")
     a("")

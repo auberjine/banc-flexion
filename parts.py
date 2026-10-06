@@ -828,7 +828,7 @@ def f_coulisseau(solid, Part, Vector):
     la section, et les quatre taraudages de guide dans les faces laterales.
     Repere local du profil 'xy' : X et Y globaux, Z = z - Z_COULISSEAU_BAS.
     """
-    out = solid.cut(Part.makeCylinder(p.ALESAGE_D / 2.0, p.ALESAGE_P_COUL + 1.0,
+    out = solid.cut(Part.makeCylinder(p.ALESAGE_D_COUL / 2.0, p.ALESAGE_P_COUL + 1.0,
                                       Vector(0, 0, -1.0)))
     # dessus a z = COULISSEAU_E + y.tan(a) : le coulisseau est epais du cote ou
     # le coin est mince, c'est-a-dire du cote de la butee. La reference est
@@ -958,7 +958,7 @@ def all_parts():
         note="dessus a %g degres sur toute la section ; alesage %s prof. %s par dessous ;"
              " 4 taraudages M%g prof. %s dans les faces laterales (avant-trou %s prof. %s),"
              " axe a %s du dessous, x = +/- %s"
-             % (p.COIN_ANGLE, fr(p.ALESAGE_D), fr(p.ALESAGE_P_COUL), p.GUIDE_VIS_D,
+             % (p.COIN_ANGLE, fr(p.ALESAGE_D_COUL) + " H8", fr(p.ALESAGE_P_COUL), p.GUIDE_VIS_D,
                 fr(p.GUIDE_TARAUD_P), fr(p.GUIDE_TARAUD_D), fr(p.GUIDE_PERCAGE_P),
                 fr(p.GUIDE_Z), fr(p.GUIDE_X))))
 
@@ -980,8 +980,10 @@ def all_parts():
         tourillon_profile, 'xy',
         (0.0, 0.0, p.Z_TOURILLON_BAS), flat=False,
         note="rond etire h9 NON repris : tronconne, chanfrein %s x 45 deg aux deux bouts ;"
-             " flottant, centre la pile et enfile le poussoir et le coulisseau"
-             % fr(p.TOURILLON_CHANFREIN)))
+             " COLLE au fond de l alesage du coulisseau (%s) ; centre la pile et coulisse"
+             " dans le poussoir : %s au repos, %s de garde au dessus du patin a la butee"
+             % (fr(p.TOURILLON_CHANFREIN), p.TOURILLON_COLLE,
+                fr(p.tourillon_course()[0]), fr(p.tourillon_course()[1]))))
 
     parts.append(PartSpec(
         "coin", "Coin de commande", 1, "C45",

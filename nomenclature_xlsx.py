@@ -225,8 +225,16 @@ def main():
     os.makedirs(os.path.dirname(CIBLE), exist_ok=True)
     # openpyxl n'ecrit pas les valeurs des formules : Excel recalcule a l'ouverture
     wb.calculation.fullCalcOnLoad = True
-    wb.save(CIBLE)
-    print(CIBLE, ", ".join(wb.sheetnames))
+    cible = CIBLE
+    try:
+        wb.save(cible)
+    except PermissionError:
+        # ouvert dans Excel : on ecrit a cote, au nom de l'indice
+        import params as p
+        cible = CIBLE.replace(".xlsx", "_indice%s.xlsx" % p.INDICE_REVISION)
+        wb.save(cible)
+        print("!! %s est ouvert ailleurs : classeur a jour dans %s" % (CIBLE, os.path.basename(cible)))
+    print(cible, ", ".join(wb.sheetnames))
 
 
 if __name__ == "__main__":

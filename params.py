@@ -288,11 +288,19 @@ GUIDE_TARAUD_D = 6.8      # avant-trou du taraudage M8 x 1,25
 GUIDE_TARAUD_P = 16.0     # profondeur TARAUDEE dans le coulisseau (la vis y entre de GUIDE_VIS_L)
 GUIDE_PERCAGE_P = GUIDE_TARAUD_P + 3.0   # profondeur de l avant-trou, degagement du taraud
 
-# Tourillon : rond etire h9, NON repris (jeu 0,40 a 0,66 dans les Di 25,4 des
-# rondelles et des alesages, ce que demande le guidage d une pile DIN 2093).
-# Seulement tronconne et chanfreine aux deux bouts.
+# Tourillon : rond etire h9, NON repris (jeu 0,40 a 0,66 dans le Di 25,4 des
+# rondelles et du poussoir, ce que demande le guidage d une pile DIN 2093).
+# Seulement tronconne et chanfreine aux deux bouts. Depuis le 06/10/2026 il
+# est COLLE au fond de l alesage du coulisseau (25 H8, Loctite 648, 175 C) :
+# flottant, il tombait sur le patin de charge, cadre couche, et n entrait plus
+# que de 0,4 mm dans le coulisseau au repos. Il descend avec le coulisseau et
+# ne coulisse que dans les plateaux du poussoir.
 TOURILLON_D = 25.0
-TOURILLON_L = 76.0
+ALESAGE_D_COUL = 25.0         # alesage du coulisseau, H8, ou le tourillon est colle
+TOURILLON_COLLE = "Loctite 648 (tient 175 C), alesage %g H8 degraisse" % ALESAGE_D_COUL
+TOURILLON_ENGAGE = 8.0        # engagement dans le poussoir au repos, sans cale
+TOURILLON_GARDE_MIN = 3.0     # au dessus du patin de charge, a la butee mecanique
+TOURILLON_PRISE_MIN = 4.0     # dans le poussoir, au repos, avec toutes les cales
 TOURILLON_CHANFREIN = 1.5  # x 45 deg aux deux bouts
 TOURILLON_MATIERE = "C45+C"   # rond etire h9 courant en stock (EN 10277)
 ALESAGE_D = 25.4
@@ -304,7 +312,10 @@ Z_POUSSOIR_HAUT = Z_POUSSOIR_BAS + POUSSOIR_H
 Z_PILE_BAS = Z_POUSSOIR_HAUT
 Z_COULISSEAU_BAS = Z_PILE_BAS + PILE_H_LIBRE        # a vide
 Z_COULISSEAU_HAUT = Z_COULISSEAU_BAS + COULISSEAU_E
-Z_TOURILLON_BAS = Z_PILE_BAS - (TOURILLON_L - PILE_H_LIBRE) / 2.0   # flottant, centre
+# longueur : colle sur ALESAGE_P_COUL, la pile libre, puis TOURILLON_ENGAGE dans le
+# poussoir ; arrondie au demi-millimetre inferieur (coupe a la scie)
+TOURILLON_L = math.floor(2.0 * (ALESAGE_P_COUL + PILE_H_LIBRE + TOURILLON_ENGAGE)) / 2.0
+Z_TOURILLON_BAS = Z_COULISSEAU_BAS + ALESAGE_P_COUL - TOURILLON_L   # colle au fond du coulisseau
 
 
 # ---------------------------------------------------------- commande par coin
@@ -1257,6 +1268,14 @@ def flexion_traverse():
 
 # ============================================================ verifications
 
+def tourillon_course():
+    """Tourillon colle dans le coulisseau : (engagement dans le poussoir au
+    repos, garde au dessus du patin de charge a la butee mecanique, engagement
+    au repos avec toutes les cales entre poussoir et pile)."""
+    rep = TOURILLON_L - ALESAGE_P_COUL - PILE_H_LIBRE
+    return rep, ALESAGE_P - rep - ecrasement_butee(), rep - sum(CALES_EP)
+
+
 def verifie():
     pb = []
     # entretoises 20 x 2 : la precharge des M10 ne doit pas les ecraser, a chaud
@@ -1308,12 +1327,14 @@ def verifie():
     if LUMIERE_Z0 - Z_NOEUD_BAS < 12:
         pb.append("moins de 12 mm de matiere sous la lumiere")
 
-    prise_t = (TOURILLON_L - PILE_H_LIBRE) / 2.0
-    if prise_t < 10.0:
-        pb.append("tourillon engage de %.1f mm seulement dans chaque alesage" % prise_t)
-    jeu_t = (PILE_H_LIBRE - PILE_ECRAS_DIM) + ALESAGE_P + ALESAGE_P_COUL - TOURILLON_L
-    if jeu_t < 2.0:
-        pb.append("le tourillon talonne dans les alesages a pleine charge (%.1f mm)" % jeu_t)
+    # tourillon colle dans le coulisseau : il descend avec lui dans le poussoir
+    t_rep, t_but, t_cal = tourillon_course()
+    if t_but < TOURILLON_GARDE_MIN:
+        pb.append("le tourillon arrive a %.1f mm du patin de charge a la butee (mini %g)"
+                  % (t_but, TOURILLON_GARDE_MIN))
+    if t_cal < TOURILLON_PRISE_MIN:
+        pb.append("le tourillon n entre que de %.1f mm dans le poussoir avec les cales (mini %g)"
+                  % (t_cal, TOURILLON_PRISE_MIN))
 
     eb = ecrasement_butee()
     if eb >= PILE_COURSE:
@@ -1685,8 +1706,6 @@ def verifie():
     if PATIN_CHARGE_AVANT_TROU < 0.5 * PATIN_CHARGE_E:
         pb.append("avant-trou de %.1f dans %g : trop petit pour le laser"
                   % (PATIN_CHARGE_AVANT_TROU, PATIN_CHARGE_E))
-    if TOURILLON_L - PILE_H_LIBRE < 20.0:
-        pb.append("tourillon trop court pour tenir dans les deux alesages")
 
     # appui : rainure du patin et contact de Hertz
     j_rain = (RAINURE_B - EP_TOLE_REELLE_42) / 2.0

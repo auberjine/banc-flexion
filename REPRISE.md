@@ -38,7 +38,7 @@ bien placees ».
 
 - Tourillon en C45+C etire h9 (choix actuel) ou S355JR : `TOURILLON_MATIERE`.
 - V5 : 2 rondelles AS 1730 a la place d'une rondelle trempee 30 x 2 (introuvable en M16).
-- Couple de serrage M10 : 35 N.m (V1 et V9), a valider puis a passer dans params.py.
+- (tranche le 06/10) Couple de serrage M10 : 25 N.m, dans params.py (COUPLE_M10).
 - Centrage selon x du paquet de traverse dans sa mortaise (constat 03-11).
 - Largeur d'etuve : 538, CONFIRMEE le 05/10/2026 (hauteur 1400 encore a confirmer).
 - Calage de la poutrelle en position debout : point ouvert assume.

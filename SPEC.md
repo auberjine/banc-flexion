@@ -199,7 +199,7 @@ paragraphe des points ouverts).
 Chaine d'effort, de haut en bas : traverse a tenons portee par la mortaise
 des flancs, coin de commande qui glisse sous elle sur ses plaques de bronze,
 coulisseau guide par les tetes de quatre CHC M8 dans les lumieres, pile de
-rondelles sur tourillon flottant, poussoir, patin de charge colle. La
+rondelles sur tourillon colle dans le coulisseau, poussoir, patin de charge colle. La
 reaction remonte par les montants et les bielles dans la membrure haute,
 qui travaille en traction.
 
@@ -209,7 +209,7 @@ qui travaille en traction.
 | Coulisseau | S355JR, dessus incline sur TOUTE sa section ; un bloc, sans tenon |
 | Guidage | 4 tetes de CHC M8 x 12 ISO 4762, tete lisse, diametre 13, dans des lumieres de 14 ; taraudages M8 prof. 16 |
 | Poussoir | 3 plateaux de tole 8 perces, reperes par 2 goupilles 8 m6 serrees dans le patin de charge, qui fait fond |
-| Tourillon | C45+C, rond etire 25 h9 non repris, flottant, engage de 12.2 mm dans chaque alesage au repos |
+| Tourillon | C45+C, rond etire 25 h9 x 79.5 non repris, COLLE au fond du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; dans le poussoir : 7.9 au repos, 4.9 avec les cales, 4.3 de garde au dessus du patin a la butee |
 | Tige filetee | immobile axialement dans la chape, le coin est son ecrou |
 | Butee de course | bas de la lumiere, interdit l'aplatissement de la pile |
 
@@ -422,16 +422,16 @@ resolution suffisante, et un col serait une entaille de plus.
 
 ## 9. Masses
 
-Masses du modele 3D (out/masses.json, construit le 05/10/2026).
+Masses du modele 3D (out/masses.json, construit le 06/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
 | Flanc en treillis | 2 | 10.21 kg | 20.41 kg |
 | Plaque de traverse | 6 | 0.26 kg | 1.54 kg |
 | Plateau de poussoir | 3 | 0.32 kg | 0.97 kg |
-| Coulisseau a tete inclinee | 1 | 1.45 kg | 1.45 kg |
+| Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
-| Tourillon de centrage | 1 | 0.29 kg | 0.29 kg |
+| Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
 | Plaque de frottement, dessus | 1 | 0.15 kg | 0.15 kg |
 | Plaque de frottement, dessous | 1 | 0.15 kg | 0.15 kg |

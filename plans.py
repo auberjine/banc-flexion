@@ -778,7 +778,7 @@ def plan_coulisseau():
               -20.0, -4.0, fin="fleche")
     a5 = math.radians(170.0)
     vt.renvoi((ra * math.cos(a5), ra * math.sin(a5)),
-              "alesage %s prof. %s" % (f(p.ALESAGE_D), f(p.ALESAGE_P_COUL)) + chr(10)
+              "alesage %s H8 prof. %s" % (f(p.ALESAGE_D_COUL), f(p.ALESAGE_P_COUL)) + chr(10)
               + "a fond plat, par dessous", -50.0, -5.0, fin="fleche")
 
     # ======================================================== coin 02c
@@ -1596,9 +1596,10 @@ def plan_petites():
     k2 = 2.0                                         # pieces de revolution au 2:1
 
     notes = [
-        "%s : flottant, il centre la pile de rondelles %s ; rond etire %s NON repris : jeu de %s au moins"
-        " dans les diam. %s de la pile et des alesages." % (rA, R["pile_belleville"], ajust,
-                                                            f(p.ALESAGE_D - p.TOURILLON_D), f(p.ALESAGE_D)),
+        "%s : colle au fond de l alesage %s H8 du coulisseau (%s) ; il centre la pile %s et coulisse"
+        " dans le poussoir (jeu de %s au moins dans les diam. %s). Rond etire %s NON repris."
+        % (rA, f(p.ALESAGE_D_COUL), p.TOURILLON_COLLE.split(" (")[0], R["pile_belleville"],
+           f(p.ALESAGE_D - p.TOURILLON_D), f(p.ALESAGE_D), ajust),
         "%s : %d serrees chacune par une V1 (vis TH M10 x %s + ecrou autofreine tout metal), les %d de la"
         " chape par les V9 (vis H M10 x %s)." % (rB, n_cadre, f(p.ENTR_VIS_L), n_chape, f(p.SUPPORT_TIRANT_L)),
         "%s : la longueur %s %s fixe l ecart des flancs : couper les %d en serie. Ne pas confondre avec %s"

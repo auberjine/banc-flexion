@@ -34,9 +34,9 @@
    "nom": "coulisseau",
    "designation": "Coulisseau a tete inclinee",
    "qte": 1,
-   "volume_cm3": 185.05,
-   "masse_kg": 1.453,
-   "masse_totale_kg": 1.453,
+   "volume_cm3": 185.37,
+   "masse_kg": 1.455,
+   "masse_totale_kg": 1.455,
    "matiere": "S355JR",
    "brut": "plat 65 x 40, L 120 (fini 58 x 36,2 x 114)"
   },
@@ -54,11 +54,11 @@
    "nom": "tourillon",
    "designation": "Tourillon de centrage",
    "qte": 1,
-   "volume_cm3": 37.31,
-   "masse_kg": 0.293,
-   "masse_totale_kg": 0.293,
+   "volume_cm3": 39.02,
+   "masse_kg": 0.306,
+   "masse_totale_kg": 0.306,
    "matiere": "C45+C",
-   "brut": "rond etire 25 h9 x 76"
+   "brut": "rond etire 25 h9 x 79.5"
   },
   {
    "nom": "coin",
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.91,
- "cadre_kg": 34.7,
+ "total_kg": 56.93,
+ "cadre_kg": 34.71,
  "indice": "B",
  "date": "05/10/2026",
- "date_calcul": "05/10/2026",
- "empreinte": "565568c34fa0aa40"
+ "date_calcul": "06/10/2026",
+ "empreinte": "921ece3a1d44a49a"
 }

@@ -160,8 +160,8 @@ def ordre_de_montage():
         % (fr(cale_poutre), fr(p.POUTRE_B / 2.0 - p.Y_FLANC_EXT)),
         "**Tete de charge.** Encoller le patin de charge sur sa face inferieure et le poser au"
         " milieu de la poutrelle, goupilles vers la tete ; enfiler sur les goupilles les %d"
-        " plateaux du poussoir, poser la cale eventuelle (V4), le tourillon, la pile TETE-BECHE"
-        " (grand diametre aux deux bouts) et le coulisseau, cote epais de sa pente vers la chape."
+        " plateaux du poussoir, poser la cale eventuelle (V4), la pile TETE-BECHE"
+        " (grand diametre aux deux bouts) puis le coulisseau, tourillon colle dessous a l avance (Loctite 648 dans l alesage degraisse, polymeriser avant montage), cote epais de sa pente vers la chape."
         " De cet encollage a la precharge, tout doit tenir dans la vie en pot de la colle :"
         " faire d abord les etapes %d a %d et preparer la visserie. Si elle est trop courte,"
         " coller le patin de charge la veille sur la poutrelle, centre au trace, sous une masse."

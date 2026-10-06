@@ -351,8 +351,8 @@
 <path d="M 215.000 206.516 L 215.000 216.915 A 0.000 0.000 0 0 0 215.000 216.915 L 218.200 216.915 A 0.000 0.000 0 0 0 218.200 216.915 L 218.200 206.516 A 0.000 0.000 0 0 0 218.200 206.515 L 215.000 206.515 A 0.000 0.000 0 0 0 215.000 206.516 Z" fill="url(#a00_hb)" fill-rule="evenodd" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 215.000 188.916 L 215.000 199.315 A 0.000 0.000 0 0 0 215.000 199.315 L 218.200 199.315 A 0.000 0.000 0 0 0 218.200 199.315 L 218.200 188.916 A 0.000 0.000 0 0 0 218.200 188.915 L 215.000 188.915 A 0.000 0.000 0 0 0 215.000 188.916 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
 <path d="M 215.000 188.916 L 215.000 199.315 A 0.000 0.000 0 0 0 215.000 199.315 L 218.200 199.315 A 0.000 0.000 0 0 0 218.200 199.315 L 218.200 188.916 A 0.000 0.000 0 0 0 218.200 188.915 L 215.000 188.915 A 0.000 0.000 0 0 0 215.000 188.916 Z" fill="url(#a00_hb)" fill-rule="evenodd" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 163.600 250.880 L 172.400 250.880 L 173.000 250.280 L 173.000 221.080 L 172.400 220.480 L 163.600 220.480 L 163.000 221.080 L 163.000 250.280 L 163.600 250.880 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
-<path d="M 163.600 250.880 L 172.400 250.880 L 173.000 250.280 L 173.000 221.080 L 172.400 220.480 L 163.600 220.480 L 163.000 221.080 L 163.000 250.280 L 163.600 250.880 Z" fill="none" fill-rule="evenodd" stroke="#000" stroke-width="0.350" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 163.600 249.160 L 172.400 249.160 L 173.000 248.560 L 173.000 217.960 L 172.400 217.360 L 163.600 217.360 L 163.000 217.960 L 163.000 248.560 L 163.600 249.160 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
+<path d="M 163.600 249.160 L 172.400 249.160 L 173.000 248.560 L 173.000 217.960 L 172.400 217.360 L 163.600 217.360 L 163.000 217.960 L 163.000 248.560 L 163.600 249.160 Z" fill="none" fill-rule="evenodd" stroke="#000" stroke-width="0.350" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 156.000 199.716 L 156.000 206.115 A 0.000 0.000 0 0 0 156.000 206.115 L 230.000 206.115 A 0.000 0.000 0 0 0 230.000 206.115 L 230.000 199.716 A 0.000 0.000 0 0 0 230.000 199.715 L 156.000 199.715 A 0.000 0.000 0 0 0 156.000 199.716 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
 <path d="M 156.000 199.716 L 156.000 206.115 A 0.000 0.000 0 0 0 156.000 206.115 L 230.000 206.115 A 0.000 0.000 0 0 0 230.000 206.115 L 230.000 199.716 A 0.000 0.000 0 0 0 230.000 199.715 L 156.000 199.715 A 0.000 0.000 0 0 0 156.000 199.716 Z" fill="none" fill-rule="evenodd" stroke="#000" stroke-width="0.350" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 211.000 196.916 L 211.000 208.915 A 0.000 0.000 0 0 0 211.000 208.915 L 211.800 208.915 A 0.000 0.000 0 0 0 211.800 208.915 L 211.800 196.916 A 0.000 0.000 0 0 0 211.800 196.915 L 211.000 196.915 A 0.000 0.000 0 0 0 211.000 196.916 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
@@ -443,8 +443,8 @@
 <circle cx="176.800" cy="219.360" r="0.55" fill="#000"/>
 <circle cx="198.000" cy="220.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
 <text x="198.000" y="221.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">02a</text>
-<line x1="170.000" y1="222.480" x2="194.523" y2="229.066" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<circle cx="170.000" cy="222.480" r="0.55" fill="#000"/>
+<line x1="170.000" y1="219.360" x2="194.635" y2="228.721" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<circle cx="170.000" cy="219.360" r="0.55" fill="#000"/>
 <circle cx="198.000" cy="230.000" r="3.600" fill="#fff" stroke="#000" stroke-width="0.25"/>
 <text x="198.000" y="231.080" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">06a</text>
 <line x1="207.800" y1="207.315" x2="202.629" y2="236.455" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
@@ -499,8 +499,8 @@
 <text x="402.000" y="176.200" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">276,6</text>
 <text x="327.000" y="180.400" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">06a</text>
 <text x="358.000" y="180.400" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">tourillon</text>
-<text x="390.000" y="180.400" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">182,8</text>
-<text x="402.000" y="180.400" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">258,8</text>
+<text x="390.000" y="180.400" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">187,1</text>
+<text x="402.000" y="180.400" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">266,6</text>
 <text x="327.000" y="184.600" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">02e</text>
 <text x="358.000" y="184.600" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">pile Belleville libre (+ cales V4)</text>
 <text x="390.000" y="184.600" font-family="Helvetica,Arial,sans-serif" font-size="2.70" fill="#000" text-anchor="middle" font-weight="normal">195</text>
@@ -3139,5 +3139,5 @@
 <text x="395.153" y="36.505" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">05c</text>
 <text x="318.000" y="140.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Pieds couches, pieds en V et crochets d etuve figures ensemble :</text>
 <text x="318.000" y="144.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">debout, les pieds couches restent sur la paillasse.</text>
-<text x="382.537" y="135.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#000" text-anchor="end" font-weight="normal">modele 3D du 05/10/2026</text>
+<text x="382.537" y="135.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#000" text-anchor="end" font-weight="normal">modele 3D du 06/10/2026</text>
 </svg>
