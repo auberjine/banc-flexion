@@ -41,7 +41,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 06d | Plaque de frottement, dessous | 1 | norelem 23765-01-038100, 38 x 100 x 5 | CuZn25Al5Mn4Fe3-C + graphite | 0.15 kg | meme plaque du commerce ; entre ses deux rebords sous le coin, trous remplis de silicone HT, glisse sur la pente du coulisseau |
 | 02d | Tige filetee de commande M16 | 1 | tige filetee M16 classe 8.8, coupee a 185 | 8.8 | 0.41 kg | piece du commerce, coupee a longueur, montee a la pate cuivre ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
-| 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles DIN 2093 A50 | 51CrV4 | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
+| 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles EN 16983 A50 | 51CrV4 (1.8159) | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 (ex-DIN 2093, PAS en C60S) montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 
 **Masse du cadre complet : 34.4 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 06/10/2026).
 
@@ -90,7 +90,7 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | Portee entre bossages | 750 mm |
 | Bossages | R150, balancier, 339 MPa de Hertz sur 6,4 mm portants |
 | Pression de Hertz aux appuis | 339 MPa ; limite 480 MPa, 1,6 Re a chaud du patin S355JR, le plus mou des deux corps ; coefficient 1.42 |
-| Pile Belleville | 12 x DIN 2093 A50, hauteur libre 51.6 mm |
+| Pile Belleville | 12 x EN 16983 A50 en 51CrV4 (1.8159), hauteur libre 51.6 mm |
 | Effort de la pile a plat | 18.5 kN |
 | Course totale de la pile | 15.6 mm |
 | Ecrasement a 12 kN | 9.65 mm, soit 1243 N/mm en secant |

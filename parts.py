@@ -1135,10 +1135,10 @@ def all_parts():
              + ("" if p.ETUVE_CONFIRMEE else " : " + p.ALERTE_ETUVE)))
 
     parts.append(PartSpec(
-        "pile_belleville", "Pile de %d rondelles Belleville" % p.RESSORT_N, 1, "51CrV4",
-        "%d rondelles DIN 2093 A50" % p.RESSORT_N, p.PILE_H_LIBRE, pile_profile, 'xy',
+        "pile_belleville", "Pile de %d rondelles Belleville" % p.RESSORT_N, 1, p.RESSORT_MATIERE,
+        "%d rondelles %s" % (p.RESSORT_N, p.RESSORT_NORME), p.PILE_H_LIBRE, pile_profile, 'xy',
         (0.0, 0.0, p.Z_PILE_BAS), flat=False, features=f_pile, achete=True,
-        note="piece du commerce : %d rondelles %s x %s x %s montees TETE-BECHE, grand diametre aux"
+        note="piece du commerce : %d rondelles %s x %s x %s (ex-DIN 2093, PAS en C60S) montees TETE-BECHE, grand diametre aux"
              " deux bouts ; %s kN a plat, course %s mm ; cales de rattrapage %s mm (%s / %s) entre"
              " poussoir et pile si l empilement est court"
              % (p.RESSORT_N, fr(p.RESSORT_DE), fr(p.RESSORT_DI), fr(p.RESSORT_T),

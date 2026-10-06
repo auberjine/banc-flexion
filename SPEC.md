@@ -36,7 +36,7 @@ sur la poutrelle et partent avec elle : il en faut un jeu par eprouvette.
 | Schema | 3 points, portee 750 mm |
 | Charge de dimensionnement du cadre | 12 kN |
 | Commande | coin d'acier C45 a 12 deg garni de deux plaques de bronze du commerce, tige filetee M16 pas 2.0 normale aux flancs |
-| Pile de rondelles | 12 x DIN 2093 A50 (50 x 25.4 x 3.0), montees tete-beche |
+| Pile de rondelles | 12 x EN 16983 A50 (ex-DIN 2093) en 51CrV4 (1.8159) (50 x 25.4 x 3.0), montees tete-beche |
 | Hauteur libre de la pile | 51.6 mm |
 | Effort de la pile a plat | 18.5 kN |
 | Course totale | 15.6 mm |

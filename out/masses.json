@@ -187,8 +187,8 @@
    "volume_cm3": 52.44,
    "masse_kg": 0.412,
    "masse_totale_kg": 0.412,
-   "matiere": "51CrV4",
-   "brut": "12 rondelles DIN 2093 A50"
+   "matiere": "51CrV4 (1.8159)",
+   "brut": "12 rondelles EN 16983 A50"
   },
   {
    "nom": "poutre",
@@ -206,5 +206,5 @@
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "06/10/2026",
- "empreinte": "a18ae01731f2581c"
+ "empreinte": "635950bce13ac8a6"
 }

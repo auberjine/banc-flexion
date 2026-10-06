@@ -387,8 +387,8 @@ def main():
     out.append("| Pression de Hertz aux appuis | %.0f MPa ; limite %.0f MPa, 1,6 Re a chaud du patin"
                " S355JR, le plus mou des deux corps ; coefficient %.2f |"
                % (p.hertz_appui(), p.HERTZ_LIM, p.hertz_coef()))
-    out.append("| Pile Belleville | %d x DIN 2093 A50, hauteur libre %.1f mm |"
-               % (p.RESSORT_N, p.PILE_H_LIBRE))
+    out.append("| Pile Belleville | %d x %s en %s, hauteur libre %.1f mm |"
+               % (p.RESSORT_N, p.RESSORT_NORME, p.RESSORT_MATIERE, p.PILE_H_LIBRE))
     out.append("| Effort de la pile a plat | %.1f kN |" % (p.RESSORT_F_PLAT / 1000.0))
     out.append("| Course totale de la pile | %.1f mm |" % p.PILE_COURSE)
     out.append("| Ecrasement a %g kN | %.2f mm, soit %.0f N/mm en secant |"

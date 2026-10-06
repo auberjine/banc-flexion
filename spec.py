@@ -134,8 +134,8 @@ def main():
     a("| Commande | coin d'acier C45 a %.0f deg garni de deux plaques de bronze du commerce,"
       " tige filetee M%.0f pas %.1f normale aux flancs |"
       % (p.COIN_ANGLE, p.VIS_D, p.VIS_PAS))
-    a("| Pile de rondelles | %d x DIN 2093 A50 (%.0f x %.1f x %.1f), montees tete-beche |"
-      % (p.RESSORT_N, p.RESSORT_DE, p.RESSORT_DI, p.RESSORT_T))
+    a("| Pile de rondelles | %d x %s (ex-DIN 2093) en %s (%.0f x %.1f x %.1f), montees tete-beche |"
+      % (p.RESSORT_N, p.RESSORT_NORME, p.RESSORT_MATIERE, p.RESSORT_DE, p.RESSORT_DI, p.RESSORT_T))
     a("| Hauteur libre de la pile | %.1f mm |" % p.PILE_H_LIBRE)
     a("| Effort de la pile a plat | %.1f kN |" % (p.RESSORT_F_PLAT / 1000.0))
     a("| Course totale | %.1f mm |" % p.PILE_COURSE)

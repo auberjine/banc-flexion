@@ -30,7 +30,7 @@
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">0,425 mm de coulisseau et environ 549 N par tour de tige.</text>
 <text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Reglage par coin acier a 12 deg et tige M16 normale aux flancs :</text>
 <text x="408.000" y="228.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Lecture de charge : 9,65 mm de coulisseau a 12 kN.</text>
-<text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Pile Belleville, 12 rondelles DIN 2093 A50 : 18,5 kN a plat, course 15,6 mm.</text>
+<text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Pile Belleville, 12 rondelles EN 16983 A50 : 18,5 kN a plat, course 15,6 mm.</text>
 <text x="408.000" y="220.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Eprouvette : poutrelle 103 x 107 x 840, en trait mixte a deux tirets.</text>
 <text x="408.000" y="216.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Flexion 3 points, portee 750, capacite 12 kN.</text>
 <defs><pattern id="a00_ha" patternUnits="userSpaceOnUse" width="1.500" height="1.500" patternTransform="rotate(45.00)"><line x1="0.750" y1="0" x2="0.750" y2="1.500" stroke="#000" stroke-width="0.130"/></pattern></defs>

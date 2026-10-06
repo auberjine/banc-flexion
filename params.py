@@ -204,7 +204,11 @@ Z_PATIN_CHARGE_HAUT = Z_POUTRE_HAUT + PATIN_CHARGE_E
 
 # ============================================================ rondelles Belleville
 
-# DIN 2093 serie A 50 : De 50, Di 25,4, t 3,0, l0 4,3 donc h0 1,3.
+# EN 16983 (ex-DIN 2093, memes cotes) serie A 50, groupe 2 : De 50, Di 25,4,
+# t 3,0, l0 4,3 donc h0 1,3. En 51CrV4 (1.8159) : tenu a 150 C, la ou le C60S
+# livre par defaut s arrete vers 100 C.
+RESSORT_NORME = "EN 16983 A50"
+RESSORT_MATIERE = "51CrV4 (1.8159)"
 RESSORT_DE = 50.0
 RESSORT_DI = 25.4
 RESSORT_T = 3.0
@@ -314,7 +318,7 @@ GUIDE_TARAUD_P = 16.0     # profondeur TARAUDEE dans le coulisseau (la vis y ent
 GUIDE_PERCAGE_P = GUIDE_TARAUD_P + 3.0   # profondeur de l avant-trou, degagement du taraud
 
 # Tourillon : rond etire h9, NON repris (jeu 0,40 a 0,66 dans le Di 25,4 des
-# rondelles et du poussoir, ce que demande le guidage d une pile DIN 2093).
+# rondelles et du poussoir, ce que demande le guidage d une pile EN 16983).
 # Seulement tronconne et chanfreine aux deux bouts. Depuis le 06/10/2026 il
 # est COLLE au fond de l alesage du coulisseau (25 H8, Loctite 648, 175 C) :
 # flottant, il tombait sur le patin de charge, cadre couche, et n entrait plus
