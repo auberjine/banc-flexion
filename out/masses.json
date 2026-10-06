@@ -134,9 +134,9 @@
    "nom": "patin_charge",
    "designation": "Patin de charge",
    "qte": 1,
-   "volume_cm3": 98.4,
-   "masse_kg": 0.772,
-   "masse_totale_kg": 0.772,
+   "volume_cm3": 94.47,
+   "masse_kg": 0.742,
+   "masse_totale_kg": 0.742,
    "matiere": "S355JR",
    "brut": "tole 10 mm"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.93,
- "cadre_kg": 34.71,
+ "total_kg": 56.9,
+ "cadre_kg": 34.68,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "06/10/2026",
- "empreinte": "921ece3a1d44a49a"
+ "empreinte": "5d41afa965b78637"
 }

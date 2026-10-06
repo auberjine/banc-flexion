@@ -381,6 +381,10 @@ def main():
       % (p.GUIDE_VIS_D, p.GUIDE_VIS_L, p.GUIDE_TETE_D, p.LUMIERE_B, p.GUIDE_VIS_D, p.GUIDE_TARAUD_P))
     a("| Poussoir | %d plateaux de tole %g perces, reperes par 2 goupilles %g m6 serrees dans le patin de charge, qui fait fond |"
       % (p.POUSSOIR_N, p.POUSSOIR_EP, p.POUSSOIR_GOUPILLE_D))
+    a("| Patin de charge | dessus BOMBE R%g (%.2f de chute aux bords), dessous plat colle : le poussoir porte sur une ligne transversale, Hertz %.0f MPa a %.0f kN, coefficient %.1f |"
+      % (p.PATIN_CHARGE_BOMBE_R, p.PATIN_CHARGE_BOMBE_F, p.hertz_charge(), p.CHARGE_DIM / 1000.0, p.HERTZ_LIM / p.hertz_charge()))
+    a("| Alignement du poussoir | 2 goupilles %g m6 serrees dans le patin (%g H7), libres dans les trous de %s des %d plateaux : les plateaux restent alignes entre eux et sur le patin a %.2f pres |"
+      % (p.POUSSOIR_GOUPILLE_D, p.POUSSOIR_GOUPILLE_D, p.POUSSOIR_GOUPILLE_PASSAGE, p.POUSSOIR_N, (p.POUSSOIR_GOUPILLE_PASSAGE - p.POUSSOIR_GOUPILLE_D) / 2.0))
     t_rep, t_but, t_cal = p.tourillon_course()
     a("| Tourillon | %s, rond etire %g h9 x %g non repris, COLLE au fond du coulisseau (%s) ; dans le poussoir : %.1f au repos, %.1f avec les cales, %.1f de garde au dessus du patin a la butee |"
       % (p.TOURILLON_MATIERE, p.TOURILLON_D, p.TOURILLON_L, p.TOURILLON_COLLE, t_rep, t_cal, t_but))

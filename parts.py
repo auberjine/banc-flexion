@@ -822,6 +822,14 @@ def f_patin_rainure(solid, Part, Vector):
     return solid.cut(g)
 
 
+def f_patin_bombe(solid, Part, Vector):
+    """Dessus du patin de charge bombe : cylindre d axe y, rayon
+    PATIN_CHARGE_BOMBE_R, sommet a l epaisseur pleine au milieu."""
+    r, e, b = p.PATIN_CHARGE_BOMBE_R, p.PATIN_CHARGE_E, p.PATIN_CHARGE_B
+    cyl = Part.makeCylinder(r, b + 10.0, Vector(0.0, -b / 2.0 - 5.0, e - r), Vector(0, 1, 0))
+    return solid.common(cyl)
+
+
 def f_coulisseau(solid, Part, Vector):
     """
     Alesage du tourillon vers le bas, dessus taille a l'angle du coin sur toute
@@ -1051,12 +1059,15 @@ def all_parts():
     parts.append(PartSpec(
         "patin_charge", "Patin de charge", 1, "S355JR", "tole %g mm" % p.PATIN_CHARGE_E, p.PATIN_CHARGE_E,
         patin_charge_profile, 'xy', (0.0, 0.0, p.Z_POUTRE_HAUT), flat=True,
+        features=f_patin_bombe,
         dxf_profile=lambda: patin_charge_profile(brut=True),
         note="DXF = 2 avant-trous %s a +/- %s, PERCES ET ALESES %g H7 apres decoupe (goupilles"
-             " %g m6 serrees) ; colle en place en meme temps que les patins d appui ; un par"
-             " eprouvette"
+             " %g m6 serrees) ; dessus BOMBE R%s fraise (cylindre d axe transversal, %s au milieu,"
+             " %s aux bords) : le poussoir y porte sur une ligne ; dessous plat, colle en place en"
+             " meme temps que les patins d appui ; un par eprouvette"
              % (fr(p.PATIN_CHARGE_AVANT_TROU), fr(p.POUSSOIR_GOUPILLE_X),
-                p.POUSSOIR_GOUPILLE_D, p.POUSSOIR_GOUPILLE_D)))
+                p.POUSSOIR_GOUPILLE_D, p.POUSSOIR_GOUPILLE_D, fr(p.PATIN_CHARGE_BOMBE_R),
+                fr(p.PATIN_CHARGE_E), fr(p.PATIN_CHARGE_E - p.PATIN_CHARGE_BOMBE_F, 2))))
 
     parts.append(PartSpec(
         "plat_renfort", "Plat de renfort colle", 2, "S235",

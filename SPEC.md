@@ -209,6 +209,8 @@ qui travaille en traction.
 | Coulisseau | S355JR, dessus incline sur TOUTE sa section ; un bloc, sans tenon |
 | Guidage | 4 tetes de CHC M8 x 12 ISO 4762, tete lisse, diametre 13, dans des lumieres de 14 ; taraudages M8 prof. 16 |
 | Poussoir | 3 plateaux de tole 8 perces, reperes par 2 goupilles 8 m6 serrees dans le patin de charge, qui fait fond |
+| Patin de charge | dessus BOMBE R1000 (1.25 de chute aux bords), dessous plat colle : le poussoir porte sur une ligne transversale, Hertz 88 MPa a 12 kN, coefficient 5.4 |
+| Alignement du poussoir | 2 goupilles 8 m6 serrees dans le patin (8 H7), libres dans les trous de 8.3 des 3 plateaux : les plateaux restent alignes entre eux et sur le patin a 0.15 pres |
 | Tourillon | C45+C, rond etire 25 h9 x 79.5 non repris, COLLE au fond du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; dans le poussoir : 7.9 au repos, 4.9 avec les cales, 4.3 de garde au dessus du patin a la butee |
 | Tige filetee | immobile axialement dans la chape, le coin est son ecrou |
 | Butee de course | bas de la lumiere, interdit l'aplatissement de la pile |
@@ -439,7 +441,7 @@ Masses du modele 3D (out/masses.json, construit le 06/10/2026).
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
 | Patin d'appui rainure | 4 | 0.13 kg | 0.52 kg |
-| Patin de charge | 1 | 0.77 kg | 0.77 kg |
+| Patin de charge | 1 | 0.74 kg | 0.74 kg |
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
 | Entretoise tubulaire | 9 | 0.05 kg | 0.48 kg |
 | Pied a mi-bois | 4 | 0.87 kg | 3.48 kg |

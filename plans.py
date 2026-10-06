@@ -1279,6 +1279,23 @@ def plan_patins():
     a45 = math.radians(45.0)
     v3.renvoi((gx + gd / 2.0 * math.cos(a45), gd / 2.0 * math.sin(a45)),
               "2 x diam. %s H7" % f(gd) + chr(10) + "perces-aleses", 20.0, -20.0, fin="fleche")
+    # vue de face : le dessus bombe, que la vue de dessus ne montre pas
+    ec, fb, Rb = p.PATIN_CHARGE_E, p.PATIN_CHARGE_BOMBE_F, p.PATIN_CHARGE_BOMBE_R
+    YF = YB + bc / 2.0 + 45.0
+    v5 = D.View(s, 1.0, 0.0, 0.0, XB, YF)
+    n_arc = 40
+    arc = [(-lc / 2.0 + lc * i / n_arc,
+            ec - (lc / 2.0 - lc * i / n_arc) ** 2 / (2.0 * Rb)) for i in range(n_arc + 1)]
+    seg = [('L', (-lc / 2.0, 0.0), (lc / 2.0, 0.0)), ('L', (lc / 2.0, 0.0), arc[-1])]
+    seg += [('L', arc[i + 1], arc[i]) for i in reversed(range(n_arc))]
+    seg += [('L', arc[0], (-lc / 2.0, 0.0))]
+    v5.contour(seg)
+    v5.axe((0.0, -4.0), (0.0, ec + 6.0))
+    v5.cote_vx(0.0, ec, 0.0, 0.0, 0.0, xl=-lc / 2.0 - 10.0, texte=f(ec))
+    v5.cote_vx(0.0, ec - fb, lc / 2.0, lc / 2.0, 0.0, xl=lc / 2.0 + 10.0, texte=P.fr(ec - fb, 2))
+    v5.renvoi((lc / 4.0, ec - (lc / 4.0) ** 2 / (2.0 * Rb)),
+              "dessus bombe R%s" % f(Rb) + chr(10)
+              + "dessous plat, colle", 30.0, -12.0, fin="fleche")
 
     # ======================================================== 04c, plat 1:5
     k4 = 0.2

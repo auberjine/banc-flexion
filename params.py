@@ -161,6 +161,12 @@ PATIN_CHARGE_L = 100.0
 PATIN_CHARGE_B = 100.0
 PATIN_CHARGE_E = 10.0
 PATIN_CHARGE_R = 6.0      # angles du patin de charge, en plan
+# Dessus BOMBE (06/10/2026), comme les bossages des appuis : cylindre d axe y
+# (en travers de la poutre), sommet au milieu. Le plateau bas du poussoir y
+# porte sur une LIGNE a x = 0 : vraie flexion 3 points, et non une charge
+# repartie sur 100 mm. Le dessous reste plat, colle sur la poutrelle.
+PATIN_CHARGE_BOMBE_R = 1000.0
+PATIN_CHARGE_BOMBE_F = (PATIN_CHARGE_L / 2.0) ** 2 / (2.0 * PATIN_CHARGE_BOMBE_R)   # 1,25 : chute aux bords
 # Les deux goupilles 8 m6 du poussoir sont SERREES dans le patin de charge :
 # trous 8 H7 perces puis aleses apres decoupe. Le laser ne fait qu un avant-trou ;
 # un trou laser de 8 dans 10 mm (d < e) est conique et ne tient pas un H7.
@@ -989,6 +995,15 @@ def hertz_appui(charge_par_contact=None):
     return 2.0 * pp / (math.pi * a)
 
 
+def hertz_charge():
+    """Pression de Hertz au contact plateau bas du poussoir / dessus bombe du
+    patin de charge, a CHARGE_DIM, en MPa : ligne de POUSSOIR_B, aretes cassees."""
+    pp = CHARGE_DIM / (POUSSOIR_B - 2.0 * CHANFREIN)
+    e_etoile = E_ACIER / (2.0 * (1.0 - 0.3 ** 2))
+    a = math.sqrt(4.0 * pp * PATIN_CHARGE_BOMBE_R / (math.pi * e_etoile))
+    return 2.0 * pp / (math.pi * a)
+
+
 def hertz_coef():
     """Coefficient au contact d'appui : HERTZ_LIM (patin S355 a chaud) sur la pression."""
     return HERTZ_LIM / hertz_appui()
@@ -1268,6 +1283,16 @@ def flexion_traverse():
 
 # ============================================================ verifications
 
+def controle_bombe(pb):
+    """Bombe du patin de charge : pression de Hertz, et le patin garde de la
+    matiere aux bords."""
+    if HERTZ_LIM / hertz_charge() < HERTZ_COEF_MIN:
+        pb.append("patin de charge : Hertz %.0f MPa, coefficient %.2f"
+                  % (hertz_charge(), HERTZ_LIM / hertz_charge()))
+    if PATIN_CHARGE_E - PATIN_CHARGE_BOMBE_F < 0.75 * PATIN_CHARGE_E:
+        pb.append("bombe du patin de charge trop creuse : %.2f aux bords" % PATIN_CHARGE_BOMBE_F)
+
+
 def tourillon_course():
     """Tourillon colle dans le coulisseau : (engagement dans le poussoir au
     repos, garde au dessus du patin de charge a la butee mecanique, engagement
@@ -1327,6 +1352,7 @@ def verifie():
     if LUMIERE_Z0 - Z_NOEUD_BAS < 12:
         pb.append("moins de 12 mm de matiere sous la lumiere")
 
+    controle_bombe(pb)
     # tourillon colle dans le coulisseau : il descend avec lui dans le poussoir
     t_rep, t_but, t_cal = tourillon_course()
     if t_but < TOURILLON_GARDE_MIN:
