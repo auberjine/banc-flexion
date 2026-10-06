@@ -8,7 +8,7 @@ de 8 mm 42CrMo4 recuit +A, commandee avec certificat 3.1 et Re >= 430 MPa ;
 pieds, crochets, plaques de traverse et plateaux du poussoir en tole de 8 mm
 S355JR du commerce (seul le flanc a besoin du 42CrMo4). Tout est parametrique : une cote
 se change dans `params.py`, et `make.py` refait le 3D, les DXF, les plans et la
-notice. Indice A du 02/10/2026.
+notice. Indice B du 05/10/2026.
 
 ## Ce qu'il y a dans `out/`
 
@@ -28,8 +28,6 @@ notice. Indice A du 02/10/2026.
 | `fem_flanc.json` | resultat du calcul elements finis du flanc |
 | `flambement3.json` | flambement hors plan, mode symetrique (le facteur a retenir) |
 | `iso.json` | projection isometrique de l'assemblage, utilisee par les plans |
-| `perime_2026-10-02/` | copie locale, hors depot (.gitignore) : fichiers perimes d'anciennes versions ; ne rien envoyer a la fabrication depuis ce dossier |
-| `revue_brute.json` | copie locale, hors depot (.gitignore) : les 89 propositions et 70 signalements de la revue du 11/09 |
 
 `export_dxf.py` vide `out/dxf` avant d'exporter et `build_freecad.py` vide
 `out/step` et `out/stl` : aucun fichier d'une generation precedente n'y survit.
@@ -108,7 +106,6 @@ nodale, lance le solveur et depouille le `.frd`.
 | | tole de 8 mm en 42CrMo4 recuit (Re 430, 390 a chaud) : flanc a 213 MPa a l appui (187 a l autre appui de cette piece symetrique : bruit de maillage), 2,02 a froid et 1,83 a 150 C, contre 1,91 a chaud pour le 10 mm S355 ; cadre de 35,2 kg au lieu de 44,5 ; repli EP_FLANC = 10 en S355 ou S460 |
 | `fem_flambement.py` | flambement hors plan du flanc (CalculiX *BUCKLE, maille 9 mm), bornes : diaphragmes seuls (pieds, poutrelle ; les tubes negliges) et tubes tenus en z (mode antisymetrique, 31,9 le 18/09, avant les entretoises de chape et de sommet). `--seul x:z ...` essaie des appuis supplementaires |
 | `fem_flamb3.py` | le facteur A RETENIR : mode symetrique (les deux flancs penchent ensemble), chaque tube est un ressort de rotation 6EI/L sur sa couronne serree. 13,7 couche avec les six entretoises d'origine, 33,1 avec les deux de chape, 39,0 couche et 39,1 debout avec celle du sommet (9 en tout) ; 38,2 / 38,3 avec les tubes 20 x 2 retenus le 06/10. Une plaque de 600 au dessus ne le porte qu'a 41,9 : inutile |
-| | fem_flamb2.py (deux flancs, liaisons en poutres B32 sur corps rigides) donne des facteurs a 1,00 : mecanisme numerique dans le couplage poutre / corps rigide, non resolu ; garde pour memoire, ne pas s y fier |
 | `verif_interference.py` | controle d interference sur l assemblage, et des CONTACTS obligatoires |
 | `verif_percages.py` | ligaments : chaque percage face aux autres et au contour ; largeur des fentes et des encoches ouvertes du contour |
 | `verif_plans.py` | planches : textes superposes, hors feuille ou traverses par un trait (traits fins compris, boite orientee) ; chaque piece nommee sur une planche |

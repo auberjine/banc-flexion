@@ -10,7 +10,7 @@
 > 02/10/2026, disent ce que chaque point est devenu.
 
 Huit revues independantes ont produit 89 propositions et 70 signalements
-d'incoherence, tous conserves dans `out/revue_brute.json`. Voici le tri.
+d'incoherence (fichier brut supprime le 06/10/2026, reste dans l'historique git). Voici le tri.
 
 ## 1. Corrige dans le modele
 

@@ -1,12 +1,15 @@
 # resultats de calcul lourds, regenerables (fem_flanc.py, fem_flamb*.py)
 out/fem/
 out/flamb/
-out/flamb2/
 out/flamb3/
 out/perime_*/
 out/*.log
 out/revue_brute.json
 out/balayage_*.json
+
+# copies de secours ecrites par make.py quand le PDF ou l'Excel est ouvert
+out/plans/plans_indice*.pdf
+out/NOMENCLATURE_indice*.xlsx
 
 # modeles regenerables par build_freecad.py (lourds)
 out/stl/
