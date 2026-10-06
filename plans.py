@@ -211,15 +211,16 @@ def plan_flanc():
              "mortaise %s = %d x tole + jeu %s."
              % (D.fmt(p.TRAVERSE_LX_REEL + p.TRAVERSE_JEU_X), p.TRAVERSE_N, D.fmt(p.TRAVERSE_JEU_X)),
              p.NOTE_TOLE_REELLE[0].upper() + p.NOTE_TOLE_REELLE[1:] + ".",
-             "Aretes cassees %s x 45 deg sur les deux faces, bossages compris (ils ne sont pas repris)."
-             % D.fmt(p.CHANFREIN),
+             "Aretes cassees %s x 45 deg deux faces, bossages compris (non repris), puis microbillage"
+             " et brunissage noir mat." % D.fmt(p.CHANFREIN),
              "Contour symetrique en X, graduation d'un seul cote : deux flancs identiques, face gravee"
              " a l'exterieur ;",
              "le second, tourne de 180 deg autour de Z, a sa graduation le long de la lumiere -X.",
              "Planeite 0,5 sur %s, ne pas redresser a chaud ; sommets des bossages coplanaires a 0,3."
-             % D.fmt(p.L_FLANC)]
+             % D.fmt(p.L_FLANC),
+             "Huile de brunissage essuyee avant la 1re chauffe ; graduation repassee en peinture blanche HT."]
     if m > 0:
-        notes.append("Masse : %s kg." % D.fmt(m, 1))
+        notes[-1] += "  Masse : %s kg." % D.fmt(m, 1)
     s = D.Sheet("FLANC EN TREILLIS", "01", spec.material, spec.stock, spec.qty,
                 "1:4  -  details 1,5:1 et 2:1", notes=notes)
     s.cartouche()

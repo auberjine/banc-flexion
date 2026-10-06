@@ -919,8 +919,9 @@ def all_parts():
         note="decoupe laser, aretes cassees %s x 45 deg, bossages non repris ; encoches a mi-bois"
              " et mortaise taillees sur la tole REELLE S355 des pieces qu elles recoivent : %s ;"
              " graduation de charge gravee"
-             " (calque GRAVURE) d un seul cote de la lumiere, face gravee montee a l exterieur"
-             % (fr(p.CHANFREIN), p.NOTE_TOLE_REELLE)))
+             " (calque GRAVURE) d un seul cote de la lumiere, face gravee montee a l exterieur ;"
+             " finition : %s ; %s"
+             % (fr(p.CHANFREIN), p.NOTE_TOLE_REELLE, p.FINITION_FLANC, p.FINITION_GRAVURE)))
 
     hf = p.TRAVERSE_H
     hs = p.Z_TAB0 - p.Z_TRAVERSE_BAS
