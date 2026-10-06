@@ -24,9 +24,9 @@
    "nom": "poussoir",
    "designation": "Plateau de poussoir",
    "qte": 3,
-   "volume_cm3": 41.09,
-   "masse_kg": 0.323,
-   "masse_totale_kg": 0.968,
+   "volume_cm3": 41.41,
+   "masse_kg": 0.325,
+   "masse_totale_kg": 0.975,
    "matiere": "S355JR",
    "brut": "tole 8 mm, cert. 2.2"
   },
@@ -134,9 +134,9 @@
    "nom": "patin_charge",
    "designation": "Patin de charge",
    "qte": 1,
-   "volume_cm3": 94.47,
-   "masse_kg": 0.742,
-   "masse_totale_kg": 0.742,
+   "volume_cm3": 56.79,
+   "masse_kg": 0.446,
+   "masse_totale_kg": 0.446,
    "matiere": "S355JR",
    "brut": "tole 10 mm"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.9,
- "cadre_kg": 34.68,
+ "total_kg": 56.61,
+ "cadre_kg": 34.39,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "06/10/2026",
- "empreinte": "5d41afa965b78637"
+ "empreinte": "3c16083d42099754"
 }

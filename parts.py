@@ -8,9 +8,8 @@ percages et rainures hors du plan du profil passent par un rappel
 
 Le profil d'une piece est sa geometrie FINIE : c'est elle que voient le 3D,
 les plans et les calculs. Quand la decoupe laser doit livrer autre chose --
-une surepaisseur a fraiser, un avant-trou a percer et aleser --, la piece
-porte en plus un `dxf_profile`, que l'export DXF prend a la place du profil
-(voir PartSpec).
+une surepaisseur a fraiser --, la piece porte en plus un `dxf_profile`, que
+l'export DXF prend a la place du profil (voir PartSpec).
 
 Ce module ne depend PAS de FreeCAD : il sert aussi aux DXF et aux plans.
 """
@@ -343,25 +342,21 @@ def poussoir_contour():
                           p.POUSSOIR_L / 2.0, p.POUSSOIR_B / 2.0, 4.0)
 
 
-def poussoir_goupilles(d=None):
-    """
-    Les deux trous de goupille, a x = +/- POUSSOIR_GOUPILLE_X, au diametre d :
-    POUSSOIR_GOUPILLE_D (8, le trou fini du patin) par defaut.
-    """
-    d = p.POUSSOIR_GOUPILLE_D if d is None else d
-    return [G.circle(sx * p.POUSSOIR_GOUPILLE_X, 0.0, d / 2.0) for sx in (-1.0, 1.0)]
+def poussoir_trous_vis():
+    """Les deux trous de passage des vis H M6 du poussoir, a x = +/- POUSSOIR_VIS_X,
+    POUSSOIR_VIS_PASSAGE decoupes au laser."""
+    return [G.circle(sx * p.POUSSOIR_VIS_X, 0.0, p.POUSSOIR_VIS_PASSAGE / 2.0)
+            for sx in (-1.0, 1.0)]
 
 
 def poussoir_profile():
     """
     Plateau perce : les trois forment l'alesage du tourillon, le patin de
-    charge fait fond. Les trous de goupille sont des trous de PASSAGE
-    (POUSSOIR_GOUPILLE_PASSAGE) decoupes au laser : la goupille 8 m6 y est
-    libre, elle n'est serree que dans le patin de charge.
+    charge fait fond. Les deux trous de passage (POUSSOIR_VIS_PASSAGE) recoivent
+    les vis H M6 qui serrent les trois plateaux en un bloc.
     """
     return (poussoir_contour(),
-            [G.circle(0.0, 0.0, p.ALESAGE_D / 2.0)]
-            + poussoir_goupilles(p.POUSSOIR_GOUPILLE_PASSAGE))
+            [G.circle(0.0, 0.0, p.ALESAGE_D / 2.0)] + poussoir_trous_vis())
 
 
 def coin_profile():
@@ -554,21 +549,15 @@ def patin_appui_profile():
                           p.PATIN_L / 2.0, p.PATIN_B / 2.0, p.PATIN_R), []
 
 
-def patin_charge_profile(brut=False):
+def patin_charge_profile():
     """
-    Patin colle sur la poutre ; il fait FOND au poussoir et en recoit les
-    goupilles, SERREES : deux trous 8 H7.
-
-    brut=False : le patin FINI, trous 8 H7 (3D, plans).
-    brut=True  : le patin tel que le decoupe le laser, avec deux avant-trous
-    de PATIN_CHARGE_AVANT_TROU seulement, perces puis aleses a 8 H7 ensuite :
-    un trou laser de 8 dans 10 mm ne tient pas un H7. C'est le profil du DXF
-    (PartSpec.dxf_profile).
+    Patin colle sur la poutre ; il fait FOND au poussoir. Aucun trou : sa
+    longueur PATIN_CHARGE_L (selon x) laisse passer entre ses bouts les tetes
+    des vis du poussoir.
     """
-    d = p.PATIN_CHARGE_AVANT_TROU if brut else p.POUSSOIR_GOUPILLE_D
     return (G.rounded_rect(-p.PATIN_CHARGE_L / 2.0, -p.PATIN_CHARGE_B / 2.0,
                            p.PATIN_CHARGE_L / 2.0, p.PATIN_CHARGE_B / 2.0, p.PATIN_CHARGE_R),
-            poussoir_goupilles(d))
+            [])
 
 
 def plat_profile():
@@ -706,8 +695,7 @@ class PartSpec(object):
                        DECOUPE au laser quand il differe du fini. export_dxf doit
                        prendre `spec.dxf_profile()` s'il existe, sinon
                        `spec.profile()`. Utilise par la traverse (chant du bas
-                       + TRAVERSE_SUREP, a fraiser) et le patin de charge
-                       (avant-trous PATIN_CHARGE_AVANT_TROU, a percer-aleser).
+                       + TRAVERSE_SUREP, a fraiser).
                        Le helper decoupe(spec) fait ce choix.
       dxf_avertissement  texte a porter en clair sur le DXF de la piece (et a
                        reprendre dans la nomenclature), "" sinon. Pied et
@@ -954,9 +942,10 @@ def all_parts():
         (0.0, 0.0, p.Z_POUSSOIR_BAS), flat=True,
         instances=[dict(t=(0, 0, i * p.POUSSOIR_EP)) for i in range(p.POUSSOIR_N)],
         note="%d plateaux perces : alesage %s traversant ; 2 trous de passage %s decoupes au laser"
-             " a +/- %s, goupilles %g m6 x 30 libres, serrees dans le patin de charge qui fait fond"
-             % (p.POUSSOIR_N, fr(p.ALESAGE_D), fr(p.POUSSOIR_GOUPILLE_PASSAGE),
-                fr(p.POUSSOIR_GOUPILLE_X), p.POUSSOIR_GOUPILLE_D)))
+             " a +/- %s ; assembles en bloc par 2 vis H M%g x %g, tete en dessous, ecrou au dessus,"
+             " %s N.m ; le patin de charge fait fond"
+             % (p.POUSSOIR_N, fr(p.ALESAGE_D), fr(p.POUSSOIR_VIS_PASSAGE),
+                fr(p.POUSSOIR_VIS_X), p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L, fr(p.POUSSOIR_VIS_COUPLE))))
 
     parts.append(PartSpec(
         "coulisseau", "Coulisseau a tete inclinee", 1, "S355JR",
@@ -1060,13 +1049,11 @@ def all_parts():
         "patin_charge", "Patin de charge", 1, "S355JR", "tole %g mm" % p.PATIN_CHARGE_E, p.PATIN_CHARGE_E,
         patin_charge_profile, 'xy', (0.0, 0.0, p.Z_POUTRE_HAUT), flat=True,
         features=f_patin_bombe,
-        dxf_profile=lambda: patin_charge_profile(brut=True),
-        note="DXF = 2 avant-trous %s a +/- %s, PERCES ET ALESES %g H7 apres decoupe (goupilles"
-             " %g m6 serrees) ; dessus BOMBE R%s fraise (cylindre d axe transversal, %s au milieu,"
-             " %s aux bords) : le poussoir y porte sur une ligne ; dessous plat, colle en place en"
-             " meme temps que les patins d appui ; un par eprouvette"
-             % (fr(p.PATIN_CHARGE_AVANT_TROU), fr(p.POUSSOIR_GOUPILLE_X),
-                p.POUSSOIR_GOUPILLE_D, p.POUSSOIR_GOUPILLE_D, fr(p.PATIN_CHARGE_BOMBE_R),
+        note="sans trou, %s de long selon x pour laisser passer les tetes des vis du poussoir ;"
+             " dessus BOMBE R%s fraise (cylindre d axe transversal, %s au milieu,"
+             " %s aux bords) : le poussoir y porte sur une ligne ; dessous plat, colle centre au"
+             " trace en meme temps que les patins d appui ; un par eprouvette"
+             % (fr(p.PATIN_CHARGE_L), fr(p.PATIN_CHARGE_BOMBE_R),
                 fr(p.PATIN_CHARGE_E), fr(p.PATIN_CHARGE_E - p.PATIN_CHARGE_BOMBE_F, 2))))
 
     parts.append(PartSpec(

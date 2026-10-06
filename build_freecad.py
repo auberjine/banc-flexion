@@ -15,7 +15,7 @@ Produit dans out/ :
 out/step et out/stl sont VIDES au depart (ainsi que les sauvegardes .FCBak et
 l'ancien banc.FCStd) : un fichier de piece supprimee n'y survit plus a cote des
 bons. Les DXF de decoupe ne sont PAS ecrits ici mais par export_dxf.py, seul a
-prendre le profil de DECOUPE (parts.decoupe : surepaisseurs, avant-trous),
+prendre le profil de DECOUPE (parts.decoupe : surepaisseur de la traverse),
 l'indice de revision et les avertissements.
 """
 

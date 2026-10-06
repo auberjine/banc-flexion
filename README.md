@@ -18,7 +18,7 @@ notice. Indice A du 02/10/2026.
 | `fcstd/banc.FCStd` | assemblage FreeCAD, une piece par objet |
 | `step/*.step` | geometrie exacte, une piece par fichier, plus l'assemblage |
 | `stl/*.stl` | maillages ; `*_montes.stl` contient tous les exemplaires places |
-| `dxf/*.dxf` | profils de DECOUPE, contours fermes, arcs exacts ; la traverse et le patin de charge y sont au brut (surepaisseur, avant-trous) |
+| `dxf/*.dxf` | profils de DECOUPE, contours fermes, arcs exacts ; la traverse y est au brut (surepaisseur a fraiser) |
 | `dxf/tole_*.dxf` | tous les exemplaires d'une epaisseur et d'une nuance, ranges en etageres de 3000 mm de large au plus : controle de quantites, pas une imbrication |
 | `dxf/*_EN_ATTENTE.dxf` | pieces a NE PAS decouper encore, si `ETUVE_CONFIRMEE` est faux (aucune depuis le 05/10/2026 : largeur de 538 confirmee) |
 | `dxf/LISTE.txt` | fichiers, epaisseur, nuance, quantite et statut ; signification des calques |
@@ -228,8 +228,13 @@ crochets). `python params.py` l'execute et affiche le bilan.
   plates, apres les usinages et avant la mise en place. Il se paie sur les
   portees : bossage, plaque de bronze sous la traverse, tenons.
 - **Les trois plateaux du poussoir sont PERCES** : c'est le patin de charge
-  colle qui fait fond sous le tourillon, et deux goupilles 8 m6, serrees dans le
-  patin, reperent les plateaux. `verifie()` exige ALESAGE_P == POUSSOIR_H.
+  colle qui fait fond sous le tourillon. `verifie()` exige ALESAGE_P == POUSSOIR_H.
+  Ils sont serres en un bloc par deux vis H M6 x 35, TETE EN DESSOUS : sous le
+  plateau bas il n'y a que les 10 du patin au sommet du bombe jusqu'a la
+  poutrelle, une tete de 4 y tient, un ecrou non. Le patin de charge, sans
+  trou, est raccourci selon x (PATIN_CHARGE_L, tire de POUSSOIR_VIS_X) pour
+  laisser passer les tetes ; `controle_vis_poussoir()` en verifie les gardes.
+  Le bloc n'est pas localise sur le patin : le tourillon le centre.
 - **La butee de vis est POUSSEE, pas tiree.** C'est une consequence du sens de
   montage du coin, et c'est ce qui permet de la faire en tole : deux platines
   de 8 sur deux entretoises tubulaires, en compression. Si l'on remontait le

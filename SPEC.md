@@ -177,7 +177,7 @@ maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
 Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 150 C, contre 1,91 a chaud pour le cadre precedent en 10 mm S355 (157 MPa)
-et 34.7 kg de cadre au lieu de 44,5.
+et 34.4 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
 
@@ -208,9 +208,11 @@ qui travaille en traction.
 | Traverse | 6 plaques de tole 8, tenons dans la mortaise des flancs, chant du bas fraise en paquet |
 | Coulisseau | S355JR, dessus incline sur TOUTE sa section ; un bloc, sans tenon |
 | Guidage | 4 tetes de CHC M8 x 12 ISO 4762, tete lisse, diametre 13, dans des lumieres de 14 ; taraudages M8 prof. 16 |
-| Poussoir | 3 plateaux de tole 8 perces, reperes par 2 goupilles 8 m6 serrees dans le patin de charge, qui fait fond |
-| Patin de charge | dessus BOMBE R1000 (1.25 de chute aux bords), dessous plat colle : le poussoir porte sur une ligne transversale, Hertz 88 MPa a 12 kN, coefficient 5.4 |
-| Alignement du poussoir | 2 goupilles 8 m6 serrees dans le patin (8 H7), libres dans les trous de 8.3 des 3 plateaux : les plateaux restent alignes entre eux et sur le patin a 0.15 pres |
+| Poussoir | 3 plateaux de tole 8 perces, serres en un bloc par 2 vis H M6 x 35 ISO 4017 8.8 a +/- 38, tete en dessous, rondelle et ecrou ISO 7042 au dessus, 8 N.m ; le patin de charge fait fond |
+| Vis du poussoir, tete en dessous | sous le plateau bas il n'y a que les 10 du patin au sommet du bombe jusqu'a la poutrelle : un ecrou, sa rondelle et le bout de vis n'y tiennent pas, une tete de 4 si (6 de garde) ; angle de tete a 3.5 du bout du patin, angle d'ecrou a 7.5 de la pile |
+| Patin de charge | dessus BOMBE R1000 (0.42 de chute aux bords), dessous plat colle : le poussoir porte sur une ligne transversale, Hertz 88 MPa a 12 kN, coefficient 5.4 |
+| Alignement du poussoir | les 3 plateaux sont visses en bloc ; le bloc n'est pas localise sur le patin : c'est le tourillon, colle dans le coulisseau, qui le centre (jeu 0.4 dans l'alesage 25.4 des plateaux), et le patin de charge est colle centre au trace |
+| Patin de charge, encombrement | 58 x 100 x 10 sans trou : sa longueur selon x laisse passer les tetes des vis du poussoir ; 2.07 MPa sur le beton a 12 kN |
 | Tourillon | C45+C, rond etire 25 h9 x 79.5 non repris, COLLE au fond du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; dans le poussoir : 7.9 au repos, 4.9 avec les cales, 4.3 de garde au dessus du patin a la butee |
 | Tige filetee | immobile axialement dans la chape, le coin est son ecrou |
 | Butee de course | bas de la lumiere, interdit l'aplatissement de la pile |
@@ -430,7 +432,7 @@ Masses du modele 3D (out/masses.json, construit le 06/10/2026).
 |---|---|---|---|
 | Flanc en treillis | 2 | 10.21 kg | 20.41 kg |
 | Plaque de traverse | 6 | 0.26 kg | 1.54 kg |
-| Plateau de poussoir | 3 | 0.32 kg | 0.97 kg |
+| Plateau de poussoir | 3 | 0.33 kg | 0.97 kg |
 | Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
@@ -441,7 +443,7 @@ Masses du modele 3D (out/masses.json, construit le 06/10/2026).
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
 | Patin d'appui rainure | 4 | 0.13 kg | 0.52 kg |
-| Patin de charge | 1 | 0.74 kg | 0.74 kg |
+| Patin de charge | 1 | 0.45 kg | 0.45 kg |
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
 | Entretoise tubulaire | 9 | 0.05 kg | 0.48 kg |
 | Pied a mi-bois | 4 | 0.87 kg | 3.48 kg |
@@ -449,7 +451,7 @@ Masses du modele 3D (out/masses.json, construit le 06/10/2026).
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
-**Cadre complet 34.7 kg**, poutrelle 22.2 kg.
+**Cadre complet 34.4 kg**, poutrelle 22.2 kg.
 
 ## 10. Conduite d'essai
 

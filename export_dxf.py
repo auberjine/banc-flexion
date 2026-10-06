@@ -108,8 +108,6 @@ def de_la_tole(ep, matiere):
 REPRISES = {
     "traverse": lambda: ("PROFIL BRUT : chant du bas +%s, a fraiser en paquet a %s de haut (fini)"
                          % (fr(p.TRAVERSE_SUREP), fr(p.TRAVERSE_H))),
-    "patin_charge": lambda: ("PROFIL BRUT : trous %s = avant-trous, percer-aleser %s H7"
-                             % (fr(p.PATIN_CHARGE_AVANT_TROU), fr(p.POUSSOIR_GOUPILLE_D))),
 }
 
 

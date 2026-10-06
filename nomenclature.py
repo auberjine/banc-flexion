@@ -37,7 +37,6 @@ REPERES = {
     "poutre": "-",
 }
 
-GOUPILLE_L = 30.0            # goupilles du poussoir : POUSSOIR_H dans les plateaux, le reste dans le patin
 CALE_SOUS_FLANC = 20.0       # montage a plat : de quoi loger tetes de vis M10 et rondelles sous le flanc
 
 
@@ -67,10 +66,17 @@ def visserie():
          " de %s a chaque bout. Tole mesuree au dela de %s : prendre une M10 x %g (verifie() le"
          " signale)"
          % (fr(v2["serrage"]), fr(v2["depassement"]), fr(tole_max_v2, 2), p.TRAVERSE_TIRANT_L + 10)),
-        ("V3", "Goupille cylindrique ISO 2338 %g m6 x %g" % (p.POUSSOIR_GOUPILLE_D, GOUPILLE_L), 2,
-         "reperage des plateaux du poussoir : serrees dans le patin de charge (%g H7, enfoncees"
-         " de %s), libres dans les trous de %s des plateaux ; partent avec l eprouvette"
-         % (p.POUSSOIR_GOUPILLE_D, fr(GOUPILLE_L - p.POUSSOIR_H), fr(p.POUSSOIR_GOUPILLE_PASSAGE))),
+        ("V3", "Vis H M%g x %g ISO 4017 8.8 zinguee + rondelle ISO 7089 M%g + ecrou ISO 7042 M%g"
+         " classe 8 tout metal" % (p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L, p.POUSSOIR_VIS_D,
+                                   p.POUSSOIR_VIS_D), 2,
+         "serrent les %d plateaux du poussoir en un bloc, dans les trous de %s a +/- %g : TETE EN"
+         " DESSOUS, rondelle et ecrou au dessus, a cote de la pile. Sous le plateau bas il n y a"
+         " que les %g du patin de charge jusqu a la poutrelle : une tete de %g y tient (%s de"
+         " garde), un ecrou non. Serrage modere, %g N.m ; la vis depasse de l ecrou de %s ;"
+         " restent sur le poussoir"
+         % (p.POUSSOIR_N, fr(p.POUSSOIR_VIS_PASSAGE), p.POUSSOIR_VIS_X, p.PATIN_CHARGE_E,
+            p.POUSSOIR_VIS_TETE_H, fr(p.vis_poussoir_gardes()["tete_poutre"]), p.POUSSOIR_VIS_COUPLE,
+            fr(p.POUSSOIR_VIS_L - p.POUSSOIR_H - p.POUSSOIR_VIS_RONDELLE_H - p.POUSSOIR_VIS_ECROU_H))),
         ("V4", "Cale de rattrapage D%g / D%g, feuillard acier, ep. %s mm"
          % (p.CALE_DE, p.CALE_DI, " et ".join(fr(e) for e in p.CALES_EP)), len(p.CALES_EP),
          "une de chaque, entre le poussoir et la pile, si l empilement mesure au montage est"
@@ -105,7 +111,7 @@ def visserie():
 
 # Etapes de l'ordre de montage, dans l'ordre : les renvois d'une etape a
 # l'autre passent par ETAPE, jamais par un numero ecrit en dur.
-CLES_MONTAGE = ["eprouvette", "coin_garni", "patin_charge", "sous_ensemble_chape", "empilement",
+CLES_MONTAGE = ["eprouvette", "coin_garni", "poussoir", "sous_ensemble_chape", "empilement",
                 "flanc1", "traverse", "poutrelle", "tete", "flanc2", "chape", "pieds",
                 "patins", "guides", "coin", "precharge", "etalonnage"]
 ETAPE = dict((k, i + 1) for i, k in enumerate(CLES_MONTAGE))
@@ -129,9 +135,10 @@ def ordre_de_montage():
         " PAS d epoxy, bronze et acier ne se dilatent pas pareil ; laisser prendre. Aucune pate"
         " sur les plaques ni sur les sieges : elles sont autolubrifiantes, et le silicone ne"
         " prend pas sur une pate.",
-        "**Patin de charge.** Chasser les deux goupilles V3 dans ses trous %g H7, enfoncees de"
-        " %s : elles depassent de %g, la hauteur du poussoir."
-        % (p.POUSSOIR_GOUPILLE_D, fr(GOUPILLE_L - p.POUSSOIR_H), p.POUSSOIR_H),
+        "**Poussoir, a l avance.** Empiler les %d plateaux, alesages alignes sur un rond de %g ;"
+        " passer les deux vis V3 PAR DESSOUS (tete sous le plateau bas), rondelle et ecrou au"
+        " dessus, serrer a %g N.m. Le poussoir est desormais un bloc ; il sert a toutes les"
+        " eprouvettes." % (p.POUSSOIR_N, p.TOURILLON_D, p.POUSSOIR_VIS_COUPLE),
         "**Sous-ensemble de chape, sur l etabli.** Sur la tige M16, visser par son bout"
         " exterieur l ecrou H et l ecrou HM de manoeuvre (V7), bloques a %s du bout ; enfiler"
         " par l autre bout une rondelle AS, la butee AXK 1730 et la seconde AS (V6), les deux"
@@ -159,8 +166,9 @@ def ordre_de_montage():
         " patins d appui, sur cales de %s sous sa face laterale (elle descend de %s sous le flanc)."
         % (fr(cale_poutre), fr(p.POUTRE_B / 2.0 - p.Y_FLANC_EXT)),
         "**Tete de charge.** Encoller le patin de charge sur sa face inferieure et le poser au"
-        " milieu de la poutrelle, goupilles vers la tete ; enfiler sur les goupilles les %d"
-        " plateaux du poussoir, poser la cale eventuelle (V4), la pile TETE-BECHE"
+        " milieu de la poutrelle, centre au trace, bombe vers la tete ; poser dessus le poussoir"
+        " visse (%d plateaux), tetes de vis en bas de part et d autre du patin ; poser la cale"
+        " eventuelle (V4), la pile TETE-BECHE"
         " (grand diametre aux deux bouts) puis le coulisseau, tourillon colle dessous a l avance (Loctite 648 dans l alesage degraisse, polymeriser avant montage), cote epais de sa pente vers la chape."
         " De cet encollage a la precharge, tout doit tenir dans la vie en pot de la colle :"
         " faire d abord les etapes %d a %d et preparer la visserie. Si elle est trop courte,"
@@ -220,11 +228,11 @@ def changement_eprouvette():
     garde = p.Z_VIS - p.ENTRETOISE_DE / 2.0 - coul_haut
     intro = ("Les plats, les patins d appui et le patin de charge sont colles sur la poutrelle et"
              " partent avec elle : il faut un jeu neuf par eprouvette (4 patins d appui, 1 patin"
-             " de charge et ses 2 goupilles, 2 plats ; colle). Les goupilles, serrees dans le patin"
-             " de charge, montent de %g dans le poussoir, et la tete ne peut remonter que de %s"
-             " avant que le coulisseau touche les entretoises de chape : l eprouvette ne sort pas"
-             " cadre ferme, on rouvre le flanc cote chape."
-             % (p.POUSSOIR_H, fr(garde)))
+             " de charge, 2 plats ; colle). Le poussoir visse porte sur le patin de charge, centre"
+             " par le tourillon, et la tete ne peut remonter que de %s avant que le coulisseau"
+             " touche les entretoises de chape : l eprouvette ne sort pas cadre ferme, on rouvre"
+             " le flanc cote chape."
+             % fr(garde))
     etapes = [
         "Decharger : devisser la tige jusqu a liberer la pile, puis jusqu a degager le filet ;"
         " sortir le coin du cote des tetes de V9.",
@@ -233,12 +241,12 @@ def changement_eprouvette():
         "Deposer les ecrous et rondelles des deux V9, le sous-ensemble de chape d un bloc (platines"
         " et tige), puis les deux entretoises de butee.",
         "Deposer les %d ecrous V1 et soulever le flanc cote chape." % (P.n_entretoises() - len(p.TROU_SUPPORT)),
-        "Sortir l eprouvette avec sa tete de charge ; sur l etabli, degager le poussoir des"
-        " goupilles, qui restent dans le patin de charge.",
-        "Remonter la nouvelle eprouvette, preparee aux etapes %d, %d et %d de l ordre de montage,"
+        "Sortir l eprouvette avec sa tete de charge ; sur l etabli, soulever le poussoir visse,"
+        " qui resservira tel quel : le patin de charge reste colle sur la poutrelle.",
+        "Remonter la nouvelle eprouvette, preparee aux etapes %d et %d de l ordre de montage,"
         " en reprenant a l etape %d : le premier flanc a garde ses vis, ses entretoises et la"
         " traverse."
-        % (ETAPE["eprouvette"], ETAPE["patin_charge"], ETAPE["empilement"], ETAPE["poutrelle"]),
+        % (ETAPE["eprouvette"], ETAPE["empilement"], ETAPE["poutrelle"]),
     ]
     return intro, etapes
 
@@ -338,9 +346,8 @@ def main():
     out.append("- **Toles reelles** : %s. Le texte de chaque DXF cite l epaisseur pour laquelle"
                " ses fentes et encoches ont ete taillees." % p.NOTE_TOLE_REELLE)
     out.append("- **Brut de decoupe** : le DXF de la traverse porte %s mm de surepaisseur sur le chant"
-               " du bas (fraise ensuite en paquet), celui du patin de charge des avant-trous de %s"
-               " (perces et aleses %g H7 ensuite)."
-               % (fr(p.TRAVERSE_SUREP), fr(p.PATIN_CHARGE_AVANT_TROU), p.POUSSOIR_GOUPILLE_D))
+               " du bas (fraise ensuite en paquet)."
+               % fr(p.TRAVERSE_SUREP))
     out.append("- **Groupes** : `tole_<ep>mm_<nuance>.dxf` reprend tous les exemplaires d une"
                " epaisseur et d une nuance, ranges en etageres de %s mm de large au plus. C est un"
                " controle de quantites, pas une imbrication : le decoupeur imbrique sur son format."

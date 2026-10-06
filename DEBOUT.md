@@ -238,8 +238,10 @@ descendu de 6 mm.
 **Le poussoir** n'etale que l'effort de la pile sur le patin de charge : aucune
 surface fonctionnelle. C'est un empilage de **trois plateaux de 8, tous
 perces** au diametre du tourillon ; c'est le patin de charge colle qui fait
-fond. Debout, les plateaux glisseraient l'un sur l'autre : deux goupilles 8 m6,
-serrees dans le patin de charge et libres dans les plateaux, les reperent.
+fond. Debout, les plateaux glisseraient l'un sur l'autre : deux vis H M6 x 35,
+tete en dessous et ecrou au dessus, les serrent en un bloc. Le bloc n'est pas
+localise sur le patin : c'est le tourillon, colle dans le coulisseau, qui le
+centre ; le patin, sans trou, est colle centre au trace.
 0,97 kg, et plus d'alesage borgne a usiner.
 
 **Toutes les pieces de tole ont l'arete cassee a 0,8 x 45 degres** sur leurs
@@ -303,7 +305,7 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   environ 0,15 F acier sur acier : il ne depasse son poids (218 N sur l'about
   bas) qu'au dela de 1,5 kN environ. En dessous -- mise en place, precharge de
   0,5 kN, dechargement, et apres rupture -- le poids passe par la chaine de
-  mesure : patin de charge, goupilles, poussoir, tourillon (jeu de 0,4),
+  mesure : patin de charge, poussoir visse, tourillon (jeu de 0,4),
   coulisseau, tetes de guide (jeu de 0,5), et pousse la tete de charge de
   cote. Les patins rainures ne tiennent que y. Deux pistes, non retenues a ce
   jour : une cale amovible de 14 entre l'about bas de la poutrelle (x -420) et
@@ -347,9 +349,8 @@ ni les ouvertures du noeud, mais l'epaisseur ou la nuance de la tole : repli
   debout, la place est prise par les pieds en V et les crochets. On souleve le
   cadre, ils restent sur la paillasse.
 - **Rien ne peut tomber** quand la tete devient horizontale : le tourillon est
-  engage de 12,2 mm dans chaque alesage au repos, davantage sous charge, le
-  poussoir est enfile dessus, et ses plateaux sont goupilles dans le patin de
-  charge.
+  colle dans le coulisseau et entre de 7,9 mm dans le poussoir au repos (4,9
+  avec toutes les cales), davantage sous charge ; le poussoir est enfile dessus, et ses plateaux sont visses en un bloc.
 
 ## 7. Orientation a respecter dans l'etuve
 

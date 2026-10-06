@@ -634,7 +634,7 @@ def plan_coulisseau():
     R = N.REPERES
     sc, sp, so = SP["coulisseau"], SP["poussoir"], SP["coin"]
     rep_c, rep_p, rep_o = R["coulisseau"], R["poussoir"], R["coin"]
-    vg = [t[0] for t in N.visserie() if "oupille" in t[1]]
+    vg = [t[0] for t in N.visserie() if "ISO 4017" in t[1]]
     vg = vg[0] if vg else "V?"
     f = D.fmt
 
@@ -694,9 +694,9 @@ def plan_coulisseau():
         % (rep_o, f(p.pression_filet())),
         "%s : %d plateaux identiques empiles, decoupe laser (%s.dxf) ; le patin de charge"
         " %s colle fait fond." % (rep_p, sp.qty, sp.name, R["patin_charge"]),
-        "%s : goupilles %s %g m6 libres dans les trous de passage, serrees dans le patin de"
-        " charge %s (%g H7)." % (rep_p, vg, p.POUSSOIR_GOUPILLE_D, R["patin_charge"],
-                                  p.POUSSOIR_GOUPILLE_D),
+        "%s : plateaux serres en bloc par 2 vis %s H M%g x %g, TETE EN DESSOUS, rondelle et"
+        " ecrou au dessus, %s N.m." % (rep_p, vg, p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L,
+                                       f(p.POUSSOIR_VIS_COUPLE)),
         "SENS DE MONTAGE : bout EPAIS du coin du cote oppose a la chape.",
     ]
     s = D.Sheet("COULISSEAU, COIN ET POUSSOIR", "02",
@@ -871,18 +871,18 @@ def plan_coulisseau():
         vp.contour(h)
     c02_axe(vp, (-Lp2, 0.0), (Lp2, 0.0), 2.5, 2.5)
     c02_axe(vp, (0.0, -ra), (0.0, ra), 3.0, 3.0)
-    rg = p.POUSSOIR_GOUPILLE_PASSAGE / 2.0
+    rg = p.POUSSOIR_VIS_PASSAGE / 2.0
     for sx in (-1.0, 1.0):
-        c02_axe(vp, (sx * p.POUSSOIR_GOUPILLE_X, -Bp2), (sx * p.POUSSOIR_GOUPILLE_X, rg), 0.0, 2.5)
-    vp.cote_hx(-p.POUSSOIR_GOUPILLE_X, p.POUSSOIR_GOUPILLE_X, -Bp2, -Bp2, 0.0, zl=-Bp2 - 7.0)
+        c02_axe(vp, (sx * p.POUSSOIR_VIS_X, -Bp2), (sx * p.POUSSOIR_VIS_X, rg), 0.0, 2.5)
+    vp.cote_hx(-p.POUSSOIR_VIS_X, p.POUSSOIR_VIS_X, -Bp2, -Bp2, 0.0, zl=-Bp2 - 7.0)
     vp.cote_hx(-Lp2, Lp2, -(Bp2 - rp), -(Bp2 - rp), 0.0, zl=-Bp2 - 14.0)
     vp.cote_vx(-Bp2, Bp2, -(Lp2 - rp), -(Lp2 - rp), 0.0, xl=-Lp2 - 7.0)
     a60 = math.radians(60.0)
     vp.renvoi((ra * math.cos(a60), ra * math.sin(a60)), "alesage %s traversant" % f(p.ALESAGE_D),
               54.0, -14.0, fin="fleche")
     a45 = math.radians(-45.0)
-    vp.renvoi((p.POUSSOIR_GOUPILLE_X + rg * math.cos(a45), rg * math.sin(a45)),
-              "%d x diam. %s (passage)" % (len(P.poussoir_goupilles()), f(p.POUSSOIR_GOUPILLE_PASSAGE)),
+    vp.renvoi((p.POUSSOIR_VIS_X + rg * math.cos(a45), rg * math.sin(a45)),
+              "%d x diam. %s (passage)" % (len(P.poussoir_trous_vis()), f(p.POUSSOIR_VIS_PASSAGE)),
               22.0, 10.0, fin="fleche")
     vp.rayon((Lp2 - rp, Bp2 - rp), rp, 45.0, "4 x R%s" % f(rp), 8)
 
@@ -1165,14 +1165,12 @@ def plan_patins():
     E = N.ETAPE
     f = D.fmt
     sa, sc, sp = SP["patin_appui"], SP["patin_charge"], SP["plat_renfort"]
-    goup = [t[0] for t in N.visserie() if "oupille" in t[1]]
-    goup = goup[0] if goup else "V?"
 
     # ---------------------------------------------------------------- valeurs
     la, ba, ea, ra = p.PATIN_L, p.PATIN_B, p.PATIN_E, p.PATIN_R
     rb, rp = p.RAINURE_B, p.RAINURE_P
     lc, bc, rc = p.PATIN_CHARGE_L, p.PATIN_CHARGE_B, p.PATIN_CHARGE_R
-    gx, gd = p.POUSSOIR_GOUPILLE_X, p.POUSSOIR_GOUPILLE_D
+    gv = p.vis_poussoir_gardes()
 
     def ex(spec):
         return "%s, %d ex." % (spec.material, spec.qty)
@@ -1197,10 +1195,12 @@ def plan_patins():
         " 150 C, coefficient %s : %s au minimum."
         % (R["patin_appui"], f(p.CHARGE_DIM / 4000.0), f(p.hertz_appui(), 0), f(p.HERTZ_LIM, 0),
            f(p.hertz_coef(), 2), sa.material),
-        "%s : decoupe d apres %s.dxf, avant-trous %s ; PERCER puis ALESER les 2 trous %s H7, ou les"
-        " goupilles %s (%s m6) sont serrees." % (R["patin_charge"], sc.name,
-                                                f(p.PATIN_CHARGE_AVANT_TROU), f(gd), goup, f(gd)),
-        "Collage (NOMENCLATURE.md, ordre de montage) : %s etape %d, %s etape %d, %s etape %d ;"
+        "%s : decoupe d apres %s.dxf, SANS TROU, PUIS dessus bombe fraise. Sa longueur %s laisse"
+        " passer les tetes des vis du poussoir (%s a %s de ses bouts) ; %s MPa sur le beton a %s kN."
+        % (R["patin_charge"], sc.name, f(lc), R["poussoir"], P.fr(gv["tete_patin"], 1),
+           P.fr(p.pression_patin_charge(), 2), f(p.CHARGE_DIM / 1000.0)),
+        "Collage (NOMENCLATURE.md, ordre de montage) : %s etape %d, %s etape %d (centre au trace),"
+        " %s etape %d ;"
         " polymeriser sous la precharge (etape %d)."
         % (R["plat_renfort"], E["eprouvette"], R["patin_charge"], E["tete"], R["patin_appui"],
            E["patins"], E["precharge"]),
@@ -1208,9 +1208,8 @@ def plan_patins():
         " bossage, qui doit y basculer." % R["patin_appui"],
         "Surfaces a coller : poncer P80 et degraisser a l acetone. Colle Duralco 4420, post-cuisson"
         " selon la notice avant charge.",
-        "Un jeu neuf par eprouvette : %d x %s, %d x %s et ses 2 goupilles %s, %d x %s ; il part avec"
-        " la poutrelle." % (sa.qty, R["patin_appui"], sc.qty, R["patin_charge"], goup, sp.qty,
-                            R["plat_renfort"]),
+        "Un jeu neuf par eprouvette : %d x %s, %d x %s, %d x %s ; il part avec la poutrelle."
+        % (sa.qty, R["patin_appui"], sc.qty, R["patin_charge"], sp.qty, R["plat_renfort"]),
     ]
     s = D.Sheet("PATINS ET PLATS COLLES", R["patin_appui"][:2], " / ".join(matieres),
                 " / ".join(bruts),
@@ -1262,23 +1261,13 @@ def plan_patins():
               % (R["patin_charge"], f(p.PATIN_CHARGE_E)),
               "%s, brut %s" % (ex(sc), sc.stock))
     v3 = D.View(s, 1.0, 0.0, 0.0, XB, YB)
-    oc, trous = P.patin_charge_profile()        # piece FINIE : trous 8 H7 (le DXF a les avant-trous)
+    oc, _ = P.patin_charge_profile()            # sans trou
     v3.contour(oc)
-    for t in trous:
-        v3.contour(t)
     v3.axe((-lc / 2.0, 0.0), (lc / 2.0, 0.0))
     v3.axe((0.0, -bc / 2.0), (0.0, bc / 2.0))
-    for sx in (-1.0, 1.0):
-        # axe prolonge au-dela de la ligne de cote : il porte l'entraxe, sans
-        # attache en trait continu a travers la matiere
-        v3.axe((sx * gx, -gd / 2.0 - 2.0), (sx * gx, bc / 2.0 + 12.0), ext=0.0)
-    v3.cote_hx(-gx, gx, None, None, 0.0, zl=bc / 2.0 + 10.0)
     v3.cote_hx(-lc / 2.0, lc / 2.0, -bc / 2.0, -bc / 2.0, 0.0, zl=-bc / 2.0 - 10.0)
     v3.cote_vx(-bc / 2.0, bc / 2.0, -lc / 2.0, -lc / 2.0, 0.0, xl=-lc / 2.0 - 10.0)
     v3.rayon((lc / 2.0 - rc, bc / 2.0 - rc), rc, 45.0, "4 x R%s" % f(rc), 8.0)
-    a45 = math.radians(45.0)
-    v3.renvoi((gx + gd / 2.0 * math.cos(a45), gd / 2.0 * math.sin(a45)),
-              "2 x diam. %s H7" % f(gd) + chr(10) + "perces-aleses", 20.0, -20.0, fin="fleche")
     # vue de face : le dessus bombe, que la vue de dessus ne montre pas
     ec, fb, Rb = p.PATIN_CHARGE_E, p.PATIN_CHARGE_BOMBE_F, p.PATIN_CHARGE_BOMBE_R
     YF = YB + bc / 2.0 + 45.0
@@ -2490,7 +2479,7 @@ def plan_assemblage():
         (R["coulisseau"], "coulisseau, a y = 0", p.Z_COULISSEAU_BAS, p.Z_COULISSEAU_HAUT),
         (R["tourillon"], "tourillon", p.Z_TOURILLON_BAS, p.Z_TOURILLON_BAS + p.TOURILLON_L),
         (R["pile_belleville"], "pile Belleville libre (+ cales V4)", p.Z_PILE_BAS, p.Z_COULISSEAU_BAS),
-        (R["poussoir"], "poussoir, %d plateaux, goupilles V3" % p.POUSSOIR_N, p.Z_POUSSOIR_BAS, p.Z_POUSSOIR_HAUT),
+        (R["poussoir"], "poussoir, %d plateaux visses (V3)" % p.POUSSOIR_N, p.Z_POUSSOIR_BAS, p.Z_POUSSOIR_HAUT),
         (R["patin_charge"], "patin de charge", p.Z_POUTRE_HAUT, p.Z_PATIN_CHARGE_HAUT),
         (R["poutre"], "poutrelle (eprouvette)", p.Z_POUTRE_BAS, p.Z_POUTRE_HAUT),
         (R["plat_renfort"], "plats colles", p.Z_PLAT_BAS, p.Z_POUTRE_BAS),

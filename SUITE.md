@@ -125,6 +125,6 @@ qu'en decision. [Il a ete applique le 17/09, en 42CrMo4 : voir la section 5.]
 
 Ce qui est venu depuis, hors de cette revue : position debout dans l'etuve
 (pieds en V et crochets), guidage du coulisseau par les tetes de quatre CHC M8,
-poussoir en plateaux goupilles, butee de vis en platines de tole, entretoise de
+poussoir en plateaux visses, butee de vis en platines de tole, entretoise de
 sommet (flambement 39 au lieu de 13,7), visserie M10 a ecrous autofreines tout
 metal. Le detail est dans `SPEC.md` et `DEBOUT.md`.

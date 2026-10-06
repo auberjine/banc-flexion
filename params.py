@@ -157,20 +157,40 @@ RAINURE_JEU = 0.75        # jeu par cote du bossage dans la rainure
 RAINURE_B = EP_TOLE_REELLE_42 + 2.0 * RAINURE_JEU     # 9,5
 RAINURE_P = 1.5           # profondeur ; LE CONTACT A LIEU AU FOND DE LA RAINURE
 
-PATIN_CHARGE_L = 100.0
+# Vis-ecrous du poussoir (06/10/2026) : les 3 plateaux sont serres ensemble
+# par 2 vis H M6 x 35 ISO 4017 8.8 zinguees, TETE EN DESSOUS (sous le plateau
+# bas), rondelle ISO 7089 et ecrou ISO 7042 classe 8 tout metal AU DESSUS, a
+# cote de la pile. Sous le plateau bas il n y a que l epaisseur du patin de
+# charge au sommet du bombe (PATIN_CHARGE_E) jusqu a la poutrelle : un ecrou,
+# sa rondelle et le bout de vis n y tiennent pas, une tete de 4 si. Le patin
+# de charge est raccourci selon x pour laisser passer les tetes.
+POUSSOIR_VIS_D = 6.0
+POUSSOIR_VIS_X = 38.0          # entraxe 76, de part et d autre du tourillon selon x
+POUSSOIR_VIS_PASSAGE = 6.6     # trou de passage, decoupe laser dans les 3 plateaux
+POUSSOIR_VIS_L = 35.0          # longueur sous tete, ISO 4017
+POUSSOIR_VIS_TETE_H = 4.0      # hauteur de tete H M6 (k)
+POUSSOIR_VIS_TETE_E = 11.05    # diagonale de tete H M6 (e min, s = 10)
+POUSSOIR_VIS_ECROU_H = 6.0     # ecrou ISO 7042 M6 (m max)
+POUSSOIR_VIS_ECROU_E = 11.05   # diagonale de l ecrou M6 (s = 10)
+POUSSOIR_VIS_RONDELLE_H = 1.6  # rondelle ISO 7089 M6 : 6,4 x 12 x 1,6
+POUSSOIR_VIS_RONDELLE_D = 12.0
+POUSSOIR_VIS_DEPASSE = 2.0     # depassement mini du bout de vis au dessus de l ecrou
+POUSSOIR_VIS_COUPLE = 8.0      # N.m, serrage modere : il ne fait que tenir le paquet
+POUSSOIR_VIS_GARDE_PATIN = 3.0 # entre l angle de tete et le bout du patin de charge, selon x
+
+# Patin de charge : sa longueur (x) laisse passer les tetes de vis du poussoir,
+# a POUSSOIR_VIS_GARDE_PATIN de garde ; arrondie au mm inferieur. Plus de trou.
+PATIN_CHARGE_L = float(math.floor(2.0 * (POUSSOIR_VIS_X - POUSSOIR_VIS_TETE_E / 2.0
+                                         - POUSSOIR_VIS_GARDE_PATIN)))   # 58
 PATIN_CHARGE_B = 100.0
 PATIN_CHARGE_E = 10.0
 PATIN_CHARGE_R = 6.0      # angles du patin de charge, en plan
 # Dessus BOMBE (06/10/2026), comme les bossages des appuis : cylindre d axe y
 # (en travers de la poutre), sommet au milieu. Le plateau bas du poussoir y
 # porte sur une LIGNE a x = 0 : vraie flexion 3 points, et non une charge
-# repartie sur 100 mm. Le dessous reste plat, colle sur la poutrelle.
+# repartie sur la longueur du patin. Le dessous reste plat, colle sur la poutrelle.
 PATIN_CHARGE_BOMBE_R = 1000.0
-PATIN_CHARGE_BOMBE_F = (PATIN_CHARGE_L / 2.0) ** 2 / (2.0 * PATIN_CHARGE_BOMBE_R)   # 1,25 : chute aux bords
-# Les deux goupilles 8 m6 du poussoir sont SERREES dans le patin de charge :
-# trous 8 H7 perces puis aleses apres decoupe. Le laser ne fait qu un avant-trou ;
-# un trou laser de 8 dans 10 mm (d < e) est conique et ne tient pas un H7.
-PATIN_CHARGE_AVANT_TROU = 6.0
+PATIN_CHARGE_BOMBE_F = (PATIN_CHARGE_L / 2.0) ** 2 / (2.0 * PATIN_CHARGE_BOMBE_R)   # 0,42 : chute aux bords
 
 # ============================================================ empilement z
 
@@ -248,12 +268,11 @@ POUSSOIR_L = 100.0        # poussoir : appuie sur le patin de charge
 POUSSOIR_B = 58.0
 
 # Debout, la gravite porte selon x : les plateaux du poussoir glisseraient les
-# uns sur les autres avant la mise en charge. Deux goupilles 8 m6 x 30 les
-# tiennent : LIBRES dans les plateaux (trous de passage decoupes au laser),
-# SERREES dans le patin de charge (8 H7, voir PATIN_CHARGE_AVANT_TROU).
-POUSSOIR_GOUPILLE_D = 8.0
-POUSSOIR_GOUPILLE_X = 35.0
-POUSSOIR_GOUPILLE_PASSAGE = 8.3   # trou de passage laser dans les plateaux
+# uns sur les autres avant la mise en charge. Ils sont donc VISSES ENSEMBLE en
+# un bloc (POUSSOIR_VIS_*, au dessus du patin de charge). Le bloc n est pas
+# localise sur le patin : c est le tourillon, colle dans le coulisseau, avec
+# 0,4 de jeu dans l alesage des plateaux, qui le centre ; le patin, lui, est
+# colle centre au trace.
 
 # Le coulisseau ne flechit pas : le coin appuie a la VERTICALE de la pile, sur
 # la meme empreinte, et la piece ne fait que transmettre 12 kN en compression,
@@ -1293,6 +1312,58 @@ def controle_bombe(pb):
         pb.append("bombe du patin de charge trop creuse : %.2f aux bords" % PATIN_CHARGE_BOMBE_F)
 
 
+def pression_patin_charge():
+    """Pression moyenne sur le beton sous le patin de charge a CHARGE_DIM, en MPa."""
+    return CHARGE_DIM / (PATIN_CHARGE_L * PATIN_CHARGE_B)
+
+
+def vis_poussoir_gardes():
+    """Gardes des vis-ecrous du poussoir, en mm : dictionnaire
+    tete_poutre    tete de vis (sous le plateau bas) / dessus de la poutrelle,
+    tete_patin     angle de tete / bout du patin de charge, selon x,
+    ecrou_pile     angle d ecrou / diametre exterieur de la pile Belleville,
+    longueur       reste de vis au dela de plateaux + rondelle + ecrou + depassement,
+    bout_plateau   matiere entre trou de passage et bout du plateau,
+    trou_alesage   matiere entre trou de passage et alesage du tourillon,
+    bout_coulisseau  bout de vis / dessous du coulisseau a la butee mecanique."""
+    bout = Z_POUSSOIR_BAS + POUSSOIR_VIS_L     # longueur sous tete, depuis le dessous du plateau bas
+    return dict(
+        tete_poutre=PATIN_CHARGE_E - POUSSOIR_VIS_TETE_H,
+        tete_patin=POUSSOIR_VIS_X - POUSSOIR_VIS_TETE_E / 2.0 - PATIN_CHARGE_L / 2.0,
+        ecrou_pile=POUSSOIR_VIS_X - POUSSOIR_VIS_ECROU_E / 2.0 - RESSORT_DE / 2.0,
+        longueur=POUSSOIR_VIS_L - (POUSSOIR_H + POUSSOIR_VIS_RONDELLE_H
+                                   + POUSSOIR_VIS_ECROU_H + POUSSOIR_VIS_DEPASSE),
+        bout_plateau=POUSSOIR_L / 2.0 - POUSSOIR_VIS_X - POUSSOIR_VIS_PASSAGE / 2.0,
+        trou_alesage=POUSSOIR_VIS_X - POUSSOIR_VIS_PASSAGE / 2.0 - ALESAGE_D / 2.0,
+        bout_coulisseau=(Z_COULISSEAU_BAS - ecrasement_butee()) - bout)
+
+
+def controle_vis_poussoir(pb):
+    """Vis-ecrous H M6 du poussoir, tete en dessous : place sous le plateau
+    bas, au bout du patin de charge, a cote de la pile, et longueur."""
+    g = vis_poussoir_gardes()
+    if g["tete_poutre"] < 3.0:
+        pb.append("tete de vis du poussoir a %.1f de la poutrelle (3 mini)" % g["tete_poutre"])
+    if g["tete_patin"] < 2.0:
+        pb.append("tete de vis du poussoir a %.2f du bout du patin de charge (2 mini)" % g["tete_patin"])
+    if g["ecrou_pile"] < 2.0:
+        pb.append("ecrou du poussoir a %.2f de la pile Belleville (2 mini)" % g["ecrou_pile"])
+    if g["longueur"] < 0.0:
+        pb.append("vis du poussoir M%g x %g trop courte de %.1f"
+                  % (POUSSOIR_VIS_D, POUSSOIR_VIS_L, -g["longueur"]))
+    if g["bout_plateau"] < POUSSOIR_EP:
+        pb.append("%.1f de matiere entre trou de vis et bout de plateau, moins que la tole (%g)"
+                  % (g["bout_plateau"], POUSSOIR_EP))
+    if g["trou_alesage"] < POUSSOIR_EP:
+        pb.append("%.1f de matiere entre trou de vis et alesage du poussoir" % g["trou_alesage"])
+    if g["bout_coulisseau"] < 3.0:
+        pb.append("bout de vis du poussoir a %.1f du coulisseau a la butee" % g["bout_coulisseau"])
+    if POUSSOIR_VIS_PASSAGE < POUSSOIR_VIS_D + 0.4:
+        pb.append("trous de vis du poussoir de %.1f : trop justes" % POUSSOIR_VIS_PASSAGE)
+    if pression_patin_charge() > 5.0:
+        pb.append("pression sur le beton sous le patin de charge : %.1f MPa" % pression_patin_charge())
+
+
 def tourillon_course():
     """Tourillon colle dans le coulisseau : (engagement dans le poussoir au
     repos, garde au dessus du patin de charge a la butee mecanique, engagement
@@ -1719,19 +1790,7 @@ def verifie():
     if abs(ALESAGE_P - POUSSOIR_H) > 1e-6:
         pb.append("l'alesage du poussoir (%.0f) doit traverser ses %d plateaux (%.0f)"
                   % (ALESAGE_P, POUSSOIR_N, POUSSOIR_H))
-    if POUSSOIR_GOUPILLE_X + POUSSOIR_GOUPILLE_D / 2.0 + 8.0 > PATIN_CHARGE_L / 2.0:
-        pb.append("les goupilles du poussoir sortent du patin de charge")
-    # goupilles 8 m6 (8,006 a 8,015) : libres dans les trous laser des plateaux,
-    # serrees dans le 8 H7 perce-alese du patin, pris dans un avant-trou laser
-    if POUSSOIR_GOUPILLE_PASSAGE < POUSSOIR_GOUPILLE_D + 0.2:
-        pb.append("trous de goupille des plateaux de %.1f : trop justes pour un trou laser"
-                  % POUSSOIR_GOUPILLE_PASSAGE)
-    if PATIN_CHARGE_AVANT_TROU > POUSSOIR_GOUPILLE_D - 1.5:
-        pb.append("avant-trou de %.1f : pas assez de matiere pour percer et aleser a %g H7"
-                  % (PATIN_CHARGE_AVANT_TROU, POUSSOIR_GOUPILLE_D))
-    if PATIN_CHARGE_AVANT_TROU < 0.5 * PATIN_CHARGE_E:
-        pb.append("avant-trou de %.1f dans %g : trop petit pour le laser"
-                  % (PATIN_CHARGE_AVANT_TROU, PATIN_CHARGE_E))
+    controle_vis_poussoir(pb)
 
     # appui : rainure du patin et contact de Hertz
     j_rain = (RAINURE_B - EP_TOLE_REELLE_42) / 2.0
@@ -1822,6 +1881,16 @@ if __name__ == "__main__":
           % (largeur_bossage(), PATIN_L))
     print("   rainure du patin          %.1f x %.1f, jeu %.2f par cote"
           % (RAINURE_B, RAINURE_P, (RAINURE_B - EP_TOLE_REELLE_42) / 2.0))
+
+    print("\nTete de charge :")
+    print("   patin de charge           %.0f x %.0f x %.0f, bombe R%.0f, chute %.2f aux bords"
+          % (PATIN_CHARGE_L, PATIN_CHARGE_B, PATIN_CHARGE_E, PATIN_CHARGE_BOMBE_R, PATIN_CHARGE_BOMBE_F))
+    print("   pression sur le beton     %.2f MPa a %.0f kN" % (pression_patin_charge(), CHARGE_DIM / 1000.0))
+    g = vis_poussoir_gardes()
+    print("   vis H M%g x %g du poussoir a +/- %g : tete / poutrelle %.1f, tete / bout de patin %.2f,"
+          " ecrou / pile %.2f, reste de longueur %.1f, matiere au bout %.1f, au bout du coulisseau %.1f"
+          % (POUSSOIR_VIS_D, POUSSOIR_VIS_L, POUSSOIR_VIS_X, g["tete_poutre"], g["tete_patin"],
+             g["ecrou_pile"], g["longueur"], g["bout_plateau"], g["bout_coulisseau"]))
 
     print("\nCommande :")
     print("   bronze sur traverse       %.1f mm nets, %.1f MPa ; sur coulisseau %.1f MPa"

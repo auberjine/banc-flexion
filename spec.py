@@ -379,12 +379,17 @@ def main():
     a("| Coulisseau | S355JR, dessus incline sur TOUTE sa section ; un bloc, sans tenon |")
     a("| Guidage | 4 tetes de CHC M%g x %g ISO 4762, tete lisse, diametre %g, dans des lumieres de %g ; taraudages M%g prof. %g |"
       % (p.GUIDE_VIS_D, p.GUIDE_VIS_L, p.GUIDE_TETE_D, p.LUMIERE_B, p.GUIDE_VIS_D, p.GUIDE_TARAUD_P))
-    a("| Poussoir | %d plateaux de tole %g perces, reperes par 2 goupilles %g m6 serrees dans le patin de charge, qui fait fond |"
-      % (p.POUSSOIR_N, p.POUSSOIR_EP, p.POUSSOIR_GOUPILLE_D))
+    a("| Poussoir | %d plateaux de tole %g perces, serres en un bloc par 2 vis H M%g x %g ISO 4017 8.8 a +/- %g, tete en dessous, rondelle et ecrou ISO 7042 au dessus, %g N.m ; le patin de charge fait fond |"
+      % (p.POUSSOIR_N, p.POUSSOIR_EP, p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L, p.POUSSOIR_VIS_X, p.POUSSOIR_VIS_COUPLE))
+    gv = p.vis_poussoir_gardes()
+    a("| Vis du poussoir, tete en dessous | sous le plateau bas il n'y a que les %g du patin au sommet du bombe jusqu'a la poutrelle : un ecrou, sa rondelle et le bout de vis n'y tiennent pas, une tete de %g si (%.0f de garde) ; angle de tete a %.1f du bout du patin, angle d'ecrou a %.1f de la pile |"
+      % (p.PATIN_CHARGE_E, p.POUSSOIR_VIS_TETE_H, gv["tete_poutre"], gv["tete_patin"], gv["ecrou_pile"]))
     a("| Patin de charge | dessus BOMBE R%g (%.2f de chute aux bords), dessous plat colle : le poussoir porte sur une ligne transversale, Hertz %.0f MPa a %.0f kN, coefficient %.1f |"
       % (p.PATIN_CHARGE_BOMBE_R, p.PATIN_CHARGE_BOMBE_F, p.hertz_charge(), p.CHARGE_DIM / 1000.0, p.HERTZ_LIM / p.hertz_charge()))
-    a("| Alignement du poussoir | 2 goupilles %g m6 serrees dans le patin (%g H7), libres dans les trous de %s des %d plateaux : les plateaux restent alignes entre eux et sur le patin a %.2f pres |"
-      % (p.POUSSOIR_GOUPILLE_D, p.POUSSOIR_GOUPILLE_D, p.POUSSOIR_GOUPILLE_PASSAGE, p.POUSSOIR_N, (p.POUSSOIR_GOUPILLE_PASSAGE - p.POUSSOIR_GOUPILLE_D) / 2.0))
+    a("| Alignement du poussoir | les %d plateaux sont visses en bloc ; le bloc n'est pas localise sur le patin : c'est le tourillon, colle dans le coulisseau, qui le centre (jeu %.1f dans l'alesage %g des plateaux), et le patin de charge est colle centre au trace |"
+      % (p.POUSSOIR_N, p.ALESAGE_D - p.TOURILLON_D, p.ALESAGE_D))
+    a("| Patin de charge, encombrement | %g x %g x %g sans trou : sa longueur selon x laisse passer les tetes des vis du poussoir ; %.2f MPa sur le beton a %.0f kN |"
+      % (p.PATIN_CHARGE_L, p.PATIN_CHARGE_B, p.PATIN_CHARGE_E, p.pression_patin_charge(), p.CHARGE_DIM / 1000.0))
     t_rep, t_but, t_cal = p.tourillon_course()
     a("| Tourillon | %s, rond etire %g h9 x %g non repris, COLLE au fond du coulisseau (%s) ; dans le poussoir : %.1f au repos, %.1f avec les cales, %.1f de garde au dessus du patin a la butee |"
       % (p.TOURILLON_MATIERE, p.TOURILLON_D, p.TOURILLON_L, p.TOURILLON_COLLE, t_rep, t_cal, t_but))
