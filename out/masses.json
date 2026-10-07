@@ -64,9 +64,9 @@
    "nom": "coin",
    "designation": "Coin de commande",
    "qte": 1,
-   "volume_cm3": 175.37,
-   "masse_kg": 1.377,
-   "masse_totale_kg": 1.377,
+   "volume_cm3": 174.65,
+   "masse_kg": 1.371,
+   "masse_totale_kg": 1.371,
    "matiere": "C45",
    "brut": "plat 65 x 45, L 120 (fini 61 x 40 x 114,5)"
   },
@@ -74,21 +74,21 @@
    "nom": "plaquette_haute",
    "designation": "Plaque de frottement, dessus",
    "qte": 1,
-   "volume_cm3": 18.09,
-   "masse_kg": 0.148,
-   "masse_totale_kg": 0.148,
-   "matiere": "CuZn25Al5Mn4Fe3-C + graphite",
-   "brut": "norelem 23765-01-038100, 38 x 100 x 5"
+   "volume_cm3": 19.38,
+   "masse_kg": 0.171,
+   "masse_totale_kg": 0.171,
+   "matiere": "CuSn12-C",
+   "brut": "plat 40 x 6"
   },
   {
    "nom": "plaquette_basse",
    "designation": "Plaque de frottement, dessous",
    "qte": 1,
-   "volume_cm3": 18.09,
-   "masse_kg": 0.148,
-   "masse_totale_kg": 0.148,
-   "matiere": "CuZn25Al5Mn4Fe3-C + graphite",
-   "brut": "norelem 23765-01-038100, 38 x 100 x 5"
+   "volume_cm3": 19.76,
+   "masse_kg": 0.174,
+   "masse_totale_kg": 0.174,
+   "matiere": "CuSn12-C",
+   "brut": "plat 40 x 6"
   },
   {
    "nom": "vis",
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.62,
- "cadre_kg": 34.4,
+ "total_kg": 56.66,
+ "cadre_kg": 34.44,
  "indice": "B",
  "date": "05/10/2026",
- "date_calcul": "06/10/2026",
- "empreinte": "91381c202de835e1"
+ "date_calcul": "07/10/2026",
+ "empreinte": "f6aa70493021550a"
 }

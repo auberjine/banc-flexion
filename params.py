@@ -351,7 +351,7 @@ Z_TOURILLON_BAS = Z_COULISSEAU_BAS + ALESAGE_P_COUL - TOURILLON_L   # colle au f
 # Une vis dans le plan des flancs regarderait une paroi d'etuve a
 # (ETUVE_INTERIEUR - H_FLANC) / 2 : inaccessible. La commande est donc NORMALE
 # AUX FLANCS. Un coin d'acier C45, qui porte le taraudage et deux plaques de
-# frottement en bronze du commerce, glisse selon y entre le dessous plat de la
+# frottement en bronze usinees, glisse selon y entre le dessous plat de la
 # traverse et le dessus du coulisseau taille au meme angle. Le coin ne se
 # deplace que selon y : son dessus reste plaque sous la traverse, donc l'axe de
 # la vis est fixe.
@@ -360,7 +360,7 @@ COIN_T_MIN = 37.0         # epaisseur au droit de y = 0, coin recule
 COIN_COURSE = 56.5        # course utile selon y
 COIN_PORTEE = POUSSOIR_B  # le coin doit couvrir TOUTE la tete du coulisseau
 COIN_L = COIN_COURSE + COIN_PORTEE                  # 114,5
-COIN_MU = 0.12            # bronze graphite sur acier, a chaud : faces de glissement du coin
+COIN_MU = 0.12            # bronze sur acier sous pate graphite, a chaud : faces de glissement du coin
 COIN_VIS_SOUS = 16.0      # axe du taraudage sous la face plate du coin
 COIN_JEU_FENTE = 4.0      # jeu total du coin dans la fente du flanc
 # RATTRAPAGE DE L EMPILEMENT VERTICAL. Poutrelle, patins, trois plateaux et
@@ -386,20 +386,24 @@ CALE_DI = 26.0
 # donc faire toute sa longueur. C'est plus de bronze que si elle etait fixee a
 # la traverse (114 au lieu de 60), mais une tole ne coute rien au kilo et cela
 # evite de tarauder le chant du paquet de toles de la traverse.
-# PLAQUETTES DU COMMERCE : norelem 23765-01-038100, plaque de frottement en
-# bronze CuZn25Al5Mn4Fe3-C a inserts graphite, autolubrifiante : 38 x 100 x 5,
-# deux trous D9 a 70 d entraxe, 50 MPa statique, 35 dynamique, 230 C. Plus
-# rien a decouper ni a usiner dans le bronze. Les trous ne servent pas a
-# visser (le M16 passe au milieu du coin) : remplis de silicone HT, ils font
-# cle. La largeur du coin (COIN_B) laisse 1 mm de chaque cote.
-PLAQ_REF = "norelem 23765-01-038100"
-PLAQ_ALLIAGE = "CuZn25Al5Mn4Fe3-C + graphite"
+# PLAQUETTES USINEES (07/10/2026), et non plus du commerce : elles partent
+# avec les autres pieces usinees, dans la meme commande. Les plaques norelem
+# (38 x 100 x 5, bronze a inserts graphite, deux trous de cle) imposaient leur
+# longueur ; ici ce sont des rectangles pleins aux cotes du coin : toute la
+# longueur entre les rebords. Bronze a coussinets courant
+# CuSn12-C (coulee continue), en plat : il n'est PAS autolubrifiant, ses faces
+# de glissement recoivent une pate graphite haute temperature. Sans trou : le
+# M16 passe au milieu du coin, il n'y a rien a visser, et des trous de cle
+# n'apportaient rien que les rebords ne fassent deja.
+PLAQ_ALLIAGE = "CuSn12-C"
 PLAQ_EP = 5.0
-PLAQ_B = 38.0
-PLAQ_L = 100.0
-PLAQ_TROU_D = 9.0
-PLAQ_TROU_L1 = 70.0
-PLAQ_P_ADM = 35.0          # pression dynamique admissible du fabricant
+PLAQ_B = 38.0             # pas toute la largeur du coin : le dessus doit rester entier sur
+                          # la traverse, jeux de mortaise et de fente a l oppose (verifie)
+PLAQ_L_HAUT = 102.0        # cotes rondes ; les rebords s en deduisent
+PLAQ_L_BAS = 104.0         # prise sur la pente : la basse est plus longue
+PLAQ_BRUT = "plat 40 x 6"      # fraise a 38 x 5
+PLAQ_LUBRIFIANT = "pate graphite haute temperature"
+PLAQ_P_ADM = 25.0          # CuSn12 lubrifie, glissement lent : valeur prudente
 
 # REBORDS DE LA PLAQUETTE DU COIN. Le collage tient largement l'entrainement,
 # mais il le tient SEUL, et un joint colle qui lache ne previent pas. Deux
@@ -417,9 +421,9 @@ PLAQ_REBORD_H = 3.0        # hauteur du rebord au dessus de la portee : 2 de gar
 # jeu en y avant de venir en butee, par son arete, au pied du rebord : 2.(JEU - R)
 # au plus. Un usinage de moins par rebord, et rien a tenir au centieme.
 PLAQ_JEU = 1.0             # jeu de la plaquette a chaque bout, entre les deux rebords
-# la plaquette est une piece du commerce de longueur fixe : c est la largeur
-# des rebords qui s en deduit, et non l inverse
-PLAQ_REBORD_L = (COIN_L - PLAQ_L - 2.0 * PLAQ_JEU) / 2.0    # rebords du dessus, selon y
+# les plaquettes ont des cotes rondes : c est la largeur des rebords qui s en
+# deduit, et non l inverse
+PLAQ_REBORD_L = (COIN_L - PLAQ_L_HAUT - 2.0 * PLAQ_JEU) / 2.0    # rebords du dessus, selon y
 PLAQ_REBORD_R = 1.0        # conge de pied laisse par la fraise, au plus (angle vif admis)
 
 # FIXATION DES PLAQUETTES : pas d epoxy. Bronze et acier ne se dilatent pas
@@ -494,9 +498,9 @@ PLAQ_HAUT_L = PLAQ_HAUT_Y1 - PLAQ_HAUT_Y0
 # PENTE, comme le chant de la plaquette (parts.coin_profile).
 _C = math.cos(math.radians(COIN_ANGLE))
 _S = math.sin(math.radians(COIN_ANGLE))
-# rebords du dessous : plus larges, pour que la meme plaque de PLAQ_L tienne
-# entre eux une fois couchee sur la pente
-PLAQ_REBORD_L_BAS = (COIN_L - _C * (PLAQ_L + 2.0 * PLAQ_JEU)) / 2.0
+# rebords du dessous : la plaque de PLAQ_L_BAS, couchee sur la pente, doit
+# tenir entre eux
+PLAQ_REBORD_L_BAS = (COIN_L - _C * (PLAQ_L_BAS + 2.0 * PLAQ_JEU)) / 2.0
 PLAQ_BAS_S0 = (COIN_Y0 + PLAQ_REBORD_L_BAS + PLAQ_EP * _S) / _C + PLAQ_JEU
 PLAQ_BAS_S1 = (COIN_Y1 - PLAQ_REBORD_L_BAS + PLAQ_EP * _S) / _C - PLAQ_JEU
 PLAQ_BAS_L = PLAQ_BAS_S1 - PLAQ_BAS_S0
@@ -1505,8 +1509,7 @@ def verifie():
     # tenues. La course doit mener le coulisseau jusqu'a sa butee de lumiere,
     # pas seulement jusqu'aux 12 kN : sinon la butee mecanique devient
     # inatteignable et ne protege plus rien. Tout ce qui depasse allonge pour
-    # rien le coin, la tige et la chape (les plaques de bronze, elles, sont
-    # du commerce et de longueur fixe).
+    # rien le coin, la tige et la chape.
     course_butee = ecrasement_butee() / COIN_TAN
     if COIN_COURSE < course_butee:
         pb.append("course du coin %.1f mm : la butee de lumiere en demande %.1f,"
@@ -1515,18 +1518,18 @@ def verifie():
         pb.append("course du coin %.1f mm pour %.1f utiles : %.0f mm de coin et de"
                   " chape sans emploi" % (COIN_COURSE, course_butee, COIN_COURSE - course_butee))
     # rebords et plaquettes, memes cotes sur les deux faces du coin
-    if abs(PLAQ_HAUT_L - PLAQ_L) > 0.01 or abs(PLAQ_BAS_L - PLAQ_L) > 0.01:
-        pb.append("les plaquettes du commerce font %g : il en reste %.1f et %.1f entre les rebords"
-                  % (PLAQ_L, PLAQ_HAUT_L, PLAQ_BAS_L))
+    if abs(PLAQ_HAUT_L - PLAQ_L_HAUT) > 0.01 or abs(PLAQ_BAS_L - PLAQ_L_BAS) > 0.01:
+        pb.append("plaquettes de %g et %g : il en reste %.1f et %.1f entre les rebords"
+                  % (PLAQ_L_HAUT, PLAQ_L_BAS, PLAQ_HAUT_L, PLAQ_BAS_L))
     if min(PLAQ_REBORD_L, PLAQ_REBORD_L_BAS) < 4.0:
         pb.append("rebord de %.1f mm : trop etroit a fraiser" % min(PLAQ_REBORD_L, PLAQ_REBORD_L_BAS))
-    if PLAQ_B > COIN_B - 1.0:
+    if PLAQ_B > COIN_B:
         pb.append("plaquette plus large que le coin")
     # pression des plaques : largeur nette selon x FOIS longueur portante selon
     # y (et non deux largeurs selon x multipliees entre elles)
     p_plaq = max(pressions_plaquettes())
     if p_plaq > PLAQ_P_ADM:
-        pb.append("plaquette a %.1f MPa, au dessus des %g admis par le fabricant"
+        pb.append("plaquette a %.1f MPa, au dessus des %g admis pour le bronze"
                   % (p_plaq, PLAQ_P_ADM))
     if PLAQ_EP - PLAQ_REBORD_H < 1.5:
         pb.append("rebord a %.1f mm sous la surface du bronze : aux bouts de course"

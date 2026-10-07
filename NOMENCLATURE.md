@@ -24,7 +24,9 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 02b | Plateau de poussoir | 3 | S355JR | tole 8 mm, cert. 2.2 | 0.33 kg | 0.97 kg | 3 plateaux perces : alesage 25,4 traversant ; 2 trous de passage 6,6 decoupes au laser a +/- 38 ; assembles en bloc par 2 vis H M6 x 35, tete en dessous, ecrou au dessus, 8 N.m ; le patin de charge fait fond |
 | 02a | Coulisseau a tete inclinee | 1 | S355JR | plat 65 x 40, L 120 (fini 58 x 36,2 x 114) | 1.46 kg | 1.46 kg | dessus a 12 degres sur toute la section ; alesage 25 H8 prof. 20 par dessous ; 4 taraudages M8 prof. 16 dans les faces laterales (avant-trou 6,8 prof. 19), axe a 12 du dessous, x = +/- 44 |
 | 06a | Tourillon de centrage | 1 | C45+C | rond etire 25 h9 x 79.5 | 0.31 kg | 0.31 kg | rond etire h9 NON repris : tronconne, chanfrein 1,5 x 45 deg aux deux bouts ; COLLE au fond de l alesage du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; centre la pile et coulisse dans le poussoir : 7,9 au repos, 4,3 de garde au dessus du patin a la butee |
-| 02c | Coin de commande | 1 | C45 | plat 65 x 45, L 120 (fini 61 x 40 x 114,5) | 1.38 kg | 1.38 kg | acier taraude M16 sur 80 depuis le bout EPAIS, passage 18 au dela ; porte les deux plaques de frottement du commerce entre rebords de 3 : dessus 6,25, dessous 7,36 (faces normales a la pente) |
+| 02c | Coin de commande | 1 | C45 | plat 65 x 45, L 120 (fini 61 x 40 x 114,5) | 1.37 kg | 1.37 kg | acier taraude M16 sur 80 depuis le bout EPAIS, passage 18 au dela ; porte les deux plaques de frottement en bronze entre rebords de 3 : dessus 5,25, dessous 5,41 (faces normales a la pente) |
+| 06c | Plaque de frottement, dessus | 1 | CuSn12-C | plat 40 x 6 | 0.17 kg | 0.17 kg | fraisee 38 x 102 x 5, sans trou, faces planes et paralleles a 0,02, Ra 0,8 cote glissement, aretes cassees 0,3 ; entre ses deux rebords sur le dessus du coin, points de silicone HT au montage ; pate graphite haute temperature sur la face qui glisse sous la traverse |
+| 06d | Plaque de frottement, dessous | 1 | CuSn12-C | plat 40 x 6 | 0.17 kg | 0.17 kg | comme la haute, mais 38 x 104 x 5 ; entre ses deux rebords sous le coin, points de silicone HT au montage ; pate graphite haute temperature sur la face qui glisse sur la pente du coulisseau |
 | 07 | Platine de butee de la vis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.45 kg | 0.90 kg | meme tole 42CrMo4 que les flancs (imbriquees dans leurs chutes), empilees et serrees par les deux vis H M10 x 200 de la chape |
 | 07b | Entretoise de butee | 2 | E235+C EN 10305-1 | tube de precision 20 x 2 | 0.06 kg | 0.13 kg | coupee a 71,5 +/-0,2, faces dressees ; en compression pure : c est elle qui porte l effort de commande |
 | 04a | Patin d'appui rainure | 4 | S355JR | tole 10 mm | 0.13 kg | 0.52 kg | decoupe laser PUIS rainure 9,5 x 1,5 fraisee sur toute la longueur de la face d appui (0,75 de jeu par cote sur la tole reelle du flanc) ; colle en place, cadre monte, sous 0,5 kN de precharge ; un jeu par eprouvette |
@@ -38,13 +40,11 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | rep | designation | qte | reference | matiere | masse u. | remarque |
 |---|---|---|---|---|---|---|
 | 02f | Vis de guidage CHC M8 x 12 | 4 | CHC M8 x 12 ISO 4762 8.8, tete lisse (non moletee) | 8.8 | 0.01 kg | piece du commerce ; 12 sous tete, toute la tige dans le taraudage de 16 ; c est la TETE (13 x 8) qui guide : cylindre sur plan, contact lineique |
-| 06c | Plaque de frottement, dessus | 1 | norelem 23765-01-038100, 38 x 100 x 5 | CuZn25Al5Mn4Fe3-C + graphite | 0.15 kg | piece du commerce, autolubrifiante ; entre ses deux rebords sur le dessus du coin, trous remplis de silicone HT, glisse sous la traverse |
-| 06d | Plaque de frottement, dessous | 1 | norelem 23765-01-038100, 38 x 100 x 5 | CuZn25Al5Mn4Fe3-C + graphite | 0.15 kg | meme plaque du commerce ; entre ses deux rebords sous le coin, trous remplis de silicone HT, glisse sur la pente du coulisseau |
 | 02d | Tige filetee de commande M16 | 1 | tige filetee M16 classe 8.8, coupee a 185 | 8.8 | 0.41 kg | piece du commerce, coupee a longueur, montee a la pate cuivre ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
 | 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles EN 16983 A50 | 51CrV4 (1.8159) | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 (ex-DIN 2093, PAS en C60S) montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 
-**Masse du cadre complet : 34.4 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 06/10/2026).
+**Masse du cadre complet : 34.4 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 07/10/2026).
 
 ## Visserie et petites pieces du commerce
 
@@ -105,10 +105,10 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | Irreversibilite du filet | helice 2.48 deg / frottement 5.28 deg a mu 0.08 (acier sur acier, pate cuivre), marge x2.13 |
 | Coin | autobloquant seulement si mu > 0.106 ; desserrage 329 N a mu 0.12 |
 | Flancs du filet, taraude dans l acier | 9.2 MPa pour 12 admis, 80 mm filetes, engagement utile 24 mm |
-| Plaques de frottement | norelem 23765-01-038100, 38 x 100 x 5, CuZn25Al5Mn4Fe3-C + graphite ; 7.7 MPa au plus pour 35 admis |
-| Rebords des plaquettes | 6.25 (dessus) et 7.36 (dessous) x 3, 8.3 MPa de flexion, garde 2 sous le bronze |
-| Portee de la plaquette haute | 30.0 x 51.8 mm (sur 60) en fin de course, 7.7 MPa |
-| Portee de la plaquette basse | 38.0 x 48.6 mm (sur 58) en fin de course, 6.5 MPa |
+| Plaques de frottement | usinees en CuSn12-C, 38 x 102 (dessus) et 38 x 104 (dessous) x 5 ; pate graphite haute temperature ; 7.6 MPa au plus pour 25 admis |
+| Rebords des plaquettes | 5.25 (dessus) et 5.41 (dessous) x 3, 11.8 MPa de flexion, garde 2 sous le bronze |
+| Portee de la plaquette haute | 30.0 x 52.8 mm (sur 60) en fin de course, 7.6 MPa |
+| Portee de la plaquette basse | 38.0 x 50.6 mm (sur 58) en fin de course, 6.2 MPa |
 | Arete cassee des pieces de tole | 0.8 x 45 degres sur les deux faces |
 | Effort estime a la fissuration (beton a 4 MPa) | 5.1 kN |
 | Fleche a la fissuration | 0.12 mm |
@@ -134,7 +134,7 @@ Graduation de charge gravee sur le flanc, loi non lineaire :
 Le cadre se monte A PLAT : les entretoises, la traverse et la tete de charge doivent etre en place avant de presenter le second flanc. Les numeros V renvoient a la visserie.
 
 1. **Eprouvette, a l avance.** Coller les deux plats 20 x 2 sous la poutrelle, a y = +/- 34 (axe des flancs), sur toute la longueur ; poncer P80 et degraisser les deux faces ; polymeriser.
-2. **Coin, a l avance.** Degraisser les deux sieges ; poser chaque plaque de frottement ENTRE SES DEUX REBORDS, trous remplis et quelques points de silicone haute temperature -- PAS d epoxy, bronze et acier ne se dilatent pas pareil ; laisser prendre. Aucune pate sur les plaques ni sur les sieges : elles sont autolubrifiantes, et le silicone ne prend pas sur une pate.
+2. **Coin, a l avance.** Degraisser les deux sieges ; poser chaque plaque de frottement ENTRE SES DEUX REBORDS (la plus longue, 104, dessous), quelques points de silicone haute temperature sur le siege degraisse -- PAS d epoxy, bronze et acier ne se dilatent pas pareil ; laisser prendre. PUIS seulement, pate graphite haute temperature sur les faces de glissement, rien sur les sieges : le silicone ne prend pas sur une pate.
 3. **Poussoir, a l avance.** Empiler les 3 plateaux, alesages alignes sur un rond de 25 ; passer les deux vis V3 PAR DESSOUS (tete sous le plateau bas), rondelle et ecrou au dessus, serrer a 8 N.m. Le poussoir est desormais un bloc ; il sert a toutes les eprouvettes.
 4. **Sous-ensemble de chape, sur l etabli.** Sur la tige M16, visser par son bout exterieur l ecrou H et l ecrou HM de manoeuvre (V7), bloques a 2,7 du bout ; enfiler par l autre bout une rondelle AS, la butee AXK 1730 et la seconde AS (V6), les deux platines, les deux rondelles trempees (V5), puis visser les deux ecrous HM (V8) : 0,1 a 0,3 mm de jeu axial, contre-bloquer. Pate cuivre sur le filet de la tige.
 5. **Empilement.** Mesurer la poutrelle avec ses plats, les patins d appui sous la rainure, le patin de charge, le poussoir et la pile libre. Du sommet des bossages au dessous du coulisseau, le nominal fait 203,1 (8,5 + 2 + 107 + 10 + 24 + 51,6). S il manque plus de 1 mm, prevoir entre poussoir et pile la cale de 1, de 2 ou les deux (V4) : au dela des 12 kN le coin ne garde que 2,4 mm de reserve en hauteur.

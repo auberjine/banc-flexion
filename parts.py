@@ -432,38 +432,35 @@ def plaquette_haute_profile():
     Plaquette de bronze du dessus, prise entre les deux rebords du coin.
     Profil dans le plan (x, y), extrude selon z.
 
-    Piece du commerce (PLAQ_REF) : PLAQ_B x PLAQ_L x PLAQ_EP, deux trous de
-    PLAQ_TROU_D. Pas une seule vis : le percage de la tige prend le milieu du
-    coin, il ne reste pas de quoi tarauder sous les trous. Ce sont les rebords
-    qui prennent l'entrainement ; les trous, remplis de silicone haute
-    temperature, font cle et tiennent la plaquette au montage. PAS d'epoxy :
-    bronze et acier ne se dilatent pas pareil.
+    Piece usinee : rectangle plein PLAQ_B x PLAQ_L_HAUT x PLAQ_EP, sans trou.
+    Pas une seule vis : le percage de la tige prend le milieu du coin. Ce sont
+    les rebords qui prennent l'entrainement ; quelques points de silicone haute
+    temperature la tiennent au montage. PAS d'epoxy : bronze et acier ne se
+    dilatent pas pareil.
     """
     c = G.Contour("plaquette haute")
     b2 = p.PLAQ_B / 2.0
-    c.add(-b2, p.PLAQ_HAUT_Y0, 4.0)
-    c.add(b2, p.PLAQ_HAUT_Y0, 4.0)
-    c.add(b2, p.PLAQ_HAUT_Y1, 4.0)
-    c.add(-b2, p.PLAQ_HAUT_Y1, 4.0)
-    yc = (p.PLAQ_HAUT_Y0 + p.PLAQ_HAUT_Y1) / 2.0
-    return c.build(), [G.circle(0.0, yc + s * p.PLAQ_TROU_L1 / 2.0, p.PLAQ_TROU_D / 2.0) for s in (-1.0, 1.0)]
+    c.add(-b2, p.PLAQ_HAUT_Y0)
+    c.add(b2, p.PLAQ_HAUT_Y0)
+    c.add(b2, p.PLAQ_HAUT_Y1)
+    c.add(-b2, p.PLAQ_HAUT_Y1)
+    return c.build(), []
 
 
 def plaquette_basse_profile():
     """
     Plaquette de bronze du dessous, prise entre les deux rebords du coin.
     Profil dans le plan (x, y), extrude selon z, puis bascule de COIN_ANGLE
-    pour se coucher sur la pente. Ses cotes en y sont donc prises SUR LA PENTE :
-    en projection elle couvre exactement la meme portee que la haute.
+    pour se coucher sur la pente. Ses cotes en y sont donc prises SUR LA PENTE,
+    d'ou sa longueur PLAQ_L_BAS, plus grande que celle de la haute.
     """
     c = G.Contour("plaquette basse")
     b2 = p.PLAQ_B / 2.0
-    c.add(-b2, p.PLAQ_BAS_S0, 4.0)
-    c.add(b2, p.PLAQ_BAS_S0, 4.0)
-    c.add(b2, p.PLAQ_BAS_S1, 4.0)
-    c.add(-b2, p.PLAQ_BAS_S1, 4.0)
-    sc = (p.PLAQ_BAS_S0 + p.PLAQ_BAS_S1) / 2.0
-    return c.build(), [G.circle(0.0, sc + s * p.PLAQ_TROU_L1 / 2.0, p.PLAQ_TROU_D / 2.0) for s in (-1.0, 1.0)]
+    c.add(-b2, p.PLAQ_BAS_S0)
+    c.add(b2, p.PLAQ_BAS_S0)
+    c.add(b2, p.PLAQ_BAS_S1)
+    c.add(-b2, p.PLAQ_BAS_S1)
+    return c.build(), []
 
 
 def pile_profile():
@@ -702,7 +699,7 @@ class PartSpec(object):
                        reprendre dans la nomenclature), "" sinon. Pied et
                        crochet : ALERTE_ETUVE tant que ETUVE_CONFIRMEE est faux.
       achete           piece du commerce : jamais de DXF, et rangee a part dans
-                       la nomenclature (vis de guidage, plaques de bronze, pile,
+                       la nomenclature (vis de guidage, pile,
                        tige filetee, plat de renfort).
       material, stock  matiere et brut, repris tels quels par build_freecad dans
                        out/masses.json, donc par la nomenclature.
@@ -990,24 +987,29 @@ def all_parts():
         coin_profile, 'yz', (-p.COIN_B / 2.0, 0.0, 0.0), flat=False,
         features=f_coin,
         note="acier taraude M%g sur %g depuis le bout EPAIS, passage %g au dela ; porte les deux"
-             " plaques de frottement du commerce entre rebords de %s : dessus %s, dessous %s"
+             " plaques de frottement en bronze entre rebords de %s : dessus %s, dessous %s"
              " (faces normales a la pente)"
              % (p.VIS_D, p.COIN_TARAUD_L, p.VIS_PASSAGE_D, fr(p.PLAQ_REBORD_H),
                 fr(p.PLAQ_REBORD_L, 2), fr(p.PLAQ_REBORD_L_BAS, 2))))
 
     parts.append(PartSpec(
         "plaquette_haute", "Plaque de frottement, dessus", 1, p.PLAQ_ALLIAGE,
-        "%s, %g x %g x %g" % (p.PLAQ_REF, p.PLAQ_B, p.PLAQ_L, p.PLAQ_EP), p.PLAQ_EP, plaquette_haute_profile, 'xy',
-        (0.0, 0.0, p.Z_COIN_HAUT), density=8200.0, achete=True,
+        p.PLAQ_BRUT, p.PLAQ_EP, plaquette_haute_profile, 'xy',
+        (0.0, 0.0, p.Z_COIN_HAUT), density=8800.0, flat=False,
         text_at=(0.0, (p.PLAQ_HAUT_Y0 + p.PLAQ_HAUT_Y1) / 2.0),
-        note="piece du commerce, autolubrifiante ; entre ses deux rebords sur le dessus du coin, trous remplis de silicone HT, glisse sous la traverse"))
+        note="fraisee %s x %s x %s, sans trou, faces planes et paralleles a 0,02, Ra 0,8 cote"
+             " glissement, aretes cassees 0,3 ; entre ses deux rebords sur le dessus du coin, points"
+             " de silicone HT au montage ; %s sur la face qui glisse sous la traverse"
+             % (fr(p.PLAQ_B), fr(p.PLAQ_L_HAUT), fr(p.PLAQ_EP), p.PLAQ_LUBRIFIANT)))
 
     plaq = PartSpec(
         "plaquette_basse", "Plaque de frottement, dessous", 1, p.PLAQ_ALLIAGE,
-        "%s, %g x %g x %g" % (p.PLAQ_REF, p.PLAQ_B, p.PLAQ_L, p.PLAQ_EP), p.PLAQ_EP, plaquette_basse_profile, 'xy',
-        (0.0, 0.0, p.Z_COULISSEAU_HAUT), density=8200.0, achete=True,
+        p.PLAQ_BRUT, p.PLAQ_EP, plaquette_basse_profile, 'xy',
+        (0.0, 0.0, p.Z_COULISSEAU_HAUT), density=8800.0, flat=False,
         text_at=(0.0, (p.PLAQ_BAS_S0 + p.PLAQ_BAS_S1) / 2.0),
-        note="meme plaque du commerce ; entre ses deux rebords sous le coin, trous remplis de silicone HT, glisse sur la pente du coulisseau")
+        note="comme la haute, mais %s x %s x %s ; entre ses deux rebords sous le coin, points de"
+             " silicone HT au montage ; %s sur la face qui glisse sur la pente du coulisseau"
+             % (fr(p.PLAQ_B), fr(p.PLAQ_L_BAS), fr(p.PLAQ_EP), p.PLAQ_LUBRIFIANT))
     plaq.rotate = ((1, 0, 0), p.COIN_ANGLE, (0, 0, p.Z_COULISSEAU_HAUT))
     parts.append(plaq)
 

@@ -2,7 +2,7 @@ DXF de decoupe, ind. B du 05/10/2026
 toles reelles : 42CrMo4 8,00 mm (EP_TOLE_REELLE_42), S355JR 8,00 mm (EP_TOLE_REELLE_S355) : mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe
 Fentes, encoches et mortaises : chacune suit la tole qu elle RECOIT (flanc : tole S355JR ; pied : 42CrMo4 pour les encoches et nodes, S355JR pour les fentes).
 calques : DECOUPE = couper ; GRAVURE = marquer sans couper ; TEXTE = ni couper ni marquer
-Pieces du commerce, sans DXF : guide, plaquette_haute, plaquette_basse, vis, plat_renfort, pile_belleville.
+Pieces du commerce, sans DXF : guide, vis, plat_renfort, pile_belleville.
 
 fichier                               ep  matiere       qte  statut
 flanc.dxf                              8  42CrMo4 +A      2  a decouper

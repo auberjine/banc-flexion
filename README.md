@@ -148,7 +148,7 @@ crochets). `python params.py` l'execute et affiche le bilan.
   Une douille seulement : les bouts des vis de chape, a y 160, arretent une cle
   plate.
 - **La commande est normale aux flancs.** Un coin d'acier C45 a 12 degres,
-  garni de deux plaques de bronze du commerce, coulisse entre le dessous PLAT de
+  garni de deux plaques de bronze usinees, coulisse entre le dessous PLAT de
   la traverse et le dessus incline du coulisseau. Le sens des faces est
   essentiel : c'est lui qui fait que le coin ne se deplace que selon y et que
   l'axe de la vis reste fixe. Voir `DEBOUT.md`.

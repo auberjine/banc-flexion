@@ -131,7 +131,7 @@ def main():
     a("|---|---|")
     a("| Schema | 3 points, portee %.0f mm |" % p.PORTEE)
     a("| Charge de dimensionnement du cadre | %.0f kN |" % (p.CHARGE_DIM / 1000.0))
-    a("| Commande | coin d'acier C45 a %.0f deg garni de deux plaques de bronze du commerce,"
+    a("| Commande | coin d'acier C45 a %.0f deg garni de deux plaques de bronze usinees,"
       " tige filetee M%.0f pas %.1f normale aux flancs |"
       % (p.COIN_ANGLE, p.VIS_D, p.VIS_PAS))
     a("| Pile de rondelles | %d x %s (ex-DIN 2093) en %s (%.0f x %.1f x %.1f), montees tete-beche |"
@@ -416,8 +416,8 @@ def main():
     a("| Angle | %.0f degres |" % p.COIN_ANGLE)
     a("| Coin | acier C45, %.0f de large, %.1f a %.1f d'epaisseur, %.1f de long |"
       % (p.COIN_B, p.COIN_T_BOUT_MINCE, p.COIN_T_BOUT_EPAIS, p.COIN_L))
-    a("| Plaques de frottement | 2 plaques du commerce %s, %g x %g x %g, %s%s |"
-      % (p.PLAQ_REF, p.PLAQ_B, p.PLAQ_L, p.PLAQ_EP, p.PLAQ_ALLIAGE,
+    a("| Plaques de frottement | 2 plaques usinees en %s, %g x %g (dessus) et %g x %g (dessous) x %g, sous %s%s |"
+      % (p.PLAQ_ALLIAGE, p.PLAQ_B, p.PLAQ_L_HAUT, p.PLAQ_B, p.PLAQ_L_BAS, p.PLAQ_EP, p.PLAQ_LUBRIFIANT,
          (", %.2f kg en tout" % m_plaq) if m_plaq else ""))
     a("| Course utile | %.1f mm selon y |" % p.COIN_COURSE)
     a("| Position de repos | bout epais a y %.1f, bout mince a y %.0f |"
@@ -479,12 +479,13 @@ def main():
       % (p.COIN_L / p.VIS_D))
     a("d'une bague de bronze reste possible : rien ici n'est irreversible.")
     a("")
-    a("LE BRONZE N'EST PLUS QUE DEUX PLAQUES DU COMMERCE, TOUTES DEUX SUR LE COIN.")
+    a("LE BRONZE N'EST PLUS QUE DEUX PLAQUES, TOUTES DEUX SUR LE COIN.")
     a("Un coin de bronze plein aurait demande 2,7 kg de barre, une section qu'il")
     a("faut faire debiter. Or le bronze n'est utile que sur les deux faces de")
-    a("glissement : il est reporte sur deux plaques de frottement autolubrifiantes")
-    a("%s (%g x %g x %g), et le coin devient un bloc d'acier C45"
-      % (p.PLAQ_REF, p.PLAQ_B, p.PLAQ_L, p.PLAQ_EP))
+    a("glissement : il est reporte sur deux plaques de frottement en %s, de" % p.PLAQ_ALLIAGE)
+    a("simples rectangles fraises dans un %s (%g x %g et %g x %g, ep. %g)," % (p.PLAQ_BRUT, p.PLAQ_B,
+      p.PLAQ_L_HAUT, p.PLAQ_B, p.PLAQ_L_BAS, p.PLAQ_EP))
+    a("usines avec le reste plutot qu'achetes a part, et le coin devient un bloc d'acier C45")
     brut_coin = specs["coin"].stock if "coin" in specs else ""
     if "coin" in masse:
         a("de %.2f kg, usine dans un %s." % (masse["coin"]["masse_kg"], brut_coin))
@@ -520,13 +521,13 @@ def main():
     a("qu a tenir la plaquette le temps du montage : quelques points de silicone")
     a("haute temperature, %.0f fois plus souple, y suffisent -- %.3f MPa de"
       % (1000.0 / p.COLLE_G, p.COLLE_G * d_th / 2.0 / p.COLLE_EP))
-    a("cisaillement thermique dans le joint. Aucune pate sur les plaques ni sur")
-    a("leurs sieges : elles sont autolubrifiantes, et le silicone ne prend pas sur")
-    a("une pate.")
+    a("cisaillement thermique dans le joint. Le %s n'est pas autolubrifiant :" % p.PLAQ_ALLIAGE)
+    a("%s sur les faces de glissement, posee APRES la prise du silicone ;" % p.PLAQ_LUBRIFIANT)
+    a("rien sur les sieges, le silicone ne prend pas sur une pate.")
     a("")
     a("Pied de rebord SANS degagement : la fraise y laisse son angle (R%g au plus)," % p.PLAQ_REBORD_R)
-    a("et le logement fait %g pour une plaquette de %g, si bien que l'angle du"
-      % (p.PLAQ_L + 2.0 * p.PLAQ_JEU, p.PLAQ_L))
+    a("et chaque logement a %g de plus que sa plaquette, si bien que l'angle du"
+      % (2.0 * p.PLAQ_JEU))
     a("bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure")
     a("du rebord est NORMALE A LA PENTE et non verticale, comme le chant de la")
     a("plaquette : dessinees verticales, elles la mordaient de %.1f mm en bas."
@@ -716,7 +717,8 @@ def main():
     a("  une rampe de 1 degre par minute creee deja 5 MPa d'ecart entre coeur et peau")
     a("- palier de stabilisation d'au moins 2 heures avant toute lecture")
     a("- acier nu ou phosphate, pas de zingue au dela de 200 degres C")
-    a("- pate graphite ou cuivre sur le filetage de la tige, rien sur les plaques de bronze")
+    a("- pate graphite ou cuivre sur le filetage de la tige, %s sur les faces" % p.PLAQ_LUBRIFIANT)
+    a("  de glissement des plaques de bronze, a refaire a chaque demontage du coin")
     a("- relaxation des rondelles de quelques pour cent au dela de 100 degres C :")
     a("  reprendre la charge a chaque palier")
     a("- revetement de la fibre a verifier : l'acrylate standard ne tient pas 150 degres C")

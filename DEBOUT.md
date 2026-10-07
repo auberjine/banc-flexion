@@ -35,7 +35,7 @@ directe.
 
 Un coin en ACIER C45, taraude M16, coulisse selon y entre le DESSOUS PLAT de la
 traverse et le DESSUS du coulisseau taille au meme angle. Ses DEUX faces de
-glissement portent une plaque de bronze du commerce.
+glissement portent une plaque de bronze CuSn12-C usinee.
 
 Le sens des faces est ce qui rend le montage possible : si le coin glissait sur
 une rampe fixe, il descendrait en avancant et la vis devrait suivre ce mouvement
@@ -46,22 +46,23 @@ que selon y, et l'axe de la vis reste fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30,8 a 55,2 d'epaisseur, 114,5 de long |
-| Plaque haute | norelem 23765-01-038100, bronze graphite 38 x 100 x 5, entre deux rebords de 7,05 |
-| Plaque basse | la meme plaque, sur la pente, entre deux rebords de 8,15 |
+| Plaque haute | CuSn12-C usine 38 x 102 x 5, sans trou, entre deux rebords de 5,25 |
+| Plaque basse | CuSn12-C usine 38 x 104 x 5, sur la pente, entre deux rebords de 5,41 |
 | Taraudage | M16 sur 80 mm depuis le bout epais, passage a 18 au dela |
 | Course utile | 56,5 mm selon y |
 | Effort moteur a 12 kN | 5,5 kN |
 | Couple sur la tige | 9,4 N.m |
 | Course par tour | 0,425 mm de coulisseau, environ 549 N |
-| Pression de contact, fin de course | 7,7 MPa en haut (30 nets x 51,8), 6,5 en bas (38 x 48,6) |
+| Pression de contact, fin de course | 7,6 MPa en haut (30 nets x 52,8), 6,2 en bas (38 x 50,6) |
 | Guidage | 4 tetes de CHC M8 x 12, diametre 13, dans des lumieres de 14 |
 | Rendement | 46 pour cent |
 
-LE BRONZE N'EST PLUS QUE DEUX PLAQUES DU COMMERCE, TOUTES DEUX SUR LE COIN. Un
-coin de bronze plein aurait pese 2,7 kg de barre, une section qui ne se trouve
-pas en stock ; les deux plaques autolubrifiantes en font 0,30 kg. La plaque
-basse pourrait etre posee sur la pente du coulisseau, ou elle ne ferait que 58
-de long au lieu de 100 ; la mettre sur le coin rend le coulisseau a l'etat de
+LE BRONZE N'EST PLUS QUE DEUX PLAQUES, TOUTES DEUX SUR LE COIN. Un coin de
+bronze plein aurait pese 2,7 kg de barre, une section qui ne se trouve pas en
+stock ; les deux plaques, de simples rectangles fraises dans du plat 40 x 6 et
+usines avec le reste de la commande (07/10/2026, au lieu de plaques norelem du
+commerce), en font 0,34 kg. La plaque basse pourrait etre posee sur la pente du
+coulisseau, ou elle ne ferait que 58 de long au lieu de 104 ; la mettre sur le coin rend le coulisseau a l'etat de
 bloc nu -- un percage et un plan a 12 degres, ni poche ni taraudage -- fait
 sortir les deux faces d'usure ensemble avec le coin, et n'oblige a usiner que
 deux fois le meme rebord. Ce que cela coute : la plaque basse traverse la fente
@@ -78,17 +79,18 @@ lacher, le lamage d'une bague de bronze reste possible.
 AUCUNE VIS SUR LES PLAQUES : le coin ne fait que 40 de large et le percage de
 la tige en prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un
 ligament d'epaisseur. Chaque plaque est prise entre DEUX REBORDS usines dans la
-masse, 7,05 (dessus) et 8,15 (dessous) de large pour 3 de haut, qui encaissent
-les 1,44 kN d'entrainement dans l'axe de la vis : flexion 6,5 MPa au pied,
-matage du chant 12 MPa. Il n'y a pas de colle structurale : une epoxy
+masse, 5,25 (dessus) et 5,41 (dessous) de large pour 3 de haut, qui encaissent
+les 1,44 kN d'entrainement dans l'axe de la vis : flexion 11,8 MPa au pied,
+matage du chant 18 MPa. Il n'y a pas de colle structurale : une epoxy
 fissurerait au premier chauffage, bronze et acier ne se dilatant pas pareil.
 Quelques points de silicone haute temperature tiennent la plaque pendant le
 montage ; la dilatation differentielle n'y met que 0,14 MPa de cisaillement.
-Aucune pate sur les plaques ni sur leurs sieges : elles sont autolubrifiantes,
-et le silicone ne prend pas sur une pate.
+Le CuSn12 n'est pas autolubrifiant : pate graphite haute temperature sur les
+faces de glissement, posee APRES la prise du silicone, et rien sur les sieges,
+car le silicone ne prend pas sur une pate.
 
 Pied de rebord SANS degagement : la fraise y laisse son angle (R1 au plus), et
-le logement fait 102 pour une plaque de 100, si bien que l'angle du bronze ne
+chaque logement a 2 mm de plus que sa plaque, si bien que l'angle du bronze ne
 monte pas sur le conge. Sur la face inclinee, la face interieure du rebord est
 NORMALE A LA PENTE et non verticale, comme le chant de la plaque : dessinees
 verticales, elles la mordaient de 1,1 mm en bas.

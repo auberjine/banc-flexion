@@ -131,10 +131,10 @@ def ordre_de_montage():
         " (axe des flancs), sur toute la longueur ; poncer P80 et degraisser les deux faces ;"
         " polymeriser." % (p.PLAT_B, p.PLAT_E, p.Y_FLANC),
         "**Coin, a l avance.** Degraisser les deux sieges ; poser chaque plaque de frottement ENTRE"
-        " SES DEUX REBORDS, trous remplis et quelques points de silicone haute temperature --"
-        " PAS d epoxy, bronze et acier ne se dilatent pas pareil ; laisser prendre. Aucune pate"
-        " sur les plaques ni sur les sieges : elles sont autolubrifiantes, et le silicone ne"
-        " prend pas sur une pate.",
+        " SES DEUX REBORDS (la plus longue, %g, dessous), quelques points de silicone haute"
+        " temperature sur le siege degraisse -- PAS d epoxy, bronze et acier ne se dilatent pas"
+        " pareil ; laisser prendre. PUIS seulement, %s sur les faces de glissement, rien sur les"
+        " sieges : le silicone ne prend pas sur une pate." % (p.PLAQ_L_BAS, p.PLAQ_LUBRIFIANT),
         "**Poussoir, a l avance.** Empiler les %d plateaux, alesages alignes sur un rond de %g ;"
         " passer les deux vis V3 PAR DESSOUS (tete sous le plateau bas), rondelle et ecrou au"
         " dessus, serrer a %g N.m. Le poussoir est desormais un bloc ; il sert a toutes les"
@@ -420,9 +420,9 @@ def main():
                % (p.pression_filet(), p.FILET_P_ADM, p.COIN_TARAUD_L, 1.5 * p.VIS_D))
     cis, flex, pres = p.rebord_contrainte()
     p_haut, p_bas = p.pressions_plaquettes()
-    out.append("| Plaques de frottement | %s, %g x %g x %g, %s ; %.1f MPa au plus pour %g admis |"
-               % (p.PLAQ_REF, p.PLAQ_B, p.PLAQ_L, p.PLAQ_EP, p.PLAQ_ALLIAGE,
-                  max(p_haut, p_bas), p.PLAQ_P_ADM))
+    out.append("| Plaques de frottement | usinees en %s, %g x %g (dessus) et %g x %g (dessous) x %g ; %s ; %.1f MPa au plus pour %g admis |"
+               % (p.PLAQ_ALLIAGE, p.PLAQ_B, p.PLAQ_L_HAUT, p.PLAQ_B, p.PLAQ_L_BAS, p.PLAQ_EP,
+                  p.PLAQ_LUBRIFIANT, max(p_haut, p_bas), p.PLAQ_P_ADM))
     out.append("| Rebords des plaquettes | %.2f (dessus) et %.2f (dessous) x %g, %.1f MPa de flexion, garde %g sous le bronze |"
                % (p.PLAQ_REBORD_L, p.PLAQ_REBORD_L_BAS, p.PLAQ_REBORD_H, flex, p.PLAQ_EP - p.PLAQ_REBORD_H))
     for nom, lo, hi, larg, largx, pr in (

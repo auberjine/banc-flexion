@@ -35,7 +35,7 @@ sur la poutrelle et partent avec elle : il en faut un jeu par eprouvette.
 |---|---|
 | Schema | 3 points, portee 750 mm |
 | Charge de dimensionnement du cadre | 12 kN |
-| Commande | coin d'acier C45 a 12 deg garni de deux plaques de bronze du commerce, tige filetee M16 pas 2.0 normale aux flancs |
+| Commande | coin d'acier C45 a 12 deg garni de deux plaques de bronze usinees, tige filetee M16 pas 2.0 normale aux flancs |
 | Pile de rondelles | 12 x EN 16983 A50 (ex-DIN 2093) en 51CrV4 (1.8159) (50 x 25.4 x 3.0), montees tete-beche |
 | Hauteur libre de la pile | 51.6 mm |
 | Effort de la pile a plat | 18.5 kN |
@@ -231,7 +231,7 @@ traverse, donc l'axe de la vis est fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30.8 a 55.2 d'epaisseur, 114.5 de long |
-| Plaques de frottement | 2 plaques du commerce norelem 23765-01-038100, 38 x 100 x 5, CuZn25Al5Mn4Fe3-C + graphite, 0.30 kg en tout |
+| Plaques de frottement | 2 plaques usinees en CuSn12-C, 38 x 102 (dessus) et 38 x 104 (dessous) x 5, sous pate graphite haute temperature, 0.34 kg en tout |
 | Course utile | 56.5 mm selon y |
 | Position de repos | bout epais a y -85.5, bout mince a y 29 |
 | Sens de marche | vers la chape ; en fin de course le bout mince est a y 85.5 |
@@ -240,7 +240,7 @@ traverse, donc l'axe de la vis est fixe.
 | Effort moteur a 12 kN | 5.5 kN |
 | Couple sur la vis | 9.4 N.m |
 | Course par tour | 0.425 mm de coulisseau, environ 549 N |
-| Pression de contact, fin de course | 7.7 MPa en haut sur 30.0 x 51.8 (joints de traverse deduits), 6.5 MPa en bas sur 38 x 48.6 ; 35 admis |
+| Pression de contact, fin de course | 7.6 MPa en haut sur 30.0 x 52.8 (joints de traverse deduits), 6.2 MPa en bas sur 38 x 50.6 ; 25 admis |
 | Rendement | 46 pour cent |
 
 Le coin n'est autobloquant que si le frottement de ses deux faces depasse
@@ -270,15 +270,16 @@ plus grand : les copeaux s'evacuent vers l'avant et il n'y a que 5 d a
 tarauder au lieu de 7. Si le filet devait un jour lacher, le lamage
 d'une bague de bronze reste possible : rien ici n'est irreversible.
 
-LE BRONZE N'EST PLUS QUE DEUX PLAQUES DU COMMERCE, TOUTES DEUX SUR LE COIN.
+LE BRONZE N'EST PLUS QUE DEUX PLAQUES, TOUTES DEUX SUR LE COIN.
 Un coin de bronze plein aurait demande 2,7 kg de barre, une section qu'il
 faut faire debiter. Or le bronze n'est utile que sur les deux faces de
-glissement : il est reporte sur deux plaques de frottement autolubrifiantes
-norelem 23765-01-038100 (38 x 100 x 5), et le coin devient un bloc d'acier C45
-de 1.38 kg, usine dans un plat 65 x 45, L 120 (fini 61 x 40 x 114,5).
+glissement : il est reporte sur deux plaques de frottement en CuSn12-C, de
+simples rectangles fraises dans un plat 40 x 6 (38 x 102 et 38 x 104, ep. 5),
+usines avec le reste plutot qu'achetes a part, et le coin devient un bloc d'acier C45
+de 1.37 kg, usine dans un plat 65 x 45, L 120 (fini 61 x 40 x 114,5).
 
 La basse pourrait etre posee sur la pente du coulisseau, ou elle ne ferait
-que 58 de long au lieu de 100. Elle est mise sur le coin comme la
+que 58 de long au lieu de 104. Elle est mise sur le coin comme la
 haute : le coulisseau redevient un bloc nu -- un percage et un plan a 12
 degres, ni poche ni taraudage -- les deux faces d'usure sortent ensemble
 avec le coin, et c'est deux fois le meme rebord a usiner. Ce que cela
@@ -288,21 +289,21 @@ s'approfondit donc de 5.1 mm.
 Aucune vis : le coin ne fait que 40 de large et le percage de la tige en
 prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un
 ligament d'epaisseur. Chaque plaquette est prise entre DEUX REBORDS usines
-dans la masse, 6.25 (dessus) et 7.36 (dessous) x 3, qui encaissent les 1.44 kN
-d'entrainement dans l'axe de la vis : flexion 8.3 MPa au pied, matage du chant 18 MPa.
+dans la masse, 5.25 (dessus) et 5.41 (dessous) x 3, qui encaissent les 1.44 kN
+d'entrainement dans l'axe de la vis : flexion 11.8 MPa au pied, matage du chant 18 MPa.
 Elles ne sont PAS collees a l epoxy. Bronze et acier ne se dilatent pas
-pareil : a 150 C la plaquette s allonge de 0.08 mm de plus que son siege,
+pareil : a 150 C la plaquette s allonge de 0.09 mm de plus que son siege,
 et un joint rigide sur toute la longueur encaisserait 30 a 80 MPa de
 cisaillement en bout pour 15 a 20 tenus : il fissurerait au premier
 chauffage. Les rebords prenant tout l entrainement, la fixation n a plus
 qu a tenir la plaquette le temps du montage : quelques points de silicone
-haute temperature, 1000 fois plus souple, y suffisent -- 0.141 MPa de
-cisaillement thermique dans le joint. Aucune pate sur les plaques ni sur
-leurs sieges : elles sont autolubrifiantes, et le silicone ne prend pas sur
-une pate.
+haute temperature, 1000 fois plus souple, y suffisent -- 0.146 MPa de
+cisaillement thermique dans le joint. Le CuSn12-C n'est pas autolubrifiant :
+pate graphite haute temperature sur les faces de glissement, posee APRES la prise du silicone ;
+rien sur les sieges, le silicone ne prend pas sur une pate.
 
 Pied de rebord SANS degagement : la fraise y laisse son angle (R1 au plus),
-et le logement fait 102 pour une plaquette de 100, si bien que l'angle du
+et chaque logement a 2 de plus que sa plaquette, si bien que l'angle du
 bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure
 du rebord est NORMALE A LA PENTE et non verticale, comme le chant de la
 plaquette : dessinees verticales, elles la mordaient de 1.1 mm en bas.
@@ -310,8 +311,8 @@ plaquette : dessinees verticales, elles la mordaient de 1.1 mm en bas.
 Les rebords s'arretent 2 mm SOUS la surface du bronze. Aux deux bouts de
 course ils passent sous la conjuguee, et s'ils affleuraient ce serait de
 l'acier sur acier qu'on ferait glisser. Il en coute de la portee : la
-plaquette haute porte sur 51.8 mm au lieu de 60, la basse sur 48.6 au
-lieu de 58, soit 7.7 et 6.5 MPa.
+plaquette haute porte sur 52.8 mm au lieu de 60, la basse sur 50.6 au
+lieu de 58, soit 7.6 et 6.2 MPa.
 
 Le filet reste engage sur 24.5 mm coin recule, soit 1.5 d, ce qui est
 tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la tige et le
@@ -427,7 +428,7 @@ resolution suffisante, et un col serait une entaille de plus.
 
 ## 9. Masses
 
-Masses du modele 3D (out/masses.json, construit le 06/10/2026).
+Masses du modele 3D (out/masses.json, construit le 07/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
@@ -437,9 +438,9 @@ Masses du modele 3D (out/masses.json, construit le 06/10/2026).
 | Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
-| Coin de commande | 1 | 1.38 kg | 1.38 kg |
-| Plaque de frottement, dessus | 1 | 0.15 kg | 0.15 kg |
-| Plaque de frottement, dessous | 1 | 0.15 kg | 0.15 kg |
+| Coin de commande | 1 | 1.37 kg | 1.37 kg |
+| Plaque de frottement, dessus | 1 | 0.17 kg | 0.17 kg |
+| Plaque de frottement, dessous | 1 | 0.17 kg | 0.17 kg |
 | Tige filetee de commande M16 | 1 | 0.41 kg | 0.41 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
@@ -460,7 +461,8 @@ Masses du modele 3D (out/masses.json, construit le 06/10/2026).
   une rampe de 1 degre par minute creee deja 5 MPa d'ecart entre coeur et peau
 - palier de stabilisation d'au moins 2 heures avant toute lecture
 - acier nu ou phosphate, pas de zingue au dela de 200 degres C
-- pate graphite ou cuivre sur le filetage de la tige, rien sur les plaques de bronze
+- pate graphite ou cuivre sur le filetage de la tige, pate graphite haute temperature sur les faces
+  de glissement des plaques de bronze, a refaire a chaque demontage du coin
 - relaxation des rondelles de quelques pour cent au dela de 100 degres C :
   reprendre la charge a chaque palier
 - revetement de la fibre a verifier : l'acrylate standard ne tient pas 150 degres C

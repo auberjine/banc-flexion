@@ -663,7 +663,8 @@ def plan_coulisseau():
         return zt - p.COIN_T_BOUT_MINCE - (Y1 - y) * tg
 
     d1_vis = p.VIS_D - 1.082532 * p.VIS_PAS  # diametre du fond de filet femelle (ISO 724)
-    logement = p.PLAQ_L + 2.0 * p.PLAQ_JEU   # 102 entre rebords
+    logement = p.PLAQ_L_HAUT + 2.0 * p.PLAQ_JEU       # 104 entre rebords du dessus
+    logement_bas = p.PLAQ_L_BAS + 2.0 * p.PLAQ_JEU    # 106 sur la pente
     psi, rho, marge = p.filet_marge()
     # filet trapezoidal Tr16x4 (ISO 2904 : pas 4, d2 14, flanc 15 deg) au meme frottement
     tr_psi = math.degrees(math.atan(4.0 / (math.pi * 14.0)))
@@ -680,9 +681,10 @@ def plan_coulisseau():
         % (rep_o, f(p.COIN_T_BOUT_EPAIS), f(p.COIN_T_BOUT_MINCE), f(p.COIN_VIS_SOUS)),
         "%s : pente du dessous (%s deg, celle du coulisseau) ; faces interieures des rebords du"
         " dessous NORMALES a la pente ; angles R%s." % (rep_o, f(p.COIN_ANGLE), f(r1)),
-        "%s : plaques du commerce %s %g x %g x %g (%s, %s) tenues par les rebords, points de"
-        " silicone HT." % (rep_o, p.PLAQ_REF.split()[0], p.PLAQ_B, p.PLAQ_L, p.PLAQ_EP,
-                           R["plaquette_haute"], R["plaquette_basse"]),
+        "%s : plaques de bronze usinees %s (%s x %s) et %s (%s x %s), ep. %s, tenues par les"
+        " rebords, points de silicone HT." % (rep_o, R["plaquette_haute"], f(p.PLAQ_B), f(p.PLAQ_L_HAUT),
+                                             R["plaquette_basse"], f(p.PLAQ_B), f(p.PLAQ_L_BAS),
+                                             f(p.PLAQ_EP)),
         "%s : commande %s kN, couple %s N.m a %s kN ; un tour de vis : %s mm de coulisseau,"
         " environ %.0f N."
         % (rep_o, f(p.coin_effort() / 1000.0), f(p.coin_couple()), f(p.CHARGE_DIM / 1000.0),
@@ -809,7 +811,7 @@ def plan_coulisseau():
     vc.cote_vx(zt - p.COIN_T_BOUT_MINCE, zt, Y1, Y1, 14.0, texte=f(p.COIN_T_BOUT_MINCE), dt=7.0)
     y0b, y1b = Y0 + wb, Y1 - wb
     c02_cote_alignee(vc, (y0b + hr * sa_, zb(y0b) - hr * ca_), (y1b + hr * sa_, zb(y1b) - hr * ca_),
-                     -8.0, "%s +0,5/0" % f(logement))
+                     -8.0, "%s +0,5/0" % f(logement_bas))
     vc.renvoi((Y0 + 4.5, p.Z_VIS - p.VIS_D / 2.0),
               "M%g x %g prof. %s depuis le bout EPAIS, centre" % (p.VIS_D, p.VIS_PAS, f(p.COIN_TARAUD_L))
               + chr(10) + "sur l epaisseur ; passage %s debouchant" % f(p.VIS_PASSAGE_D),
@@ -1580,7 +1582,7 @@ def plan_pied():
 
 def plan_petites():
     """Planche 06 : tourillon 06a, entretoise de cadre 06b, plaque de frottement
-    06c / 06d (piece du commerce, une seule vue : dessus et dessous identiques).
+    06c / 06d (bronze usine, une vue ; seule la longueur differe).
     Reprise du 02/10/2026 : quantites, matieres, bruts et reperes lus dans les
     PartSpec et nomenclature.REPERES ; cotes ISO (cote_hx / cote_vx : texte a
     gauche des cotes verticales, attaches qui depassent la ligne de cote) ;
@@ -1613,14 +1615,13 @@ def plan_petites():
         "%s : la longueur %s %s fixe l ecart des flancs : couper les %d en serie. Ne pas confondre avec %s"
         " (meme tube, L %s, planche 07)." % (rB, f(lE), p.ENTRETOISE_TOL, se.qty, R["entretoise_vis"],
                                             f(p.SUPPORT_TUBE_L)),
-        "%s / %s : pieces du commerce, rien a fabriquer ; entre les rebords du coin %s (larges de %s dessus"
-        " et %s dessous), trous remplis de silicone HT." % (rC, rD, R["coin"], f(p.PLAQ_REBORD_L, 2),
-                                                      f(p.PLAQ_REBORD_L_BAS, 2)),
+        "%s / %s : entre les rebords du coin %s (larges de %s dessus et %s dessous), points de silicone"
+        " HT sur le siege ; %s sur la face de glissement." % (rC, rD, R["coin"], f(p.PLAQ_REBORD_L, 2),
+                                                              f(p.PLAQ_REBORD_L_BAS, 2), p.PLAQ_LUBRIFIANT),
     ]
     s = D.Sheet("TOURILLON, ENTRETOISES, PLAQUES", rA[:2],
-                "%s / %s / %s (achat)" % (st.material.split()[0], se.material.split()[0],
-                                          p06_famille(sh.material)),
-                "rond %s %s / %s" % (f(p.TOURILLON_D), ajust, tube),
+                "%s / %s / %s" % (st.material.split()[0], se.material.split()[0], sh.material),
+                "rond %s %s / %s / %s" % (f(p.TOURILLON_D), ajust, tube, sh.stock),
                 "%d + %d + %d + %d (%s a %s)" % (st.qty, se.qty, sh.qty, sb.qty, rA, rD),
                 "2:1 - plaque %s/%s 1:1" % (rC, rD), notes=notes)
     s.cartouche()
@@ -1671,37 +1672,24 @@ def plan_petites():
 
     # ======================================================== 06c / 06d plaque, 1:1
     XC, YC = 325.0, 90.0
-    o, trous = P.plaquette_haute_profile()       # profil (x : largeur, y : longueur)
-    bx0, by0, bx1, by1 = G.bbox(o)
-    hl, hb = (by1 - by0) / 2.0, (bx1 - bx0) / 2.0
-    yc = (by0 + by1) / 2.0
-    rc = p06_rayon_coin(o)
-    rt = p.PLAQ_TROU_D / 2.0
-    xt = sorted(t[0][1][1] for t in trous)       # centres des trous, le long de la plaque
+    # rectangle plein, sans trou : une seule vue, la longueur seule change
+    hb = p.PLAQ_B / 2.0
+    hl = p.PLAQ_L_BAS / 2.0                      # dessinee a la longueur de la basse
     p06_titre(s, XC, 20.0, "%s / %s  PLAQUE DE FROTTEMENT  (1:1)" % (rC, rD),
-              ["piece du commerce : %s" % p.PLAQ_REF,
-               "%s, epaisseur %s" % (sh.material, f(p.PLAQ_EP)),
-               "%d dessus (%s) + %d dessous (%s), identiques" % (sh.qty, rC, sb.qty, rD)])
-    vp = D.View(s, 1.0, yc, 0.0, XC, YC)         # longueur a l horizontale
-    vp.contour([seg_tourne(sg) for sg in o])
-    for t in trous:
-        vp.contour([seg_tourne(sg) for sg in t])
-    vp.axe((yc - hl, 0.0), (yc + hl, 0.0))
-    vp.axe((yc, -hb), (yc, hb), ext=2.0)        # symetrie : les trous sont a +/- 35 du milieu
-    for x in xt:                                 # axe du trou prolonge jusqu au bord : attache du 70
-        vp.axe((x, -rt), (x, hb - 3.0))
-    vp.cote_hx(xt[0], xt[-1], hb, hb, 0.0, zl=hb + 10.0)
-    for sy in (-1.0, 1.0):                       # angles vifs fictifs des R4 (ISO 129-1)
-        for sz in (-1.0, 1.0):
-            cy_, cz_ = yc + sy * hl, sz * hb
-            p06_ligne(vp, (cy_, cz_ - sz * rc), (cy_, cz_ + sz * 1.0))
-            p06_ligne(vp, (cy_ - sy * rc, cz_), (cy_ + sy * 1.0, cz_))
-    vp.cote_hx(yc - hl, yc + hl, -hb, -hb, 0.0, zl=-hb - 10.0)
-    vp.cote_vx(-hb, hb, yc + hl, yc + hl, 0.0, xl=yc + hl + 10.0)
-    a60 = math.radians(60.0)
-    vp.renvoi((xt[-1] + rt * math.cos(a60), rt * math.sin(a60)),
-              "%d x diam. %s" % (len(trous), f(p.PLAQ_TROU_D)), 6.0, -24.0, fin="fleche", palier=5.0)
-    vp.rayon((yc - hl + rc, hb - rc), rc, 135.0, "(4 x R%s)" % f(rc), 8.0)
+              ["%s, brut %s, epaisseur %s" % (sh.material, sh.stock, f(p.PLAQ_EP)),
+               "%d dessus (%s, L %s) + %d dessous (%s, L %s)"
+               % (sh.qty, rC, f(p.PLAQ_L_HAUT), sb.qty, rD, f(p.PLAQ_L_BAS))])
+    vp = D.View(s, 1.0, 0.0, 0.0, XC, YC)        # longueur a l horizontale
+    vp.contour(p06_poly([(-hl, -hb), (hl, -hb), (hl, hb), (-hl, hb)]))
+    vp.axe((-hl, 0.0), (hl, 0.0))
+    vp.axe((0.0, -hb), (0.0, hb))
+    vp.cote_hx(-hl, hl, -hb, -hb, 0.0, zl=-hb - 10.0,
+               texte="%s (%s) / %s (%s)" % (f(p.PLAQ_L_HAUT), rC, f(p.PLAQ_L_BAS), rD))
+    vp.cote_vx(-hb, hb, hl, hl, 0.0, xl=hl + 10.0)
+    for j, t in enumerate(["Sans trou. Ep. %s +/- 0,05, faces planes" % f(p.PLAQ_EP),
+                           "et paralleles a 0,02, Ra 0,8 cote glissement.",
+                           "Aretes cassees 0,3. Tolerance generale ISO 2768-m."]):
+        s.text(XC, YC + hb + 22.0 + 4.0 * j, t, 2.8, "middle")
     return s.save(os.path.join(OUT, "06_petites.svg"))
 
 
@@ -1740,29 +1728,6 @@ def p06_parallelisme(texte):
     import re
     m = re.search(r"//\s*([\d,]+)", texte)
     return m.group(1) if m else "?"
-
-
-def p06_famille(matiere):
-    """Famille d'un alliage ('CuZn25Al5Mn4Fe3-C + graphite' donne 'CuZn') : la
-    designation complete ne tient pas dans la case du cartouche."""
-    import re
-    m = re.match(r"[A-Za-z]+", matiere)
-    return m.group(0) if m else matiere
-
-
-def p06_rayon_coin(segs):
-    """Rayon des angles d'un contour, lu sur ses arcs (pas de parametre)."""
-    rs = sorted(set(round(sg[2], 3) for sg in segs if sg[0] != 'L'))
-    return rs[0] if rs else 0.0
-
-
-def seg_tourne(sg):
-    """Echange les deux coordonnees d un segment : un profil (x, y) se lit en (y, x)."""
-    if sg[0] == 'L':
-        return ('L', (sg[1][1], sg[1][0]), (sg[2][1], sg[2][0]))
-    _t, c, r, a0, a1, ccw = sg
-    import math as _m
-    return ('A', (c[1], c[0]), r, _m.pi / 2 - a0, _m.pi / 2 - a1, not ccw)
 
 
 # ============================================================ chape
