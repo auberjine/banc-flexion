@@ -120,7 +120,9 @@ SUPPORT_TUBE_TOL = "+/-0,2"            # sur SUPPORT_TUBE_L, entretoises de bute
 
 # ============================================================ boulonnerie M10
 # Vis de CADRE : une par entretoise, sauf les deux de la chape qui ont leurs
-# propres vis (SUPPORT_TIRANT_L). Vis TH M10 ISO 4014 8.8 zinguee, une rondelle
+# propres vis (SUPPORT_TIRANT_L). Vis TH M10 ISO 4017 8.8 zinguee a FILETAGE
+# TOTAL (07/10/2026 : la meme vis que celles du paquet de traverse, une
+# reference de moins ; plus de marge de filet a tenir), une rondelle
 # sous la tete et une sous l ecrou, ecrou autofreine TOUT METAL ISO 7042
 # classe 8. Pas d ecrou a bague polyamide (ISO 7040, DIN 985) : la bague flue
 # vers 120 C et ne freine plus dans l etuve a 150 C. Les longueurs sont
@@ -128,15 +130,15 @@ SUPPORT_TUBE_TOL = "+/-0,2"            # sur SUPPORT_TUBE_L, entretoises de bute
 RONDELLE_M10_E = 2.0      # rondelle ISO 7089 M10, 10,5 x 20 x 2
 ECROU_FREIN_H = 10.0      # ecrou ISO 7042 M10, hauteur maxi
 ECROU_FREIN_REF = "ISO 7042 classe 8, autofreine tout metal"
-ENTR_VIS_L = 100.0        # vis TH M10 x 100 : serrage 80, ecrou sur le filet, 10 de depassement
-ENTR_VIS_FILET = 26.0     # filetage partiel ISO 4014 : b = 2d + 6 pour L <= 125
+ENTR_VIS_L = 100.0        # vis TH M10 x 100 ISO 4017 : serrage 80, 10 de depassement
 # PAQUET DE TRAVERSE (07/10/2026) : DEUX vis TH M10 a filetage total, comme les
 # V1 (tete, rondelle, paquet, rondelle, ecrou ISO 7042), et non plus une tige
 # filetee seule au milieu : deux vis tiennent les six plaques alignees entre
 # elles pour dresser le chant en paquet, a la fraise ou au papier abrasif sur
-# un marbre. Filetage TOTAL (ISO 4017) : une ISO 4014 M10 x 70 n a que 26 de
-# filet, son ecrou sortait du filet ou du bout selon la tole livree.
-TRAVERSE_TIRANT_L = 80.0  # vis H M10 x 80 ISO 4017 : couvre la tole livree de 7,5 a 9,2
+# un marbre. MEME VIS que les V1 (M10 x 100, filetage total) : une reference
+# de moins ; elle depasse de l ecrou d environ 38, entre les flancs, ou rien
+# ne passe (les entretoises de chape sont 20 plus bas).
+TRAVERSE_TIRANT_L = ENTR_VIS_L
 TRAVERSE_TIRANT_N = 2
 FILET_DEPASSE_MIN = 3.0   # 2 pas de M10 au dela de l ecrou : l element de freinage est en prise
 FILET_MARGE_MIN = 2.5     # l ecrou reste sur la partie filetee malgre les tolerances d empilement
@@ -1264,7 +1266,7 @@ def boulonnerie():
     out.append(dict(nom="vis de cadre TH M10 x %.0f" % ENTR_VIS_L, L=ENTR_VIS_L,
                     serrage=s, ecrou=ECROU_FREIN_H,
                     depassement=ENTR_VIS_L - s - ECROU_FREIN_H,
-                    marge_filet=s - (ENTR_VIS_L - ENTR_VIS_FILET)))
+                    marge_filet=None))
     # vis du paquet de traverse : rondelle, six toles, rondelle, ecrou ; filetage total
     s = TRAVERSE_LX_REEL + 2.0 * RONDELLE_M10_E
     out.append(dict(nom="vis de traverse H M10 x %.0f" % TRAVERSE_TIRANT_L,

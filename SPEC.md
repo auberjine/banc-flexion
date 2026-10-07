@@ -405,8 +405,8 @@ marge et le bout depasser de 3 pour que le freinage soit en prise.
 
 | boulonnerie | serrage | ecrou | depassement | marge de filet |
 |---|---|---|---|---|
-| vis de cadre TH M10 x 100 | 80.0 | 10 | 10.0 | 6.0 |
-| vis de traverse H M10 x 80 | 52.0 | 10 | 18.0 | - |
+| vis de cadre TH M10 x 100 | 80.0 | 10 | 10.0 | - |
+| vis de traverse H M10 x 100 | 52.0 | 10 | 38.0 | - |
 | vis de chape H M10 x 200 | 173.5 | 16.8 | 9.7 | 5.5 |
 
 Ecrous de cadre et de traverse : ISO 7042 classe 8, autofreine tout metal. Pas d'ecrou a bague polyamide

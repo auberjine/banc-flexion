@@ -49,25 +49,21 @@ def visserie():
     v1, v2, v9 = p.boulonnerie()
     n_chape = len(p.TROU_SUPPORT)
     n_cadre = P.n_entretoises() - n_chape
-    tole_max_v2 = ((p.TRAVERSE_TIRANT_L - 2.0 * p.RONDELLE_M10_E
-                    - p.ECROU_FREIN_H - p.FILET_DEPASSE_MIN) / p.TRAVERSE_N)
     return [
-        ("V1", "Vis TH M10 x %g ISO 4014 8.8 zinguee + ecrou %s + 2 rondelles ISO 7089 M10"
+        ("V1", "Vis TH M10 x %g ISO 4017 8.8 zinguee (filetage total) + ecrou %s + 2 rondelles ISO 7089 M10"
          % (p.ENTR_VIS_L, p.ECROU_FREIN_REF), n_cadre,
-         "entretoises de cadre : %s. Serrage %s : l ecrou tombe"
-         " sur le filet avec %s de marge, la vis en depasse de %s ; %g N.m. Pas d ecrou a bague"
+         "entretoises de cadre : %s. Serrage %s, filetage total : la vis depasse de l ecrou"
+         " de %s ; %g N.m. Pas d ecrou a bague"
          " polyamide (ISO 7040, DIN 985) : elle ne freine plus a 150 C. Acier, pas inox : meme"
          " dilatation que les flancs, la precharge tient a chaud"
-         % (spec.entretoises_de_cadre(), fr(v1["serrage"]), fr(v1["marge_filet"]),
-            fr(v1["depassement"]), spec.COUPLE_M10)),
-        ("V2", "Vis H M10 x %g ISO 4017 8.8 zinguee (filetage total) + ecrou %s + 2 rondelles"
-         " ISO 7089 M10" % (p.TRAVERSE_TIRANT_L, p.ECROU_FREIN_REF), p.TRAVERSE_TIRANT_N,
+         % (spec.entretoises_de_cadre(), fr(v1["serrage"]), fr(v1["depassement"]),
+            spec.COUPLE_M10)),
+        ("V2", "Vis TH M10 x %g ISO 4017 8.8 zinguee (filetage total) + ecrou %s + 2 rondelles"
+         " ISO 7089 M10 : MEME ARTICLE QUE V1" % (p.TRAVERSE_TIRANT_L, p.ECROU_FREIN_REF), p.TRAVERSE_TIRANT_N,
          "paquet de plaques de traverse, a y = +/- %s : les deux vis tiennent les plaques alignees"
          " pour dresser le chant en paquet ; elles ne reprennent aucune charge. Serrage %s, la vis"
-         " depasse de l ecrou de %s ; %g N.m. Tole mesuree au dela de %s : prendre des M10 x %g"
-         " (verifie() le signale)"
-         % (fr(p.TRAVERSE_TIRANT_Y), fr(v2["serrage"]), fr(v2["depassement"]), spec.COUPLE_M10,
-            fr(tole_max_v2, 2), p.TRAVERSE_TIRANT_L + 10)),
+         " depasse de l ecrou de %s, entre les flancs ; %g N.m"
+         % (fr(p.TRAVERSE_TIRANT_Y), fr(v2["serrage"]), fr(v2["depassement"]), spec.COUPLE_M10)),
         ("V3", "Vis H M%g x %g ISO 4017 8.8 zinguee + rondelle ISO 7089 M%g + ecrou ISO 7042 M%g"
          " classe 8 tout metal" % (p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L, p.POUSSOIR_VIS_D,
                                    p.POUSSOIR_VIS_D), 2,
