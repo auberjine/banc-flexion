@@ -35,7 +35,7 @@ sur la poutrelle et partent avec elle : il en faut un jeu par eprouvette.
 |---|---|
 | Schema | 3 points, portee 750 mm |
 | Charge de dimensionnement du cadre | 12 kN |
-| Commande | coin d'acier C45 a 12 deg garni de deux plaques de bronze usinees, tige filetee M16 pas 2.0 normale aux flancs |
+| Commande | coin d'acier C45 a 12 deg garni de deux plaques de bronze usinees, vis H M16 pas 2.0 filetee jusqu a la tete, normale aux flancs |
 | Pile de rondelles | 12 x EN 16983 A50 (ex-DIN 2093) en 51CrV4 (1.8159) (50 x 25.4 x 3.0), montees tete-beche |
 | Hauteur libre de la pile | 51.6 mm |
 | Effort de la pile a plat | 18.5 kN |
@@ -43,7 +43,7 @@ sur la poutrelle et partent avec elle : il en faut un jeu par eprouvette.
 | Ecrasement a 12 kN | 9.65 mm (raideur secante 1243 N/mm) |
 | Butee de course en bas de lumiere | 11.8 mm, plafonne l'effort a 14.4 kN |
 | Rattrapage d'empilement | 2.4 mm de course en reserve au dela des 12 kN (2 exiges) ; cales de 1 et 2 mm, D50 / D26, entre poussoir et pile |
-| Precharge de collage, 0,5 kN | 0.36 mm de pile, 1.68 mm de coin, 0.84 tour de tige apres le contact |
+| Precharge de collage, 0,5 kN | 0.36 mm de pile, 1.68 mm de coin, 0.84 tour de vis apres le contact |
 
 La loi des rondelles Belleville n'est pas lineaire. Graduation gravee :
 
@@ -214,7 +214,7 @@ qui travaille en traction.
 | Alignement du poussoir | les 3 plateaux sont visses en bloc ; le bloc n'est pas localise sur le patin : c'est le tourillon, colle dans le coulisseau, qui le centre (jeu 0.4 dans l'alesage 25.4 des plateaux), et le patin de charge est colle centre au trace |
 | Patin de charge, encombrement | 58 x 100 x 10 sans trou : sa longueur selon x laisse passer les tetes des vis du poussoir ; 2.07 MPa sur le beton a 12 kN |
 | Tourillon | C45+C, rond etire 25 h9 x 79.5 non repris, COLLE au fond du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; dans le poussoir : 7.9 au repos, 4.9 avec les cales, 4.3 de garde au dessus du patin a la butee |
-| Tige filetee | immobile axialement dans la chape, le coin est son ecrou |
+| Vis de commande | vis H M16 x 160 ISO 4017 8.8 zinguee, filetee jusqu a la tete, immobile axialement dans la chape, le coin est son ecrou |
 | Butee de course | bas de la lumiere, interdit l'aplatissement de la pile |
 
 ## 7 bis. Commande par coin
@@ -257,12 +257,12 @@ il serait REVERSIBLE, et il doublerait le pas de charge a 1099 N par tour.
 A pas egal, le profil trapezoidal ne gagne rien non plus : sa hauteur de
 recouvrement vaut 0,5 P contre 0,541 P pour le metrique, soit MOINS de
 flanc portant. Les flancs travaillent a 9.2 MPa, engagement plafonne a
-1,5 d, pour 12 admis sur un taraudage C45 et une tige 8.8 en manoeuvre lente.
+1,5 d, pour 12 admis sur un taraudage C45 et une vis 8.8 en manoeuvre lente.
 
 Le filet est TARAUDE DIRECTEMENT DANS L'ACIER du coin. Une bague-ecrou en
 bronze a ete dessinee puis abandonnee : a la vitesse de manoeuvre d'un
 banc a la main, ce n'est pas la vitesse qui use un filet, et le couple
-tige 8.8 sur C45 brut tient sans probleme monte a la pate cuivre. La tige
+vis 8.8 sur C45 brut tient sans probleme monte a la pate cuivre. La vis
 est la plus dure : c'est le taraudage du coin qui s'use, et il se refait.
 Il ne court que sur 80 mm et non sur toute la longueur du coin ; au dela
 le percage est repris a 18, si bien que le taraud debouche dans un trou
@@ -286,7 +286,7 @@ avec le coin, et c'est deux fois le meme rebord a usiner. Ce que cela
 coute : la plaquette basse traverse la fente du flanc avec le coin, qui
 s'approfondit donc de 5.1 mm.
 
-Aucune vis : le coin ne fait que 40 de large et le percage de la tige en
+Aucune vis : le coin ne fait que 40 de large et le percage de la vis en
 prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un
 ligament d'epaisseur. Chaque plaquette est prise entre DEUX REBORDS usines
 dans la masse, 5.25 (dessus) et 5.41 (dessous) x 3, qui encaissent les 1.44 kN
@@ -314,8 +314,8 @@ l'acier sur acier qu'on ferait glisser. Il en coute de la portee : la
 plaquette haute porte sur 52.8 mm au lieu de 60, la basse sur 50.6 au
 lieu de 58, soit 7.6 et 6.2 MPa.
 
-Le filet reste engage sur 24.5 mm coin recule, soit 1.5 d, ce qui est
-tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la tige et le
+Le filet reste engage sur 25.0 mm coin recule, soit 1.6 d, ce qui est
+tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la vis et le
 taraudage fait que les derniers filets ne prennent plus rien.
 
 Le coin traverse les deux flancs par une fente de 44 x 69, entre les
@@ -327,21 +327,21 @@ La suppression de la vis verticale a ramene la hauteur du cadre de 480 a
 logent les pieds en V et les crochets. Elle a aussi permis de descendre le
 noeud : la profondeur du treillis passe de 139,5 a 148.4 mm.
 
-### Sens de montage du coin, et arret axial de la tige
+### Sens de montage du coin, et arret axial de la vis
 
 Le bout EPAIS du coin est du cote OPPOSE a la chape : le coin avance donc
 VERS elle en chargeant. C'est ce sens, et lui seul, qui rend l'arret axial
-de la tige possible. L'equilibre du coin le montre : la composante selon y
+de la vis possible. L'equilibre du coin le montre : la composante selon y
 de la reaction du coulisseau, plus les deux frottements, valent 5.5 kN, et
-la tige doit les fournir. La face inclinee repousse le coin vers son bout
-EPAIS : le filet tire donc la tige vers l'INTERIEUR du cadre, et sa tete
+la vis doit les fournir. La face inclinee repousse le coin vers son bout
+EPAIS : le filet tire donc la vis vers l'INTERIEUR du cadre, et sa tete
 vient appuyer sur la FACE EXTERIEURE des platines, a travers la butee a
 aiguilles. Cote interieur, deux rondelles trempees et deux ecrous minces ne
 reprennent que l'effort de desserrage : 329 N a un frottement de 0.12, quand
 le coin est autobloquant ; en dessous de 0.106 la charge le chasse d'elle-meme
 et ils ne voient rien.
 
-Monte a l'envers, le coin s'eloignerait de la chape en chargeant : la tige
+Monte a l'envers, le coin s'eloignerait de la chape en chargeant : la vis
 serait tiree hors de son alesage et ne pousserait rien. Il faudrait alors
 loger la butee a aiguilles entre les platines et le bout du coin, ou elle
 ne tient pas. Le controle des cotes refuse ce sens.
@@ -357,10 +357,10 @@ resultante decalee de 14.5 mm, donc basculement de la tete sur la pile.
 Le prix a payer est que le bout mince atteint y 85.5 en fin de course, ce
 qui fixe la position de la chape de butee.
 
-## 7 ter. Butee axiale de la tige
+## 7 ter. Butee axiale de la vis
 
-Le coin avance VERS la butee en chargeant et tire la tige vers l'interieur
-du cadre ; la tete de la tige pousse donc la butee, et les platines, contre
+Le coin avance VERS la butee en chargeant et tire la vis vers l'interieur
+du cadre ; la tete de la vis pousse donc la butee, et les platines, contre
 le flanc : platines en flexion, entretoises en compression, aucune piece de
 la butee ne travaille en traction. Il n'y a aucune raison d'usiner une chape
 dans la masse. Deux platines de la MEME tole que les flancs, portees par deux
@@ -379,9 +379,9 @@ precharge et les 329 N de desserrage.
 | Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 302.7, tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H contre-bloques cote platines |
 | Serrage sous tete | 173.5 mm, filet a partir de 168 : ecrou sur le filet avec 5.5 de marge, 9.7 de depassement |
 | Serrage | 25 N.m, aucun taraudage : les vis traversent les deux flancs |
-| Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la tige |
+| Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la vis |
 | Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, 18 mm, desserrage seulement |
-| Bout de tige | y 155, soit 99 mm de degagement pour la douille, cadre decentre au pire dans l'etuve de 528.4 (109 centre) |
+| Tete de la vis | dessus a y 140, soit 115 mm de degagement pour la douille, cadre decentre au pire dans l'etuve de 528.4 (125 centre) |
 | Manoeuvre | douille de 24 et cliquet SEULEMENT : les bouts des vis de chape (y 160) depassent la tete de manoeuvre dans son plan, une cle plate bute dessus |
 
 Tout sort du debit deja commande : les platines nichent dans la tole de 8
@@ -441,7 +441,7 @@ Masses du modele 3D (out/masses.json, construit le 07/10/2026).
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
 | Plaque de frottement, dessus | 1 | 0.17 kg | 0.17 kg |
 | Plaque de frottement, dessous | 1 | 0.17 kg | 0.17 kg |
-| Tige filetee de commande M16 | 1 | 0.41 kg | 0.41 kg |
+| Vis de commande H M16 x 160 | 1 | 0.35 kg | 0.35 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
 | Patin d'appui rainure | 4 | 0.13 kg | 0.52 kg |
@@ -461,7 +461,7 @@ Masses du modele 3D (out/masses.json, construit le 07/10/2026).
   une rampe de 1 degre par minute creee deja 5 MPa d'ecart entre coeur et peau
 - palier de stabilisation d'au moins 2 heures avant toute lecture
 - acier nu ou phosphate, pas de zingue au dela de 200 degres C
-- pate graphite ou cuivre sur le filetage de la tige, pate graphite haute temperature sur les faces
+- pate graphite ou cuivre sur le filetage de la vis, pate graphite haute temperature sur les faces
   de glissement des plaques de bronze, a refaire a chaque demontage du coin
 - relaxation des rondelles de quelques pour cent au dela de 100 degres C :
   reprendre la charge a chaque palier

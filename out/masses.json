@@ -92,13 +92,13 @@
   },
   {
    "nom": "vis",
-   "designation": "Tige filetee de commande M16",
+   "designation": "Vis de commande H M16 x 160",
    "qte": 1,
-   "volume_cm3": 51.78,
-   "masse_kg": 0.407,
-   "masse_totale_kg": 0.407,
+   "volume_cm3": 44.96,
+   "masse_kg": 0.353,
+   "masse_totale_kg": 0.353,
    "matiere": "8.8",
-   "brut": "tige filetee M16 classe 8.8, coupee a 185"
+   "brut": "vis H M16 x 160 ISO 4017 8.8 zinguee, filetee jusqu a la tete"
   },
   {
    "nom": "support",
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.66,
- "cadre_kg": 34.44,
+ "total_kg": 56.6,
+ "cadre_kg": 34.39,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "07/10/2026",
- "empreinte": "f6aa70493021550a"
+ "empreinte": "98ba9afb77e2e941"
 }

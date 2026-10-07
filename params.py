@@ -107,7 +107,7 @@ ENTRETOISE_DE = 20.0
 ENTRETOISE_DI = 16.0
 ENTRETOISE_RE = 235.0     # Re retenu pour le tube : celui du E235 normalise, sans compter le gain de l etat +C
 ENTRETOISE_RE_CHAUD = 190.0   # a 150 C, meme abattement que le S235
-# Serrage des vis M10 8.8 du cadre (V1) et de la chape (V9), et precharge
+# Serrage des vis M10 8.8 du cadre (V1) et de la chape (V8), et precharge
 # F = C / (K d) avec K = 0,2 (acier zingue, sec).
 COUPLE_M10 = 25.0
 K_COUPLE = 0.2
@@ -508,14 +508,21 @@ PLAQ_BAS_Y0 = PLAQ_BAS_S0 * _C          # portee sur le coulisseau, face du BAS
 PLAQ_BAS_Y1 = PLAQ_BAS_S1 * _C
 COULISSEAU_H = COULISSEAU_E + (POUSSOIR_B / 2.0) * COIN_TAN  # le plan incline prend toute la section
 
-VIS_D = 16.0              # tige filetee M16
+# VIS DE COMMANDE (07/10/2026) : vis H M16 ISO 4017 FILETEE JUSQU A LA TETE, et
+# non plus une tige filetee coupee dont la tete etait faite de deux ecrous
+# bloques (H + HM, 22,8 de haut). La tete forgee ne peut pas se debloquer en
+# manoeuvrant dans le sens du desserrage, et elle ne fait que 10 de haut : la
+# douille gagne d autant devant elle. Longueur du commerce (VIS_L, sous tete) ;
+# c est le BOUT de la vis qui s en deduit, la tete etant posee sur la butee.
+VIS_D = 16.0              # vis M16
 VIS_PAS = 2.0
 VIS_D2 = 14.7             # diametre sur flancs du filet
 VIS_FLANC = 30.0          # demi angle de flanc : 30 metrique ISO, 15 trapezoidal
 VIS_H1 = 0.541266 * VIS_PAS   # hauteur de recouvrement des flancs
-VIS_L = 185.0
-VIS_TETE_D = 24.0         # un ecrou H et un ecrou HM bloques font la tete
-VIS_TETE_H = 22.8         # ecrou H ISO 4032 M16 (14,8) + ecrou HM ISO 4035 M16 (8)
+VIS_L = 160.0             # longueur sous tete, ISO 4017 M16 x 160
+VIS_TETE_D = 24.0         # surplats de tete H M16 (s), douille de 24
+VIS_TETE_H = 10.0         # hauteur de tete H M16 (k)
+VIS_REF = "vis H M16 x %g ISO 4017 8.8 zinguee, filetee jusqu a la tete" % VIS_L
 VIS_PASSAGE_D = 18.0
 # Frottement du FILET de commande : tige 8.8 dans le taraudage du coin en C45,
 # acier sur acier, monte a la pate cuivre. Pour l'irreversibilite, le cas
@@ -652,12 +659,15 @@ SUPPORT_ECROU_M10_H = 8.4         # ecrou H ISO 4032 M10
 SUPPORT_ECROUS_M10_N = 2
 SUPPORT_EMPILEMENT = (2 * EP_TOLE_REELLE_42 + ECART_FLANCS + SUPPORT_TUBE_L + SUPPORT_N * EP_TOLE_REELLE_42
                       + SUPPORT_RONDELLE_E * (1 + SUPPORT_RONDELLES_ECROU))   # sous tete, ecrou exclu
-VIS_Y0 = COIN_Y0 + COIN_COURSE - 1.0                # bout de la tige filetee :
-# il s'arrete a 1 mm du bout epais du coin quand celui-ci est en fin de course.
-# Plus loin serait inutile, le filetage n'est jamais engage au dela.
-# Ce qui depasse du cote de la chape, et ce qu il reste devant pour la douille
-# de manoeuvre (cadre decentre au pire dans l etuve, voir Y_ETUVE_LIBRE).
-Y_BOUT_VIS = VIS_Y0 + VIS_L
+# Bout de la vis : la tete porte sur la butee a aiguilles, contre la face
+# exterieure des platines ; le bout s en deduit par la longueur sous tete. Il
+# doit rester dans le coin au repos (verifie) et assez loin pour la prise du
+# filet, coin recule.
+VIS_Y0 = SUPPORT_Y1 + SUPPORT_BUTEE_H - VIS_L
+# Ce qui depasse du cote de la chape : le DESSUS DE LA TETE, et ce qu il reste
+# devant pour la douille de manoeuvre (cadre decentre au pire dans l etuve,
+# voir Y_ETUVE_LIBRE).
+Y_BOUT_VIS = SUPPORT_Y1 + SUPPORT_BUTEE_H + VIS_TETE_H
 Y_BOUT_TIRANT = -Y_FLANC_EXT - SUPPORT_RONDELLE_E + SUPPORT_TIRANT_L
 DEGAGEMENT_DOUILLE = None   # calcule apres ETUVE_Y (voir plus bas)
 
@@ -1423,7 +1433,7 @@ def verifie():
         pb.append("le cadre debout (%.0f avec ses pieds) ne tient pas dans les %.0f de l etuve"
                   % (L_FLANC + pied_debout_encombrement()[1], ETUVE_HAUTEUR))
     if DEGAGEMENT_DOUILLE < 90.0:
-        pb.append("moins de 90 mm pour la douille : bout de tige a y %.0f, paroi libre a %.0f"
+        pb.append("moins de 90 mm pour la douille : tete de vis a y %.0f, paroi libre a %.0f"
                   % (Y_BOUT_VIS, Y_ETUVE_LIBRE))
     if Y_BOUT_TIRANT > Y_ETUVE_LIBRE:
         pb.append("les vis de chape sortent de l etuve (y %.0f)" % Y_BOUT_TIRANT)
@@ -1852,10 +1862,11 @@ def verifie():
     if SUPPORT_B_BOUT / 2.0 < D_VIS / 2.0 + 8.0:
         pb.append("pas assez de matiere autour des trous de vis de la platine")
 
-    # tige filetee : longueur, prise dans le coin, degagement de la douille
-    besoin = (SUPPORT_Y1 + SUPPORT_BUTEE_H + VIS_TETE_H) - VIS_Y0
-    if VIS_L < besoin:
-        pb.append("tige filetee trop courte : %.0f mm pour %.0f" % (VIS_L, besoin))
+    # vis de commande : son bout reste dans le coin au repos (il n en sort ni
+    # vers la paroi d etuve, ni hors de l enveloppe balayee par le coin)
+    if VIS_Y0 < COIN_Y0 + 1.0:
+        pb.append("vis de commande trop longue : son bout sort du coin au repos (y %.1f, coin a %.1f)"
+                  % (VIS_Y0, COIN_Y0))
     # prise du filetage : la plus faible des deux positions extremes
     prise = min(min(VIS_Y0 + VIS_L, COIN_Y1) - max(VIS_Y0, COIN_Y0),
                 min(VIS_Y0 + VIS_L, COIN_Y_MAX) - max(VIS_Y0, COIN_Y0 + COIN_COURSE))
@@ -1954,7 +1965,7 @@ if __name__ == "__main__":
 
     print("\nEtuve %g x %g x %g%s :" % (ETUVE_INTERIEUR, ETUVE_Y, ETUVE_HAUTEUR,
                                           "" if ETUVE_CONFIRMEE else " (A CONFIRMER)"))
-    print("   degagement de la douille  %.0f mm devant le bout de tige (y %.0f)"
+    print("   degagement de la douille  %.0f mm devant la tete de vis (y %.0f)"
           % (DEGAGEMENT_DOUILLE, Y_BOUT_VIS))
     print("   dent du crochet           a %.1f de la paroi" % CROCHET_DENT_Y)
 

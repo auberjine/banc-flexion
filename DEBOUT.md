@@ -102,17 +102,19 @@ porte sur 51,8 mm au lieu de 60, la basse sur 48,6 au lieu de 58.
 
 Le coin n'est autobloquant que si le frottement de ses deux faces depasse
 0,106 (tan 12 / 2) : avec le bronze graphite on y est a peine, on ne compte
-donc pas dessus. C'est la tige M16 qui tient la charge, son angle d'helice
+donc pas dessus. C'est la vis M16 qui tient la charge, son angle d'helice
 (2,5 degres) etant tres inferieur a l'angle de frottement, meme au frottement
 bas d'un filet acier sur acier monte a la pate cuivre (0,08 : 5,3 degres,
 marge x2,1).
 
-Le bout de la tige sort a y 155. En profondeur la chambre fait 528,4 : cadre centre, il reste
-109 mm jusqu'a la paroi ; 99 en comptant 10 de garde (5 de jeu des pieds
-de 518,4, plus 5 de marge). Une douille de 24 et un
-cliquet y passent. Une douille SEULEMENT : les vis de chape depassent de leur
-ecrou jusqu'a y 160, a 52 mm de l'axe de la tige et dans son plan ; une cle
-plate posee sur la tete de manoeuvre bute dessus deux fois par tour.
+La commande est une vis H M16 x 160 ISO 4017 filetee jusqu'a la tete (07/10/2026,
+a la place d'une tige filetee coiffee de deux ecrous bloques) : la tete forgee
+ne se debloque pas et ne fait que 10 de haut. Son dessus est a y 139,5. En
+profondeur la chambre fait 528,4 : cadre centre, il reste 125 mm jusqu'a la
+paroi ; 115 en comptant 10 de garde (5 de jeu des pieds de 518,4, plus 5 de
+marge). Une douille de 24 et un cliquet y passent. Une douille SEULEMENT : les
+vis de chape depassent de leur ecrou jusqu'a y 160, a 52 mm de l'axe de la vis
+et dans son plan ; une cle plate posee sur la tete bute dessus a chaque tour.
 
 ## 3. Sens de montage du coin, et arret axial de la tige
 

@@ -142,11 +142,11 @@ crochets). `python params.py` l'execute et affiche le bilan.
   face superieure seulement : la rainure reste seche sur le bossage, qui doit
   basculer. Patins, plats et patin de charge partent avec la poutrelle : un jeu
   par eprouvette.
-- **La tige de commande ne bouge pas.** Elle tourne en place, retenue
-  axialement dans la chape, et c'est le coin qui porte le taraudage et avance.
-  Son bout de manoeuvre reste donc toujours a y 155, ou une douille l'atteint.
-  Une douille seulement : les bouts des vis de chape, a y 160, arretent une cle
-  plate.
+- **La vis de commande ne bouge pas.** Vis H M16 x 160 ISO 4017 filetee
+  jusqu'a la tete : elle tourne en place, retenue axialement dans la chape, et
+  c'est le coin qui porte le taraudage et avance. Sa tete reste donc toujours a
+  y 139,5, ou une douille l'atteint. Une douille seulement : les bouts des vis
+  de chape, a y 160, arretent une cle plate.
 - **La commande est normale aux flancs.** Un coin d'acier C45 a 12 degres,
   garni de deux plaques de bronze usinees, coulisse entre le dessous PLAT de
   la traverse et le dessus incline du coulisseau. Le sens des faces est

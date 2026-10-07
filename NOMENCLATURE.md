@@ -40,7 +40,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | rep | designation | qte | reference | matiere | masse u. | remarque |
 |---|---|---|---|---|---|---|
 | 02f | Vis de guidage CHC M8 x 12 | 4 | CHC M8 x 12 ISO 4762 8.8, tete lisse (non moletee) | 8.8 | 0.01 kg | piece du commerce ; 12 sous tete, toute la tige dans le taraudage de 16 ; c est la TETE (13 x 8) qui guide : cylindre sur plan, contact lineique |
-| 02d | Tige filetee de commande M16 | 1 | tige filetee M16 classe 8.8, coupee a 185 | 8.8 | 0.41 kg | piece du commerce, coupee a longueur, montee a la pate cuivre ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
+| 02d | Vis de commande H M16 x 160 | 1 | vis H M16 x 160 ISO 4017 8.8 zinguee, filetee jusqu a la tete | 8.8 | 0.35 kg | piece du commerce, filetee jusqu a la tete, montee a la pate cuivre ; tete de 10 (douille de 24) sur la butee ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
 | 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles EN 16983 A50 | 51CrV4 (1.8159) | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 (ex-DIN 2093, PAS en C60S) montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 
@@ -54,11 +54,10 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | V2 | Tige filetee M10 x 90 classe 8.8 + 2 rondelles ISO 7089 M10 + 2 ecrous ISO 7042 classe 8, autofreine tout metal | 1 | tirant du paquet de plaques de traverse, ne reprend aucune charge. Serrage 52, depasse de 9 a chaque bout. Tole mesuree au dela de 10 : prendre une M10 x 100 (verifie() le signale) |
 | V3 | Vis H M6 x 35 ISO 4017 8.8 zinguee + rondelle ISO 7089 M6 + ecrou ISO 7042 M6 classe 8 tout metal | 2 | serrent les 3 plateaux du poussoir en un bloc, dans les trous de 6,6 a +/- 38 : TETE EN DESSOUS, rondelle et ecrou au dessus, a cote de la pile. Sous le plateau bas il n y a que les 10 du patin de charge jusqu a la poutrelle : une tete de 4 y tient (6 de garde), un ecrou non. Serrage modere, 8 N.m ; la vis depasse de l ecrou de 3,4 ; restent sur le poussoir |
 | V4 | Cale de rattrapage D50 / D26, feuillard acier, ep. 1 et 2 mm | 2 | une de chaque, entre le poussoir et la pile, si l empilement mesure au montage est court : le coin doit toucher a moins de 5 mm de son repos |
-| V5 | Rondelle trempee AS 1730 (17 x 30 x 1) | 2 | cote interieur des platines, sous les ecrous V8 : deux empilees font les 2 mm de rondelle trempee (une rondelle trempee 30 x 2 n existe pas en M16) |
+| V5 | Rondelle trempee AS 1730 (17 x 30 x 1) | 2 | cote interieur des platines, sous les ecrous V7 : deux empilees font les 2 mm de rondelle trempee (une rondelle trempee 30 x 2 n existe pas en M16) |
 | V6 | Butee a aiguilles AXK 1730 + 2 rondelles AS 1730 | 1 | face EXTERIEURE des platines : c est elle qui encaisse les 5.5 kN de commande |
-| V7 | Ecrou M16 H ISO 4032 classe 8 + ecrou M16 HM ISO 4035, bloques | 1 | tete de manoeuvre, 22,8 de haut, en appui sur la butee a aiguilles. Douille de 24 et cliquet : une cle plate bute sur les bouts des vis V9 |
-| V8 | Ecrou M16 HM ISO 4035 | 2 | bloques l un sur l autre cote interieur des platines, sur les rondelles V5, avec 0,1 a 0,3 de jeu axial : ils ne retiennent la tige qu au desserrage, 329 N |
-| V9 | Vis H M10 x 200 ISO 4014 8.8 zinguee (filetee sur 32) + 2 ecrous H M10 ISO 4032 classe 8 + 5 rondelles ISO 7089 M10 | 2 | vis de chape : tete et 1 rondelle derriere le flanc oppose, flanc, entretoise de cadre, flanc, entretoise de butee, platines, 4 rondelles, ecrou serre puis contre-ecrou bloque contre lui. Serrage 173,5, filet a partir de 168 : le premier ecrou y tombe avec 5,5 de marge, la vis depasse du contre-ecrou de 9,7 ; 25 N.m sur le premier |
+| V7 | Ecrou M16 HM ISO 4035 | 2 | bloques l un sur l autre cote interieur des platines, sur les rondelles V5, avec 0,1 a 0,3 de jeu axial : ils ne retiennent la vis qu au desserrage, 329 N |
+| V8 | Vis H M10 x 200 ISO 4014 8.8 zinguee (filetee sur 32) + 2 ecrous H M10 ISO 4032 classe 8 + 5 rondelles ISO 7089 M10 | 2 | vis de chape : tete et 1 rondelle derriere le flanc oppose, flanc, entretoise de cadre, flanc, entretoise de butee, platines, 4 rondelles, ecrou serre puis contre-ecrou bloque contre lui. Serrage 173,5, filet a partir de 168 : le premier ecrou y tombe avec 5,5 de marge, la vis depasse du contre-ecrou de 9,7 ; 25 N.m sur le premier |
 
 ## Pieces planes a decouper
 
@@ -99,9 +98,9 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | Rattrapage d empilement | 2.4 mm en reserve au dela des 12 kN ; cales V4 de 1 et 2 mm |
 | Commande | coin acier a 12 degres, vis M16 normale aux flancs |
 | Course par tour | 0.425 mm de coulisseau, environ 549 N |
-| Precharge de collage, 0,5 kN | 0.84 tour de tige apres le contact (0.36 mm de pile, 1.7 mm de coin) |
+| Precharge de collage, 0,5 kN | 0.84 tour de vis apres le contact (0.36 mm de pile, 1.7 mm de coin) |
 | Couple sur la vis a 12 kN | 9.4 N.m |
-| Couple de serrage des vis M10 (V1, V9) | 25 N.m |
+| Couple de serrage des vis M10 (V1, V8) | 25 N.m |
 | Irreversibilite du filet | helice 2.48 deg / frottement 5.28 deg a mu 0.08 (acier sur acier, pate cuivre), marge x2.13 |
 | Coin | autobloquant seulement si mu > 0.106 ; desserrage 329 N a mu 0.12 |
 | Flancs du filet, taraude dans l acier | 9.2 MPa pour 12 admis, 80 mm filetes, engagement utile 24 mm |
@@ -136,19 +135,19 @@ Le cadre se monte A PLAT : les entretoises, la traverse et la tete de charge doi
 1. **Eprouvette, a l avance.** Coller les deux plats 20 x 2 sous la poutrelle, a y = +/- 34 (axe des flancs), sur toute la longueur ; poncer P80 et degraisser les deux faces ; polymeriser.
 2. **Coin, a l avance.** Degraisser les deux sieges ; poser chaque plaque de frottement ENTRE SES DEUX REBORDS (la plus longue, 104, dessous), quelques points de silicone haute temperature sur le siege degraisse -- PAS d epoxy, bronze et acier ne se dilatent pas pareil ; laisser prendre. PUIS seulement, pate graphite haute temperature sur les faces de glissement, rien sur les sieges : le silicone ne prend pas sur une pate.
 3. **Poussoir, a l avance.** Empiler les 3 plateaux, alesages alignes sur un rond de 25 ; passer les deux vis V3 PAR DESSOUS (tete sous le plateau bas), rondelle et ecrou au dessus, serrer a 8 N.m. Le poussoir est desormais un bloc ; il sert a toutes les eprouvettes.
-4. **Sous-ensemble de chape, sur l etabli.** Sur la tige M16, visser par son bout exterieur l ecrou H et l ecrou HM de manoeuvre (V7), bloques a 2,7 du bout ; enfiler par l autre bout une rondelle AS, la butee AXK 1730 et la seconde AS (V6), les deux platines, les deux rondelles trempees (V5), puis visser les deux ecrous HM (V8) : 0,1 a 0,3 mm de jeu axial, contre-bloquer. Pate cuivre sur le filet de la tige.
+4. **Sous-ensemble de chape, sur l etabli.** Sur la vis H M16 x 160 (02d), enfiler sous la tete une rondelle AS, la butee AXK 1730 et la seconde AS (V6), les deux platines, les deux rondelles trempees (V5), puis visser les deux ecrous HM (V7) : 0,1 a 0,3 mm de jeu axial, contre-bloquer. Pate cuivre sur le filet de la vis.
 5. **Empilement.** Mesurer la poutrelle avec ses plats, les patins d appui sous la rainure, le patin de charge, le poussoir et la pile libre. Du sommet des bossages au dessous du coulisseau, le nominal fait 203,1 (8,5 + 2 + 107 + 10 + 24 + 51,6). S il manque plus de 1 mm, prevoir entre poussoir et pile la cale de 1, de 2 ou les deux (V4) : au dela des 12 kN le coin ne garde que 2,4 mm de reserve en hauteur.
-6. **Premier flanc.** Poser a plat, sur cales de 20, le flanc OPPOSE a la chape, face gravee DESSOUS : la graduation doit finir a l exterieur. Passer par dessous, rondelle sous tete, les 7 vis V1 (4 de coin, 2 de bielle, 1 de sommet) et les 2 vis V9 (chape, x = +/- 52). Enfiler une entretoise de 60 sur chacune des 9 vis.
+6. **Premier flanc.** Poser a plat, sur cales de 20, le flanc OPPOSE a la chape, face gravee DESSOUS : la graduation doit finir a l exterieur. Passer par dessous, rondelle sous tete, les 7 vis V1 (4 de coin, 2 de bielle, 1 de sommet) et les 2 vis V8 (chape, x = +/- 52). Enfiler une entretoise de 60 sur chacune des 9 vis.
 7. **Traverse.** Engager dans la mortaise le paquet des 6 plaques, serre par la tige V2 (rondelles et ecrous ISO 7042) ; chants fraises du cote du coin.
 8. **Poutrelle.** La coucher dans la fenetre du flanc, plats vers les bossages, SANS ses patins d appui, sur cales de 6,5 sous sa face laterale (elle descend de 13,5 sous le flanc).
 9. **Tete de charge.** Encoller le patin de charge sur sa face inferieure et le poser au milieu de la poutrelle, centre au trace, bombe vers la tete ; poser dessus le poussoir visse (3 plateaux), tetes de vis en bas de part et d autre du patin ; poser la cale eventuelle (V4), la pile TETE-BECHE (grand diametre aux deux bouts) puis le coulisseau, tourillon colle dessous a l avance (Loctite 648 dans l alesage degraisse, polymeriser avant montage), cote epais de sa pente vers la chape. De cet encollage a la precharge, tout doit tenir dans la vie en pot de la colle : faire d abord les etapes 2 a 5 et preparer la visserie. Si elle est trop courte, coller le patin de charge la veille sur la poutrelle, centre au trace, sous une masse.
 10. **Second flanc.** Le presenter face gravee DESSUS : il enfile les 9 vis, les tenons de la traverse et la poutrelle dans sa fenetre. Poser les 7 ecrous V1 sur rondelle, serres sans bloquer.
-11. **Chape.** Enfiler sur les deux vis V9 les entretoises de butee de 71,5, puis le sous-ensemble de chape, la tige passant par la fente du coin ; 4 rondelles et un ecrou H par vis, 25 N.m, puis le contre-ecrou H bloque contre lui en tenant le premier.
+11. **Chape.** Enfiler sur les deux vis V8 les entretoises de butee de 71,5, puis le sous-ensemble de chape, la vis passant par la fente du coin ; 4 rondelles et un ecrou H par vis, 25 N.m, puis le contre-ecrou H bloque contre lui en tenant le premier.
 12. **Pieds.** Dresser le cadre et le poser dans ses deux pieds couches, encoche dans encoche : les nodes serrent de 0,1 par cote, chasser au maillet. Bloquer les V1 a 25 N.m. La poutrelle, sans patins, repose sur les bossages.
 13. **Patins d appui, coin non engage.** Soulever la poutrelle d environ 9,5 mm, glisser les 4 patins par la fenetre, rainure SECHE sur le bossage (c est un balancier, il doit basculer) et colle sur la face superieure seulement, contre le plat ; reposer.
 14. **Guides.** Visser les 4 CHC M8 x 12 au travers des lumieres dans les taraudages du coulisseau. C est la TETE qui guide : jamais de vis a tete fraisee.
-15. **Coin.** Pate cuivre dans son taraudage ; l engager du cote des tetes de V9, bout MINCE en premier, par la fente du flanc, entre la traverse et le coulisseau ; visser la tige jusqu au contact. Le bout epais doit alors etre a moins de 5 mm de sa position de repos, 47,5 mm hors de la face exterieure du flanc ; sinon revoir les cales (etape 5).
-16. **Precharge.** 0,84 tour de tige au dela du contact (0,36 mm de pile, 1,7 mm de coin) donne 0,5 kN. Laisser polymeriser sous cette precharge : l epoxy rattrape l hyperstaticite des quatre appuis. Post-cuire selon la notice Duralco avant toute mise en charge.
+15. **Coin.** Pate cuivre dans son taraudage ; l engager du cote des tetes de V8, bout MINCE en premier, par la fente du flanc, entre la traverse et le coulisseau ; visser la vis jusqu au contact. Le bout epais doit alors etre a moins de 5 mm de sa position de repos, 47,5 mm hors de la face exterieure du flanc ; sinon revoir les cales (etape 5).
+16. **Precharge.** 0,84 tour de vis au dela du contact (0,36 mm de pile, 1,7 mm de coin) donne 0,5 kN. Laisser polymeriser sous cette precharge : l epoxy rattrape l hyperstaticite des quatre appuis. Post-cuire selon la notice Duralco avant toute mise en charge.
 17. **Etalonnage.** Etalonner la graduation de charge sur presse, ou par la fibre de la membrure.
 
 ## Position debout, dans l'etuve
@@ -156,16 +155,16 @@ Le cadre se monte A PLAT : les entretoises, la traverse et la tete de charge doi
 1. Accrocher d abord les 4 crochets aux parois de l etuve : crochet a l horizontale, engager les trois tetes de langue DE FACE dans leurs trous carres, puis laisser descendre : les becs retombent derriere la paroi.
 2. Le cadre couche sur ses pieds, engager les deux pieds en V UN PAR UN sur les deux coins d un meme about, chacun chasse le long de sa propre encoche a 38 degres (maillet, nodes). Ils ne se montent pas ensemble : leurs encoches font 76 degres entre elles.
 3. Soulever le cadre hors des pieds couches, qui restent sur la paillasse, et le dresser sur ses pieds en V.
-4. L entrer dans l etuve tige vers la porte, pieds tenus 5 mm au dessus des appuis jusqu au fond, puis descendre les quatre fentes des pieds sur les dents des crochets.
+4. L entrer dans l etuve vis vers la porte, pieds tenus 5 mm au dessus des appuis jusqu au fond, puis descendre les quatre fentes des pieds sur les dents des crochets.
 5. Calage de la poutrelle debout : point ouvert, assume (voir `DEBOUT.md`, paragraphe 6).
 
 ## Changement d'eprouvette
 
 Les plats, les patins d appui et le patin de charge sont colles sur la poutrelle et partent avec elle : il faut un jeu neuf par eprouvette (4 patins d appui, 1 patin de charge, 2 plats ; colle). Le poussoir visse porte sur le patin de charge, centre par le tourillon, et la tete ne peut remonter que de 9,9 avant que le coulisseau touche les entretoises de chape : l eprouvette ne sort pas cadre ferme, on rouvre le flanc cote chape.
 
-1. Decharger : devisser la tige jusqu a liberer la pile, puis jusqu a degager le filet ; sortir le coin du cote des tetes de V9.
+1. Decharger : devisser la vis jusqu a liberer la pile, puis jusqu a degager le filet ; sortir le coin du cote des tetes de V8.
 2. Deposer les 4 guides. Sortir le cadre de l etuve ou de ses pieds et le coucher a plat, chape en haut, sur cales de 20.
-3. Deposer les ecrous et rondelles des deux V9, le sous-ensemble de chape d un bloc (platines et tige), puis les deux entretoises de butee.
+3. Deposer les ecrous et rondelles des deux V8, le sous-ensemble de chape d un bloc (platines et vis), puis les deux entretoises de butee.
 4. Deposer les 7 ecrous V1 et soulever le flanc cote chape.
 5. Sortir l eprouvette avec sa tete de charge ; sur l etabli, soulever le poussoir visse, qui resservira tel quel : le patin de charge reste colle sur la poutrelle.
 6. Remonter la nouvelle eprouvette, preparee aux etapes 1 et 5 de l ordre de montage, en reprenant a l etape 8 : le premier flanc a garde ses vis, ses entretoises et la traverse.

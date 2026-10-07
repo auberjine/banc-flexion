@@ -531,7 +531,8 @@ def support_profile():
 
 
 def vis_profile():
-    """Vis de commande : profil dans le plan (x, z), extrude selon y."""
+    """Vis de commande : corps filete sous tete, profil dans le plan (x, z),
+    extrude selon y sur VIS_L ; la tete est ajoutee par f_vis."""
     return G.circle(0.0, 0.0, p.VIS_D / 2.0), []
 
 
@@ -863,10 +864,11 @@ def entretoise_vis_profile():
 
 def f_vis(solid, Part, Vector):
     """
-    Ce qui immobilise la tige dans la chape, DANS LES DEUX SENS :
+    Tete de la vis H M16 et ce qui immobilise la vis dans la chape, DANS LES
+    DEUX SENS :
 
-      - cote exterieur, la butee a aiguilles puis les deux ecrous de
-        manoeuvre. C'est cette face qui encaisse l'effort de commande
+      - cote exterieur, la butee a aiguilles puis la tete de la vis (VIS_TETE_H).
+        C'est cette face qui encaisse l'effort de commande
         (coin_effort, 5,5 kN) : en chargeant, le coin avance vers la chape, la
         face inclinee le repousse vers son bout epais, le filet tire donc la
         tige vers l'INTERIEUR du cadre et sa tete appuie, par la butee, sur la
@@ -1014,12 +1016,13 @@ def all_parts():
     parts.append(plaq)
 
     parts.append(PartSpec(
-        "vis", "Tige filetee de commande M16", 1, "8.8",
-        "tige filetee M16 classe 8.8, coupee a %g" % p.VIS_L, p.VIS_L,
+        "vis", "Vis de commande H M%g x %g" % (p.VIS_D, p.VIS_L), 1, "8.8",
+        p.VIS_REF, p.VIS_L,
         vis_profile, 'xz', (0.0, p.VIS_Y0, p.Z_VIS), flat=False,
         features=f_vis, achete=True,
-        note="piece du commerce, coupee a longueur, montee a la pate cuivre ; ecrous et butee"
-             " figures : ils montrent l arret axial dans les deux sens"))
+        note="piece du commerce, filetee jusqu a la tete, montee a la pate cuivre ; tete de %s"
+             " (douille de %s) sur la butee ; ecrous et butee figures : ils montrent l arret axial"
+             " dans les deux sens" % (fr(p.VIS_TETE_H), fr(p.VIS_TETE_D))))
 
     parts.append(PartSpec(
         "support", "Platine de butee de la vis", p.SUPPORT_N, p.MATIERE_TOLE,

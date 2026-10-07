@@ -1611,7 +1611,7 @@ def plan_petites():
         % (rA, f(p.ALESAGE_D_COUL), p.TOURILLON_COLLE.split(" (")[0], R["pile_belleville"],
            f(p.ALESAGE_D - p.TOURILLON_D), f(p.ALESAGE_D), ajust),
         "%s : %d serrees chacune par une V1 (vis TH M10 x %s + ecrou autofreine tout metal), les %d de la"
-        " chape par les V9 (vis H M10 x %s)." % (rB, n_cadre, f(p.ENTR_VIS_L), n_chape, f(p.SUPPORT_TIRANT_L)),
+        " chape par les V8 (vis H M10 x %s)." % (rB, n_cadre, f(p.ENTR_VIS_L), n_chape, f(p.SUPPORT_TIRANT_L)),
         "%s : la longueur %s %s fixe l ecart des flancs : couper les %d en serie. Ne pas confondre avec %s"
         " (meme tube, L %s, planche 07)." % (rB, f(lE), p.ENTRETOISE_TOL, se.qty, R["entretoise_vis"],
                                             f(p.SUPPORT_TUBE_L)),
@@ -1840,13 +1840,13 @@ def plan_chape():
     b2, e2 = p.SUPPORT_B / 2.0, p.SUPPORT_B_BOUT / 2.0
     xa0, xa1 = p.SUPPORT_X0, p.SUPPORT_X1
     xs = p.SUPPORT_X
-    rh = p.D_VIS / 2.0                       # trous des V9
+    rh = p.D_VIS / 2.0                       # trous des V8
     rb = p.VIS_PASSAGE_D / 2.0               # alesage de la tige
     o, trous = P.support_profile()
     bx0, bz0, bx1, bz1 = G.bbox(o)
     sig, fle, sig_tube = p.platine_contrainte()
     aire = math.pi / 4.0 * (p.ENTRETOISE_DE ** 2 - p.ENTRETOISE_DI ** 2)
-    f0 = SPC.COUPLE_M10 * 1000.0 / (C07_K_COUPLE * p.SUPPORT_TIRANT_D)   # precharge d'une V9, N
+    f0 = SPC.COUPLE_M10 * 1000.0 / (C07_K_COUPLE * p.SUPPORT_TIRANT_D)   # precharge d'une V8, N
     sig_pre = (f0 + p.coin_effort() / len(p.TROU_SUPPORT)) / aire
     v9 = p.boulonnerie()[2]
     tube = p.ENTRETOISE_BRUT.replace("de precision ", "")          # "tube 20 x 4,5"
@@ -1860,17 +1860,17 @@ def plan_chape():
                                f(p.SUPPORT_R_CONGE), f(bz1 - bz0, 2)),
         "%s : %s %s, coupe a la longueur cotee, les %d a la meme butee, faces dressees."
         % (r07b, p.ENTRETOISE_BRUT, st.material, st.qty),
-        "Commande %s kN : le coin tire la tige, la tete V7 pousse la butee V6 ; platines et %s comprimees ;"
-        " V9 : %s N au desserrage." % (f(p.coin_effort() / 1000.0), r07b, f(p.coin_desserrage(), 0)),
+        "Commande %s kN : le coin tire la vis, sa tete pousse la butee V6 ; platines et %s comprimees ;"
+        " V8 : %s N au desserrage." % (f(p.coin_effort() / 1000.0), r07b, f(p.coin_desserrage(), 0)),
         "Platine : %s MPa en flexion, coefficient %s a 20 C et %s a 150 C, fleche %s mm."
         % (f(sig, 0), c07_dec(p.RE_TOLE / sig), c07_dec(p.RE_TOLE_CHAUD / sig), f(fle, 2)),
-        "%s : %s MPa chacune sous la commande, %s environ avec la precharge des V9 (%s N.m, K = %s)."
+        "%s : %s MPa chacune sous la commande, %s environ avec la precharge des V8 (%s N.m, K = %s)."
         % (r07b, f(sig_tube), f(sig_pre, 0), f(SPC.COUPLE_M10), f(C07_K_COUPLE)),
-        "V9 : tete et 1 rondelle derriere le flanc oppose, %d rondelles et 2 ecrous H cote platines ; le"
+        "V8 : tete et 1 rondelle derriere le flanc oppose, %d rondelles et 2 ecrous H cote platines ; le"
         " premier sur le filet (marge %s), %s N.m, puis le contre-ecrou bloque contre lui."
         % (nron, f(v9["marge_filet"]), f(SPC.COUPLE_M10)),
-        "V8 : 0,1 a 0,3 de jeu axial, puis contre-bloques. V7 : douille de %s et cliquet, une cle plate bute"
-        " sur les V9." % f(p.VIS_TETE_D),
+        "V7 : 0,1 a 0,3 de jeu axial, puis contre-bloques. Tete de %s : douille de %s et cliquet, une cle"
+        " plate bute sur les V8." % (R["vis"], f(p.VIS_TETE_D)),
     ]
     s = D.Sheet("PLATINE ET ENTRETOISE DE BUTEE", r07,
                 "%s, Re >= %s / %s" % (sp.material, f(p.RE_TOLE), st.material.split()[0]),
@@ -1922,14 +1922,14 @@ def plan_chape():
              lg * math.cos(a), -lg * math.sin(a), fin="fleche", palier=5.0)
 
     # ======================================================== montage, coupe 1:1
-    # Plan de coupe horizontal par les axes (tige et V9, tous a z = Z_VIS), vu
+    # Plan de coupe horizontal par les axes (tige et V8, tous a z = Z_VIS), vu
     # de dessus. Vue : x (long de la platine) horizontal, y (axe de la tige)
     # vertical, vers la butee en haut. Tige, vis, ecrous et rondelles ne sont
     # pas coupes (ISO 128-50) ; flancs, entretoises et platines sont hachures.
     XM, YM = 112.0, 200.0
     c07_titre(s, XM, 17.0, "MONTAGE DE LA CHAPE, COUPE PAR LES AXES  (1:1)",
               ["vue de dessus, butee vers le haut ; coin et tete de charge non representes",
-               "jeu des V9 dans leurs trous non represente (trous de %s, vis de %s)"
+               "jeu des V8 dans leurs trous non represente (trous de %s, vis de %s)"
                % (f(p.D_VIS), f(p.SUPPORT_TIRANT_D))])
     m = D.View(s, 1.0, 0.0, 0.0, XM, YM)
     ep = p.EP_FLANC
@@ -1941,12 +1941,12 @@ def plan_chape():
     xf = xa1 + 6.0                                 # flancs rompus un peu au-dela des platines
     fente = p.FENTE_COIN_B / 2.0
     rt = p.SUPPORT_TIRANT_D / 2.0
-    rm = rt                                        # trous des V9 dessines au diametre de la vis
+    rm = rt                                        # trous des V8 dessines au diametre de la vis
     s.motif("c07_hf", 45.0, 2.0)                   # flancs
     s.motif("c07_ht", -45.0, 1.4)                  # entretoises
     s.motif("c07_hp", 45.0, 1.2)                   # platines
     s.motif("c07_hq", -45.0, 1.2)                  # platine du dessus : hachures croisees
-    # -- flancs, coupes : trous des V9 et fente du coin ; bouts rompus
+    # -- flancs, coupes : trous des V8 et fente du coin ; bouts rompus
     for (ya, yb) in ((yo, yo + ep), (yf - ep, yf)):
         xs_ = [-xf, -xs - rm, -xs + rm, -fente, fente, xs - rm, xs + rm, xf]
         for i in range(0, 8, 2):
@@ -1966,7 +1966,7 @@ def plan_chape():
                 parois = c07_rect(sx * xs + u0, ya, sx * xs + u1, yb)
                 m.zone([parois], "c07_ht", w=0)
                 m.contour(parois)
-    # -- platines, coupees : trous des V9 et alesage de la tige
+    # -- platines, coupees : trous des V8 et alesage de la tige
     for i in range(p.SUPPORT_N):
         ya, yb = yi + i * p.SUPPORT_EP, yi + (i + 1) * p.SUPPORT_EP
         xs_ = [xa0, -xs - rm, -xs + rm, -rb, rb, xs - rm, xs + rm, xa1]
@@ -1974,7 +1974,7 @@ def plan_chape():
             r_ = c07_rect(xs_[j], ya, xs_[j + 1], yb)
             m.zone([r_], "c07_hp" if i == 0 else "c07_hq", w=0)
             m.contour(r_)
-    # -- vis de chape V9 (non coupees)
+    # -- vis de chape V8 (non coupees)
     y_tete = yo - ron                              # dessous de tete
     y_ecr = ye + nron * ron                        # dessous de l'ecrou
     y_bout = y_tete + p.SUPPORT_TIRANT_L
@@ -1994,32 +1994,26 @@ def plan_chape():
         for sg in (-1.0, 1.0):                     # bout filete vu : fond de filet en trait fin
             c07_ligne(m, (x + sg * r3, y_ecr + ecr), (x + sg * r3, y_bout))
         m.axe((x, y_tete - C07_M10_K), (x, y_bout))
-    # -- tige M16 (02d) et son arret axial
+    # -- vis H M16 (02d), filetee jusqu a la tete, et son arret axial
     hm = p.SUPPORT_ECROU_H / 2.0                   # un ecrou HM M16
     y_hm = yi - p.SUPPORT_RONDELLE - p.SUPPORT_ECROU_H
-    y_tt = ye + p.SUPPORT_BUTEE_H                  # dessous de la tete de manoeuvre
+    y_tt = ye + p.SUPPORT_BUTEE_H                  # dessous de la tete de la vis
     as_ = p.SUPPORT_RONDELLE / 2.0                 # une rondelle AS 1730
     rv, rbu = p.VIS_TETE_D / 2.0, p.SUPPORT_BUTEE_D / 2.0
     c07_filet(m, p.VIS_Y0, y_hm, p.VIS_D, p.VIS_PAS)
     c07_filet(m, yi, ye, p.VIS_D, p.VIS_PAS)       # vue dans l'alesage des platines
-    c07_filet(m, y_tt + p.VIS_TETE_H, p.Y_BOUT_VIS, p.VIS_D, p.VIS_PAS)
-    for k in range(2):                             # V8 : deux ecrous HM
+    for k in range(2):                             # V7 : deux ecrous HM
         m.contour(c07_rect(-rv, y_hm + k * hm, rv, y_hm + (k + 1) * hm))
     for k in range(2):                             # V5 : deux rondelles AS
         y0_ = yi - p.SUPPORT_RONDELLE + k * as_
         m.contour(c07_rect(-rbu, y0_, rbu, y0_ + as_))
     for (y0_, y1_) in ((ye, ye + as_), (ye + as_, y_tt - as_), (y_tt - as_, y_tt)):   # V6
         m.contour(c07_rect(-rbu, y0_, rbu, y1_))
-    y_hh = y_tt + p.VIS_TETE_H - hm                # V7 : ecrou H puis ecrou HM
-    m.contour(c07_rect(-rv, y_tt, rv, y_hh))
-    m.contour(c07_rect(-rv, y_hh, rv, y_tt + p.VIS_TETE_H))
+    m.contour(c07_rect(-rv, y_tt, rv, y_tt + p.VIS_TETE_H))     # tete H de la vis
     m.axe((0.0, p.VIS_Y0), (0.0, p.Y_BOUT_VIS))
-    # -- cotes : longueur de l'entretoise 07b (seule cote de cette piece) et
-    #    calage de la tete de manoeuvre sur la tige
+    # -- cote : longueur de l'entretoise 07b (seule cote de cette piece)
     m.cote_vx(yf, yi, xf, xa1, 0.0, xl=xf + 8.0,
               texte="%s %s" % (f(p.SUPPORT_TUBE_L), p.SUPPORT_TUBE_TOL))
-    m.cote_vx(y_tt + p.VIS_TETE_H, p.Y_BOUT_VIS, rv, p.VIS_D / 2.0, 0.0, xl=rv + 8.0,
-              dedans=False, dt=8.0, queue=10.0)
     # -- bulles : colonne a gauche pour les pieces des bords, dans les vides
     #    du montage pour celles de l'axe
     xb = -xf - 12.0
@@ -2028,13 +2022,12 @@ def plan_chape():
         (R["entretoise_vis"], (-xs - (re_ + rm) / 2.0, (yf + yi) / 2.0), xb, (yf + yi) / 2.0, "point"),
         (R["flanc"], (-xf + 8.0, yf - ep / 2.0), xb, yf - ep - 12.0, "point"),
         (R["entretoise"], (-xs - (re_ + rm) / 2.0, 0.0), xb, 0.0, "point"),
-        ("V9", (-xs - C07_M10_S / 2.0 + 2.0, y_tete - C07_M10_K / 2.0), xb, y_tete - C07_M10_K / 2.0,
+        ("V8", (-xs - C07_M10_S / 2.0 + 2.0, y_tete - C07_M10_K / 2.0), xb, y_tete - C07_M10_K / 2.0,
          "point"),
         (R["vis"], (-p.VIS_D / 2.0, 12.0), -26.0, 12.0, "fleche"),
-        ("V8", (rv / 2.0, y_hm + hm / 2.0), 28.0, y_hm - 6.0, "point"),
+        ("V7", (rv / 2.0, y_hm + hm / 2.0), 28.0, y_hm - 6.0, "point"),
         ("V5", (rbu, yi - p.SUPPORT_RONDELLE / 2.0), 28.0, yi - 9.0, "fleche"),
         ("V6", (rbu - 1.5, ye + p.SUPPORT_BUTEE_H / 2.0), 28.0, ye + 12.5, "point"),
-        ("V7", (-rv / 2.0, y_tt + 8.5), -28.0, y_tt + 8.5, "point"),
     ]
     for (rep, pt, xbul, ybul, fin) in pts:
         m.bulle(pt, rep, xbul - pt[0], -(ybul - pt[1]), fin=fin)
@@ -2046,12 +2039,11 @@ def plan_chape():
          n_ch),
         (r07b, "entretoise de butee, %s (ci-contre)" % tube, st.qty),
         (r07, "platine de butee (ci-dessus)", sp.qty),
-        (R["vis"], "tige filetee M%s x %s" % (f(p.VIS_D), f(p.VIS_L)), SP["vis"].qty),
+        (R["vis"], "vis H M%s x %s ISO 4017, filetage total" % (f(p.VIS_D), f(p.VIS_L)), SP["vis"].qty),
         ("V5", c07_min(VS["V5"][1]), VS["V5"][2]),
         ("V6", c07_min(VS["V6"][1]), VS["V6"][2]),
-        ("V7", "ecrou H + ecrou HM M%s, bloques" % f(p.VIS_D), VS["V7"][2]),
-        ("V8", c07_min(VS["V8"][1]), VS["V8"][2]),
-        ("V9", "vis H M10 x %s + 2 ecrous + %d rondelles" % (f(p.SUPPORT_TIRANT_L), 1 + nron), VS["V9"][2]),
+        ("V7", c07_min(VS["V7"][1]), VS["V7"][2]),
+        ("V8", "vis H M10 x %s + 2 ecrous + %d rondelles" % (f(p.SUPPORT_TIRANT_L), 1 + nron), VS["V8"][2]),
     ]
     larg = (11.0, 74.0, 10.0)
     D.table(s, XP - sum(larg) / 2.0, 150.0, "Pieces du montage", ("rep.", "designation", "qte"),
@@ -2247,7 +2239,7 @@ def plan_assemblage():
     xe, ze = max(boulons)                       # entretoise du coin haut droit
     c1 = v.bulle((xe, ze), "V1", 16.0, 5.0)
     a00_bulle_seule(s, (c1[0] + 7.2, c1[1]), R["entretoise"])
-    bul(v, (p.SUPPORT_X, p.Z_VIS), 156.0, 70.0, "V9")
+    bul(v, (p.SUPPORT_X, p.Z_VIS), 156.0, 70.0, "V8")
     bul(v, (p.GUIDE_X, p.Z_GUIDE), 166.0, 79.0, R["guide"])
 
     # ================================================== coupe A-A, 1:2
@@ -2361,7 +2353,7 @@ def plan_assemblage():
     z0, z1 = p.Z_TOURILLON_BAS, p.Z_TOURILLON_BAS + p.TOURILLON_L
     v3.zone([a00_poly([(-rt + ct, z0), (rt - ct, z0), (rt, z0 + ct), (rt, z1 - ct), (rt - ct, z1),
                        (-rt + ct, z1), (-rt, z1 - ct), (-rt, z0 + ct)])], w=MOY)
-    v3.zone([rect(p.VIS_Y0, zv - p.VIS_D / 2, p.Y_BOUT_VIS, zv + p.VIS_D / 2, 0)], w=MOY)
+    v3.zone([rect(p.VIS_Y0, zv - p.VIS_D / 2, p.Y_BOUT_VIS - p.VIS_TETE_H, zv + p.VIS_D / 2, 0)], w=MOY)
     yi = p.COIN_Y_SUPPORT
     rb, rtete = p.SUPPORT_BUTEE_D / 2.0, p.VIS_TETE_D / 2.0
     v3.zone([rect(yi - p.SUPPORT_RONDELLE, zv - rb, yi, zv + rb, 0)], w=MOY)
@@ -2420,12 +2412,11 @@ def plan_assemblage():
     bul(v3, (ye + p.SUPPORT_BUTEE_H / 2.0, zv + rb - 2.0), ob + 209.0, 176.0, "V6")
     bul(v3, (22.0, p.Z_COULISSEAU_BAS + 15.0), ob + 186.0, 220.0, R["coulisseau"])
     bul(v3, (5.0, p.Z_TOURILLON_BAS + p.TOURILLON_L - 5.0), ob + 186.0, 230.0, R["tourillon"])
-    bul(v3, (yi - p.SUPPORT_RONDELLE - hm, zv - rtete + 1.0), ob + 190.0, 240.0, "V8")
+    bul(v3, (yi - p.SUPPORT_RONDELLE - hm, zv - rtete + 1.0), ob + 190.0, 240.0, "V7")
     # V5 a la verticale de sa rondelle : sa ligne longe la platine sans y entrer
     pv5 = (yi - p.SUPPORT_RONDELLE / 2.0, zv - rb + 1.0)
     bul(v3, pv5, v3.P(pv5)[0], 240.0, "V5")
-    bul(v3, (y_tete + p.VIS_TETE_H / 2.0, zv - rtete + 1.0), ob + 214.0, 240.0, "V7")
-    bul(v3, (p.Y_BOUT_TIRANT - 2.0, zv + 3.0), ob + 230.0, 214.0, "V9")
+    bul(v3, (p.Y_BOUT_TIRANT - 2.0, zv + 3.0), ob + 230.0, 214.0, "V8")
     s.text(124.0, 270.0, "Le coin AVANCE VERS LA CHAPE en chargeant ; repousse vers son bout epais, il TIRE"
            " la tige vers l interieur :", 2.9, "middle")
     s.text(124.0, 274.5, "la tete appuie, par la butee a aiguilles, sur la face exterieure des %d platines ;"

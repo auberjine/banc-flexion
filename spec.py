@@ -18,7 +18,7 @@ import parts as P
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# Couple de serrage des vis M10 du cadre (V1) et de la chape (V9) : defini
+# Couple de serrage des vis M10 du cadre (V1) et de la chape (V8) : defini
 # dans params.py, repris ici pour les generateurs qui le lisent sur spec.
 COUPLE_M10 = p.COUPLE_M10
 
@@ -60,7 +60,7 @@ def entretoises_de_cadre():
 
 
 def encombrement_y():
-    """Etendue du banc selon y : (coin recule, bout des vis de chape ou de la tige)."""
+    """Etendue du banc selon y : (coin recule, bout des vis de chape ou de la vis)."""
     tete_v9 = -(p.Y_FLANC_EXT + p.RONDELLE_M10_E + 6.4)      # tete H M10 : 6,4
     return min(p.COIN_Y0, tete_v9), max(p.Y_BOUT_VIS, p.Y_BOUT_TIRANT)
 
@@ -132,7 +132,7 @@ def main():
     a("| Schema | 3 points, portee %.0f mm |" % p.PORTEE)
     a("| Charge de dimensionnement du cadre | %.0f kN |" % (p.CHARGE_DIM / 1000.0))
     a("| Commande | coin d'acier C45 a %.0f deg garni de deux plaques de bronze usinees,"
-      " tige filetee M%.0f pas %.1f normale aux flancs |"
+      " vis H M%.0f pas %.1f filetee jusqu a la tete, normale aux flancs |"
       % (p.COIN_ANGLE, p.VIS_D, p.VIS_PAS))
     a("| Pile de rondelles | %d x %s (ex-DIN 2093) en %s (%.0f x %.1f x %.1f), montees tete-beche |"
       % (p.RESSORT_N, p.RESSORT_NORME, p.RESSORT_MATIERE, p.RESSORT_DE, p.RESSORT_DI, p.RESSORT_T))
@@ -149,7 +149,7 @@ def main():
       % (reserve, p.CHARGE_DIM / 1000.0, p.TOL_EMPILEMENT,
          " et ".join(P.fr(e) for e in p.CALES_EP), p.CALE_DE, p.CALE_DI))
     e05, c05, t05 = p.coin_tours(500.0)
-    a("| Precharge de collage, 0,5 kN | %.2f mm de pile, %.2f mm de coin, %.2f tour de tige apres le contact |"
+    a("| Precharge de collage, 0,5 kN | %.2f mm de pile, %.2f mm de coin, %.2f tour de vis apres le contact |"
       % (e05, c05, t05))
     a("")
     a("La loi des rondelles Belleville n'est pas lineaire. Graduation gravee :")
@@ -393,7 +393,7 @@ def main():
     t_rep, t_but, t_cal = p.tourillon_course()
     a("| Tourillon | %s, rond etire %g h9 x %g non repris, COLLE au fond du coulisseau (%s) ; dans le poussoir : %.1f au repos, %.1f avec les cales, %.1f de garde au dessus du patin a la butee |"
       % (p.TOURILLON_MATIERE, p.TOURILLON_D, p.TOURILLON_L, p.TOURILLON_COLLE, t_rep, t_cal, t_but))
-    a("| Tige filetee | immobile axialement dans la chape, le coin est son ecrou |")
+    a("| Vis de commande | %s, immobile axialement dans la chape, le coin est son ecrou |" % p.VIS_REF)
     a("| Butee de course | bas de la lumiere, interdit l'aplatissement de la pile |")
     a("")
 
@@ -461,13 +461,13 @@ def main():
     a("recouvrement vaut 0,5 P contre 0,541 P pour le metrique, soit MOINS de")
     a("flanc portant. Les flancs travaillent a %.1f MPa, engagement plafonne a"
       % p.pression_filet())
-    a("1,5 d, pour %g admis sur un taraudage C45 et une tige 8.8 en manoeuvre lente."
+    a("1,5 d, pour %g admis sur un taraudage C45 et une vis 8.8 en manoeuvre lente."
       % p.FILET_P_ADM)
     a("")
     a("Le filet est TARAUDE DIRECTEMENT DANS L'ACIER du coin. Une bague-ecrou en")
     a("bronze a ete dessinee puis abandonnee : a la vitesse de manoeuvre d'un")
     a("banc a la main, ce n'est pas la vitesse qui use un filet, et le couple")
-    a("tige 8.8 sur C45 brut tient sans probleme monte a la pate cuivre. La tige")
+    a("vis 8.8 sur C45 brut tient sans probleme monte a la pate cuivre. La vis")
     a("est la plus dure : c'est le taraudage du coin qui s'use, et il se refait.")
     a("Il ne court que sur %.0f mm et non sur toute la longueur du coin ; au dela"
       % p.COIN_TARAUD_L)
@@ -503,7 +503,7 @@ def main():
     a("s'approfondit donc de %.1f mm." % p.PLAQ_DROP)
     a("")
     cis, flex, pres = p.rebord_contrainte()
-    a("Aucune vis : le coin ne fait que %.0f de large et le percage de la tige en"
+    a("Aucune vis : le coin ne fait que %.0f de large et le percage de la vis en"
       % p.COIN_B)
     a("prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un")
     a("ligament d'epaisseur. Chaque plaquette est prise entre DEUX REBORDS usines")
@@ -544,7 +544,7 @@ def main():
     a("Le filet reste engage sur %.1f mm coin recule, soit %.1f d, ce qui est"
       % ((p.COIN_Y0 + p.COIN_TARAUD_L) - p.VIS_Y0,
          ((p.COIN_Y0 + p.COIN_TARAUD_L) - p.VIS_Y0) / p.VIS_D))
-    a("tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la tige et le")
+    a("tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la vis et le")
     a("taraudage fait que les derniers filets ne prennent plus rien.")
     a("")
     a("Le coin traverse les deux flancs par une fente de %.0f x %.0f, entre les"
@@ -562,15 +562,15 @@ def main():
     a("noeud : la profondeur du treillis passe de 139,5 a %.1f mm." % P.profondeur_treillis())
     a("")
 
-    a("### Sens de montage du coin, et arret axial de la tige")
+    a("### Sens de montage du coin, et arret axial de la vis")
     a("")
     a("Le bout EPAIS du coin est du cote OPPOSE a la chape : le coin avance donc")
     a("VERS elle en chargeant. C'est ce sens, et lui seul, qui rend l'arret axial")
-    a("de la tige possible. L'equilibre du coin le montre : la composante selon y")
+    a("de la vis possible. L'equilibre du coin le montre : la composante selon y")
     a("de la reaction du coulisseau, plus les deux frottements, valent %.1f kN, et"
       % (p.coin_effort() / 1000.0))
-    a("la tige doit les fournir. La face inclinee repousse le coin vers son bout")
-    a("EPAIS : le filet tire donc la tige vers l'INTERIEUR du cadre, et sa tete")
+    a("la vis doit les fournir. La face inclinee repousse le coin vers son bout")
+    a("EPAIS : le filet tire donc la vis vers l'INTERIEUR du cadre, et sa tete")
     a("vient appuyer sur la FACE EXTERIEURE des platines, a travers la butee a")
     a("aiguilles. Cote interieur, deux rondelles trempees et deux ecrous minces ne")
     a("reprennent que l'effort de desserrage : %.0f N a un frottement de %.2f, quand"
@@ -579,7 +579,7 @@ def main():
       % p.coin_mu_autoblocage())
     a("et ils ne voient rien.")
     a("")
-    a("Monte a l'envers, le coin s'eloignerait de la chape en chargeant : la tige")
+    a("Monte a l'envers, le coin s'eloignerait de la chape en chargeant : la vis")
     a("serait tiree hors de son alesage et ne pousserait rien. Il faudrait alors")
     a("loger la butee a aiguilles entre les platines et le bout du coin, ou elle")
     a("ne tient pas. Le controle des cotes refuse ce sens.")
@@ -600,10 +600,10 @@ def main():
     a("qui fixe la position de la chape de butee.")
     a("")
 
-    a("## 7 ter. Butee axiale de la tige")
+    a("## 7 ter. Butee axiale de la vis")
     a("")
-    a("Le coin avance VERS la butee en chargeant et tire la tige vers l'interieur")
-    a("du cadre ; la tete de la tige pousse donc la butee, et les platines, contre")
+    a("Le coin avance VERS la butee en chargeant et tire la vis vers l'interieur")
+    a("du cadre ; la tete de la vis pousse donc la butee, et les platines, contre")
     a("le flanc : platines en flexion, entretoises en compression, aucune piece de")
     a("la butee ne travaille en traction. Il n'y a aucune raison d'usiner une chape")
     a("dans la masse. Deux platines de la MEME tole que les flancs, portees par deux")
@@ -629,10 +629,10 @@ def main():
     a("| Serrage sous tete | %.1f mm, filet a partir de %.0f : ecrou sur le filet avec %.1f de marge, %.1f de depassement |"
       % (v9["serrage"], p.SUPPORT_TIRANT_L - p.SUPPORT_TIRANT_FILET, v9["marge_filet"], v9["depassement"]))
     a("| Serrage | %g N.m, aucun taraudage : les vis traversent les deux flancs |" % COUPLE_M10)
-    a("| Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la tige |")
+    a("| Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la vis |")
     a("| Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, %.0f mm, desserrage seulement |"
       % (p.SUPPORT_RONDELLE + p.SUPPORT_ECROU_H))
-    a("| Bout de tige | y %.0f, soit %.0f mm de degagement pour la douille, cadre decentre au pire dans l'etuve de %g (%.0f centre) |"
+    a("| Tete de la vis | dessus a y %.0f, soit %.0f mm de degagement pour la douille, cadre decentre au pire dans l'etuve de %g (%.0f centre) |"
       % (p.Y_BOUT_VIS, p.DEGAGEMENT_DOUILLE, p.ETUVE_Y, p.ETUVE_Y / 2.0 - p.Y_BOUT_VIS))
     a("| Manoeuvre | douille de 24 et cliquet SEULEMENT : les bouts des vis de chape (y %.0f) depassent la tete de manoeuvre dans son plan, une cle plate bute dessus |"
       % p.Y_BOUT_TIRANT)
@@ -717,7 +717,7 @@ def main():
     a("  une rampe de 1 degre par minute creee deja 5 MPa d'ecart entre coeur et peau")
     a("- palier de stabilisation d'au moins 2 heures avant toute lecture")
     a("- acier nu ou phosphate, pas de zingue au dela de 200 degres C")
-    a("- pate graphite ou cuivre sur le filetage de la tige, %s sur les faces" % p.PLAQ_LUBRIFIANT)
+    a("- pate graphite ou cuivre sur le filetage de la vis, %s sur les faces" % p.PLAQ_LUBRIFIANT)
     a("  de glissement des plaques de bronze, a refaire a chaque demontage du coin")
     a("- relaxation des rondelles de quelques pour cent au dela de 100 degres C :")
     a("  reprendre la charge a chaque palier")

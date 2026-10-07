@@ -82,20 +82,17 @@ def visserie():
          "une de chaque, entre le poussoir et la pile, si l empilement mesure au montage est"
          " court : le coin doit toucher a moins de 5 mm de son repos"),
         ("V5", "Rondelle trempee AS 1730 (17 x 30 x 1)", int(round(p.SUPPORT_RONDELLE)),
-         "cote interieur des platines, sous les ecrous V8 : deux empilees font les %g mm de"
+         "cote interieur des platines, sous les ecrous V7 : deux empilees font les %g mm de"
          " rondelle trempee (une rondelle trempee 30 x 2 n existe pas en M16)"
          % p.SUPPORT_RONDELLE),
         ("V6", "Butee a aiguilles AXK 1730 + 2 rondelles AS 1730", 1,
          "face EXTERIEURE des platines : c est elle qui encaisse les %.1f kN de commande"
          % (p.coin_effort() / 1000.0)),
-        ("V7", "Ecrou M16 H ISO 4032 classe 8 + ecrou M16 HM ISO 4035, bloques", 1,
-         "tete de manoeuvre, %s de haut, en appui sur la butee a aiguilles. Douille de 24 et"
-         " cliquet : une cle plate bute sur les bouts des vis V9" % fr(p.VIS_TETE_H)),
-        ("V8", "Ecrou M16 HM ISO 4035", 2,
+        ("V7", "Ecrou M16 HM ISO 4035", 2,
          "bloques l un sur l autre cote interieur des platines, sur les rondelles V5, avec 0,1 a"
-         " 0,3 de jeu axial : ils ne retiennent la tige qu au desserrage, %.0f N"
+         " 0,3 de jeu axial : ils ne retiennent la vis qu au desserrage, %.0f N"
          % p.coin_desserrage()),
-        ("V9", "Vis H M10 x %g ISO 4014 8.8 zinguee (filetee sur %g) + %d ecrous H M10 ISO 4032"
+        ("V8", "Vis H M10 x %g ISO 4014 8.8 zinguee (filetee sur %g) + %d ecrous H M10 ISO 4032"
          " classe 8 + %d rondelles ISO 7089 M10"
          % (p.SUPPORT_TIRANT_L, p.SUPPORT_TIRANT_FILET, p.SUPPORT_ECROUS_M10_N,
             1 + p.SUPPORT_RONDELLES_ECROU), n_chape,
@@ -124,7 +121,7 @@ def ordre_de_montage():
     cale_poutre = CALE_SOUS_FLANC - (p.POUTRE_B / 2.0 - p.Y_FLANC_EXT)
     nominal = p.Z_COULISSEAU_BAS - p.Z_BOSSAGE
     reserve = (p.COIN_T_MAX - p.COIN_T_MIN) - p.PILE_ECRAS_DIM
-    bout_tete = p.Y_BOUT_VIS - (p.SUPPORT_Y1 + p.SUPPORT_BUTEE_H + p.VIS_TETE_H)
+    R_VIS = REPERES["vis"]
     return [
         # preparation
         "**Eprouvette, a l avance.** Coller les deux plats %g x %g sous la poutrelle, a y = +/- %g"
@@ -139,12 +136,11 @@ def ordre_de_montage():
         " passer les deux vis V3 PAR DESSOUS (tete sous le plateau bas), rondelle et ecrou au"
         " dessus, serrer a %g N.m. Le poussoir est desormais un bloc ; il sert a toutes les"
         " eprouvettes." % (p.POUSSOIR_N, p.TOURILLON_D, p.POUSSOIR_VIS_COUPLE),
-        "**Sous-ensemble de chape, sur l etabli.** Sur la tige M16, visser par son bout"
-        " exterieur l ecrou H et l ecrou HM de manoeuvre (V7), bloques a %s du bout ; enfiler"
-        " par l autre bout une rondelle AS, la butee AXK 1730 et la seconde AS (V6), les deux"
-        " platines, les deux rondelles trempees (V5), puis visser les deux ecrous HM (V8) :"
-        " 0,1 a 0,3 mm de jeu axial, contre-bloquer. Pate cuivre sur le filet de la tige."
-        % fr(bout_tete),
+        "**Sous-ensemble de chape, sur l etabli.** Sur la vis H M16 x %g (%s), enfiler sous la"
+        " tete une rondelle AS, la butee AXK 1730 et la seconde AS (V6), les deux platines, les"
+        " deux rondelles trempees (V5), puis visser les deux ecrous HM (V7) : 0,1 a 0,3 mm de jeu"
+        " axial, contre-bloquer. Pate cuivre sur le filet de la vis."
+        % (p.VIS_L, R_VIS),
         "**Empilement.** Mesurer la poutrelle avec ses plats, les patins d appui sous la rainure,"
         " le patin de charge, le poussoir et la pile libre. Du sommet des bossages au dessous"
         " du coulisseau, le nominal fait %s (%s + %g + %g + %g + %g + %s). S il manque plus de"
@@ -155,7 +151,7 @@ def ordre_de_montage():
         # cadre, monte a plat
         "**Premier flanc.** Poser a plat, sur cales de %g, le flanc OPPOSE a la chape, face"
         " gravee DESSOUS : la graduation doit finir a l exterieur. Passer par dessous, rondelle"
-        " sous tete, les %d vis V1 (%s) et les %d vis V9"
+        " sous tete, les %d vis V1 (%s) et les %d vis V8"
         " (chape, x = +/- %g). Enfiler une entretoise de %g sur chacune des %d vis."
         % (CALE_SOUS_FLANC, n_entr - n_chape, spec.entretoises_de_cadre(), n_chape, p.SUPPORT_X,
            p.ENTRETOISE_L, n_entr),
@@ -177,8 +173,8 @@ def ordre_de_montage():
         "**Second flanc.** Le presenter face gravee DESSUS : il enfile les %d vis, les tenons de"
         " la traverse et la poutrelle dans sa fenetre. Poser les %d ecrous V1 sur rondelle,"
         " serres sans bloquer." % (n_entr, n_entr - n_chape),
-        "**Chape.** Enfiler sur les deux vis V9 les entretoises de butee de %s, puis le"
-        " sous-ensemble de chape, la tige passant par la fente du coin ; %d rondelles et un"
+        "**Chape.** Enfiler sur les deux vis V8 les entretoises de butee de %s, puis le"
+        " sous-ensemble de chape, la vis passant par la fente du coin ; %d rondelles et un"
         " ecrou H par vis, %g N.m, puis le contre-ecrou H bloque contre lui en tenant le premier."
         % (fr(p.SUPPORT_TUBE_L), p.SUPPORT_RONDELLES_ECROU, spec.COUPLE_M10),
         "**Pieds.** Dresser le cadre et le poser dans ses deux pieds couches, encoche dans"
@@ -192,12 +188,12 @@ def ordre_de_montage():
         "**Guides.** Visser les 4 CHC M%g x %g au travers des lumieres dans les taraudages du"
         " coulisseau. C est la TETE qui guide : jamais de vis a tete fraisee."
         % (p.GUIDE_VIS_D, p.GUIDE_VIS_L),
-        "**Coin.** Pate cuivre dans son taraudage ; l engager du cote des tetes de V9, bout MINCE"
-        " en premier, par la fente du flanc, entre la traverse et le coulisseau ; visser la tige"
+        "**Coin.** Pate cuivre dans son taraudage ; l engager du cote des tetes de V8, bout MINCE"
+        " en premier, par la fente du flanc, entre la traverse et le coulisseau ; visser la vis"
         " jusqu au contact. Le bout epais doit alors etre a moins de 5 mm de sa position de"
         " repos, %s mm hors de la face exterieure du flanc ; sinon revoir les cales (etape %d)."
         % (fr(-p.COIN_Y0 - p.Y_FLANC_EXT), ETAPE["empilement"]),
-        "**Precharge.** %s tour de tige au dela du contact (%s mm de pile, %s mm de coin) donne"
+        "**Precharge.** %s tour de vis au dela du contact (%s mm de pile, %s mm de coin) donne"
         " 0,5 kN. Laisser polymeriser sous cette precharge : l epoxy rattrape l hyperstaticite"
         " des quatre appuis. Post-cuire selon la notice Duralco avant toute mise en charge."
         % (fr(t05, 2), fr(e05, 2), fr(c05)),
@@ -217,7 +213,7 @@ def position_debout():
         % (p.PIED_DEBOUT_ANGLE, 2 * p.PIED_DEBOUT_ANGLE),
         "Soulever le cadre hors des pieds couches, qui restent sur la paillasse, et le dresser"
         " sur ses pieds en V.",
-        "L entrer dans l etuve tige vers la porte, pieds tenus 5 mm au dessus des appuis jusqu au"
+        "L entrer dans l etuve vis vers la porte, pieds tenus 5 mm au dessus des appuis jusqu au"
         " fond, puis descendre les quatre fentes des pieds sur les dents des crochets.",
         "Calage de la poutrelle debout : point ouvert, assume (voir `DEBOUT.md`, paragraphe 6).",
     ]
@@ -234,12 +230,12 @@ def changement_eprouvette():
              " le flanc cote chape."
              % fr(garde))
     etapes = [
-        "Decharger : devisser la tige jusqu a liberer la pile, puis jusqu a degager le filet ;"
-        " sortir le coin du cote des tetes de V9.",
+        "Decharger : devisser la vis jusqu a liberer la pile, puis jusqu a degager le filet ;"
+        " sortir le coin du cote des tetes de V8.",
         "Deposer les 4 guides. Sortir le cadre de l etuve ou de ses pieds et le coucher a plat,"
         " chape en haut, sur cales de %g." % CALE_SOUS_FLANC,
-        "Deposer les ecrous et rondelles des deux V9, le sous-ensemble de chape d un bloc (platines"
-        " et tige), puis les deux entretoises de butee.",
+        "Deposer les ecrous et rondelles des deux V8, le sous-ensemble de chape d un bloc (platines"
+        " et vis), puis les deux entretoises de butee.",
         "Deposer les %d ecrous V1 et soulever le flanc cote chape." % (P.n_entretoises() - len(p.TROU_SUPPORT)),
         "Sortir l eprouvette avec sa tete de charge ; sur l etabli, soulever le poussoir visse,"
         " qui resservira tel quel : le patin de charge reste colle sur la poutrelle.",
@@ -407,10 +403,10 @@ def main():
                % (p.COIN_ANGLE, p.VIS_D))
     out.append("| Course par tour | %.3f mm de coulisseau, environ %.0f N |" % (dz, df))
     e05, c05, t05 = p.coin_tours(500.0)
-    out.append("| Precharge de collage, 0,5 kN | %.2f tour de tige apres le contact (%.2f mm de pile, %.1f mm de coin) |"
+    out.append("| Precharge de collage, 0,5 kN | %.2f tour de vis apres le contact (%.2f mm de pile, %.1f mm de coin) |"
                % (t05, e05, c05))
     out.append("| Couple sur la vis a %g kN | %.1f N.m |" % (p.CHARGE_DIM / 1000.0, p.coin_couple()))
-    out.append("| Couple de serrage des vis M10 (V1, V9) | %g N.m |" % spec.COUPLE_M10)
+    out.append("| Couple de serrage des vis M10 (V1, V8) | %g N.m |" % spec.COUPLE_M10)
     psi, rho, marge = p.filet_marge()
     out.append("| Irreversibilite du filet | helice %.2f deg / frottement %.2f deg a mu %.2f (acier sur acier, pate cuivre), marge x%.2f |"
                % (psi, rho, p.VIS_MU_MIN, marge))
