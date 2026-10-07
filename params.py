@@ -130,9 +130,14 @@ ECROU_FREIN_H = 10.0      # ecrou ISO 7042 M10, hauteur maxi
 ECROU_FREIN_REF = "ISO 7042 classe 8, autofreine tout metal"
 ENTR_VIS_L = 100.0        # vis TH M10 x 100 : serrage 80, ecrou sur le filet, 10 de depassement
 ENTR_VIS_FILET = 26.0     # filetage partiel ISO 4014 : b = 2d + 6 pour L <= 125
-TRAVERSE_TIRANT_L = 90.0  # tige filetee M10 x 90 du paquet de traverse + 2 rondelles + 2 ecrous ISO 7042
-                          # (a 80, verifie() la refusait des 8,34 de tole mesuree ; a 90 elle couvre
-                          # toute la tolerance de livraison, 7,5 a 9,2)
+# PAQUET DE TRAVERSE (07/10/2026) : DEUX vis TH M10 a filetage total, comme les
+# V1 (tete, rondelle, paquet, rondelle, ecrou ISO 7042), et non plus une tige
+# filetee seule au milieu : deux vis tiennent les six plaques alignees entre
+# elles pour dresser le chant en paquet, a la fraise ou au papier abrasif sur
+# un marbre. Filetage TOTAL (ISO 4017) : une ISO 4014 M10 x 70 n a que 26 de
+# filet, son ecrou sortait du filet ou du bout selon la tole livree.
+TRAVERSE_TIRANT_L = 80.0  # vis H M10 x 80 ISO 4017 : couvre la tole livree de 7,5 a 9,2
+TRAVERSE_TIRANT_N = 2
 FILET_DEPASSE_MIN = 3.0   # 2 pas de M10 au dela de l ecrou : l element de freinage est en prise
 FILET_MARGE_MIN = 2.5     # l ecrou reste sur la partie filetee malgre les tolerances d empilement
 
@@ -589,7 +594,8 @@ TRAVERSE_R_PIED = 1.5     # degagement de pied de tenon (3 traits, poche de r.sq
 TRAVERSE_TAB_H = 20.0     # hauteur du tenon
 TRAVERSE_TAB_DEP = 2.0    # depassement du tenon hors du flanc
 TRAVERSE_COIFFE = 6.0     # matiere au dessus du tenon
-TRAVERSE_TIRANT_D = 11.0  # passage de la tige M10 x TRAVERSE_TIRANT_L qui serre les plaques entre elles
+TRAVERSE_TIRANT_D = 11.0  # passage des vis M10 x TRAVERSE_TIRANT_L qui serrent les plaques entre elles
+TRAVERSE_TIRANT_Y = 17.0  # de part et d autre du milieu : rondelle de 20 a 3 mm de la face du flanc
 # CHANT DU BAS FRAISE EN PAQUET : le DXF le decoupe avec TRAVERSE_SUREP de
 # surepaisseur (brut laser 65 / 39), le fraisage le ramene a la cote finie
 # (64 / 38) en referencant le paquet sur les faces HAUTES des tenons. Le modele
@@ -1259,11 +1265,11 @@ def boulonnerie():
                     serrage=s, ecrou=ECROU_FREIN_H,
                     depassement=ENTR_VIS_L - s - ECROU_FREIN_H,
                     marge_filet=s - (ENTR_VIS_L - ENTR_VIS_FILET)))
-    # tige du paquet de traverse : rondelle, six toles, rondelle, un ecrou a chaque bout
+    # vis du paquet de traverse : rondelle, six toles, rondelle, ecrou ; filetage total
     s = TRAVERSE_LX_REEL + 2.0 * RONDELLE_M10_E
-    out.append(dict(nom="tige filetee M10 x %.0f de traverse" % TRAVERSE_TIRANT_L,
+    out.append(dict(nom="vis de traverse H M10 x %.0f" % TRAVERSE_TIRANT_L,
                     L=TRAVERSE_TIRANT_L, serrage=s, ecrou=ECROU_FREIN_H,
-                    depassement=(TRAVERSE_TIRANT_L - s) / 2.0 - ECROU_FREIN_H,
+                    depassement=TRAVERSE_TIRANT_L - s - ECROU_FREIN_H,
                     marge_filet=None))
     # vis de chape
     s = SUPPORT_EMPILEMENT
@@ -1330,9 +1336,11 @@ def flexion_tenon():
 def flexion_traverse():
     """
     Corps d'une plaque de traverse : (contrainte, entraxe des appuis). Section
-    pleine de TRAVERSE_H percee du trou de tirant, appuis au milieu des portees
-    de tenon, charge de la plaque CONCENTREE au milieu (majorant : le bronze
-    l'etale en realite sur une cinquantaine de mm).
+    de TRAVERSE_H percee d'un trou de vis, prise AU MILIEU (majorant : les deux
+    trous sont a +/- TRAVERSE_TIRANT_Y, ou le moment est moindre, et le milieu
+    est plein), appuis au milieu des portees de tenon, charge de la plaque
+    CONCENTREE au milieu (majorant : le bronze l'etale en realite sur une
+    cinquantaine de mm).
     """
     b, h, d = TRAVERSE_EP, TRAVERSE_H, TRAVERSE_TIRANT_D
     zh = TRAVERSE_TIRANT_Z - Z_TRAVERSE_BAS

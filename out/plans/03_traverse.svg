@@ -30,15 +30,18 @@
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Aretes cassees 0,8 x 45 deg sur les deux faces APRES le fraisage (rainure en V de 1,6 a chaque joint, reserve de graisse),</text>
 <text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Chant fraise : planeite 0,05 sur le paquet, Ra 1,6 ; c est le plan de glissement de la plaque de bronze 06c, sans rectification.</text>
 <text x="408.000" y="228.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">12 tenons (2 cales de plus de 6 sous les tenons, la coiffe passe entre), fraise a 58 de ces faces.</text>
-<text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">CHANT DU BAS FRAISE EN PAQUET : les 6 plaques serrees sur le tirant V2, paquet retourne et pose sur les faces HAUTES des</text>
+<text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">CHANT DU BAS FRAISE EN PAQUET : les 6 plaques serrees par les 2 vis V2, paquet retourne et pose sur les faces HAUTES des</text>
 <text x="408.000" y="220.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Decoupe laser d apres traverse.dxf (calque DECOUPE) : le DXF est le BRUT, chant du bas descendu de 1 (65 de haut au lieu de 64).</text>
-<text x="408.000" y="216.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Matiere : S355JR, tole 8 mm du commerce : certificat 2.2 EN 10204 ; chant fraise frottant sur le bronze-graphite : admis a 7,6 MPa et a cette vitesse.</text>
+<text x="408.000" y="216.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Matiere : S355JR, tole 8 mm du commerce : certificat 2.2 EN 10204 ; chant fraise frottant sur le bronze, sous pate graphite : admis a 7,6 MPa et a cette vitesse.</text>
 <text x="115.000" y="20.000" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">03  PLAQUE DE TRAVERSE, VUE SELON X  (2:1)</text>
 <text x="115.000" y="24.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">ep. 8, 6 plaques identiques serrees en paquet</text>
 <path d="M 55.400 105.000 L 55.400 174.000 A 4.000 4.000 0 0 0 59.400 178.000 L 170.600 178.000 A 4.000 4.000 0 0 0 174.600 174.000 L 174.600 105.000 L 171.600 102.000 L 174.600 99.000 L 177.600 102.000 L 191.000 102.000 A 4.000 4.000 0 0 0 195.000 98.000 L 195.000 66.000 A 4.000 4.000 0 0 0 191.000 62.000 L 177.600 62.000 L 174.600 65.000 L 171.600 62.000 L 174.600 59.000 L 174.600 54.000 A 4.000 4.000 0 0 0 170.600 50.000 L 59.400 50.000 A 4.000 4.000 0 0 0 55.400 54.000 L 55.400 59.000 L 58.400 62.000 L 55.400 65.000 L 52.400 62.000 L 39.000 62.000 A 4.000 4.000 0 0 0 35.000 66.000 L 35.000 98.000 A 4.000 4.000 0 0 0 39.000 102.000 L 52.400 102.000 L 55.400 99.000 L 58.400 102.000 L 55.400 105.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 126.000 140.000 A 11.000 11.000 0 0 0 104.000 140.000 A 11.000 11.000 0 0 0 126.000 140.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 92.000 140.000 A 11.000 11.000 0 0 0 70.000 140.000 A 11.000 11.000 0 0 0 92.000 140.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 160.000 140.000 A 11.000 11.000 0 0 0 138.000 140.000 A 11.000 11.000 0 0 0 160.000 140.000 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="115.000" y1="181.000" x2="115.000" y2="47.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
-<line x1="43.200" y1="140.000" x2="129.000" y2="140.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="43.200" y1="140.000" x2="163.000" y2="140.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="81.000" y1="154.000" x2="81.000" y2="126.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="149.000" y1="154.000" x2="149.000" y2="126.000" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
 <line x1="55.400" y1="49.000" x2="55.400" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="174.600" y1="49.000" x2="174.600" y2="40.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="55.400" y1="42.000" x2="174.600" y2="42.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
@@ -76,10 +79,16 @@
 <path d="M 45.200 178.000 L 45.928 175.400 L 44.472 175.400 Z" fill="#000"/>
 <path d="M 45.200 140.000 L 44.472 142.600 L 45.928 142.600 Z" fill="#000"/>
 <text x="43.600" y="159.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 43.600 159.000)">19</text>
-<line x1="109.500" y1="149.526" x2="87.287" y2="188.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 109.500 149.526 L 107.570 151.414 L 108.830 152.142 Z" fill="#000"/>
-<line x1="87.287" y1="188.000" x2="81.287" y2="188.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<text x="80.287" y="189.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">diam. 11 : passage du tirant V2</text>
+<line x1="81.000" y1="139.000" x2="81.000" y2="108.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="149.000" y1="139.000" x2="149.000" y2="108.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="81.000" y1="110.000" x2="149.000" y2="110.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 81.000 110.000 L 83.600 110.728 L 83.600 109.272 Z" fill="#000"/>
+<path d="M 149.000 110.000 L 146.400 109.272 L 146.400 110.728 Z" fill="#000"/>
+<text x="103.000" y="108.400" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">34</text>
+<line x1="75.500" y1="149.526" x2="53.287" y2="188.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 75.500 149.526 L 73.570 151.414 L 74.830 152.142 Z" fill="#000"/>
+<line x1="53.287" y1="188.000" x2="47.287" y2="188.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="46.287" y="189.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">2 x diam. 11 : vis V2</text>
 <line x1="143.000" y1="178.000" x2="153.000" y2="188.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <path d="M 143.000 178.000 L 144.324 180.353 L 145.353 179.324 Z" fill="#000"/>
 <line x1="153.000" y1="188.000" x2="159.000" y2="188.000" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>

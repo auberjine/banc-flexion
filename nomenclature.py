@@ -50,7 +50,7 @@ def visserie():
     n_chape = len(p.TROU_SUPPORT)
     n_cadre = P.n_entretoises() - n_chape
     tole_max_v2 = ((p.TRAVERSE_TIRANT_L - 2.0 * p.RONDELLE_M10_E
-                    - 2.0 * (p.ECROU_FREIN_H + p.FILET_DEPASSE_MIN)) / p.TRAVERSE_N)
+                    - p.ECROU_FREIN_H - p.FILET_DEPASSE_MIN) / p.TRAVERSE_N)
     return [
         ("V1", "Vis TH M10 x %g ISO 4014 8.8 zinguee + ecrou %s + 2 rondelles ISO 7089 M10"
          % (p.ENTR_VIS_L, p.ECROU_FREIN_REF), n_cadre,
@@ -60,12 +60,14 @@ def visserie():
          " dilatation que les flancs, la precharge tient a chaud"
          % (spec.entretoises_de_cadre(), fr(v1["serrage"]), fr(v1["marge_filet"]),
             fr(v1["depassement"]), spec.COUPLE_M10)),
-        ("V2", "Tige filetee M10 x %g classe 8.8 + 2 rondelles ISO 7089 M10 + 2 ecrous %s"
-         % (p.TRAVERSE_TIRANT_L, p.ECROU_FREIN_REF), 1,
-         "tirant du paquet de plaques de traverse, ne reprend aucune charge. Serrage %s, depasse"
-         " de %s a chaque bout. Tole mesuree au dela de %s : prendre une M10 x %g (verifie() le"
-         " signale)"
-         % (fr(v2["serrage"]), fr(v2["depassement"]), fr(tole_max_v2, 2), p.TRAVERSE_TIRANT_L + 10)),
+        ("V2", "Vis H M10 x %g ISO 4017 8.8 zinguee (filetage total) + ecrou %s + 2 rondelles"
+         " ISO 7089 M10" % (p.TRAVERSE_TIRANT_L, p.ECROU_FREIN_REF), p.TRAVERSE_TIRANT_N,
+         "paquet de plaques de traverse, a y = +/- %s : les deux vis tiennent les plaques alignees"
+         " pour dresser le chant en paquet ; elles ne reprennent aucune charge. Serrage %s, la vis"
+         " depasse de l ecrou de %s ; %g N.m. Tole mesuree au dela de %s : prendre des M10 x %g"
+         " (verifie() le signale)"
+         % (fr(p.TRAVERSE_TIRANT_Y), fr(v2["serrage"]), fr(v2["depassement"]), spec.COUPLE_M10,
+            fr(tole_max_v2, 2), p.TRAVERSE_TIRANT_L + 10)),
         ("V3", "Vis H M%g x %g ISO 4017 8.8 zinguee + rondelle ISO 7089 M%g + ecrou ISO 7042 M%g"
          " classe 8 tout metal" % (p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L, p.POUSSOIR_VIS_D,
                                    p.POUSSOIR_VIS_D), 2,
@@ -155,9 +157,9 @@ def ordre_de_montage():
         " (chape, x = +/- %g). Enfiler une entretoise de %g sur chacune des %d vis."
         % (CALE_SOUS_FLANC, n_entr - n_chape, spec.entretoises_de_cadre(), n_chape, p.SUPPORT_X,
            p.ENTRETOISE_L, n_entr),
-        "**Traverse.** Engager dans la mortaise le paquet des %d plaques, serre par la tige V2"
-        " (rondelles et ecrous ISO 7042) ; chants fraises du cote du coin."
-        % p.TRAVERSE_N,
+        "**Traverse.** Engager dans la mortaise le paquet des %d plaques, serre par les deux vis V2"
+        " (rondelle sous tete et sous ecrou ISO 7042, %g N.m) ; chants dresses du cote du coin."
+        % (p.TRAVERSE_N, spec.COUPLE_M10),
         "**Poutrelle.** La coucher dans la fenetre du flanc, plats vers les bossages, SANS ses"
         " patins d appui, sur cales de %s sous sa face laterale (elle descend de %s sous le flanc)."
         % (fr(cale_poutre), fr(p.POUTRE_B / 2.0 - p.Y_FLANC_EXT)),

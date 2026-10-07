@@ -406,7 +406,7 @@ marge et le bout depasser de 3 pour que le freinage soit en prise.
 | boulonnerie | serrage | ecrou | depassement | marge de filet |
 |---|---|---|---|---|
 | vis de cadre TH M10 x 100 | 80.0 | 10 | 10.0 | 6.0 |
-| tige filetee M10 x 90 de traverse | 52.0 | 10 | 9.0 | - |
+| vis de traverse H M10 x 80 | 52.0 | 10 | 18.0 | - |
 | vis de chape H M10 x 200 | 173.5 | 16.8 | 9.7 | 5.5 |
 
 Ecrous de cadre et de traverse : ISO 7042 classe 8, autofreine tout metal. Pas d'ecrou a bague polyamide
@@ -433,7 +433,7 @@ Masses du modele 3D (out/masses.json, construit le 07/10/2026).
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
 | Flanc en treillis | 2 | 10.21 kg | 20.41 kg |
-| Plaque de traverse | 6 | 0.26 kg | 1.54 kg |
+| Plaque de traverse | 6 | 0.25 kg | 1.50 kg |
 | Plateau de poussoir | 3 | 0.33 kg | 0.97 kg |
 | Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |

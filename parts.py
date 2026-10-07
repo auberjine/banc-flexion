@@ -293,7 +293,7 @@ def traverse_profile(brut=False):
     brut=False : la plaque FINIE (3D, plans, calculs).
     brut=True  : la plaque telle que la decoupe le laser, chant du bas abaisse
     de TRAVERSE_SUREP (brut 65 / 39), que le fraisage en paquet ramene a la
-    cote finie (64 / 38). Seul ce chant bouge : tenons, coiffe et trou de tirant
+    cote finie (64 / 38). Seul ce chant bouge : tenons, coiffe et trous de vis
     restent a leur place. C'est le profil du DXF (PartSpec.dxf_profile).
     """
     yb = p.ECART_FLANCS / 2.0 - p.TRAVERSE_JEU_Y / 2.0   # epaulement sur la face interieure
@@ -317,7 +317,8 @@ def traverse_profile(brut=False):
         c.add(sy * yb, tb if sy > 0 else ta, p.TRAVERSE_R_PIED, relief='diag')
         if sy > 0:
             c.add(yb, z1, 2.0)
-    holes = [G.circle(0.0, p.TRAVERSE_TIRANT_Z, p.TRAVERSE_TIRANT_D / 2.0)]
+    holes = [G.circle(sy * p.TRAVERSE_TIRANT_Y, p.TRAVERSE_TIRANT_Z, p.TRAVERSE_TIRANT_D / 2.0)
+             for sy in (-1.0, 1.0)]
     return c.build(), holes
 
 

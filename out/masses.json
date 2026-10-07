@@ -14,9 +14,9 @@
    "nom": "traverse",
    "designation": "Plaque de traverse",
    "qte": 6,
-   "volume_cm3": 32.64,
-   "masse_kg": 0.256,
-   "masse_totale_kg": 1.538,
+   "volume_cm3": 31.86,
+   "masse_kg": 0.25,
+   "masse_totale_kg": 1.501,
    "matiere": "S355JR",
    "brut": "tole 8 mm, cert. 2.2"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.6,
- "cadre_kg": 34.39,
+ "total_kg": 56.57,
+ "cadre_kg": 34.35,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "07/10/2026",
- "empreinte": "c46163b7d335e011"
+ "empreinte": "eb34e26e34f70d4d"
 }

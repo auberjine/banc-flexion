@@ -995,7 +995,7 @@ def plan_traverse():
     st = SP["traverse"]
     f = D.fmt
     vis = [t[0] for t in N.visserie()
-           if "M10 x %g" % p.TRAVERSE_TIRANT_L in t[1] and "ige" in t[1]]
+           if "M10 x %g" % p.TRAVERSE_TIRANT_L in t[1] and "paquet" in t[3]]
     vis = vis[0] if vis else "V?"
 
     # ---------------------------------------------------------------- valeurs
@@ -1014,12 +1014,12 @@ def plan_traverse():
     n_joints = int(round((p.PLAQ_B - p.portee_coin()) / (2.0 * p.CHANFREIN)))
 
     notes = [
-        "Matiere : %s ; chant fraise frottant sur le bronze-graphite : admis a %s MPa et a cette vitesse."
+        "Matiere : %s ; chant fraise frottant sur le bronze, sous pate graphite : admis a %s MPa et a cette vitesse."
         % (p.EXIGENCE_TOLE_COURANTE, f(p.pressions_plaquettes()[0])),
         "Decoupe laser d apres %s.dxf (calque DECOUPE) : le DXF est le BRUT, chant du bas descendu"
         " de %s (%s de haut au lieu de %s)."
         % (st.name, f(p.TRAVERSE_SUREP), f(p.TRAVERSE_H + p.TRAVERSE_SUREP), f(p.TRAVERSE_H)),
-        "CHANT DU BAS FRAISE EN PAQUET : les %d plaques serrees sur le tirant %s, paquet retourne et"
+        "CHANT DU BAS FRAISE EN PAQUET : les %d plaques serrees par les 2 vis %s, paquet retourne et"
         " pose sur les faces HAUTES des" % (st.qty, vis),
         "%d tenons (2 cales de plus de %s sous les tenons, la coiffe passe entre), fraise a %s de ces"
         " faces." % (2 * st.qty, f(p.TRAVERSE_COIFFE), f(tb - z0)),
@@ -1046,9 +1046,12 @@ def plan_traverse():
     for h in trous:
         v.contour(h)
     t03_axe(v, (0.0, z0), (0.0, z1), 3.0, 3.0)
-    # axe du trou, prolonge a gauche jusqu'a la ligne de cote du 19
+    # axe des trous, prolonge a gauche jusqu'a la ligne de cote du 19
     x19 = -(yb + yt) / 2.0
-    t03_axe(v, (-rh, zh), (rh, zh), (-rh - x19) * k + 2.0, 3.0)
+    yh = p.TRAVERSE_TIRANT_Y
+    t03_axe(v, (-yh - rh, zh), (yh + rh, zh), (-yh - rh - x19) * k + 2.0, 3.0)
+    for sy in (-1.0, 1.0):
+        t03_axe(v, (sy * yh, zh - rh), (sy * yh, zh + rh), 3.0, 3.0)
 
     # selon y, au-dessus : epaulements, puis bouts de tenon
     v.cote_hx(-yb, yb, z1, z1, 0.0, zl=z1 + 4.0)
@@ -1060,12 +1063,13 @@ def plan_traverse():
     v.cote_vx(ta, tb, None, None, 0.0, xl=yt + 4.0,
               texte="%s +/-%s" % (f(tb - ta), f(T03_TOL_TENON)))
     v.cote_vx(z0, tb, yb, yt, 0.0, xl=yt + 8.0)
-    # trou du tirant, a gauche
+    # trous des vis, a gauche ; leur entraxe au-dessus
     v.cote_vx(z0, zh, -yb, None, 0.0, xl=x19)
+    v.cote_hx(-yh, yh, zh, zh, 0.0, zl=zh + 2.0 * rh + 4.0, dt=-12.0)
     a240 = math.radians(240.0)
-    q = (rh * math.cos(a240), zh + rh * math.sin(a240))
+    q = (-yh + rh * math.cos(a240), zh + rh * math.sin(a240))
     dh = (q[1] - z0) * k + 10.0                  # descend 10 mm sous le chant
-    v.renvoi(q, "diam. %s : passage du tirant %s" % (f(2.0 * rh), vis),
+    v.renvoi(q, "2 x diam. %s : vis %s" % (f(2.0 * rh), vis),
              -dh * math.tan(math.radians(30.0)), dh, fin="fleche")
     v.renvoi((14.0, z0), "chant FRAISE EN PAQUET : plan de glissement", 10.0, 10.0, fin="fleche")
     t03_appel(v, (yb, ta), 5.0, "A", -40.0)
@@ -2139,9 +2143,9 @@ def plan_assemblage():
         % (pile.stock, D.fmt(p.RESSORT_F_PLAT / 1000.0, 1), D.fmt(p.PILE_COURSE, 1)),
         "Lecture de charge : %s mm de coulisseau a %s kN."
         % (D.fmt(p.PILE_ECRAS_DIM, 2), D.fmt(p.CHARGE_DIM / 1000.0)),
-        "Reglage par coin acier a %s deg et tige M%s normale aux flancs :"
+        "Reglage par coin acier a %s deg et vis M%s normale aux flancs :"
         % (D.fmt(p.COIN_ANGLE), D.fmt(p.VIS_D)),
-        "%s mm de coulisseau et environ %.0f N par tour de tige." % (D.fmt(cpt[0], 3), cpt[1]),
+        "%s mm de coulisseau et environ %.0f N par tour de vis." % (D.fmt(cpt[0], 3), cpt[1]),
         "Hors tout couche sur pieds : %s x %s x %s (x, y, z) ; flancs %s."
         % (D.fmt(p.L_FLANC), D.fmt(p.PIED_Y), D.fmt(p.H_FLANC + p.PIED_SOL),
            D.fmt(p.ECART_FLANCS + 2 * p.EP_FLANC)),
@@ -2342,7 +2346,9 @@ def plan_assemblage():
     v3.zone([rect(p.PLAQ_HAUT_Y0, p.Z_COIN_HAUT, p.PLAQ_HAUT_Y1, p.Z_TRAVERSE_BAS, 0)], "a00_hc")
     tr, th = P.traverse_profile()
     v3.zone([tr] + th, "a00_hb")
-    v3.zone([G.circle(0.0, p.TRAVERSE_TIRANT_Z, p.SUPPORT_TIRANT_D / 2.0)], "a00_ha", w=MOY)
+    for sy in (-1.0, 1.0):                         # les deux vis V2, coupees
+        v3.zone([G.circle(sy * p.TRAVERSE_TIRANT_Y, p.TRAVERSE_TIRANT_Z, p.SUPPORT_TIRANT_D / 2.0)],
+                "a00_ha", w=MOY)
     for i in range(p.SUPPORT_N):
         y0 = p.COIN_Y_SUPPORT + i * p.SUPPORT_EP
         mot = "a00_ha" if i % 2 == 0 else "a00_hb"
@@ -2405,7 +2411,7 @@ def plan_assemblage():
     bul(v3, (-22.0, p.Z_POUSSOIR_BAS + 12.0), ob + 111.0, 254.0, R["poussoir"])
     bul(v3, (-45.0, p.Z_POUTRE_HAUT + 5.0), ob + 111.0, 262.0, R["patin_charge"])
     # a droite
-    bul(v3, (0.0, p.TRAVERSE_TIRANT_Z), ob + 182.0, 166.0, "V2")
+    bul(v3, (p.TRAVERSE_TIRANT_Y, p.TRAVERSE_TIRANT_Z), ob + 182.0, 166.0, "V2")
     bul(v3, (60.0, zv + 5.0), ob + 182.0, 176.0, R["vis"])
     bul(v3, (70.0, zv + (p.VIS_D + p.ENTRETOISE_DE) / 4.0), ob + 191.0, 176.0, R["entretoise_vis"])
     bul(v3, (yi + p.SUPPORT_EP / 2.0, p.SUPPORT_Z1 - 7.5), ob + 200.0, 176.0, R["support"])
@@ -2418,10 +2424,10 @@ def plan_assemblage():
     bul(v3, pv5, v3.P(pv5)[0], 240.0, "V5")
     bul(v3, (p.Y_BOUT_TIRANT - 2.0, zv + 3.0), ob + 230.0, 214.0, "V8")
     s.text(124.0, 270.0, "Le coin AVANCE VERS LA CHAPE en chargeant ; repousse vers son bout epais, il TIRE"
-           " la tige vers l interieur :", 2.9, "middle")
+           " la vis vers l interieur :", 2.9, "middle")
     s.text(124.0, 274.5, "la tete appuie, par la butee a aiguilles, sur la face exterieure des %d platines ;"
-           " monte a l envers, la tige ne retiendrait rien." % p.SUPPORT_N, 2.9, "middle")
-    s.text(124.0, 279.0, "Douille sur la tete : %s mm devant le bout de tige dans l etuve de %s%s, %s de"
+           " monte a l envers, la vis ne retiendrait rien." % p.SUPPORT_N, 2.9, "middle")
+    s.text(124.0, 279.0, "Douille sur la tete : %s mm devant la tete de vis dans l etuve de %s%s, %s de"
            " marge pour le decentrage du cadre."
            % (D.fmt(p.DEGAGEMENT_DOUILLE), D.fmt(p.ETUVE_Y, 1), a_conf, D.fmt(p.ETUVE_GARDE)),
            2.9, "middle")
@@ -2446,7 +2452,7 @@ def plan_assemblage():
     D.table(s, 322.0, 152.5, "NIVEAUX (z depuis le chant bas des flancs)",
             ["rep.", "piece", "z bas", "z haut"],
             [(r_, n_, D.fmt(a_, 1), D.fmt(b_, 1)) for (r_, n_, a_, b_) in lignes]
-            + [(R["vis"], "tige M%s : axe" % D.fmt(p.VIS_D), D.fmt(zv, 1), "")],
+            + [(R["vis"], "vis M%s : axe" % D.fmt(p.VIS_D), D.fmt(zv, 1), "")],
             [10.0, 52.0, 12.0, 12.0], h=4.2)
 
     # ================================================== perspective

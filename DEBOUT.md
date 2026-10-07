@@ -218,9 +218,10 @@ cote. Essaye sur le flanc de 10, il creusait une entaille au bout meme de la
 ligne d'appui : 209 MPa au lieu de 130.
 
 Il n'y a plus ni barreau 60 x 45, ni quatre taraudages, ni quatre vis, ni
-quatre trous dans le flanc. Une tige filetee M10 x 90 tient le paquet au
-montage ; elle ne reprend aucune charge. Le chant du bas est fraise **les
-plaques serrees en paquet**, en une seule passe, alignees sur les faces hautes
+quatre trous dans le flanc. Deux vis H M10 x 80 a filetage total, a 34
+d'entraxe, tiennent le paquet ; elles ne reprennent aucune charge, mais a deux
+elles gardent les plaques alignees. Le chant du bas est fraise (ou dresse au
+papier abrasif sur un marbre) **les plaques serrees en paquet**, en une seule passe, alignees sur les faces hautes
 des tenons ; le DXF porte 1 mm de surepaisseur sur ce chant.
 
 Le paquet pese 1,54 kg. Ses plaques font 64 de haut parce que la mortaise est a
