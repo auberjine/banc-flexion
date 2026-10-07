@@ -214,7 +214,7 @@ qui travaille en traction.
 | Alignement du poussoir | les 3 plateaux sont visses en bloc ; le bloc n'est pas localise sur le patin : c'est le tourillon, colle dans le coulisseau, qui le centre (jeu 0.4 dans l'alesage 25.4 des plateaux), et le patin de charge est colle centre au trace |
 | Patin de charge, encombrement | 58 x 100 x 10 sans trou : sa longueur selon x laisse passer les tetes des vis du poussoir ; 2.07 MPa sur le beton a 12 kN |
 | Tourillon | C45+C, rond etire 25 h9 x 79.5 non repris, COLLE au fond du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; dans le poussoir : 7.9 au repos, 4.9 avec les cales, 4.3 de garde au dessus du patin a la butee |
-| Vis de commande | vis H M16 x 160 ISO 4017 8.8 zinguee, filetee jusqu a la tete, immobile axialement dans la chape, le coin est son ecrou |
+| Vis de commande | vis H M16 x 160 ISO 4017 8.8 brute, filetee jusqu a la tete, immobile axialement dans la chape, le coin est son ecrou |
 | Butee de course | bas de la lumiere, interdit l'aplatissement de la pile |
 
 ## 7 bis. Commande par coin

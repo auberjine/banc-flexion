@@ -98,7 +98,7 @@
    "masse_kg": 0.353,
    "masse_totale_kg": 0.353,
    "matiere": "8.8",
-   "brut": "vis H M16 x 160 ISO 4017 8.8 zinguee, filetee jusqu a la tete"
+   "brut": "vis H M16 x 160 ISO 4017 8.8 brute, filetee jusqu a la tete"
   },
   {
    "nom": "support",
@@ -206,5 +206,5 @@
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "07/10/2026",
- "empreinte": "98ba9afb77e2e941"
+ "empreinte": "c46163b7d335e011"
 }

@@ -40,7 +40,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | rep | designation | qte | reference | matiere | masse u. | remarque |
 |---|---|---|---|---|---|---|
 | 02f | Vis de guidage CHC M8 x 12 | 4 | CHC M8 x 12 ISO 4762 8.8, tete lisse (non moletee) | 8.8 | 0.01 kg | piece du commerce ; 12 sous tete, toute la tige dans le taraudage de 16 ; c est la TETE (13 x 8) qui guide : cylindre sur plan, contact lineique |
-| 02d | Vis de commande H M16 x 160 | 1 | vis H M16 x 160 ISO 4017 8.8 zinguee, filetee jusqu a la tete | 8.8 | 0.35 kg | piece du commerce, filetee jusqu a la tete, montee a la pate cuivre ; tete de 10 (douille de 24) sur la butee ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
+| 02d | Vis de commande H M16 x 160 | 1 | vis H M16 x 160 ISO 4017 8.8 brute, filetee jusqu a la tete | 8.8 | 0.35 kg | piece du commerce, filetee jusqu a la tete, montee a la pate cuivre ; tete de 10 (douille de 24) sur la butee ; ecrous et butee figures : ils montrent l arret axial dans les deux sens |
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
 | 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles EN 16983 A50 | 51CrV4 (1.8159) | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 (ex-DIN 2093, PAS en C60S) montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 

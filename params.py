@@ -522,7 +522,10 @@ VIS_H1 = 0.541266 * VIS_PAS   # hauteur de recouvrement des flancs
 VIS_L = 160.0             # longueur sous tete, ISO 4017 M16 x 160
 VIS_TETE_D = 24.0         # surplats de tete H M16 (s), douille de 24
 VIS_TETE_H = 10.0         # hauteur de tete H M16 (k)
-VIS_REF = "vis H M16 x %g ISO 4017 8.8 zinguee, filetee jusqu a la tete" % VIS_L
+# 8.8 BRUTE (noire, phosphatee huilee), PAS zinguee comme les M10 : c est une vis
+# de manoeuvre, le zinc s arracherait des flancs sous charge et finirait en
+# paillettes dans le taraudage ; la pate cuivre protege deja le filet.
+VIS_REF = "vis H M16 x %g ISO 4017 8.8 brute, filetee jusqu a la tete" % VIS_L
 VIS_PASSAGE_D = 18.0
 # Frottement du FILET de commande : tige 8.8 dans le taraudage du coin en C45,
 # acier sur acier, monte a la pate cuivre. Pour l'irreversibilite, le cas
