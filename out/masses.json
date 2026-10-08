@@ -94,9 +94,9 @@
    "nom": "vis",
    "designation": "Vis de commande H M16 x 160",
    "qte": 1,
-   "volume_cm3": 44.96,
-   "masse_kg": 0.353,
-   "masse_totale_kg": 0.353,
+   "volume_cm3": 43.95,
+   "masse_kg": 0.345,
+   "masse_totale_kg": 0.345,
    "matiere": "8.8",
    "brut": "vis H M16 x 160 ISO 4017 8.8 brute, filetee jusqu a la tete"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.57,
- "cadre_kg": 34.35,
+ "total_kg": 56.56,
+ "cadre_kg": 34.34,
  "indice": "B",
  "date": "05/10/2026",
- "date_calcul": "07/10/2026",
- "empreinte": "218806c27e5979dd"
+ "date_calcul": "08/10/2026",
+ "empreinte": "79fb15388278d167"
 }

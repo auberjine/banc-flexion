@@ -571,8 +571,8 @@ def main():
       % (p.coin_effort() / 1000.0))
     a("la vis doit les fournir. La face inclinee repousse le coin vers son bout")
     a("EPAIS : le filet tire donc la vis vers l'INTERIEUR du cadre, et sa tete")
-    a("vient appuyer sur la FACE EXTERIEURE des platines, a travers la butee a")
-    a("aiguilles. Cote interieur, deux rondelles trempees et deux ecrous minces ne")
+    a("vient appuyer sur la FACE EXTERIEURE des platines, a travers deux rondelles")
+    a("trempees graissees. Cote interieur, deux autres et deux ecrous minces ne")
     a("reprennent que l'effort de desserrage : %.0f N a un frottement de %.2f, quand"
       % (p.coin_desserrage(), p.COIN_MU))
     a("le coin est autobloquant ; en dessous de %.3f la charge le chasse d'elle-meme"
@@ -581,8 +581,8 @@ def main():
     a("")
     a("Monte a l'envers, le coin s'eloignerait de la chape en chargeant : la vis")
     a("serait tiree hors de son alesage et ne pousserait rien. Il faudrait alors")
-    a("loger la butee a aiguilles entre les platines et le bout du coin, ou elle")
-    a("ne tient pas. Le controle des cotes refuse ce sens.")
+    a("loger la butee entre les platines et le bout du coin, ou elle ne tient")
+    a("pas. Le controle des cotes refuse ce sens.")
     a("")
 
     a("### Position de repos du coin")
@@ -629,7 +629,8 @@ def main():
     a("| Serrage sous tete | %.1f mm, filet a partir de %.0f : ecrou sur le filet avec %.1f de marge, %.1f de depassement |"
       % (v9["serrage"], p.SUPPORT_TIRANT_L - p.SUPPORT_TIRANT_FILET, v9["marge_filet"], v9["depassement"]))
     a("| Serrage | %g N.m, aucun taraudage : les vis traversent les deux flancs |" % COUPLE_M10)
-    a("| Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la vis |")
+    a("| Butee sous la tete | 2 rondelles trempees AS 1730, %s entre elles, a plat sur la face EXTERIEURE ; frottement %.2f compte dans le couple |"
+      % (p.PLAQ_LUBRIFIANT, p.SUPPORT_BUTEE_MU))
     a("| Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, %.0f mm, desserrage seulement |"
       % (p.SUPPORT_RONDELLE + p.SUPPORT_ECROU_H))
     a("| Tete de la vis | dessus a y %.0f, soit %.0f mm de degagement pour la douille, cadre decentre au pire dans l'etuve de %g (%.0f centre) |"

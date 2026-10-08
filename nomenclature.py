@@ -83,9 +83,10 @@ def visserie():
          "cote interieur des platines, sous les ecrous V7 : deux empilees font les %g mm de"
          " rondelle trempee (une rondelle trempee 30 x 2 n existe pas en M16)"
          % p.SUPPORT_RONDELLE),
-        ("V6", "Butee a aiguilles AXK 1730 + 2 rondelles AS 1730", 1,
-         "face EXTERIEURE des platines : c est elle qui encaisse les %.1f kN de commande"
-         % (p.coin_effort() / 1000.0)),
+        ("V6", "Rondelle trempee AS 1730 (17 x 30 x 1) : MEME ARTICLE QUE V5", 2,
+         "sous la tete de la vis de commande, face EXTERIEURE des platines : elles encaissent les"
+         " %.1f kN de commande ; %s entre elles, la tete tourne dessus"
+         % (p.coin_effort() / 1000.0, p.PLAQ_LUBRIFIANT)),
         ("V7", "Ecrou M16 HM ISO 4035", 2,
          "bloques l un sur l autre cote interieur des platines, sur les rondelles V5, avec 0,1 a"
          " 0,3 de jeu axial : ils ne retiennent la vis qu au desserrage, %.0f N"
@@ -135,7 +136,7 @@ def ordre_de_montage():
         " dessus, serrer a %g N.m. Le poussoir est desormais un bloc ; il sert a toutes les"
         " eprouvettes." % (p.POUSSOIR_N, p.TOURILLON_D, p.POUSSOIR_VIS_COUPLE),
         "**Sous-ensemble de chape, sur l etabli.** Sur la vis H M16 x %g (%s), enfiler sous la"
-        " tete une rondelle AS, la butee AXK 1730 et la seconde AS (V6), les deux platines, les"
+        " tete les deux rondelles AS (V6), pate graphite entre elles, les deux platines, les"
         " deux rondelles trempees (V5), puis visser les deux ecrous HM (V7) : 0,1 a 0,3 mm de jeu"
         " axial, contre-bloquer. Pate cuivre sur le filet de la vis."
         % (p.VIS_L, R_VIS),

@@ -868,7 +868,7 @@ def f_vis(solid, Part, Vector):
     Tete de la vis H M16 et ce qui immobilise la vis dans la chape, DANS LES
     DEUX SENS :
 
-      - cote exterieur, la butee a aiguilles puis la tete de la vis (VIS_TETE_H).
+      - cote exterieur, deux rondelles AS 1730 graissees puis la tete de la vis.
         C'est cette face qui encaisse l'effort de commande
         (coin_effort, 5,5 kN) : en chargeant, le coin avance vers la chape, la
         face inclinee le repousse vers son bout epais, le filet tire donc la

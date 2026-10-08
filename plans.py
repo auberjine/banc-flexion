@@ -1864,7 +1864,7 @@ def plan_chape():
                                f(p.SUPPORT_R_CONGE), f(bz1 - bz0, 2)),
         "%s : %s %s, coupe a la longueur cotee, les %d a la meme butee, faces dressees."
         % (r07b, p.ENTRETOISE_BRUT, st.material, st.qty),
-        "Commande %s kN : le coin tire la vis, sa tete pousse la butee V6 ; platines et %s comprimees ;"
+        "Commande %s kN : le coin tire la vis, sa tete pousse les rondelles V6 ; platines et %s comprimees ;"
         " V8 : %s N au desserrage." % (f(p.coin_effort() / 1000.0), r07b, f(p.coin_desserrage(), 0)),
         "Platine : %s MPa en flexion, coefficient %s a 20 C et %s a 150 C, fleche %s mm."
         % (f(sig, 0), c07_dec(p.RE_TOLE / sig), c07_dec(p.RE_TOLE_CHAUD / sig), f(fle, 2)),
@@ -2011,7 +2011,7 @@ def plan_chape():
     for k in range(2):                             # V5 : deux rondelles AS
         y0_ = yi - p.SUPPORT_RONDELLE + k * as_
         m.contour(c07_rect(-rbu, y0_, rbu, y0_ + as_))
-    for (y0_, y1_) in ((ye, ye + as_), (ye + as_, y_tt - as_), (y_tt - as_, y_tt)):   # V6
+    for (y0_, y1_) in ((ye, ye + as_), (ye + as_, y_tt)):                          # V6
         m.contour(c07_rect(-rbu, y0_, rbu, y1_))
     m.contour(c07_rect(-rv, y_tt, rv, y_tt + p.VIS_TETE_H))     # tete H de la vis
     m.axe((0.0, p.VIS_Y0), (0.0, p.Y_BOUT_VIS))
@@ -2045,7 +2045,7 @@ def plan_chape():
         (r07, "platine de butee (ci-dessus)", sp.qty),
         (R["vis"], "vis H M%s x %s ISO 4017, filetage total" % (f(p.VIS_D), f(p.VIS_L)), SP["vis"].qty),
         ("V5", c07_min(VS["V5"][1]), VS["V5"][2]),
-        ("V6", c07_min(VS["V6"][1]), VS["V6"][2]),
+        ("V6", "rondelle trempee AS 1730, sous la tete", VS["V6"][2]),
         ("V7", c07_min(VS["V7"][1]), VS["V7"][2]),
         ("V8", "vis H M10 x %s + 2 ecrous + %d rondelles" % (f(p.SUPPORT_TIRANT_L), 1 + nron), VS["V8"][2]),
     ]
@@ -2425,7 +2425,7 @@ def plan_assemblage():
     bul(v3, (p.Y_BOUT_TIRANT - 2.0, zv + 3.0), ob + 230.0, 214.0, "V8")
     s.text(124.0, 270.0, "Le coin AVANCE VERS LA CHAPE en chargeant ; repousse vers son bout epais, il TIRE"
            " la vis vers l interieur :", 2.9, "middle")
-    s.text(124.0, 274.5, "la tete appuie, par la butee a aiguilles, sur la face exterieure des %d platines ;"
+    s.text(124.0, 274.5, "la tete appuie, par deux rondelles trempees, sur la face exterieure des %d platines ;"
            " monte a l envers, la vis ne retiendrait rien." % p.SUPPORT_N, 2.9, "middle")
     s.text(124.0, 279.0, "Douille sur la tete : %s mm devant la tete de vis dans l etuve de %s%s, %s de"
            " marge pour le decentrage du cadre."

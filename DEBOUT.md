@@ -51,7 +51,7 @@ que selon y, et l'axe de la vis reste fixe.
 | Taraudage | M16 sur 80 mm depuis le bout epais, passage a 18 au dela |
 | Course utile | 56,5 mm selon y |
 | Effort moteur a 12 kN | 5,5 kN |
-| Couple sur la tige | 9,4 N.m |
+| Couple sur la vis | 14,5 N.m, dont 5,7 de frottement sous la tete |
 | Course par tour | 0,425 mm de coulisseau, environ 549 N |
 | Pression de contact, fin de course | 7,6 MPa en haut (30 nets x 52,8), 6,2 en bas (38 x 50,6) |
 | Guidage | 4 tetes de CHC M8 x 12, diametre 13, dans des lumieres de 14 |
@@ -109,9 +109,9 @@ marge x2,1).
 
 La commande est une vis H M16 x 160 ISO 4017 filetee jusqu'a la tete (07/10/2026,
 a la place d'une tige filetee coiffee de deux ecrous bloques) : la tete forgee
-ne se debloque pas et ne fait que 10 de haut. Son dessus est a y 139,5. En
-profondeur la chambre fait 528,4 : cadre centre, il reste 125 mm jusqu'a la
-paroi ; 115 en comptant 10 de garde (5 de jeu des pieds de 518,4, plus 5 de
+ne se debloque pas et ne fait que 10 de haut. Son dessus est a y 137,5. En
+profondeur la chambre fait 528,4 : cadre centre, il reste 127 mm jusqu'a la
+paroi ; 117 en comptant 10 de garde (5 de jeu des pieds de 518,4, plus 5 de
 marge). Une douille de 24 et un cliquet y passent. Une douille SEULEMENT : les
 vis de chape depassent de leur ecrou jusqu'a y 160, a 52 mm de l'axe de la vis
 et dans son plan ; une cle plate posee sur la tete bute dessus a chaque tour.
@@ -126,14 +126,13 @@ L'equilibre du coin le dit : la composante horizontale de la reaction du
 coulisseau, plus les deux frottements, valent 5,5 kN, et c'est la tige qui doit
 les fournir. La face inclinee repousse le coin vers son bout EPAIS : le filet
 tire donc la tige vers l'**interieur** du cadre, et sa tete vient appuyer sur
-la **face exterieure** des platines, a travers la butee a aiguilles. Cote
-interieur, deux rondelles trempees et deux ecrous minces ne reprennent que le
+la **face exterieure** des platines, a travers deux rondelles trempees
+graissees. Cote interieur, deux autres rondelles trempees et deux ecrous minces ne reprennent que le
 desserrage : 329 N quand le coin est autobloquant, rien en dessous.
 
 Monte a l'envers, le coin s'eloignerait de la chape en chargeant : la tige
 serait tiree hors de son alesage et ne pousserait rien. Il faudrait alors loger
-la butee a aiguilles entre les platines et le bout du coin, ou elle ne tient
-pas. `params.verifie()` refuse ce sens.
+la butee entre les platines et le bout du coin, ou elle ne tient pas. `params.verifie()` refuse ce sens.
 
 ## 3 bis. Position de repos du coin, et ce qu'elle impose
 
@@ -163,7 +162,7 @@ cadre, de part et d'autre de la vis, dans le plan de son axe.
 | Entretoises | tube de precision 20 x 2, L = 71,5 +/- 0,2, **24,5 MPa de compression chacune** en service, 111 MPa sous la precharge |
 | Fixation | 2 vis H M10 x 200 filetees sur 32, a x = +/- 52 dans le plan de l'axe de vis ; tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H ISO 4032 (8,4) contre-bloques cote platines. Empilement sous tete 173,5, filet a partir de 168 : le premier ecrou tombe sur le filet avec 5,5 de marge, la vis depasse du contre-ecrou de 9,7 |
 | Serrage | 25 N.m (12,5 kN de precharge, a cause des tubes 20 x 2), aucun taraudage : les vis traversent les deux flancs et une entretoise de cadre |
-| Butee a aiguilles | AXK 1730 + 2 rondelles AS, a plat sur la face EXTERIEURE |
+| Butee sous la tete | 2 rondelles trempees AS 1730, pate graphite entre elles, a plat sur la face EXTERIEURE (une butee a aiguilles AXK 1730 jusqu'au 08/10/2026 : elle n'apportait que 5 N.m de couple en moins) |
 | Retenue interieure | 2 rondelles trempees AS 1730 (17 x 30 x 1) + 2 ecrous HM : 329 N au desserrage seulement |
 
 Quatre rondelles sous l'ecrou : l'empilement additionne quatre toles et deux
@@ -171,9 +170,6 @@ tubes coupes. Avec deux rondelles il faisait 169,5 pour un filet qui commence a
 168 ; avec trois, une tole mesuree sous 7,75 faisait encore tomber la marge sous
 2,5. Avec quatre, verifie() accepte toute la tolerance de livraison (7,5 a 9,2) :
 l'ecrou ne vient jamais buter en fin de filet sans serrer.
-
-L'AXK 1528 de la version precedente etait une erreur : son alesage de 15 ne
-passe pas un M16.
 
 Les deux percages sont dans LES DEUX flancs, et les vis les traversent tous les
 deux avec une entretoise de cadre entre eux : deux entretoises de plus sans

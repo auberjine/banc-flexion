@@ -479,7 +479,7 @@ COIN_TARAUD_L = 80.0       # longueur filetee, depuis le bout EPAIS
 # rend l'arret axial de la tige possible : la face inclinee repousse le coin
 # vers son bout EPAIS, le filet tire donc la tige vers l'INTERIEUR du cadre, et
 # sa tete vient appuyer sur la FACE EXTERIEURE des platines, a travers la
-# butee a aiguilles. Monte a l'envers, l'effort pousserait la tige hors du
+# rondelles de butee. Monte a l'envers, l'effort pousserait la tige hors du
 # cadre : la tete quitterait la butee et ce seraient les ecrous interieurs,
 # entre les platines et le bout du coin, qui porteraient. Voir DEBOUT.md.
 #
@@ -558,10 +558,17 @@ SUPPORT_B_BOUT = 40.0     # largeur aux deux bouts, la ou le moment est nul
 SUPPORT_R_BOUT = 18.0     # matiere autour des trous de vis
 SUPPORT_R_CONGE = 12.0    # conges des deux flancs de la platine
 SUPPORT_R_COIN = 8.0      # rayons des quatre angles d about de la platine
-SUPPORT_BUTEE_D = 30.0    # butee a aiguilles AXK 1730, la seule qui passe un M16
-SUPPORT_BUTEE_H = 4.0     # hauteur de l'empilage cage + deux rondelles
+# BUTEE SOUS LA TETE (08/10/2026) : deux rondelles trempees AS 1730, pate
+# graphite haute temperature entre elles, et non plus une butee a aiguilles
+# AXK 1730. Les memes rondelles que V5 : une reference de moins. Le frottement
+# sous la tete s ajoute au couple de manoeuvre (coin_couple), qui reste loin
+# des 25 N.m d une cle a main ; il freine aussi la vis au relachement.
+SUPPORT_BUTEE_D = 30.0    # rondelle AS 1730, 17 x 30 x 1
+SUPPORT_BUTEE_H = 2.0     # deux rondelles de 1
+SUPPORT_BUTEE_MU = 0.10   # acier trempe sur acier trempe sous pate graphite
 # cote interieur : ce qui retient la tige au DESSERRAGE seulement, 329 N
 SUPPORT_RONDELLE = 2.0    # 2 rondelles trempees AS 1730 de 1 (V5) contre la face interieure
+RONDELLE_AS_DI = 17.0     # alesage d une rondelle AS 1730
 SUPPORT_ECROU_H = 16.0    # deux ecrous HM bloques l'un sur l'autre
 SUPPORT_X = 52.0          # entraxe / 2 des tirants, de part et d'autre de la vis
 SUPPORT_GARDE_FENTE = 6.0 # garde entre l'entretoise et le bord de la fente du coin
@@ -670,7 +677,7 @@ SUPPORT_ECROU_M10_H = 8.4         # ecrou H ISO 4032 M10
 SUPPORT_ECROUS_M10_N = 2
 SUPPORT_EMPILEMENT = (2 * EP_TOLE_REELLE_42 + ECART_FLANCS + SUPPORT_TUBE_L + SUPPORT_N * EP_TOLE_REELLE_42
                       + SUPPORT_RONDELLE_E * (1 + SUPPORT_RONDELLES_ECROU))   # sous tete, ecrou exclu
-# Bout de la vis : la tete porte sur la butee a aiguilles, contre la face
+# Bout de la vis : la tete porte sur les rondelles de butee, contre la face
 # exterieure des platines ; le bout s en deduit par la longueur sous tete. Il
 # doit rester dans le coin au repos (verifie) et assez loin pour la prise du
 # filet, coin recule.
@@ -1137,8 +1144,12 @@ def coin_effort():
 
 
 def coin_couple():
-    """Couple sur la vis de commande, butee a aiguilles comprise."""
-    return coin_effort() * (0.16 * VIS_PAS + 0.58 * 0.15 * VIS_D2) / 1000.0 + 0.5
+    """Couple sur la vis de commande : filet, plus le frottement de la tete sur
+    les rondelles de butee (rayon moyen de la portee entre l alesage de la
+    rondelle et les surplats de la tete)."""
+    r_tete = (VIS_TETE_D + RONDELLE_AS_DI) / 4.0
+    return coin_effort() * (0.16 * VIS_PAS + 0.58 * 0.15 * VIS_D2
+                            + SUPPORT_BUTEE_MU * r_tete) / 1000.0
 
 
 def portee_plaquette(lo, hi, largeur):
@@ -1171,8 +1182,8 @@ def filet_marge():
     Irreversibilite du filetage de commande : (angle d'helice, angle de
     frottement apparent, rapport).
 
-    C'est LA propriete qui tient la charge. La butee a aiguilles ne freine
-    rien, et le coin a 12 degres n'est autobloquant que si le frottement de
+    C'est LA propriete qui tient la charge. Les rondelles de butee freinent
+    un peu, on ne compte pas dessus, et le coin a 12 degres n'est autobloquant que si le frottement de
     ses deux faces depasse coin_mu_autoblocage() (0,106) : avec le bronze
     graphite a chaud on y est a peine, on ne compte donc pas dessus. Si le
     filet cesse d'etre irreversible, les 12 kN emmagasines dans la pile
@@ -1709,7 +1720,7 @@ def verifie():
     # SENS DE MONTAGE : le bout epais doit etre du cote oppose a la chape. La
     # face inclinee repousse alors le coin vers son bout epais, le filet tire la
     # tige vers l'interieur du cadre, et sa tete appuie sur la face exterieure
-    # des platines, la ou se trouve la butee a aiguilles. Monte a l'envers, la
+    # des platines, la ou se trouvent les rondelles de butee. Monte a l'envers, la
     # tige sortirait du cadre et ce sont les ecrous interieurs qui porteraient.
     if COIN_T_BOUT_EPAIS <= COIN_T_BOUT_MINCE:
         pb.append("le coin est a l'envers : bout epais du cote de la chape")
@@ -1869,9 +1880,9 @@ def verifie():
     if sig_tube > 0.3 * 235.0:
         pb.append("entretoises de butee a %.0f MPa en compression" % sig_tube)
     if SUPPORT_B < SUPPORT_BUTEE_D + 12.0:
-        pb.append("platine trop etroite pour le siege de la butee a aiguilles")
-    if SUPPORT_BUTEE_D < VIS_D + 8.0:
-        pb.append("butee a aiguilles trop petite pour un M%.0f" % VIS_D)
+        pb.append("platine trop etroite pour le siege des rondelles de butee")
+    if SUPPORT_BUTEE_D < VIS_TETE_D + 4.0:
+        pb.append("rondelles de butee trop petites pour la tete de la vis")
     if SUPPORT_B_BOUT / 2.0 < D_VIS / 2.0 + 8.0:
         pb.append("pas assez de matiere autour des trous de vis de la platine")
 
@@ -1887,7 +1898,7 @@ def verifie():
         pb.append("prise du filetage dans le coin reduite a %.0f mm" % prise)
     # (le degagement de la douille, Y_ETUVE_LIBRE, est controle en tete)
 
-    # couple de commande, butee a aiguilles comprise
+    # couple de commande, frottement sous la tete compris
     if coin_couple() > 25.0:
         pb.append("couple de commande %.1f N.m, trop pour une cle a main" % coin_couple())
 

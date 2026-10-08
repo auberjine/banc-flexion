@@ -145,7 +145,7 @@ crochets). `python params.py` l'execute et affiche le bilan.
 - **La vis de commande ne bouge pas.** Vis H M16 x 160 ISO 4017 filetee
   jusqu'a la tete : elle tourne en place, retenue axialement dans la chape, et
   c'est le coin qui porte le taraudage et avance. Sa tete reste donc toujours a
-  y 139,5, ou une douille l'atteint. Une douille seulement : les bouts des vis
+  y 137,5, ou une douille l'atteint. Une douille seulement : les bouts des vis
   de chape, a y 160, arretent une cle plate.
 - **La commande est normale aux flancs.** Un coin d'acier C45 a 12 degres,
   garni de deux plaques de bronze usinees, coulisse entre le dessous PLAT de
@@ -170,7 +170,7 @@ crochets). `python params.py` l'execute et affiche le bilan.
 - **Le bout EPAIS du coin est du cote oppose a la chape.** Le coin avance donc
   vers elle en chargeant. La face inclinee le repousse vers son bout epais : le
   filet tire la tige vers l'INTERIEUR du cadre, et sa tete appuie sur la FACE
-  EXTERIEURE des platines, la ou se trouve la butee a aiguilles. Monte a
+  EXTERIEURE des platines, a travers deux rondelles trempees. Monte a
   l'envers, la tige serait tiree hors de son alesage et ne pousserait rien :
   c'est le seul sens qui marche, et `verifie()` le controle.
 - **Le jeu en largeur de la mortaise vaut DEUX FOIS le rayon de ses conges.**

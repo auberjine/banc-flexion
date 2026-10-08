@@ -177,7 +177,7 @@ maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
 Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 150 C, contre 1,91 a chaud pour le cadre precedent en 10 mm S355 (157 MPa)
-et 34.4 kg de cadre au lieu de 44,5.
+et 34.3 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
 
@@ -238,7 +238,7 @@ traverse, donc l'axe de la vis est fixe.
 | Depassement hors cadre | 47.5 mm, d'un cote au repos, de l'autre en fin de course |
 | Vis | M16 pas 2.0, taraudee dans le coin, immobile axialement |
 | Effort moteur a 12 kN | 5.5 kN |
-| Couple sur la vis | 9.4 N.m |
+| Couple sur la vis | 14.5 N.m |
 | Course par tour | 0.425 mm de coulisseau, environ 549 N |
 | Pression de contact, fin de course | 7.6 MPa en haut sur 30.0 x 52.8 (joints de traverse deduits), 6.2 MPa en bas sur 38 x 50.6 ; 25 admis |
 | Rendement | 46 pour cent |
@@ -314,7 +314,7 @@ l'acier sur acier qu'on ferait glisser. Il en coute de la portee : la
 plaquette haute porte sur 52.8 mm au lieu de 60, la basse sur 50.6 au
 lieu de 58, soit 7.6 et 6.2 MPa.
 
-Le filet reste engage sur 25.0 mm coin recule, soit 1.6 d, ce qui est
+Le filet reste engage sur 27.0 mm coin recule, soit 1.7 d, ce qui est
 tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la vis et le
 taraudage fait que les derniers filets ne prennent plus rien.
 
@@ -335,16 +335,16 @@ de la vis possible. L'equilibre du coin le montre : la composante selon y
 de la reaction du coulisseau, plus les deux frottements, valent 5.5 kN, et
 la vis doit les fournir. La face inclinee repousse le coin vers son bout
 EPAIS : le filet tire donc la vis vers l'INTERIEUR du cadre, et sa tete
-vient appuyer sur la FACE EXTERIEURE des platines, a travers la butee a
-aiguilles. Cote interieur, deux rondelles trempees et deux ecrous minces ne
+vient appuyer sur la FACE EXTERIEURE des platines, a travers deux rondelles
+trempees graissees. Cote interieur, deux autres et deux ecrous minces ne
 reprennent que l'effort de desserrage : 329 N a un frottement de 0.12, quand
 le coin est autobloquant ; en dessous de 0.106 la charge le chasse d'elle-meme
 et ils ne voient rien.
 
 Monte a l'envers, le coin s'eloignerait de la chape en chargeant : la vis
 serait tiree hors de son alesage et ne pousserait rien. Il faudrait alors
-loger la butee a aiguilles entre les platines et le bout du coin, ou elle
-ne tient pas. Le controle des cotes refuse ce sens.
+loger la butee entre les platines et le bout du coin, ou elle ne tient
+pas. Le controle des cotes refuse ce sens.
 
 ### Position de repos du coin
 
@@ -379,9 +379,9 @@ precharge et les 329 N de desserrage.
 | Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 302.7, tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H contre-bloques cote platines |
 | Serrage sous tete | 173.5 mm, filet a partir de 168 : ecrou sur le filet avec 5.5 de marge, 9.7 de depassement |
 | Serrage | 25 N.m, aucun taraudage : les vis traversent les deux flancs |
-| Butee a aiguilles | AXK 1730 + 2 rondelles AS 1730, a plat sur la face EXTERIEURE, centree par la vis |
+| Butee sous la tete | 2 rondelles trempees AS 1730, pate graphite haute temperature entre elles, a plat sur la face EXTERIEURE ; frottement 0.10 compte dans le couple |
 | Retenue interieure | 2 rondelles trempees AS 1730 + 2 ecrous HM M16, 18 mm, desserrage seulement |
-| Tete de la vis | dessus a y 140, soit 115 mm de degagement pour la douille, cadre decentre au pire dans l'etuve de 528.4 (125 centre) |
+| Tete de la vis | dessus a y 138, soit 117 mm de degagement pour la douille, cadre decentre au pire dans l'etuve de 528.4 (127 centre) |
 | Manoeuvre | douille de 24 et cliquet SEULEMENT : les bouts des vis de chape (y 160) depassent la tete de manoeuvre dans son plan, une cle plate bute dessus |
 
 Tout sort du debit deja commande : les platines nichent dans la tole de 8
@@ -428,7 +428,7 @@ resolution suffisante, et un col serait une entaille de plus.
 
 ## 9. Masses
 
-Masses du modele 3D (out/masses.json, construit le 07/10/2026).
+Masses du modele 3D (out/masses.json, construit le 08/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
@@ -441,7 +441,7 @@ Masses du modele 3D (out/masses.json, construit le 07/10/2026).
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
 | Plaque de frottement, dessus | 1 | 0.17 kg | 0.17 kg |
 | Plaque de frottement, dessous | 1 | 0.17 kg | 0.17 kg |
-| Vis de commande H M16 x 160 | 1 | 0.35 kg | 0.35 kg |
+| Vis de commande H M16 x 160 | 1 | 0.34 kg | 0.34 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
 | Patin d'appui rainure | 4 | 0.13 kg | 0.52 kg |
@@ -453,7 +453,7 @@ Masses du modele 3D (out/masses.json, construit le 07/10/2026).
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
-**Cadre complet 34.4 kg**, poutrelle 22.2 kg.
+**Cadre complet 34.3 kg**, poutrelle 22.2 kg.
 
 ## 10. Conduite d'essai
 
