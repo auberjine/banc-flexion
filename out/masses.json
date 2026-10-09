@@ -164,9 +164,9 @@
    "nom": "pied",
    "designation": "Pied a mi-bois",
    "qte": 4,
-   "volume_cm3": 110.56,
-   "masse_kg": 0.868,
-   "masse_totale_kg": 3.472,
+   "volume_cm3": 110.87,
+   "masse_kg": 0.87,
+   "masse_totale_kg": 3.481,
    "matiere": "S355JR",
    "brut": "tole 8 mm, cert. 2.2"
   },
@@ -174,9 +174,9 @@
    "nom": "crochet",
    "designation": "Crochet d etuve",
    "qte": 4,
-   "volume_cm3": 22.12,
-   "masse_kg": 0.174,
-   "masse_totale_kg": 0.695,
+   "volume_cm3": 22.09,
+   "masse_kg": 0.173,
+   "masse_totale_kg": 0.694,
    "matiere": "S355JR",
    "brut": "tole 8 mm, cert. 2.2"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.61,
+ "total_kg": 56.62,
  "cadre_kg": 34.4,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "09/10/2026",
- "empreinte": "f6216752f6d4e290"
+ "empreinte": "077cb75134d58338"
 }

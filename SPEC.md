@@ -303,7 +303,7 @@ pate graphite haute temperature sur les faces de glissement, posee APRES la pris
 rien sur les sieges, le silicone ne prend pas sur une pate.
 
 Pied de rebord SANS degagement : conge R2, le bout d'une fraise de 4 (pas de
-conge interieur sous R2 sur tout le banc),
+conge interieur sous R2 sur les pieces fraisees),
 et chaque logement a 4 de plus que sa plaquette, si bien que l'angle du
 bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure
 du rebord est NORMALE A LA PENTE et non verticale, comme le chant de la
@@ -449,7 +449,7 @@ Masses du modele 3D (out/masses.json, construit le 09/10/2026).
 | Patin de charge | 1 | 0.45 kg | 0.45 kg |
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
 | Entretoise tubulaire | 9 | 0.05 kg | 0.48 kg |
-| Pied a mi-bois | 4 | 0.87 kg | 3.47 kg |
+| Pied a mi-bois | 4 | 0.87 kg | 3.48 kg |
 | Crochet d etuve | 4 | 0.17 kg | 0.69 kg |
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |

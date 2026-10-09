@@ -1398,7 +1398,7 @@ def plan_pied():
     c6, r6 = p05_arc(outer, (y2, h))                         # angles du chant haut
     c2, r2 = p05_arc(outer, (-y2, 0.0))                      # bout : arete de pose (PIED_COIN_R)
     r_bos = p05_arc(outer, (-y2 + bb, 0.0))[1]               # raccords du bossage
-    r_fen = p05_arc(outer, (-y2 + fb, 0.0))[1]               # entree de la fente de calage
+    r_fen = p05_arc(outer, (-y2 + fb, fh))[1]                # fente de calage
     r_ent = p05_arc(outer, (yf + w2, h))[1]                  # entree d encoche
     r_aj = p.PIED_AJOUR_R
     r_cr = p05_arc(co, (S, -H))[1]                           # corps et appui du crochet
@@ -1495,8 +1495,8 @@ def plan_pied():
     yA1, zA1 = -y2 + bb + 10.0, hb + 5.0
     p05_titre(s, 90.0, 108.0, "DETAIL A  (2:1)",
               ["bout du pied, 2 ex. symetriques",
-               "fente : entree R%s, fond a degagements R%s ; bossage : R%s ; R%s du bout = arete de pose"
-               % (f(r_fen), f(p.RAYON_INTERIEUR_MIN), f(r_bos), f(r2))])
+               "fente : angles R%s ; bossage : R%s ; R%s du bout = arete de pose"
+               % (f(r_fen), f(r_bos), f(r2))])
     p05_detail(vA, outer, (-y2, 0.0, yA1, zA1),
                [((-y2, zA1), (yA1, zA1)), ((yA1, hb), (yA1, zA1))])
     vA.cote_hx(-y2, -y2 + fb, 0.0, 0.0, -10.0)                                   # 5

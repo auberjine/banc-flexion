@@ -90,7 +90,7 @@ faces de glissement, posee APRES la prise du silicone, et rien sur les sieges,
 car le silicone ne prend pas sur une pate.
 
 Pied de rebord SANS degagement : conge R2, le bout d'une fraise de 4 (aucun
-conge interieur sous R2 sur tout le banc, 09/10/2026), et chaque logement a
+conge interieur sous R2 sur les pieces fraisees, 09/10/2026), et chaque logement a
 4 mm de plus que sa plaque, si bien que l'angle du bronze ne
 monte pas sur le conge. Sur la face inclinee, la face interieure du rebord est
 NORMALE A LA PENTE et non verticale, comme le chant de la plaque : dessinees

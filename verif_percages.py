@@ -304,9 +304,12 @@ def conges_interieurs(outer, holes, r_min):
 
 
 def main():
-    # conges interieurs : RAYON_INTERIEUR_MIN partout (fraise de 4 au plus fin)
+    # conges interieurs des pieces FRAISEES : RAYON_INTERIEUR_MIN (fraise de 4
+    # au plus fin) ; le laser n'y est pas soumis
     n_conges = 0
     for spec in P.all_parts():
+        if spec.name not in p.PIECES_FRAISEES:
+            continue
         try:
             outer, holes = spec.profile()
         except Exception:
@@ -316,8 +319,8 @@ def main():
             n_conges += 1
             print("FAUTE  %s : conge(s) interieur(s) R%s, sous les R%g exiges"
                   % (spec.name, " / R".join("%g" % r for r in petits), p.RAYON_INTERIEUR_MIN))
-    print("conges interieurs >= R%g : %s" % (p.RAYON_INTERIEUR_MIN,
-                                             "%d piece(s) en faute" % n_conges if n_conges else "toutes les pieces"))
+    print("conges interieurs des pieces fraisees >= R%g : %s"
+          % (p.RAYON_INTERIEUR_MIN, "%d piece(s) en faute" % n_conges if n_conges else "toutes"))
     print("=" * 74)
     print("%-22s %6s %9s %7s %7s" % ("piece", "trous", "ligament", "fautes", "avert"))
     print("=" * 74)

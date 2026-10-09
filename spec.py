@@ -526,7 +526,7 @@ def main():
     a("rien sur les sieges, le silicone ne prend pas sur une pate.")
     a("")
     a("Pied de rebord SANS degagement : conge R%g, le bout d'une fraise de %g (pas de" % (p.PLAQ_REBORD_R, 2 * p.PLAQ_REBORD_R))
-    a("conge interieur sous R%g sur tout le banc)," % p.RAYON_INTERIEUR_MIN)
+    a("conge interieur sous R%g sur les pieces fraisees)," % p.RAYON_INTERIEUR_MIN)
     a("et chaque logement a %g de plus que sa plaquette, si bien que l'angle du"
       % (2.0 * p.PLAQ_JEU))
     a("bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure")

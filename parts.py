@@ -589,21 +589,17 @@ def pied_profile():
     fb, fw, fh = p.PIED_FENTE_BORD, p.PIED_FENTE_B, p.PIED_FENTE_H
     c.add(-y2, 0.0, p.PIED_COIN_R)
     # fente de calage : la dent de l appui du crochet y entre
-    # fond de fente : DEGAGEMENTS de RAYON_INTERIEUR_MIN centres sur les angles
-    # (os de chien) et non conges, pour que le fond porte a plat sur toute
-    # l'epaisseur de la dent ; entree R0,5, angles saillants
-    rf = p.RAYON_INTERIEUR_MIN
     c.add(-y2 + fb, 0.0, 0.5)
-    c.add(-y2 + fb, fh, rf, relief=True)
-    c.add(-y2 + fb + fw, fh, rf, relief=True)
+    c.add(-y2 + fb, fh, 0.5)
+    c.add(-y2 + fb + fw, fh, 0.5)
     c.add(-y2 + fb + fw, 0.0, 0.5)
     c.add(-y2 + bb, 0.0, 2.0)
     c.add(-y2 + bb, hb, 2.0)
     c.add(y2 - bb, hb, 2.0)
     c.add(y2 - bb, 0.0, 2.0)
     c.add(y2 - fb - fw, 0.0, 0.5)
-    c.add(y2 - fb - fw, fh, rf, relief=True)
-    c.add(y2 - fb, fh, rf, relief=True)
+    c.add(y2 - fb - fw, fh, 0.5)
+    c.add(y2 - fb, fh, 0.5)
     c.add(y2 - fb, 0.0, 0.5)
     c.add(y2, 0.0, p.PIED_COIN_R)
     # chant haut, de droite a gauche, avec les deux encoches des flancs
@@ -677,8 +673,8 @@ def crochet_profile():
             c.add(0.0, zt, 0.0)
         c.add(-ll, zt, 1.0)
         c.add(-ll, zt - lh - bec, 1.0)
-        c.add(-ll + becl, zt - lh - bec, 0.5)       # saillant : laisse la place au conge de gorge
-        c.add(-ll + becl, zt - lh, p.RAYON_INTERIEUR_MIN)   # fond de gorge
+        c.add(-ll + becl, zt - lh - bec, 1.0)
+        c.add(-ll + becl, zt - lh, 0.5)
         c.add(0.0, zt - lh, 0.0)
     return c.build(), []
 

@@ -431,11 +431,14 @@ PLAQ_JEU = 2.0             # jeu de la plaquette a chaque bout : au moins le con
 # les plaquettes ont des cotes rondes : c est la largeur des rebords qui s en
 # deduit, et non l inverse
 PLAQ_REBORD_L = (COIN_L - PLAQ_L_HAUT - 2.0 * PLAQ_JEU) / 2.0    # rebords du dessus, selon y
-# CONGES INTERIEURS : 2 mm au moins PARTOUT (09/10/2026), RAYON_INTERIEUR_MIN,
-# controle par verif_percages.py sur tous les profils. Au pied des rebords du
+# CONGES INTERIEURS : 2 mm au moins sur les pieces FRAISEES (09/10/2026),
+# RAYON_INTERIEUR_MIN, controle par verif_percages.py sur PIECES_FRAISEES. Les
+# pieces decoupees au laser n'y sont pas soumises. Au pied des rebords du
 # coin, c est le bout d une fraise de 4 : la plaquette garde 2 de jeu par bout
 # et ne porte que sur les PLAQ_REBORD_H - PLAQ_REBORD_R du haut du rebord.
 RAYON_INTERIEUR_MIN = 2.0
+PIECES_FRAISEES = ("coin", "coulisseau", "plaquette_haute", "plaquette_basse",
+                   "patin_appui", "patin_charge")
 PLAQ_REBORD_R = RAYON_INTERIEUR_MIN   # conge de pied du rebord
 
 # FIXATION DES PLAQUETTES : pas d epoxy. Bronze et acier ne se dilatent pas
