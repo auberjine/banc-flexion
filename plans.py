@@ -229,8 +229,8 @@ def plan_flanc():
              "mortaise %s = %d x tole + jeu %s."
              % (D.fmt(p.TRAVERSE_LX_REEL + p.TRAVERSE_JEU_X), p.TRAVERSE_N, D.fmt(p.TRAVERSE_JEU_X)),
              p.NOTE_TOLE_REELLE[0].upper() + p.NOTE_TOLE_REELLE[1:] + ".",
-             "Aretes cassees %s x 45 deg deux faces, bossages compris (non repris), puis sablage corindon"
-             " et brunissage noir mat." % D.fmt(p.CHANFREIN),
+             "Aretes ebavurees, sans chanfrein, bossages compris (non repris), puis sablage corindon"
+             " et brunissage noir mat.",
              "Contour symetrique en X, graduation d'un seul cote : deux flancs identiques, face gravee"
              " a l'exterieur ;",
              "le second, tourne de 180 deg autour de Z, a sa graduation le long de la lumiere -X.",
@@ -320,7 +320,7 @@ def plan_flanc():
     f_appui = p.CHARGE_DIM / 4.0
     s.text(XD, 60.0, "Bombe R%s choisi pour le contact, %s kN par bossage :"
            % (D.fmt(p.BOSSAGE_R), D.fmt(f_appui / 1000.0, 1)), 2.8, "middle")
-    s.text(XD, 63.8, "Hertz %.0f MPa sur %s portants (%s - 2 x %s d'aretes cassees),"
+    s.text(XD, 63.8, "Hertz %.0f MPa sur %s portants (%s - 2 x %s de bord non compte),"
            % (p.hertz_appui(), D.fmt(p.hertz_largeur(), 1), D.fmt(p.EP_FLANC), D.fmt(p.CHANFREIN)),
            2.8, "middle")
     s.text(XD, 67.6, "limite %.0f MPa (%s a 150 C), coefficient %s."
@@ -1038,8 +1038,7 @@ def plan_traverse():
         " faces." % (2 * st.qty, f(p.TRAVERSE_COIFFE), f(tb - z0)),
         "Chant fraise : planeite 0,05 sur le paquet, Ra 1,6 ; c est le plan de glissement de la plaque"
         " de bronze %s, sans rectification." % R["plaquette_haute"],
-        "Aretes cassees %s x 45 deg sur les deux faces APRES le fraisage (rainure en V de %s a chaque"
-        " joint, reserve de graisse)," % (f(p.CHANFREIN), f(2.0 * p.CHANFREIN)),
+        "Aretes ebavurees APRES le fraisage, sans chanfrein,"
         "puis paquet resserre sur %s, chants fraises poses sur un marbre." % vis,
         "Angles du contour non cotes : R%s ; pieds de tenon : detail A." % f(ra),
         "Les tenons portent par leur face HAUTE sur l arete superieure de la mortaise du flanc : pas de"
@@ -1112,7 +1111,7 @@ def plan_traverse():
     # ======================================================== calcul et montage
     calc = [
         "Sous %s kN (verification de dimensionnement) :" % f(p.CHARGE_DIM / 1000.0),
-        "- matage du tenon sur l arete de mortaise : %s MPa sur %s x %s par flanc (aretes cassees et"
+        "- matage du tenon sur l arete de mortaise : %s MPa sur %s x %s par flanc (bords ebavures et"
         " degagement deduits) ;" % (f(p.matage_tenon()), f(lx), f(ly)),
         "- racine de tenon : %s MPa sur %s nets ; plaque (%s de haut, percee de %s, appuis a %s) : %s MPa, majorant ;"
         % (f(sig_t), f(hn), f(p.TRAVERSE_H), f(2.0 * rh), f(entraxe), f(sig_p)),
@@ -1177,7 +1176,7 @@ def plan_patins():
     jeu = ("Un jeu neuf par eprouvette : %d x %s, %d x %s, %d x %s ; il part avec la poutrelle."
            % (sa.qty, R["patin_appui"], sc.qty, R["patin_charge"], sp.qty, R["plat_renfort"]))
     notes = [
-        "Aretes vives des patins cassees %s x 45 deg ; plat ebavure." % f(sa.chanfrein),
+        "Aretes des patins et du plat ebavurees, sans chanfrein.",
         "%s : decoupe laser d apres %s.dxf (calque DECOUPE), PUIS rainure fraisee sur toute la"
         " longueur de la face d appui." % (R["patin_appui"], sa.name),
         "%s : rainure %s = tole REELLE du flanc (EP_TOLE_REELLE_42 = %s) + 2 x %s de jeu : mesurer la"
@@ -1409,8 +1408,8 @@ def plan_pied():
     confirmer = "confirmees" if p.ETUVE_CONFIRMEE else "A CONFIRMER"
 
     def decoupe(spec):
-        return ("Decoupe laser d apres %s.dxf (calque DECOUPE) ; aretes cassees %s x 45 deg sur les"
-                " deux faces." % (spec.name, fr(spec.chanfrein, 2)))
+        return ("Decoupe laser d apres %s.dxf (calque DECOUPE) ; aretes ebavurees, sans chanfrein."
+                % spec.name)
 
     notes = [
         "Matiere : %s." % p.EXIGENCE_TOLE_COURANTE,
@@ -1859,8 +1858,8 @@ def plan_chape():
 
     notes = [
         "%s : %s ; meme tole que les flancs, platines imbriquees dans leurs chutes." % (r07, p.EXIGENCE_TOLE),
-        "%s : decoupe laser d apres support.dxf, aretes cassees %s x 45 deg ; %s et %s entre aretes fictives (au sommet R%s, la"
-        " tole mesure %s)." % (r07, f(p.CHANFREIN), f(p.SUPPORT_B_BOUT), f(p.SUPPORT_B),
+        "%s : decoupe laser d apres support.dxf, aretes ebavurees ; %s et %s entre aretes fictives (au sommet R%s, la"
+        " tole mesure %s)." % (r07, f(p.SUPPORT_B_BOUT), f(p.SUPPORT_B),
                                f(p.SUPPORT_R_CONGE), f(bz1 - bz0, 2)),
         "%s : %s %s, coupe a la longueur cotee, les %d a la meme butee, faces dressees."
         % (r07b, p.ENTRETOISE_BRUT, st.material, st.qty),

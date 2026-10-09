@@ -732,10 +732,10 @@ class PartSpec(object):
         self._engrave = engrave
         self.text_at = text_at
         self.note = note
-        # arete cassee sur les deux faces plates : jamais plus du quart de
-        # l'epaisseur, pour que les toles minces ne soient pas mangees
-        self.chanfrein = (min(p.CHANFREIN, thickness / 4.0)
-                          if chanfrein is None and flat else chanfrein)
+        # plus de chanfrein modelise sur les toles (09/10/2026) : les arretes
+        # sont seulement ebavurees, et un STEP a aretes vives passe mieux dans
+        # les analyseurs de geometrie des sites de decoupe et d usinage
+        self.chanfrein = chanfrein
         self.rotate = None
 
     def engrave(self):
@@ -916,12 +916,12 @@ def all_parts():
         fl, 'xz', (0.0, yf, 0.0), flat=True, engrave=flanc_gravure,
         text_at=(0.0, p.H_FLANC / 2.0 - 60.0),
         instances=[dict(t=(0, 0, 0)), dict(t=(0, 0, 0), mirror_y=True)],
-        note="decoupe laser, aretes cassees %s x 45 deg, bossages non repris ; encoches a mi-bois"
+        note="decoupe laser, aretes ebavurees (pas de chanfrein), bossages non repris ; encoches a mi-bois"
              " et mortaise taillees sur la tole REELLE S355 des pieces qu elles recoivent : %s ;"
              " graduation de charge gravee"
              " (calque GRAVURE) d un seul cote de la lumiere, face gravee montee a l exterieur ;"
              " finition : %s ; %s"
-             % (fr(p.CHANFREIN), p.NOTE_TOLE_REELLE, p.FINITION_FLANC, p.FINITION_GRAVURE)))
+             % (p.NOTE_TOLE_REELLE, p.FINITION_FLANC, p.FINITION_GRAVURE)))
 
     hf = p.TRAVERSE_H
     hs = p.Z_TAB0 - p.Z_TRAVERSE_BAS

@@ -220,12 +220,11 @@ crochets). `python params.py` l'execute et affiche le bilan.
   serrees sur leur tirant et alignees sur les faces hautes des tenons. C'est le
   plan de glissement du coin : une plaque en saillie de 0,1 mm deviendrait une
   charge lineique sur le bronze. Le DXF porte 1 mm de surepaisseur sur ce chant.
-- **Toutes les pieces de tole portent une arete cassee de 0,8 x 45 au modele.**
-  C'est ce qui rend un empilage lisible : sans elle, six plaques de 8
-  jointives forment un bloc de 48 a l'ecran comme a la main. Le chanfrein est
-  applique dans `build_freecad.casse_aretes()`, sur les aretes des deux faces
-  plates, apres les usinages et avant la mise en place. Il se paie sur les
-  portees : bossage, plaque de bronze sous la traverse, tenons.
+- **Les pieces de tole n'ont AUCUN chanfrein au modele** (09/10/2026) :
+  aretes ebavurees seulement. Un STEP a aretes vives passe mieux dans les
+  analyseurs des sites de decoupe. Les calculs gardent 0,8 non portant a
+  chaque bord (`CHANFREIN`) : bossage, plaque de bronze sous la traverse,
+  tenons.
 - **Les trois plateaux du poussoir sont PERCES** : c'est le patin de charge
   colle qui fait fond sous le tourillon. `verifie()` exige ALESAGE_P == POUSSOIR_H.
   Ils sont serres en un bloc par deux vis H M6 x 35, TETE EN DESSOUS : sous le

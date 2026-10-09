@@ -191,7 +191,7 @@ def main():
       % (p.RAINURE_B, p.RAINURE_P, p.RAINURE_JEU))
     a("| Bossage | R%.0f, relief %.1f, largeur totale %.1f |"
       % (p.BOSSAGE_R, p.BOSSAGE_RELIEF, p.largeur_bossage()))
-    a("| Pression de Hertz a %.0f kN | %.0f MPa sur %.1f mm portants (flanc de %g moins ses deux aretes cassees de %g) |"
+    a("| Pression de Hertz a %.0f kN | %.0f MPa sur %.1f mm portants (flanc de %g moins %g a chaque bord, ebavure, non compte) |"
       % (p.CHARGE_DIM / 1000.0, p.hertz_appui(), p.hertz_largeur(), p.EP_FLANC, p.CHANFREIN))
     a("| Limite au contact a 150 degres C | %.0f MPa, 1,6 Re a chaud du corps le plus mou (le patin S355JR) ; coefficient %.2f |"
       % (p.HERTZ_LIM, p.hertz_coef()))

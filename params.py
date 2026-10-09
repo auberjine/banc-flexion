@@ -875,12 +875,10 @@ PIED_NODE_L = 8.0
 PIED_NODE_SERRE = 0.1
 TROU_PIED_DX = 25.0
 
-# Arete cassee des pieces de tole. Ce n'est pas une coquetterie : c'est la cote
-# qui rend l'empilage LISIBLE. Les six plaques de traverse jointives, sans
-# arete cassee, forment un bloc de 48 a l'ecran comme a la main ; avec un
-# chanfrein a 45 il y a une rainure en V a chaque joint. Elle sert aussi de
-# reserve de graisse sous le coin, et elle evite l'arete vive qui marquerait
-# le bronze. Elle se paie sur les surfaces portantes : le bossage d'appui ne
+# Aretes des pieces de tole : seulement EBAVUREES, sans chanfrein dessine ni
+# modelise (09/10/2026 : les chanfreins du STEP genaient les analyseurs de
+# geometrie des sites de decoupe). Les calculs gardent pourtant une arete non
+# portante de CHANFREIN a chaque bord, par prudence : le bossage d'appui ne
 # porte que sur EP_FLANC - 2 x CHANFREIN (hertz_appui), le bronze et les
 # tenons de traverse perdent 2 x CHANFREIN par joint (portee_coin, appui_tenon).
 CHANFREIN = 0.8
@@ -928,7 +926,7 @@ EXIGENCE_TOLE = ("%s recuit +A, tole %g mm : certificat 3.1 EN 10204 avec essai 
 # film essuye. Ni huile minerale (vernit a 150 C, s evapore et voile le hublot
 # de l etuve devant la camera), ni silicone (migre et fait decoller les patins
 # colles et le mouchetis de la poutrelle).
-FINITION_FLANC = ("apres decoupe et aretes cassees : SABLAGE corindon des deux faces a l identique,"
+FINITION_FLANC = ("apres decoupe et ebavurage : SABLAGE corindon des deux faces a l identique,"
                   " pression moderee (planeite), puis BRUNISSAGE noir (oxydation a chaud), aspect"
                   " mat ; degraisser l huile de sortie de bain, puis film d huile ESTER synthetique"
                   " haute temperature passe au chiffon et ESSUYE ; ni huile minerale ni silicone")
@@ -1116,9 +1114,8 @@ def portee_coin():
     qui frotte sous la traverse mais la plaquette de bronze du dessus, large de
     PLAQ_B : c'est elle qu'on compte.
 
-    Les aretes cassees des plaques creusent une rainure en V a chaque joint :
-    le bronze n'appuie plus sur toute sa largeur. C'est une perte assumee, les
-    rainures servant de reserve de graisse, mais elle doit etre comptee.
+    Les bords ebavures des plaques ne portent pas franchement : on retire
+    CHANFREIN de chaque bord a chaque joint, par prudence.
     """
     joints = [-TRAVERSE_LX / 2.0 + k * TRAVERSE_EP for k in range(1, TRAVERSE_N)]
     dedans = sum(1 for x in joints if abs(x) < PLAQ_B / 2.0)

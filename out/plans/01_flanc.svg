@@ -28,7 +28,7 @@
 <text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Planeite 0,5 sur 960, ne pas redresser a chaud ; sommets des bossages coplanaires a 0,3.</text>
 <text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">le second, tourne de 180 deg autour de Z, a sa graduation le long de la lumiere -X.</text>
 <text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Contour symetrique en X, graduation d'un seul cote : deux flancs identiques, face gravee a l'exterieur ;</text>
-<text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Aretes cassees 0,8 x 45 deg deux faces, bossages compris (non repris), puis sablage corindon et brunissage noir mat.</text>
+<text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Aretes ebavurees, sans chanfrein, bossages compris (non repris), puis sablage corindon et brunissage noir mat.</text>
 <text x="408.000" y="228.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Mesurer les deux toles livrees, regler EP_TOLE_REELLE_42 (42CrMo4) et EP_TOLE_REELLE_S355 (S355JR) et regenerer les DXF avant decoupe.</text>
 <text x="408.000" y="224.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">mortaise 52 = 6 x tole + jeu 4.</text>
 <text x="408.000" y="220.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Encoches et mortaise taillees sur la tole S355 REELLE des pieds et de la traverse (EP_TOLE_REELLE_S355 = 8) : encoches 8,4 = tole + jeu 0,4 ;</text>
@@ -175,7 +175,7 @@
 <path d="M 391.924 48.250 L 389.324 47.522 L 389.324 48.978 Z" fill="#000"/>
 <text x="320.000" y="46.650" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">(66,6)</text>
 <text x="342.000" y="60.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Bombe R150 choisi pour le contact, 3 kN par bossage :</text>
-<text x="342.000" y="63.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Hertz 339 MPa sur 6,4 portants (8 - 2 x 0,8 d'aretes cassees),</text>
+<text x="342.000" y="63.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Hertz 339 MPa sur 6,4 portants (8 - 2 x 0,8 de bord non compte),</text>
 <text x="342.000" y="67.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">limite 480 MPa (patin S355 a 150 C), coefficient 1,42.</text>
 <text x="311.000" y="75.500" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">DETAIL Y  (2:1)  graduation</text>
 <path d="M 286.000 126.200 L 286.000 106.000" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>

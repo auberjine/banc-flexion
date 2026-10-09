@@ -247,12 +247,12 @@ localise sur le patin : c'est le tourillon, colle dans le coulisseau, qui le
 centre ; le patin, sans trou, est colle centre au trace.
 0,97 kg, et plus d'alesage borgne a usiner.
 
-**Toutes les pieces de tole ont l'arete cassee a 0,8 x 45 degres** sur leurs
-deux faces. Ce n'est pas une coquetterie de dessin : sans elle, six plaques de
-8 jointives se lisent comme un bloc de 48, a l'ecran comme a la main. Avec
-elle, chaque joint est une rainure en V de 1,6 mm. Sous le coin, ces rainures
-servent de reserve de graisse ; les cinq qui passent sous la plaque de bronze
-coutent 8 mm de portee sur ses 38, d'ou 7,7 MPa de contact au lieu de 6,1.
+**Les pieces de tole ont leurs aretes seulement ebavurees**, sans chanfrein
+dessine ni modelise (09/10/2026 : les chanfreins du STEP genaient les
+analyseurs de geometrie des sites de decoupe). Les calculs comptent pourtant
+0,8 mm non portant a chaque bord, par prudence : les cinq joints du paquet de
+traverse sous la plaque de bronze retirent 8 mm de portee sur ses 38, d'ou
+7,6 MPa de contact au lieu d'environ 6.
 
 ## 5. Les lumieres
 

@@ -82,7 +82,7 @@ face inferieure.
 | Patins d'appui | 90 x 20 x 10, S355JR, colles en place |
 | Rainure de guidage | 9.5 x 1.5, fraisee apres decoupe, jeu 0.75 par cote sur la tole reelle du flanc (EP_TOLE_REELLE_42) |
 | Bossage | R150, relief 3.5, largeur totale 66.6 |
-| Pression de Hertz a 12 kN | 339 MPa sur 6.4 mm portants (flanc de 8 moins ses deux aretes cassees de 0.8) |
+| Pression de Hertz a 12 kN | 339 MPa sur 6.4 mm portants (flanc de 8 moins 0.8 a chaque bord, ebavure, non compte) |
 | Limite au contact a 150 degres C | 480 MPa, 1,6 Re a chaud du corps le plus mou (le patin S355JR) ; coefficient 1.42 |
 | Pression sur le beton sous un patin | 1.67 MPa |
 | Bras contact - axe neutre | 61.36 mm |
@@ -177,7 +177,7 @@ maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
 Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 150 C, contre 1,91 a chaud pour le cadre precedent en 10 mm S355 (157 MPa)
-et 34.4 kg de cadre au lieu de 44,5.
+et 34.5 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
 
@@ -433,9 +433,9 @@ Masses du modele 3D (out/masses.json, construit le 09/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
-| Flanc en treillis | 2 | 10.20 kg | 20.40 kg |
-| Plaque de traverse | 6 | 0.25 kg | 1.50 kg |
-| Plateau de poussoir | 3 | 0.33 kg | 0.97 kg |
+| Flanc en treillis | 2 | 10.24 kg | 20.48 kg |
+| Plaque de traverse | 6 | 0.25 kg | 1.51 kg |
+| Plateau de poussoir | 3 | 0.33 kg | 0.98 kg |
 | Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
@@ -443,18 +443,18 @@ Masses du modele 3D (out/masses.json, construit le 09/10/2026).
 | Plaque de frottement, dessus | 1 | 0.20 kg | 0.20 kg |
 | Plaque de frottement, dessous | 1 | 0.21 kg | 0.21 kg |
 | Vis de commande H M16 x 160 | 1 | 0.34 kg | 0.34 kg |
-| Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
+| Platine de butee de la vis | 2 | 0.45 kg | 0.91 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
 | Patin d'appui rainure | 4 | 0.13 kg | 0.52 kg |
 | Patin de charge | 1 | 0.45 kg | 0.45 kg |
-| Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
+| Plat de renfort colle | 2 | 0.26 kg | 0.53 kg |
 | Entretoise tubulaire | 9 | 0.05 kg | 0.48 kg |
-| Pied a mi-bois | 4 | 0.87 kg | 3.48 kg |
+| Pied a mi-bois | 4 | 0.87 kg | 3.49 kg |
 | Crochet d etuve | 4 | 0.17 kg | 0.69 kg |
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
-**Cadre complet 34.4 kg**, poutrelle 22.2 kg.
+**Cadre complet 34.5 kg**, poutrelle 22.2 kg.
 
 ## 10. Conduite d'essai
 

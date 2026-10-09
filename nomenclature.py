@@ -427,7 +427,7 @@ def main():
         pp = p.portee_plaquette(lo, hi, larg)
         out.append("| Portee de la plaquette %s | %.1f x %.1f mm (sur %.0f) en fin de course, %.1f MPa |"
                    % (nom, largx, pp, larg, pr))
-    out.append("| Arete cassee des pieces de tole | %g x 45 degres sur les deux faces |"
+    out.append("| Aretes des pieces de tole | ebavurees, sans chanfrein ; les calculs comptent %g non portant a chaque bord |"
                % p.CHANFREIN)
     fcr, inertie, v = spec.charge_fissuration()
     out.append("| Effort estime a la fissuration (beton a 4 MPa) | %.1f kN |" % (fcr / 1000.0))

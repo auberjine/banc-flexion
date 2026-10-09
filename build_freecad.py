@@ -125,47 +125,6 @@ def place(shape, plane, origin):
     return s
 
 
-def casse_aretes(solid, taille, epaisseur, nom):
-    """
-    Arete cassee a 45 degres sur les deux faces plates de la piece.
-
-    Sans elle, le paquet de traverse (TRAVERSE_N toles jointives) se lit comme
-    un bloc plein, a l'ecran comme a la main. Avec elle, chaque joint devient
-    une rainure en V de 2 x CHANFREIN. C'est aussi la cote reelle : une tole
-    decoupee laser se debavure toujours.
-    """
-    if not taille:
-        return solid
-    aretes = []
-    for e in solid.Edges:
-        zs = [vx.Point.z for vx in e.Vertexes]
-        if not zs:
-            continue
-        if all(abs(z) < 1e-6 for z in zs) or all(abs(z - epaisseur) < 1e-6 for z in zs):
-            aretes.append(e)
-    if not aretes:
-        return solid
-    # Un chanfrein plus grand que les petits conges du contour (0,5 aux fentes
-    # de calage, 0 aux racines de langue) rend le solide INVALIDE sans lever
-    # d'erreur : les grandes faces disparaissent du maillage et la piece se
-    # dessine en fil de fer. On controle isValid() et on reduit le chanfrein
-    # jusqu'a ce que ca tienne, sinon on laisse l'arete vive.
-    for t in (taille, 0.5, 0.3, 0.2):
-        if t > taille:
-            continue
-        try:
-            c = solid.makeChamfer(t, aretes)
-        except Exception as exc:
-            print("   chanfrein %g impossible sur %s (%d aretes) : %s" % (t, nom, len(aretes), exc))
-            continue
-        if c.isValid() and len(c.Faces) >= len(solid.Faces):
-            if t < taille:
-                print("   %s : arete cassee ramenee a %g, %g rendait le solide invalide" % (nom, t, taille))
-            return c
-    print("   %s : arete laissee vive, aucun chanfrein ne donne un solide valide" % nom)
-    return solid
-
-
 def build_part(spec):
     """spec : objet PartSpec de parts.py -> (shape, face2d)"""
     outer, holes = spec.profile()
@@ -174,7 +133,6 @@ def build_part(spec):
     solid = f.extrude(Vector(0, 0, spec.thickness))
     if spec.features:
         solid = spec.features(solid, Part, Vector)
-    solid = casse_aretes(solid, spec.chanfrein, spec.thickness, spec.name)
     solid = place(solid, spec.plane, spec.origin)
     if spec.rotate:
         ax, ang_deg, ctr = spec.rotate
