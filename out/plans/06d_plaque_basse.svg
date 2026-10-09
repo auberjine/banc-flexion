@@ -15,7 +15,7 @@
 <text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
 <text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">CuSn12-C</text>
 <text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
-<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">plat 40 x 6</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">plat 40 x 8</text>
 <text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
 <text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1</text>
 <text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
@@ -24,9 +24,9 @@
 <text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
 <text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
 <text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
-<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06c / 06d : entre les rebords du coin 02c (larges de 5,25 dessus et 5,41 dessous), points de silicone HT sur le siege ; pate graphite haute temperature sur la face de glissement.</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06c / 06d : entre les rebords du coin 02c (larges de 4,25 dessus et 4,43 dessous), points de silicone HT sur le siege ; pate graphite haute temperature sur la face de glissement.</text>
 <text x="205.500" y="68.142" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06d  PLAQUE DE FROTTEMENT, DESSOUS DU COIN  (1:1)</text>
-<text x="205.500" y="72.742" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">CuSn12-C, 1 ex., brut plat 40 x 6, epaisseur 5</text>
+<text x="205.500" y="72.742" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">CuSn12-C, 1 ex., brut plat 40 x 8, epaisseur 6</text>
 <path d="M 153.5 157.142 L 257.5 157.142 L 257.5 119.142 L 153.5 119.142 L 153.5 157.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="150.500" y1="138.142" x2="260.500" y2="138.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
 <line x1="205.500" y1="160.142" x2="205.500" y2="116.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
@@ -42,7 +42,7 @@
 <path d="M 267.5 157.142 L 268.228 154.542 L 266.772 154.542 Z" fill="#000"/>
 <path d="M 267.5 119.142 L 266.772 121.742 L 268.228 121.742 Z" fill="#000"/>
 <text x="265.900" y="138.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 265.900 138.142)">38</text>
-<text x="205.500" y="179.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Sans trou. Ep. 5 +/- 0,05, faces planes</text>
+<text x="205.500" y="179.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Sans trou. Ep. 6 +/- 0,05, faces planes</text>
 <text x="205.500" y="183.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">et paralleles a 0,02, Ra 0,8 cote glissement.</text>
 <text x="205.500" y="187.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Aretes cassees 0,3. Tolerance generale ISO 2768-m.</text>
 </svg>

@@ -113,7 +113,7 @@ z = 0 au bord inferieur du flanc.
 | 246.6 | dessous du coulisseau, pile libre |
 | 236.9 | dessous du coulisseau a 12 kN |
 | 276.6 | dessus du coulisseau, pile libre |
-| 323.7 | dessous de la traverse a tenons, plan de glissement du coin |
+| 325.7 | dessous de la traverse a tenons, plan de glissement du coin |
 | 420.0 | dessous de la membrure haute |
 | 440.0 | hors tout |
 
@@ -177,7 +177,7 @@ maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
 Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 150 C, contre 1,91 a chaud pour le cadre precedent en 10 mm S355 (157 MPa)
-et 34.3 kg de cadre au lieu de 44,5.
+et 34.4 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
 
@@ -231,7 +231,7 @@ traverse, donc l'axe de la vis est fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30.8 a 55.2 d'epaisseur, 114.5 de long |
-| Plaques de frottement | 2 plaques usinees en CuSn12-C, 38 x 102 (dessus) et 38 x 104 (dessous) x 5, sous pate graphite haute temperature, 0.34 kg en tout |
+| Plaques de frottement | 2 plaques usinees en CuSn12-C, 38 x 102 (dessus) et 38 x 104 (dessous) x 6, sous pate graphite haute temperature, 0.41 kg en tout |
 | Course utile | 56.5 mm selon y |
 | Position de repos | bout epais a y -85.5, bout mince a y 29 |
 | Sens de marche | vers la chape ; en fin de course le bout mince est a y 85.5 |
@@ -240,7 +240,7 @@ traverse, donc l'axe de la vis est fixe.
 | Effort moteur a 12 kN | 5.5 kN |
 | Couple sur la vis | 14.5 N.m |
 | Course par tour | 0.425 mm de coulisseau, environ 549 N |
-| Pression de contact, fin de course | 7.6 MPa en haut sur 30.0 x 52.8 (joints de traverse deduits), 6.2 MPa en bas sur 38 x 50.6 ; 25 admis |
+| Pression de contact, fin de course | 7.6 MPa en haut sur 30.0 x 52.8 (joints de traverse deduits), 6.3 MPa en bas sur 38 x 50.4 ; 25 admis |
 | Rendement | 46 pour cent |
 
 Le coin n'est autobloquant que si le frottement de ses deux faces depasse
@@ -274,9 +274,9 @@ LE BRONZE N'EST PLUS QUE DEUX PLAQUES, TOUTES DEUX SUR LE COIN.
 Un coin de bronze plein aurait demande 2,7 kg de barre, une section qu'il
 faut faire debiter. Or le bronze n'est utile que sur les deux faces de
 glissement : il est reporte sur deux plaques de frottement en CuSn12-C, de
-simples rectangles fraises dans un plat 40 x 6 (38 x 102 et 38 x 104, ep. 5),
+simples rectangles fraises dans un plat 40 x 8 (38 x 102 et 38 x 104, ep. 6),
 usines avec le reste plutot qu'achetes a part, et le coin devient un bloc d'acier C45
-de 1.37 kg, usine dans un plat 65 x 45, L 120 (fini 61 x 40 x 114,5).
+de 1.37 kg, usine dans un plat 70 x 45, L 120 (fini 63 x 40 x 114,5).
 
 La basse pourrait etre posee sur la pente du coulisseau, ou elle ne ferait
 que 58 de long au lieu de 104. Elle est mise sur le coin comme la
@@ -284,13 +284,13 @@ haute : le coulisseau redevient un bloc nu -- un percage et un plan a 12
 degres, ni poche ni taraudage -- les deux faces d'usure sortent ensemble
 avec le coin, et c'est deux fois le meme rebord a usiner. Ce que cela
 coute : la plaquette basse traverse la fente du flanc avec le coin, qui
-s'approfondit donc de 5.1 mm.
+s'approfondit donc de 6.1 mm.
 
 Aucune vis : le coin ne fait que 40 de large et le percage de la vis en
 prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un
 ligament d'epaisseur. Chaque plaquette est prise entre DEUX REBORDS usines
-dans la masse, 5.25 (dessus) et 5.41 (dessous) x 3, qui encaissent les 1.44 kN
-d'entrainement dans l'axe de la vis : flexion 11.8 MPa au pied, matage du chant 18 MPa.
+dans la masse, 4.25 (dessus) et 4.43 (dessous) x 4, qui encaissent les 1.44 kN
+d'entrainement dans l'axe de la vis : flexion 23.9 MPa au pied, matage du chant 18 MPa.
 Elles ne sont PAS collees a l epoxy. Bronze et acier ne se dilatent pas
 pareil : a 150 C la plaquette s allonge de 0.09 mm de plus que son siege,
 et un joint rigide sur toute la longueur encaisserait 30 a 80 MPa de
@@ -302,23 +302,24 @@ cisaillement thermique dans le joint. Le CuSn12-C n'est pas autolubrifiant :
 pate graphite haute temperature sur les faces de glissement, posee APRES la prise du silicone ;
 rien sur les sieges, le silicone ne prend pas sur une pate.
 
-Pied de rebord SANS degagement : la fraise y laisse son angle (R1 au plus),
-et chaque logement a 2 de plus que sa plaquette, si bien que l'angle du
+Pied de rebord SANS degagement : conge R2, le bout d'une fraise de 4 (pas de
+conge interieur sous R2 sur tout le banc),
+et chaque logement a 4 de plus que sa plaquette, si bien que l'angle du
 bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure
 du rebord est NORMALE A LA PENTE et non verticale, comme le chant de la
-plaquette : dessinees verticales, elles la mordaient de 1.1 mm en bas.
+plaquette : dessinees verticales, elles la mordaient de 1.3 mm en bas.
 
 Les rebords s'arretent 2 mm SOUS la surface du bronze. Aux deux bouts de
 course ils passent sous la conjuguee, et s'ils affleuraient ce serait de
 l'acier sur acier qu'on ferait glisser. Il en coute de la portee : la
-plaquette haute porte sur 52.8 mm au lieu de 60, la basse sur 50.6 au
-lieu de 58, soit 7.6 et 6.2 MPa.
+plaquette haute porte sur 52.8 mm au lieu de 60, la basse sur 50.4 au
+lieu de 58, soit 7.6 et 6.3 MPa.
 
 Le filet reste engage sur 27.0 mm coin recule, soit 1.7 d, ce qui est
 tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la vis et le
 taraudage fait que les derniers filets ne prennent plus rien.
 
-Le coin traverse les deux flancs par une fente de 44 x 69, entre les
+Le coin traverse les deux flancs par une fente de 44 x 71, entre les
 deux lumieres de guidage reportees a x = +/- 44. Il reste alors 58 mm
 de section nette dans le noeud, soit 12.9 MPa nominal pour les 6000 N par flanc.
 
@@ -376,7 +377,7 @@ precharge et les 329 N de desserrage.
 | Platines | 2 x tole 8, 70 de haut au droit de l'alesage, 140 de long |
 | Flexion d'une platine | 130 MPa, coefficient 3.3 a froid, 3.0 a 150 C, fleche 0.139 mm |
 | Entretoises de butee | tube de precision 20 x 2, L = 71.5 +/-0,2, 24.5 MPa de COMPRESSION chacune |
-| Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 302.7, tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H contre-bloques cote platines |
+| Fixation | 2 vis H M10 x 200 ISO 4014 (filetees sur 32) a x = +/- 52, z 303.7, tete et 1 rondelle derriere le flanc oppose, 4 rondelles + 2 ecrous H contre-bloques cote platines |
 | Serrage sous tete | 173.5 mm, filet a partir de 168 : ecrou sur le filet avec 5.5 de marge, 9.7 de depassement |
 | Serrage | 25 N.m, aucun taraudage : les vis traversent les deux flancs |
 | Butee sous la tete | 2 rondelles trempees AS 1730, pate graphite haute temperature entre elles, a plat sur la face EXTERIEURE ; frottement 0.10 compte dans le couple |
@@ -390,7 +391,7 @@ cadre. Rien a usiner. Les vis traversent LES DEUX flancs, avec une
 entretoise de cadre entre eux : la commande se monte du cote que l'on veut,
 en retournant le coin, et les deux percages servent dans les deux cas.
 
-Une entretoise de sommet, dans l'axe a z 411, au dessus de la mortaise de
+Une entretoise de sommet, dans l'axe a z 412, au dessus de la mortaise de
 traverse : la membrure haute n'avait aucune liaison sur 500 mm et c'est la
 que partait le mode de voilement symetrique. Meme tube de 60, meme vis TH
 M10 x 100 que les autres entretoises de cadre. Ce n'est PAS un serrage des
@@ -432,15 +433,15 @@ Masses du modele 3D (out/masses.json, construit le 09/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
-| Flanc en treillis | 2 | 10.21 kg | 20.41 kg |
+| Flanc en treillis | 2 | 10.20 kg | 20.40 kg |
 | Plaque de traverse | 6 | 0.25 kg | 1.50 kg |
 | Plateau de poussoir | 3 | 0.33 kg | 0.97 kg |
 | Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
-| Plaque de frottement, dessus | 1 | 0.17 kg | 0.17 kg |
-| Plaque de frottement, dessous | 1 | 0.17 kg | 0.17 kg |
+| Plaque de frottement, dessus | 1 | 0.20 kg | 0.20 kg |
+| Plaque de frottement, dessous | 1 | 0.21 kg | 0.21 kg |
 | Vis de commande H M16 x 160 | 1 | 0.34 kg | 0.34 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.90 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
@@ -448,12 +449,12 @@ Masses du modele 3D (out/masses.json, construit le 09/10/2026).
 | Patin de charge | 1 | 0.45 kg | 0.45 kg |
 | Plat de renfort colle | 2 | 0.26 kg | 0.52 kg |
 | Entretoise tubulaire | 9 | 0.05 kg | 0.48 kg |
-| Pied a mi-bois | 4 | 0.87 kg | 3.48 kg |
+| Pied a mi-bois | 4 | 0.87 kg | 3.47 kg |
 | Crochet d etuve | 4 | 0.17 kg | 0.69 kg |
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
-**Cadre complet 34.3 kg**, poutrelle 22.2 kg.
+**Cadre complet 34.4 kg**, poutrelle 22.2 kg.
 
 ## 10. Conduite d'essai
 

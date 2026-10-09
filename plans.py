@@ -849,8 +849,8 @@ def plan_coulisseau():
     XB, XCD, YD = 286.0, 364.0, 132.0
     s.text(XB, YD, "DETAIL B  (4:1)", 3.6, "middle", weight="bold")
     s.text(XB, YD + 4.5, "rebords du dessus, 2 ex.", 2.8, "middle")
-    s.text(XB, YD + 8.3, "largeur (%s) ; pied : angle de fraise, R%s maxi" % (f(w, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
-    vb = D.View(s, KD, Y1 - 8.0, zt, XB, YD + 30.0)
+    s.text(XB, YD + 8.3, "largeur (%s) ; pied : conge R%s (fraise de %s)" % (f(w, 2), f(p.PLAQ_REBORD_R), f(2 * p.PLAQ_REBORD_R)), 2.8, "middle")
+    vb = D.View(s, KD, Y1 - 8.0, zt, XB, YD + 37.0)
     yb0, zb0 = Y1 - 15.5, zt - 3.0
     for sg in c02_decoupe(coin, yb0, zb0, Y1 + 1.0, zr + 1.0):
         c02_chemin(vb, [sg])
@@ -858,15 +858,15 @@ def plan_coulisseau():
     vb.rupture((yb0, zb0), (Y1, zb0))
     vb.cote_vx(zt, zr, None, Y1 - w, 0.0, xl=Y1 - w - 6.0, texte=f(hr))
     c02_rayon_creux(vb, (Y1 - w - p.PLAQ_REBORD_R, zt + p.PLAQ_REBORD_R), p.PLAQ_REBORD_R, -45.0,
-                    "R%s maxi" % f(p.PLAQ_REBORD_R), lg=17.0, palier=-4.0)
+                    "R%s" % f(p.PLAQ_REBORD_R), lg=17.0, palier=-4.0)
     vb.rayon((Y1 - r1, zr - r1), r1, 45.0, "R%s" % f(r1), 6)
 
     # ------------------------------------------------ detail C : rebord du dessous, 4:1
     s.text(XCD, YD, "DETAIL C  (4:1)", 3.6, "middle", weight="bold")
     s.text(XCD, YD + 4.5, "rebords du dessous, 2 ex.", 2.8, "middle")
-    s.text(XCD, YD + 8.3, "largeur (%s) en projection ; pied R%s maxi comme B" % (f(wb, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
+    s.text(XCD, YD + 8.3, "largeur (%s) en projection ; pied R%s comme B" % (f(wb, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
     yc = Y1 - 6.0
-    vd = D.View(s, KD, yc, zb(yc), XCD + 2.0, YD + 32.0)
+    vd = D.View(s, KD, yc, zb(yc), XCD + 2.0, YD + 39.0)
     yd0 = Y1 - 13.0
     zd1 = zb(Y1) + 3.5
     for sg in c02_decoupe(coin, yd0, zb(Y1) - 8.0, Y1 + 1.0, zd1):
@@ -1398,7 +1398,7 @@ def plan_pied():
     c6, r6 = p05_arc(outer, (y2, h))                         # angles du chant haut
     c2, r2 = p05_arc(outer, (-y2, 0.0))                      # bout : arete de pose (PIED_COIN_R)
     r_bos = p05_arc(outer, (-y2 + bb, 0.0))[1]               # raccords du bossage
-    r_fen = p05_arc(outer, (-y2 + fb, fh))[1]                # fente de calage
+    r_fen = p05_arc(outer, (-y2 + fb, 0.0))[1]               # entree de la fente de calage
     r_ent = p05_arc(outer, (yf + w2, h))[1]                  # entree d encoche
     r_aj = p.PIED_AJOUR_R
     r_cr = p05_arc(co, (S, -H))[1]                           # corps et appui du crochet
@@ -1495,8 +1495,8 @@ def plan_pied():
     yA1, zA1 = -y2 + bb + 10.0, hb + 5.0
     p05_titre(s, 90.0, 108.0, "DETAIL A  (2:1)",
               ["bout du pied, 2 ex. symetriques",
-               "fente : angles R%s ; bossage : R%s ; R%s du bout = arete de pose"
-               % (f(r_fen), f(r_bos), f(r2))])
+               "fente : entree R%s, fond a degagements R%s ; bossage : R%s ; R%s du bout = arete de pose"
+               % (f(r_fen), f(p.RAYON_INTERIEUR_MIN), f(r_bos), f(r2))])
     p05_detail(vA, outer, (-y2, 0.0, yA1, zA1),
                [((-y2, zA1), (yA1, zA1)), ((yA1, hb), (yA1, zA1))])
     vA.cote_hx(-y2, -y2 + fb, 0.0, 0.0, -10.0)                                   # 5

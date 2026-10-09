@@ -88,6 +88,8 @@ def main():
     else:
         print("\n!! aucun navigateur Chromium (Edge, Chrome, Chromium) : PDF des planches NON regenere ; voir outils.py")
         codes.append(1)
+    codes.append(etape("un PDF par feuille", [sys.executable, "pdf_feuilles.py"],
+                       attendus=(" 0 echec(s)",)))
     codes.append(etape("visionneuse 3D", [sys.executable, "viewer3d.py"]))
     codes.append(etape("nomenclature", [sys.executable, "nomenclature.py"]))
     codes.append(etape("nomenclature Excel", [sys.executable, "nomenclature_xlsx.py"]))

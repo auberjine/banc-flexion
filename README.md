@@ -24,6 +24,7 @@ notice. Indice B du 05/10/2026.
 | `dxf/LISTE.txt` | fichiers, epaisseur, nuance, quantite et statut ; signification des calques |
 | `plans/*.svg` | une feuille A3 cotee PAR PIECE fabriquee (`<repere>_<piece>.svg`, cartouche a son repere), plus l'ensemble (00) et le montage de la chape (07m) |
 | `plans/plans.pdf` | les memes feuilles en un seul PDF, dans l'ordre des reperes |
+| `plans/pdf/*.pdf` | un PDF par feuille, au nom de la feuille (`pdf_feuilles.py`, lance par `make.py`) |
 | `masses.json` | masse, volume, matiere et brut de chaque piece |
 | `fem_flanc.json` | resultat du calcul elements finis du flanc |
 | `flambement3.json` | flambement hors plan, mode symetrique (le facteur a retenir) |
@@ -109,6 +110,7 @@ nodale, lance le solveur et depouille le `.frd`.
 | `verif_interference.py` | controle d interference sur l assemblage, et des CONTACTS obligatoires |
 | `verif_percages.py` | ligaments : chaque percage face aux autres et au contour ; largeur des fentes et des encoches ouvertes du contour |
 | `verif_plans.py` | planches : textes superposes, hors feuille ou traverses par un trait (traits fins compris, boite orientee) ; chaque piece nommee sur une planche |
+| `pdf_feuilles.py` | decoupe `plans.pdf` en un PDF par feuille dans `out/plans/pdf/` (pypdf) |
 | `rendu_planches.py` | rend les planches en PNG (`out/rendus/`) pour les relire a l'oeil |
 | `outils.py` | chemins des outils externes (FreeCAD, CalculiX, navigateur), Windows et Linux ; empreinte du modele et date des resultats |
 

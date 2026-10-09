@@ -403,12 +403,12 @@ CALE_DI = 26.0
 # M16 passe au milieu du coin, il n'y a rien a visser, et des trous de cle
 # n'apportaient rien que les rebords ne fassent deja.
 PLAQ_ALLIAGE = "CuSn12-C"
-PLAQ_EP = 5.0
+PLAQ_EP = 6.0             # 6 (09/10/2026, au lieu de 5) : rebords de 4 sous un conge de 2
 PLAQ_B = 38.0             # pas toute la largeur du coin : le dessus doit rester entier sur
                           # la traverse, jeux de mortaise et de fente a l oppose (verifie)
 PLAQ_L_HAUT = 102.0        # cotes rondes ; les rebords s en deduisent
 PLAQ_L_BAS = 104.0         # prise sur la pente : la basse est plus longue
-PLAQ_BRUT = "plat 40 x 6"      # fraise a 38 x 5
+PLAQ_BRUT = "plat 40 x 8"      # fraise a 38 x 6
 PLAQ_LUBRIFIANT = "pate graphite haute temperature"
 PLAQ_P_ADM = 25.0          # CuSn12 lubrifie, glissement lent : valeur prudente
 
@@ -421,17 +421,22 @@ PLAQ_P_ADM = 25.0          # CuSn12 lubrifie, glissement lent : valeur prudente
 # Le rebord doit rester SOUS la surface du bronze : aux deux bouts de course
 # il passe sous la traverse, et s'il affleurait ce serait de l'acier sur acier
 # qu'on ferait glisser. Il en reste donc PLAQ_EP - PLAQ_REBORD_H de garde.
-PLAQ_REBORD_H = 3.0        # hauteur du rebord au dessus de la portee : 2 de garde sous les 5 du bronze
+PLAQ_REBORD_H = 4.0        # hauteur du rebord au dessus de la portee : 2 de garde sous les 6 du bronze
 # PIEDS DE REBORD SANS DEGAGEMENT (06/10/2026) : la fraise laisse son angle,
 # vif ou un conge de PLAQ_REBORD_R au plus, et c est le logement qui s allonge
 # pour que l angle de la plaquette ne monte pas dessus. Elle a donc un peu de
 # jeu en y avant de venir en butee, par son arete, au pied du rebord : 2.(JEU - R)
 # au plus. Un usinage de moins par rebord, et rien a tenir au centieme.
-PLAQ_JEU = 1.0             # jeu de la plaquette a chaque bout, entre les deux rebords
+PLAQ_JEU = 2.0             # jeu de la plaquette a chaque bout : au moins le conge de pied
 # les plaquettes ont des cotes rondes : c est la largeur des rebords qui s en
 # deduit, et non l inverse
 PLAQ_REBORD_L = (COIN_L - PLAQ_L_HAUT - 2.0 * PLAQ_JEU) / 2.0    # rebords du dessus, selon y
-PLAQ_REBORD_R = 1.0        # conge de pied laisse par la fraise, au plus (angle vif admis)
+# CONGES INTERIEURS : 2 mm au moins PARTOUT (09/10/2026), RAYON_INTERIEUR_MIN,
+# controle par verif_percages.py sur tous les profils. Au pied des rebords du
+# coin, c est le bout d une fraise de 4 : la plaquette garde 2 de jeu par bout
+# et ne porte que sur les PLAQ_REBORD_H - PLAQ_REBORD_R du haut du rebord.
+RAYON_INTERIEUR_MIN = 2.0
+PLAQ_REBORD_R = RAYON_INTERIEUR_MIN   # conge de pied du rebord
 
 # FIXATION DES PLAQUETTES : pas d epoxy. Bronze et acier ne se dilatent pas
 # pareil (18,5 contre 12 microdef/K) : a 150 C, une plaquette de 100 mm
@@ -1575,7 +1580,7 @@ def verifie():
                   % (flex, cis))
     if pres > 40.0:
         pb.append("chant de la plaquette matte a %.0f MPa contre le rebord" % pres)
-    if PLAQ_REBORD_R > PLAQ_REBORD_H / 2.0:
+    if PLAQ_REBORD_R > PLAQ_REBORD_H / 2.0 + 1e-9:
         pb.append("conge de pied plus haut que la moitie du rebord")
     if PLAQ_JEU < PLAQ_REBORD_R:
         pb.append("logement des plaquettes trop court : l angle du bronze monte sur le conge"

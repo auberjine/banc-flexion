@@ -46,8 +46,8 @@ que selon y, et l'axe de la vis reste fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30,8 a 55,2 d'epaisseur, 114,5 de long |
-| Plaque haute | CuSn12-C usine 38 x 102 x 5, sans trou, entre deux rebords de 5,25 |
-| Plaque basse | CuSn12-C usine 38 x 104 x 5, sur la pente, entre deux rebords de 5,41 |
+| Plaque haute | CuSn12-C usine 38 x 102 x 6, sans trou, entre deux rebords de 4,25 |
+| Plaque basse | CuSn12-C usine 38 x 104 x 6, sur la pente, entre deux rebords de 4,43 |
 | Taraudage | M16 sur 80 mm depuis le bout epais, passage a 18 au dela |
 | Course utile | 56,5 mm selon y |
 | Effort moteur a 12 kN | 5,5 kN |
@@ -59,9 +59,9 @@ que selon y, et l'axe de la vis reste fixe.
 
 LE BRONZE N'EST PLUS QUE DEUX PLAQUES, TOUTES DEUX SUR LE COIN. Un coin de
 bronze plein aurait pese 2,7 kg de barre, une section qui ne se trouve pas en
-stock ; les deux plaques, de simples rectangles fraises dans du plat 40 x 6 et
+stock ; les deux plaques, de simples rectangles fraises dans du plat 40 x 8 et
 usines avec le reste de la commande (07/10/2026, au lieu de plaques norelem du
-commerce), en font 0,34 kg. La plaque basse pourrait etre posee sur la pente du
+commerce), en font 0,41 kg. La plaque basse pourrait etre posee sur la pente du
 coulisseau, ou elle ne ferait que 58 de long au lieu de 104 ; la mettre sur le coin rend le coulisseau a l'etat de
 bloc nu -- un percage et un plan a 12 degres, ni poche ni taraudage -- fait
 sortir les deux faces d'usure ensemble avec le coin, et n'oblige a usiner que
@@ -79,8 +79,8 @@ lacher, le lamage d'une bague de bronze reste possible.
 AUCUNE VIS SUR LES PLAQUES : le coin ne fait que 40 de large et le percage de
 la tige en prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un
 ligament d'epaisseur. Chaque plaque est prise entre DEUX REBORDS usines dans la
-masse, 5,25 (dessus) et 5,41 (dessous) de large pour 3 de haut, qui encaissent
-les 1,44 kN d'entrainement dans l'axe de la vis : flexion 11,8 MPa au pied,
+masse, 4,25 (dessus) et 4,43 (dessous) de large pour 4 de haut, qui encaissent
+les 1,44 kN d'entrainement dans l'axe de la vis : flexion 23,9 MPa au pied,
 matage du chant 18 MPa. Il n'y a pas de colle structurale : une epoxy
 fissurerait au premier chauffage, bronze et acier ne se dilatant pas pareil.
 Quelques points de silicone haute temperature tiennent la plaque pendant le
@@ -89,11 +89,12 @@ Le CuSn12 n'est pas autolubrifiant : pate graphite haute temperature sur les
 faces de glissement, posee APRES la prise du silicone, et rien sur les sieges,
 car le silicone ne prend pas sur une pate.
 
-Pied de rebord SANS degagement : la fraise y laisse son angle (R1 au plus), et
-chaque logement a 2 mm de plus que sa plaque, si bien que l'angle du bronze ne
+Pied de rebord SANS degagement : conge R2, le bout d'une fraise de 4 (aucun
+conge interieur sous R2 sur tout le banc, 09/10/2026), et chaque logement a
+4 mm de plus que sa plaque, si bien que l'angle du bronze ne
 monte pas sur le conge. Sur la face inclinee, la face interieure du rebord est
 NORMALE A LA PENTE et non verticale, comme le chant de la plaque : dessinees
-verticales, elles la mordaient de 1,1 mm en bas.
+verticales, elles la mordaient de 1,3 mm en bas.
 
 Les rebords s'arretent 2 mm SOUS la surface du bronze. Aux deux bouts de course
 ils passent sous la piece conjuguee, et s'ils affleuraient ce serait de l'acier

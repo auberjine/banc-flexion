@@ -279,7 +279,45 @@ def noms_flanc():
     return out
 
 
+def conges_interieurs(outer, holes, r_min):
+    """Rayons des arcs RENTRANTS (concaves, centre du cote du vide) de moins
+    de r_min dans un profil : un conge interieur plus petit que l'outil.
+    Les trous ronds entiers ne comptent pas (perces ou decoupes), ni les
+    arcs saillants."""
+    def aire(segs):
+        pts = [sg[1] if sg[0] == 'L' else (sg[1][0] + sg[2] * math.cos(sg[3]),
+                                            sg[1][1] + sg[2] * math.sin(sg[3])) for sg in segs]
+        return sum(pts[i][0] * pts[(i + 1) % len(pts)][1] - pts[(i + 1) % len(pts)][0] * pts[i][1]
+                   for i in range(len(pts))) / 2.0
+    petits = []
+    for k, c in enumerate([outer] + list(holes)):
+        if not any(sg[0] == 'L' for sg in c):
+            continue
+        sens = aire(c) > 0
+        for sg in c:
+            if sg[0] != 'A':
+                continue
+            saillant = (sg[5] == sens) if k == 0 else (sg[5] != sens)
+            if not saillant and sg[2] < r_min - 1e-6:
+                petits.append(sg[2])
+    return sorted(set(round(r, 2) for r in petits))
+
+
 def main():
+    # conges interieurs : RAYON_INTERIEUR_MIN partout (fraise de 4 au plus fin)
+    n_conges = 0
+    for spec in P.all_parts():
+        try:
+            outer, holes = spec.profile()
+        except Exception:
+            continue
+        petits = conges_interieurs(outer, holes, p.RAYON_INTERIEUR_MIN)
+        if petits:
+            n_conges += 1
+            print("FAUTE  %s : conge(s) interieur(s) R%s, sous les R%g exiges"
+                  % (spec.name, " / R".join("%g" % r for r in petits), p.RAYON_INTERIEUR_MIN))
+    print("conges interieurs >= R%g : %s" % (p.RAYON_INTERIEUR_MIN,
+                                             "%d piece(s) en faute" % n_conges if n_conges else "toutes les pieces"))
     print("=" * 74)
     print("%-22s %6s %9s %7s %7s" % ("piece", "trous", "ligament", "fautes", "avert"))
     print("=" * 74)
@@ -316,6 +354,7 @@ def main():
         for t, q, d in a:
             print("   -      %s" % t)
 
+    total_f += n_conges
     print("\n%d faute(s)" % total_f)
     return 1 if total_f else 0
 
