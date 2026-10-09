@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#fff"/>
+<rect x="10.000" y="10.000" width="400.000" height="277.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<rect x="225.000" y="251.000" width="185.000" height="36.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<line x1="225.000" y1="263.000" x2="410.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="225.000" y1="275.000" x2="410.000" y2="275.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="251.000" x2="345.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="285.000" y1="263.000" x2="285.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="263.000" x2="345.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="229.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="5.00" fill="#000" text-anchor="start" font-weight="bold">ENTRETOISE DE BUTEE</text>
+<line x1="385.000" y1="251.000" x2="385.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="397.500" y="256.200" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">indice B</text>
+<text x="397.500" y="261.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">05/10/2026</text>
+<text x="349.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="4.00" fill="#000" text-anchor="start" font-weight="normal">rep. 07b</text>
+<text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
+<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">E235+C</text>
+<text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tube 20 x 2</text>
+<text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
+<text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2</text>
+<text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
+<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2:1</text>
+<text x="289.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">cotes en mm</text>
+<text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
+<text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
+<text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07b : 24,5 MPa chacune sous la commande, 135 environ avec la precharge des V8 (25 N.m, K = 0,2).</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07b : tube de precision 20 x 2 E235+C EN 10305-1, coupe a la longueur cotee, les 2 a la meme butee, faces dressees.</text>
+<text x="201.863" y="34.550" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">07b  ENTRETOISE DE BUTEE, COUPE AXIALE  (2:1)</text>
+<text x="201.863" y="39.150" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">E235+C EN 10305-1, 2 ex., brut tube de precision 20 x 2</text>
+<defs><pattern id="c07_h" patternUnits="userSpaceOnUse" width="2.000" height="2.000" patternTransform="rotate(45.00)"><line x1="1.000" y1="0" x2="1.000" y2="2.000" stroke="#000" stroke-width="0.130"/></pattern></defs>
+<path d="M 185.863 197.55 L 181.863 197.55 L 181.863 54.55 L 185.863 54.55 L 185.863 197.55 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
+<path d="M 185.863 197.55 L 181.863 197.55 L 181.863 54.55 L 185.863 54.55 L 185.863 197.55 Z" fill="url(#c07_h)" fill-rule="evenodd" stroke="none"/>
+<path d="M 185.863 197.55 L 181.863 197.55 L 181.863 54.55 L 185.863 54.55 L 185.863 197.55 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 217.863 197.55 L 221.863 197.55 L 221.863 54.55 L 217.863 54.55 L 217.863 197.55 Z" fill="#fff" fill-rule="evenodd" stroke="none"/>
+<path d="M 217.863 197.55 L 221.863 197.55 L 221.863 54.55 L 217.863 54.55 L 217.863 197.55 Z" fill="url(#c07_h)" fill-rule="evenodd" stroke="none"/>
+<path d="M 217.863 197.55 L 221.863 197.55 L 221.863 54.55 L 217.863 54.55 L 217.863 197.55 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="185.863" y1="197.550" x2="217.863" y2="197.550" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
+<line x1="185.863" y1="54.550" x2="217.863" y2="54.550" stroke="#000" stroke-width="0.500" stroke-linecap="round"/>
+<line x1="201.863" y1="200.550" x2="201.863" y2="51.550" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="222.863" y1="197.550" x2="233.863" y2="197.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="222.863" y1="54.550" x2="233.863" y2="54.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="231.863" y1="197.550" x2="231.863" y2="54.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 231.863 197.55 L 232.591 194.95 L 231.135 194.95 Z" fill="#000"/>
+<path d="M 231.863 54.55 L 231.135 57.15 L 232.591 57.15 Z" fill="#000"/>
+<text x="230.263" y="126.050" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 230.263 126.050)">71,5 +/-0,2</text>
+<line x1="185.863" y1="198.550" x2="185.863" y2="209.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="217.863" y1="198.550" x2="217.863" y2="209.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="185.863" y1="207.550" x2="217.863" y2="207.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 185.863 207.55 L 188.463 208.278 L 188.463 206.822 Z" fill="#000"/>
+<path d="M 217.863 207.55 L 215.263 206.822 L 215.263 208.278 Z" fill="#000"/>
+<text x="201.863" y="205.950" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">diam. 16</text>
+<line x1="181.863" y1="198.550" x2="181.863" y2="217.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="221.863" y1="198.550" x2="221.863" y2="217.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="181.863" y1="215.550" x2="221.863" y2="215.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 181.863 215.55 L 184.463 216.278 L 184.463 214.822 Z" fill="#000"/>
+<path d="M 221.863 215.55 L 219.263 214.822 L 219.263 216.278 Z" fill="#000"/>
+<text x="201.863" y="213.950" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">diam. 20</text>
+<line x1="219.863" y1="54.550" x2="231.863" y2="47.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 219.863 54.55 L 222.476 53.869 L 221.742 52.611 Z" fill="#000"/>
+<line x1="231.863" y1="47.550" x2="236.863" y2="47.550" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="237.863" y="48.550" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2 faces dressees</text>
+</svg>

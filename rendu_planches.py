@@ -4,7 +4,7 @@ Rend les planches SVG en PNG pour les relire a l'oeil (et pour les agents).
 
     python rendu_planches.py [dossier_sortie]
 
-Ecrit <dossier>/0X_nom.png en 3200 x 2262 px (A3 420 x 297 mm, soit 7,619 px
+Ecrit <dossier>/<repere>_<piece>.png (une feuille par piece) en 3200 x 2262 px (A3 420 x 297 mm, soit 7,619 px
 par mm de feuille). Dossier par defaut : out/rendus. Il faut un navigateur
 Chromium sans interface et Pillow (voir outils.py : Edge sous Windows, chromium ou
 google-chrome sous Linux).
@@ -38,6 +38,8 @@ def main():
     svgs = sorted(glob.glob(os.path.join(HERE, "out", "plans", "0*.svg")))
     if not svgs:
         raise SystemExit("aucune planche : lancer d'abord python plans.py")
+    for vieux in glob.glob(os.path.join(sortie, "*.png")):   # feuilles disparues
+        os.remove(vieux)
     tmp = tempfile.mkdtemp(prefix="rendu_")
     w, h = 1600, int(round(1600 * 297.0 / 420.0))
     for f in svgs:

@@ -44,7 +44,7 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 04c | Plat de renfort colle | 2 | feuillard 20 x 2 S235, coupe a 840 | S235 | 0.26 kg | piece du commerce, coupee a longueur, bavures retirees ; collee sur toute la longueur a y = +/- 34, poncer et degraisser les deux faces ; un jeu par eprouvette |
 | 02e | Pile de 12 rondelles Belleville | 1 | 12 rondelles EN 16983 A50 | 51CrV4 (1.8159) | 0.41 kg | piece du commerce : 12 rondelles 50 x 25,4 x 3 (ex-DIN 2093, PAS en C60S) montees TETE-BECHE, grand diametre aux deux bouts ; 18,5 kN a plat, course 15,6 mm ; cales de rattrapage 1 et 2 mm (50 / 26) entre poussoir et pile si l empilement est court |
 
-**Masse du cadre complet : 34.3 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 08/10/2026).
+**Masse du cadre complet : 34.3 kg.** Poutrelle beton : 22.2 kg. Masses du modele 3D (out/masses.json du 09/10/2026).
 
 ## Visserie et petites pieces du commerce
 

@@ -428,7 +428,7 @@ resolution suffisante, et un col serait une entaille de plus.
 
 ## 9. Masses
 
-Masses du modele 3D (out/masses.json, construit le 08/10/2026).
+Masses du modele 3D (out/masses.json, construit le 09/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|

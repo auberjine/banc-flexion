@@ -170,6 +170,24 @@ def f01_appel(v, c, r, lettre, ang, dl=3.5):
              "middle", weight="bold")
 
 
+def feuille(titre, rep, spec, echelle, notes, matiere=None, brut=None, qte=None):
+    """Une feuille, une piece : cartouche de la piece, puis tout ce qui est
+    trace jusqu'a range_feuille() appartient a son dessin, recentre sur la
+    feuille au-dessus des notes."""
+    s = D.Sheet(titre, rep, spec.material if matiere is None else matiere,
+                spec.stock.split(" (fini")[0] if brut is None else brut,
+                spec.qty if qte is None else qte,
+                echelle, notes=notes)
+    s.cartouche()
+    s.debut_piece()
+    return s
+
+
+def range_feuille(s, nom):
+    s.fin_piece()
+    return s.save(os.path.join(OUT, nom))
+
+
 def plan_flanc():
     outer = P.flanc_contour()
     fen = P.flanc_fenetre()
@@ -672,10 +690,15 @@ def plan_coulisseau():
     dz_t, df_t = p.coin_par_tour()
     p_haut, p_bas = p.pressions_plaquettes()
 
-    notes = [
-        "Aretes vives non cotees cassees %s x 45 deg." % f(p.CHANFREIN),
-        "%s : pente fraisee Ra 1,6, planeite 0,05 (la plaque basse %s y glisse) ; bord EPAIS (%s)"
-        " cote chape." % (rep_c, R["plaquette_basse"], f(H)),
+    aretes = "Aretes vives non cotees cassees %s x 45 deg." % f(p.CHANFREIN)
+    notes_c = [
+        aretes,
+        "Pente fraisee Ra 1,6, planeite 0,05 (la plaque basse %s y glisse) ; bord EPAIS (%s)"
+        " cote chape." % (R["plaquette_basse"], f(H)),
+        "Alesage : le tourillon %s y est colle. Taraudages : vis de guidage %s." % (R["tourillon"], R["guide"]),
+    ]
+    notes_o = [
+        aretes,
         "%s : logements centres sur la longueur, sieges plans a 0,05 ; %s, %s et %s depuis les"
         " plans des sieges prolonges."
         % (rep_o, f(p.COIN_T_BOUT_EPAIS), f(p.COIN_T_BOUT_MINCE), f(p.COIN_VIS_SOUS)),
@@ -696,19 +719,18 @@ def plan_coulisseau():
         % (f(psi, 2), f(rho, 2), f(p.VIS_MU_MIN, 2), f(marge, 2), f(tr_rho / tr_psi, 2)),
         "%s : flancs du filet a %s MPa ; pate cuivre (haute temperature) dans le taraudage."
         % (rep_o, f(p.pression_filet())),
-        "%s : %d plateaux identiques empiles, decoupe laser (%s.dxf) ; le patin de charge"
-        " %s colle fait fond." % (rep_p, sp.qty, sp.name, R["patin_charge"]),
-        "%s : plateaux serres en bloc par 2 vis %s H M%g x %g, TETE EN DESSOUS, rondelle et"
-        " ecrou au dessus, %s N.m." % (rep_p, vg, p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L,
-                                       f(p.POUSSOIR_VIS_COUPLE)),
         "SENS DE MONTAGE : bout EPAIS du coin du cote oppose a la chape.",
     ]
-    s = D.Sheet("COULISSEAU, COIN ET POUSSOIR", "02",
-                "%s / %s / %s" % (sc.material, sp.material, so.material),
-                "voir sous les titres",
-                "%d + %d + %d (%s, %s, %s)" % (sc.qty, sp.qty, so.qty, rep_c, rep_p, rep_o),
-                "1:1  -  details 4:1", notes=notes)
-    s.cartouche()
+    notes_p = [
+        aretes,
+        "%d plateaux identiques empiles, decoupe laser (%s.dxf) ; le patin de charge"
+        " %s colle fait fond." % (sp.qty, sp.name, R["patin_charge"]),
+        "Plateaux serres en bloc par 2 vis %s H M%g x %g, TETE EN DESSOUS, rondelle et"
+        " ecrou au dessus, %s N.m." % (vg, p.POUSSOIR_VIS_D, p.POUSSOIR_VIS_L,
+                                       f(p.POUSSOIR_VIS_COUPLE)),
+    ]
+    out = []
+    s = feuille("COULISSEAU A TETE INCLINEE", rep_c, sc, "1:1", notes_c)
 
     # ======================================================== coulisseau 02a
     XF, YF, XS, YT = 165.0, 76.0, 57.0, 119.0
@@ -785,7 +807,10 @@ def plan_coulisseau():
               "alesage %s H8 prof. %s" % (f(p.ALESAGE_D_COUL), f(p.ALESAGE_P_COUL)) + chr(10)
               + "a fond plat, par dessous", -50.0, -5.0, fin="fleche")
 
+    out.append(range_feuille(s, "%s_coulisseau.svg" % rep_c))
+
     # ======================================================== coin 02c
+    s = feuille("COIN DE COMMANDE", rep_o, so, "1:1  -  details 4:1", notes_o)
     XC, YC = 315.0, 46.0
     c02_titre(s, XC, 17.0, "%s  COIN DE COMMANDE, epaisseur %s  (1:1)" % (rep_o, f(p.COIN_B)),
               "%s, %d ex., brut %s" % (so.material, so.qty, so.stock))
@@ -862,7 +887,10 @@ def plan_coulisseau():
     s.line(qa[0] + ux_ * 1.0, qa[1] + uy_ * 1.0, qb[0] + ux_ * 2.0, qb[1] + uy_ * 2.0, D.TRAIT_FIN)
     c02_cote_texte_h(vd, pb_, pt_, f(hr))
 
+    out.append(range_feuille(s, "%s_coin.svg" % rep_o))
+
     # ======================================================== poussoir 02b
+    s = feuille("PLATEAU DE POUSSOIR", rep_p, sp, "1:1", notes_p)
     XP, YP = 80.0, 222.0
     c02_titre(s, XP, 180.0, "%s  PLATEAU DE POUSSOIR, %d empiles  (1:1)" % (rep_p, sp.qty),
               "%s, %d ex., brut %s" % (sp.material, sp.qty, sp.stock))
@@ -889,15 +917,14 @@ def plan_coulisseau():
               "%d x diam. %s (passage)" % (len(P.poussoir_trous_vis()), f(p.POUSSOIR_VIS_PASSAGE)),
               22.0, 10.0, fin="fleche")
     vp.rayon((Lp2 - rp, Bp2 - rp), rp, 45.0, "4 x R%s" % f(rp), 8)
-
-    return s.save(os.path.join(OUT, "02_coulisseau.svg"))
+    out.append(range_feuille(s, "%s_poussoir.svg" % rep_p))
+    return out
 
 
 # Aides de la planche 03 (02/10/2026). Elles n'utilisent que l'interface
 # publique de draw.View (cote_hx, cote_vx, renvoi, rupture, rayon) et ne
 # changent rien aux autres planches.
 
-T03_MIXTE2 = "8 1.2 1 1.2 1 1.2"   # trait mixte fin a deux tirets : piece voisine (ISO 128, 05.1)
 T03_TOL_TENON = 0.1                 # +/- sur la hauteur des tenons (decoupe laser fine) : avec la
 #                                     mortaise a la tolerance generale, le jeu reste positif
 
@@ -967,20 +994,6 @@ def t03_appel(v, c, r, lettre, ang, dl=3.5):
              "middle", weight="bold")
 
 
-def t03_rayon_trou(v, c, r, a_deg, texte, lg=8.0):
-    """Rayon d'un angle de TROU (centre dans le vide) : fleche posee de
-    l'exterieur sur l'arc, pointe vers le centre, ligne de repere radiale
-    dans la matiere, texte au bout. A 2:1, un R2 ne loge pas la fleche."""
-    a = math.radians(a_deg)
-    q = v.P((c[0] + r * math.cos(a), c[1] + r * math.sin(a)))
-    ux, uy = math.cos(a), -math.sin(a)                  # vers l'exterieur, sur la feuille
-    e = (q[0] + ux * lg, q[1] + uy * lg)
-    v.s.line(q[0], q[1], e[0], e[1], D.TRAIT_FIN)
-    v._fleche(q, ux, uy)
-    an = "start" if ux >= 0 else "end"
-    v.s.text(e[0] + (1.0 if ux >= 0 else -1.0), e[1] - 1.0, texte, D.H_TEXTE, an)
-
-
 def t03_titre(s, x, y, titre, sous=None):
     """Titre de vue en gras, une ligne d'explication dessous."""
     s.text(x, y, titre, 3.6, "middle", weight="bold")
@@ -1032,9 +1045,8 @@ def plan_traverse():
         "Les tenons portent par leur face HAUTE sur l arete superieure de la mortaise du flanc : pas de"
         " vis de traverse.",
     ]
-    s = D.Sheet("TRAVERSE  -  PLAQUES A TENONS", R["traverse"], st.material, st.stock,
-                "%d plaques identiques" % st.qty, "2:1  -  detail 10:1", notes=notes)
-    s.cartouche()
+    s = feuille("TRAVERSE  -  PLAQUE A TENONS", R["traverse"], st, "2:1  -  detail 10:1", notes,
+                qte="%d plaques identiques" % st.qty)
 
     # ======================================================== plaque, 2:1
     k = 2.0
@@ -1074,33 +1086,6 @@ def plan_traverse():
     v.renvoi((14.0, z0), "chant FRAISE EN PAQUET : plan de glissement", 10.0, 10.0, fin="fleche")
     t03_appel(v, (yb, ta), 5.0, "A", -40.0)
 
-    # ======================================================== mortaise du flanc, 2:1
-    mort = P.flanc_mortaise()
-    mx0, mz0, mx1, mz1 = G.bbox(mort)
-    rm = min(sg[2] for sg in mort if sg[0] == 'A')
-    XM, YM = 318.0, 66.0
-    t03_titre(s, XM, 20.0, "MORTAISE DU FLANC (rep. %s) ET PAQUET DE TENONS, VUE SELON Y  (2:1)"
-              % R["flanc"],
-              "vue de reference : la mortaise est definie planche %s (tableau DECOUPES INTERIEURES)"
-              % R["flanc"])
-    v2 = D.View(s, k, 0.0, (mz0 + mz1) / 2.0, XM, YM)
-    v2.contour(mort)
-    lxr = p.TRAVERSE_LX_REEL
-    for i in range(p.TRAVERSE_N + 1):
-        x = -lxr / 2.0 + i * p.EP_TOLE_REELLE_S355
-        t03_ligne(v2, (x, ta), (x, tb), D.TRAIT_FIN, T03_MIXTE2)
-    t03_axe(v2, (0.0, mz1), (0.0, mz1 + 2.0), 0.0, 0.0)
-    t03_axe(v2, (0.0, mz0), (0.0, mz0 - 1.5), 0.0, 0.0)
-    # attaches aux angles vifs fictifs, comme sur la plaque : elles ne se croisent pas
-    v2.cote_hx(mx0, mx1, mz0, mz0, 0.0, zl=mz0 - 4.0, texte="(%s)" % f(mx1 - mx0), dt=14.0)
-    v2.cote_vx(mz0, mz1, mx1, mx1, 0.0, xl=mx1 + 4.0, texte="(%s)" % f(mz1 - mz0))
-    t03_rayon_trou(v2, (mx0 + rm, mz1 - rm), rm, 135.0, "(4 x R%s)" % f(rm), 8.0)
-    v2.renvoi((lxr / 2.0 - 1.5 * p.EP_TOLE_REELLE_S355, ta + 6.0),
-              "%d tenons jointifs :" % p.TRAVERSE_N + chr(10) + "%d x tole reelle" % p.TRAVERSE_N,
-              6.0, -40.0, fin="point")
-    s.text(XM, 104.0, "Largeur = %d x tole S355 REELLE + 2 x R%s (EP_TOLE_REELLE_S355, MESUREE) : l arete droite porte"
-           " sur toute la largeur du paquet." % (p.TRAVERSE_N, f(rm)), 2.8, "middle")
-
     # ======================================================== detail A, 10:1
     KD = 10.0
     XA, YA = 300.0, 160.0
@@ -1139,7 +1124,7 @@ def plan_traverse():
     ]
     for i, t in enumerate(calc):
         s.text(16.0, 258.0 + 4.6 * i, t, 2.8, "start")
-    return s.save(os.path.join(OUT, "03_traverse.svg"))
+    return range_feuille(s, "%s_traverse.svg" % R["traverse"])
 
 
 # ============================================================ pieces collees
@@ -1183,15 +1168,14 @@ def plan_patins():
     def ex(spec):
         return "%s, %d ex." % (spec.material, spec.qty)
 
-    matieres, bruts = [], []
-    for q in (sa, sc, sp):
-        if q.material not in matieres:
-            matieres.append(q.material)
-    for q in (sa, sc):                  # deux epaisseurs de patin un jour : les deux bruts
-        if q.stock not in bruts:
-            bruts.append(q.stock)
-    bruts.append("feuillard %s x %s" % (f(p.PLAT_B), f(p.PLAT_E)))
-
+    colle = ("Collage (NOMENCLATURE.md, ordre de montage) : %s etape %d, %s etape %d (centre au trace),"
+             " %s etape %d ; polymeriser sous la precharge (etape %d)."
+             % (R["plat_renfort"], E["eprouvette"], R["patin_charge"], E["tete"], R["patin_appui"],
+                E["patins"], E["precharge"]))
+    surf = ("Surfaces a coller : poncer P80 et degraisser a l acetone. Colle Duralco 4420, post-cuisson"
+            " selon la notice avant charge.")
+    jeu = ("Un jeu neuf par eprouvette : %d x %s, %d x %s, %d x %s ; il part avec la poutrelle."
+           % (sa.qty, R["patin_appui"], sc.qty, R["patin_charge"], sp.qty, R["plat_renfort"]))
     notes = [
         "Aretes vives des patins cassees %s x 45 deg ; plat ebavure." % f(sa.chanfrein),
         "%s : decoupe laser d apres %s.dxf (calque DECOUPE), PUIS rainure fraisee sur toute la"
@@ -1207,24 +1191,15 @@ def plan_patins():
         " passer les tetes des vis du poussoir (%s a %s de ses bouts) ; %s MPa sur le beton a %s kN."
         % (R["patin_charge"], sc.name, f(lc), R["poussoir"], P.fr(gv["tete_patin"], 1),
            P.fr(p.pression_patin_charge(), 2), f(p.CHARGE_DIM / 1000.0)),
-        "Collage (NOMENCLATURE.md, ordre de montage) : %s etape %d, %s etape %d (centre au trace),"
-        " %s etape %d ;"
-        " polymeriser sous la precharge (etape %d)."
-        % (R["plat_renfort"], E["eprouvette"], R["patin_charge"], E["tete"], R["patin_appui"],
-           E["patins"], E["precharge"]),
         "%s : colle par sa face superieure seulement, contre le plat ; rainure SECHE sur le"
         " bossage, qui doit y basculer." % R["patin_appui"],
-        "Surfaces a coller : poncer P80 et degraisser a l acetone. Colle Duralco 4420, post-cuisson"
-        " selon la notice avant charge.",
-        "Un jeu neuf par eprouvette : %d x %s, %d x %s, %d x %s ; il part avec la poutrelle."
-        % (sa.qty, R["patin_appui"], sc.qty, R["patin_charge"], sp.qty, R["plat_renfort"]),
     ]
-    s = D.Sheet("PATINS ET PLATS COLLES", R["patin_appui"][:2], " / ".join(matieres),
-                " / ".join(bruts),
-                "%d + %d + %d (%s, %s, %s)" % (sa.qty, sc.qty, sp.qty, R["patin_appui"],
-                                               R["patin_charge"], R["plat_renfort"]),
-                "1:1 - coupe 5:1 - %s 1:5" % R["plat_renfort"], notes=notes)
-    s.cartouche()
+    na = [n for n in notes if n.startswith(R["patin_appui"]) or n.startswith("Aretes")] + [colle, surf, jeu]
+    nc = [notes[0]] + [n for n in notes if n.startswith(R["patin_charge"])] + [colle, surf, jeu]
+    np_ = ["Piece du commerce : feuillard %s x %s coupe a longueur, angles vifs, ebavure ; pas de DXF."
+           % (f(p.PLAT_B), f(p.PLAT_E)), colle, surf, jeu]
+    out = []
+    s = feuille("PATIN D APPUI RAINURE", R["patin_appui"], sa, "1:1  -  coupe 5:1", na)
 
     # ======================================================== 04a, vue de dessous 1:1
     XA, YA = 100.0, 47.0
@@ -1263,7 +1238,10 @@ def plan_patins():
     v2.cote_hx(-rb / 2.0, rb / 2.0, 0.0, 0.0, -12.0, texte=P.fr(rb, 2))   # 9,75 pour une tole de 8,25
     v2.cote_vx(0.0, ea, ba / 2.0, ba / 2.0, 10.0)
 
+    out.append(range_feuille(s, "%s_patin_appui.svg" % R["patin_appui"]))
+
     # ======================================================== 04b, patin de charge 1:1
+    s = feuille("PATIN DE CHARGE BOMBE", R["patin_charge"], sc, "1:1", nc)
     XB, YB = 285.0, 92.0
     p04_titre(s, XB, 20.0, "%s  PATIN DE CHARGE, epaisseur %s  (1:1)"
               % (R["patin_charge"], f(p.PATIN_CHARGE_E)),
@@ -1294,7 +1272,11 @@ def plan_patins():
               "dessus bombe R%s" % f(Rb) + chr(10)
               + "dessous plat, colle", 30.0, -12.0, fin="fleche")
 
+    out.append(range_feuille(s, "%s_patin_charge.svg" % R["patin_charge"]))
+
     # ======================================================== 04c, plat 1:5
+    s = feuille("PLAT DE RENFORT COLLE", R["plat_renfort"], sp, "1:5", np_,
+                brut="feuillard %s x %s" % (f(p.PLAT_B), f(p.PLAT_E)))
     k4 = 0.2
     XP, YP = 115.0, 187.0
     p04_titre(s, XP, 172.0, "%s  PLAT DE RENFORT  (1:5)" % R["plat_renfort"],
@@ -1310,7 +1292,8 @@ def plan_patins():
             " la poutrelle," % f(2.0 * p.Y_FLANC),
             "bord exterieur a %s du bord de la poutrelle (planche 00, coupe A-A)" % f(bord)]):
         s.text(XP, 209.0 + 4.4 * i, t, 2.8, "middle")
-    return s.save(os.path.join(OUT, "04_patins.svg"))
+    out.append(range_feuille(s, "%s_plat_renfort.svg" % R["plat_renfort"]))
+    return out
 
 
 # ============================================================ pied
@@ -1425,9 +1408,11 @@ def plan_pied():
     a_deb = f(p.PIED_DEBOUT_ANGLE, 0)
     confirmer = "confirmees" if p.ETUVE_CONFIRMEE else "A CONFIRMER"
 
+    def decoupe(spec):
+        return ("Decoupe laser d apres %s.dxf (calque DECOUPE) ; aretes cassees %s x 45 deg sur les"
+                " deux faces." % (spec.name, fr(spec.chanfrein, 2)))
+
     notes = [
-        "Decoupe laser d apres %s.dxf et %s.dxf (calque DECOUPE) ; aretes cassees %s x 45 deg sur les"
-        " deux faces." % (sp.name, sc.name, fr(sp.chanfrein, 2)),
         "Matiere : %s." % p.EXIGENCE_TOLE_COURANTE,
         "%s : encoches %s = e + %s et passage aux nodes %s = e - 2 x %s (serrage), e = tole REELLE du flanc"
         " 42CrMo4 (EP_TOLE_REELLE_42 = %s) ;"
@@ -1451,17 +1436,22 @@ def plan_pied():
         "%s : angles du corps et de l appui R%s ; langues R%s, fond de gorge R%s ; haut de la dent R%s."
         % (rc, f(r_cr), f(r_lg), f(r_gr), f(r_dt)),
     ]
-    s = D.Sheet("PIED ET CROCHET D'ETUVE", rp,
-                " / ".join(sorted(set((sp.material, sc.material)))),
-                sp.stock if sp.stock == sc.stock else "%s / %s" % (sp.stock, sc.stock),
-                "%d + %d (%s, %s)" % (sp.qty, sc.qty, rp, rc), "1:2 - details 2:1 et 5:1",
-                notes=notes)
-    s.cartouche()
-    if not p.ETUVE_CONFIRMEE:
-        # au-dessus des notes, en gras : pied et crochet dependent de l etuve
-        y_al = s.h - D.MARGE - 36.0 - 4.0 - 3.8 * len(notes) - 2.0
-        s.text(s.w - D.MARGE - 2.0, y_al, "ETUVE %s A CONFIRMER : %s" % (f(p.ETUVE_INTERIEUR), p.ALERTE_ETUVE),
-               3.2, "end", weight="bold")
+    tole = p.NOTE_TOLE_REELLE[0].upper() + p.NOTE_TOLE_REELLE[1:] + "."
+    n_pied = [decoupe(sp), notes[0]] + [n for n in notes if n.startswith(rp + " ")] + [tole]
+    n_cro = [decoupe(sc), notes[0]] + [n for n in notes if n.startswith(rc + " ")] + [tole]
+
+    def alerte(s):
+        """Pied et crochet dependent de l etuve : alerte en gras au-dessus des
+        notes tant qu elle n est pas confirmee (hors du dessin, qui est recentre)."""
+        if not p.ETUVE_CONFIRMEE:
+            y_al = s.h - D.MARGE - 36.0 - 4.0 - 3.8 * len(s.notes) - 2.0
+            s.text(s.w - D.MARGE - 2.0, y_al, "ETUVE %s A CONFIRMER : %s"
+                   % (f(p.ETUVE_INTERIEUR), p.ALERTE_ETUVE), 3.2, "end", weight="bold")
+            s.debut_piece()
+
+    out = []
+    s = feuille("PIED A MI-BOIS", rp, sp, "1:2  -  details 2:1", n_pied)
+    alerte(s)
 
     # ======================================================== 05, pied 1:2
     k1 = 0.5
@@ -1534,7 +1524,11 @@ def plan_pied():
                            "nodes : rampes a 45 deg"]):
         s.text(195.0, 186.0 + 4.0 * i, t, 2.8, "middle")
 
+    out.append(range_feuille(s, "%s_pied.svg" % rp))
+
     # ======================================================== 05c, crochet 1:2
+    s = feuille("CROCHET D ETUVE", rc, sc, "1:2  -  details 2:1 et 5:1", n_cro)
+    alerte(s)
     k5 = 0.5
     v5 = D.View(s, k5, 0.0, 0.0, 347.0, 44.0)
     p05_titre(s, 355.0, 18.0, "%s  CROCHET D ETUVE  (1:2)" % rc,
@@ -1581,7 +1575,8 @@ def plan_pied():
     vD.cote_vx(za, za + hd_paroi, None, yd - db, 0.0, xl=yd - db - 1.6, texte=fr(hd_paroi, 2))
     vD.cote_vx(za, za + hd_int, None, yd + db, 0.0, xl=yd + db + 1.6, texte=fr(hd_int, 2))
 
-    return s.save(os.path.join(OUT, "05_pied.svg"))
+    out.append(range_feuille(s, "%s_crochet.svg" % rc))
+    return out
 
 
 def plan_petites():
@@ -1617,18 +1612,15 @@ def plan_petites():
         "%s : %d serrees chacune par une V1 (vis TH M10 x %s + ecrou autofreine tout metal), les %d de la"
         " chape par les V8 (vis H M10 x %s)." % (rB, n_cadre, f(p.ENTR_VIS_L), n_chape, f(p.SUPPORT_TIRANT_L)),
         "%s : la longueur %s %s fixe l ecart des flancs : couper les %d en serie. Ne pas confondre avec %s"
-        " (meme tube, L %s, planche 07)." % (rB, f(lE), p.ENTRETOISE_TOL, se.qty, R["entretoise_vis"],
+        " (meme tube, L %s, feuille 07b)." % (rB, f(lE), p.ENTRETOISE_TOL, se.qty, R["entretoise_vis"],
                                             f(p.SUPPORT_TUBE_L)),
         "%s / %s : entre les rebords du coin %s (larges de %s dessus et %s dessous), points de silicone"
         " HT sur le siege ; %s sur la face de glissement." % (rC, rD, R["coin"], f(p.PLAQ_REBORD_L, 2),
                                                               f(p.PLAQ_REBORD_L_BAS, 2), p.PLAQ_LUBRIFIANT),
     ]
-    s = D.Sheet("TOURILLON, ENTRETOISES, PLAQUES", rA[:2],
-                "%s / %s / %s" % (st.material.split()[0], se.material.split()[0], sh.material),
-                "rond %s %s / %s / %s" % (f(p.TOURILLON_D), ajust, tube, sh.stock),
-                "%d + %d + %d + %d (%s a %s)" % (st.qty, se.qty, sh.qty, sb.qty, rA, rD),
-                "2:1 - plaque %s/%s 1:1" % (rC, rD), notes=notes)
-    s.cartouche()
+    out = []
+    s = feuille("TOURILLON", rA, st, "2:1", [n for n in notes if n.startswith(rA)],
+                matiere=st.material.split()[0], brut="rond %s %s" % (f(p.TOURILLON_D), ajust))
 
     # ======================================================== 06a tourillon, 2:1
     Y_HAUT = 45.0                                # haut des pieces de revolution, sous les titres
@@ -1653,7 +1645,11 @@ def plan_petites():
     v.renvoi((-rT + cT / 2.0, lT - cT / 2.0), "%s x 45 deg" % f(cT, 1) + chr(10) + "aux 2 bouts",
              -9.0, -8.0, fin="fleche", palier=4.0)
 
+    out.append(range_feuille(s, "%s_tourillon.svg" % rA))
+
     # ======================================================== 06b entretoise, coupe 2:1
+    s = feuille("ENTRETOISE DE CADRE", rB, se, "2:1", [n for n in notes if n.startswith(rB)],
+                matiere=se.material.split()[0], brut=tube)
     XB, YB = 185.0, Y_HAUT + k2 * lE
     p06_titre(s, XB, 20.0, "%s  ENTRETOISE DE CADRE, COUPE AXIALE  (2:1)" % rB,
               ["%s, %d ex." % (se.material, se.qty), "brut %s" % se.stock])
@@ -1674,27 +1670,31 @@ def plan_petites():
     v2.renvoi(((de + di) / 4.0, lE), "2 faces dressees" + chr(10) + "paralleles a %s" % par,
               12.0, -7.0, fin="fleche", palier=5.0)
 
-    # ======================================================== 06c / 06d plaque, 1:1
-    XC, YC = 325.0, 90.0
-    # rectangle plein, sans trou : une seule vue, la longueur seule change
-    hb = p.PLAQ_B / 2.0
-    hl = p.PLAQ_L_BAS / 2.0                      # dessinee a la longueur de la basse
-    p06_titre(s, XC, 20.0, "%s / %s  PLAQUE DE FROTTEMENT  (1:1)" % (rC, rD),
-              ["%s, brut %s, epaisseur %s" % (sh.material, sh.stock, f(p.PLAQ_EP)),
-               "%d dessus (%s, L %s) + %d dessous (%s, L %s)"
-               % (sh.qty, rC, f(p.PLAQ_L_HAUT), sb.qty, rD, f(p.PLAQ_L_BAS))])
-    vp = D.View(s, 1.0, 0.0, 0.0, XC, YC)        # longueur a l horizontale
-    vp.contour(p06_poly([(-hl, -hb), (hl, -hb), (hl, hb), (-hl, hb)]))
-    vp.axe((-hl, 0.0), (hl, 0.0))
-    vp.axe((0.0, -hb), (0.0, hb))
-    vp.cote_hx(-hl, hl, -hb, -hb, 0.0, zl=-hb - 10.0,
-               texte="%s (%s) / %s (%s)" % (f(p.PLAQ_L_HAUT), rC, f(p.PLAQ_L_BAS), rD))
-    vp.cote_vx(-hb, hb, hl, hl, 0.0, xl=hl + 10.0)
-    for j, t in enumerate(["Sans trou. Ep. %s +/- 0,05, faces planes" % f(p.PLAQ_EP),
-                           "et paralleles a 0,02, Ra 0,8 cote glissement.",
-                           "Aretes cassees 0,3. Tolerance generale ISO 2768-m."]):
-        s.text(XC, YC + hb + 22.0 + 4.0 * j, t, 2.8, "middle")
-    return s.save(os.path.join(OUT, "06_petites.svg"))
+    out.append(range_feuille(s, "%s_entretoise.svg" % rB))
+
+    # ======================================================== 06c / 06d plaques, 1:1
+    # rectangles pleins, sans trou : une feuille chacune, la longueur seule change
+    n_pl = [n for n in notes if n.startswith(rC)]
+    for spec, rep, lg, ou, nom in ((sh, rC, p.PLAQ_L_HAUT, "dessus", "plaque_haute"),
+                                   (sb, rD, p.PLAQ_L_BAS, "dessous", "plaque_basse")):
+        s = feuille("PLAQUE DE FROTTEMENT, %s" % ou.upper(), rep, spec, "1:1", n_pl)
+        XC, YC = 210.0, 90.0
+        hb, hl = p.PLAQ_B / 2.0, lg / 2.0
+        p06_titre(s, XC, 20.0, "%s  PLAQUE DE FROTTEMENT, %s DU COIN  (1:1)" % (rep, ou.upper()),
+                  ["%s, %d ex., brut %s, epaisseur %s" % (spec.material, spec.qty, spec.stock,
+                                                         f(p.PLAQ_EP))])
+        vp = D.View(s, 1.0, 0.0, 0.0, XC, YC)    # longueur a l horizontale
+        vp.contour(p06_poly([(-hl, -hb), (hl, -hb), (hl, hb), (-hl, hb)]))
+        vp.axe((-hl, 0.0), (hl, 0.0))
+        vp.axe((0.0, -hb), (0.0, hb))
+        vp.cote_hx(-hl, hl, -hb, -hb, 0.0, zl=-hb - 10.0)
+        vp.cote_vx(-hb, hb, hl, hl, 0.0, xl=hl + 10.0)
+        for j, t in enumerate(["Sans trou. Ep. %s +/- 0,05, faces planes" % f(p.PLAQ_EP),
+                               "et paralleles a 0,02, Ra 0,8 cote glissement.",
+                               "Aretes cassees 0,3. Tolerance generale ISO 2768-m."]):
+            s.text(XC, YC + hb + 22.0 + 4.0 * j, t, 2.8, "middle")
+        out.append(range_feuille(s, "%s_%s.svg" % (rep, nom)))
+    return out
 
 
 # Aides de la planche 06 (02/10/2026). Elles n'utilisent que l'interface
@@ -1876,11 +1876,12 @@ def plan_chape():
         "V7 : 0,1 a 0,3 de jeu axial, puis contre-bloques. Tete de %s : douille de %s et cliquet, une cle"
         " plate bute sur les V8." % (R["vis"], f(p.VIS_TETE_D)),
     ]
-    s = D.Sheet("PLATINE ET ENTRETOISE DE BUTEE", r07,
-                "%s, Re >= %s / %s" % (sp.material, f(p.RE_TOLE), st.material.split()[0]),
-                "%s / %s" % (c07_court(sp.stock, p.RE_TOLE), tube),
-                "%d + %d (%s, %s)" % (sp.qty, st.qty, r07, r07b), "1:1", notes=notes)
-    s.cartouche()
+    n_pl = [n for n in notes if n.startswith(r07 + " ") or n.startswith("Platine")]
+    n_eb = [n for n in notes if n.startswith(r07b)]
+    n_mo = [n for n in notes if not (n in n_pl or n in n_eb)]
+    out = []
+    s = feuille("PLATINE DE BUTEE", r07, sp, "1:1", n_pl,
+                matiere="%s, Re >= %s" % (sp.material, f(p.RE_TOLE)), brut=c07_court(sp.stock, p.RE_TOLE))
 
     # ======================================================== 07 platine, 1:1
     XP, YP = 312.0, 78.0
@@ -1925,7 +1926,38 @@ def plan_chape():
              "%d x diam. %s" % (n_ch, f(p.D_VIS)),
              lg * math.cos(a), -lg * math.sin(a), fin="fleche", palier=5.0)
 
+    out.append(range_feuille(s, "%s_platine.svg" % r07))
+
+    # ======================================================== 07b entretoise de butee, coupe 2:1
+    s = feuille("ENTRETOISE DE BUTEE", r07b, st, "2:1", n_eb,
+                matiere=st.material.split()[0], brut=tube)
+    k2 = 2.0
+    de, di, lE = p.ENTRETOISE_DE, p.ENTRETOISE_DI, p.SUPPORT_TUBE_L
+    XB, YB = 210.0, 40.0 + k2 * lE
+    c07_titre(s, XB, 20.0, "%s  ENTRETOISE DE BUTEE, COUPE AXIALE  (2:1)" % r07b,
+              ["%s, %d ex., brut %s" % (st.material, st.qty, st.stock)])
+    v2 = D.View(s, k2, 0.0, 0.0, XB, YB)
+    s.motif("c07_h", 45.0, 2.0)
+    for sg in (-1.0, 1.0):                       # les deux parois coupees
+        paroi = [('L', (sg * di / 2.0, 0.0), (sg * de / 2.0, 0.0)),
+                 ('L', (sg * de / 2.0, 0.0), (sg * de / 2.0, lE)),
+                 ('L', (sg * de / 2.0, lE), (sg * di / 2.0, lE)),
+                 ('L', (sg * di / 2.0, lE), (sg * di / 2.0, 0.0))]
+        v2.zone([paroi], "c07_h", w=0)
+        v2.contour(paroi)
+    for z in (0.0, lE):                          # bord de l alesage aux deux bouts : arete vue
+        c07_ligne(v2, (-di / 2.0, z), (di / 2.0, z), D.TRAIT_FORT)
+    v2.axe((0.0, 0.0), (0.0, lE))
+    v2.cote_vx(0.0, lE, de / 2.0, de / 2.0, 0.0, xl=de / 2.0 + 10.0 / k2,
+               texte="%s %s" % (f(lE), p.SUPPORT_TUBE_TOL))
+    v2.cote_hx(-di / 2.0, di / 2.0, 0.0, 0.0, 0.0, zl=-10.0 / k2, texte="diam. %s" % f(di))
+    v2.cote_hx(-de / 2.0, de / 2.0, 0.0, 0.0, 0.0, zl=-18.0 / k2, texte="diam. %s" % f(de))
+    v2.renvoi(((de + di) / 4.0, lE), "2 faces dressees", 12.0, -7.0, fin="fleche", palier=5.0)
+    out.append(range_feuille(s, "%s_entretoise_butee.svg" % r07b))
+
     # ======================================================== montage, coupe 1:1
+    s = feuille("MONTAGE DE LA CHAPE", r07 + "m", sp, "1:1", n_mo,
+                matiere="voir nomenclature", brut="-", qte="1 ensemble")
     # Plan de coupe horizontal par les axes (tige et V8, tous a z = Z_VIS), vu
     # de dessus. Vue : x (long de la platine) horizontal, y (axe de la tige)
     # vertical, vers la butee en haut. Tige, vis, ecrous et rondelles ne sont
@@ -2038,11 +2070,11 @@ def plan_chape():
 
     # ======================================================== pieces du montage
     lignes = [
-        (R["flanc"], "flanc (planche %s)" % R["flanc"][:2], SP["flanc"].qty),
-        (R["entretoise"], "entretoise de cadre, L %s (planche %s)" % (f(p.ENTRETOISE_L), R["entretoise"][:2]),
+        (R["flanc"], "flanc (feuille %s)" % R["flanc"], SP["flanc"].qty),
+        (R["entretoise"], "entretoise de cadre, L %s (feuille %s)" % (f(p.ENTRETOISE_L), R["entretoise"]),
          n_ch),
-        (r07b, "entretoise de butee, %s (ci-contre)" % tube, st.qty),
-        (r07, "platine de butee (ci-dessus)", sp.qty),
+        (r07b, "entretoise de butee, %s (feuille %s)" % (tube, r07b), st.qty),
+        (r07, "platine de butee (feuille %s)" % r07, sp.qty),
         (R["vis"], "vis H M%s x %s ISO 4017, filetage total" % (f(p.VIS_D), f(p.VIS_L)), SP["vis"].qty),
         ("V5", c07_min(VS["V5"][1]), VS["V5"][2]),
         ("V6", "rondelle trempee AS 1730, sous la tete", VS["V6"][2]),
@@ -2052,7 +2084,8 @@ def plan_chape():
     larg = (11.0, 74.0, 10.0)
     D.table(s, XP - sum(larg) / 2.0, 150.0, "Pieces du montage", ("rep.", "designation", "qte"),
             [(a_, b_, "%d" % c_) for (a_, b_, c_) in lignes], larg)
-    return s.save(os.path.join(OUT, "07_chape.svg"))
+    out.append(range_feuille(s, "%s_montage_chape.svg" % (r07 + "m")))
+    return out
 
 
 # ============================================================ assemblage
@@ -2530,8 +2563,17 @@ def index_html(fichiers):
 
 
 def main():
-    fichiers = [plan_assemblage(), plan_flanc(), plan_coulisseau(), plan_traverse(),
-                plan_patins(), plan_pied(), plan_petites(), plan_chape()]
+    # une feuille par piece : les anciennes planches a plusieurs pieces (et
+    # toute feuille d'une piece disparue) ne doivent pas survivre
+    for nom in os.listdir(OUT):
+        if nom.endswith(".svg"):
+            os.remove(os.path.join(OUT, nom))
+    fichiers = []
+    for fn in (plan_assemblage, plan_flanc, plan_coulisseau, plan_traverse,
+               plan_patins, plan_pied, plan_petites, plan_chape):
+        r = fn()
+        fichiers += r if isinstance(r, list) else [r]
+    fichiers.sort(key=os.path.basename)          # 02a, 02b, 02c... dans l ordre des reperes
     for f in fichiers:
         print("  ", os.path.basename(f))
     print("  ", os.path.basename(index_html(fichiers)))

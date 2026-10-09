@@ -22,8 +22,8 @@ notice. Indice B du 05/10/2026.
 | `dxf/tole_*.dxf` | tous les exemplaires d'une epaisseur et d'une nuance, ranges en etageres de 3000 mm de large au plus : controle de quantites, pas une imbrication |
 | `dxf/*_EN_ATTENTE.dxf` | pieces a NE PAS decouper encore, si `ETUVE_CONFIRMEE` est faux (aucune depuis le 05/10/2026 : largeur de 538 confirmee) |
 | `dxf/LISTE.txt` | fichiers, epaisseur, nuance, quantite et statut ; signification des calques |
-| `plans/*.svg` | huit planches A3 cotees |
-| `plans/plans.pdf` | les memes planches en un seul PDF |
+| `plans/*.svg` | une feuille A3 cotee PAR PIECE fabriquee (`<repere>_<piece>.svg`, cartouche a son repere), plus l'ensemble (00) et le montage de la chape (07m) |
+| `plans/plans.pdf` | les memes feuilles en un seul PDF, dans l'ordre des reperes |
 | `masses.json` | masse, volume, matiere et brut de chaque piece |
 | `fem_flanc.json` | resultat du calcul elements finis du flanc |
 | `flambement3.json` | flambement hors plan, mode symetrique (le facteur a retenir) |
@@ -93,7 +93,7 @@ nodale, lance le solveur et depouille le `.frd`.
 | `export_dxf.py` | DXF de decoupe, sans FreeCAD : la liste des pieces plates vient de `parts.all_parts()`, les pieces du commerce n'en ont pas |
 | `dxf.py` | ecriture DXF R12 |
 | `draw.py` | primitives de dessin technique : vues, cotes, cartouche (indice et date) |
-| `plans.py` | les huit planches |
+| `plans.py` | les feuilles de plan, une par piece ; `draw.Sheet.fin_piece()` recentre chaque dessin au-dessus des notes |
 | `viewer3d.py` | visionneuse 3D autonome : maillages ET three.js (`vendor/three.min.js`, r160) embarques dans `out/banc_3d.html`, qui s ouvre sans reseau |
 | `spec.py` | engendre `SPEC.md` depuis le modele |
 | `nomenclature.py` | engendre `NOMENCLATURE.md` |

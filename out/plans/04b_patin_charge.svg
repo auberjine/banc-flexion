@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#fff"/>
+<rect x="10.000" y="10.000" width="400.000" height="277.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<rect x="225.000" y="251.000" width="185.000" height="36.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<line x1="225.000" y1="263.000" x2="410.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="225.000" y1="275.000" x2="410.000" y2="275.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="251.000" x2="345.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="285.000" y1="263.000" x2="285.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="263.000" x2="345.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="229.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="5.00" fill="#000" text-anchor="start" font-weight="bold">PATIN DE CHARGE BOMBE</text>
+<line x1="385.000" y1="251.000" x2="385.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="397.500" y="256.200" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">indice B</text>
+<text x="397.500" y="261.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">05/10/2026</text>
+<text x="349.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="4.00" fill="#000" text-anchor="start" font-weight="normal">rep. 04b</text>
+<text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
+<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">S355JR</text>
+<text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tole 10 mm</text>
+<text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
+<text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1</text>
+<text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
+<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1:1</text>
+<text x="289.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">cotes en mm</text>
+<text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
+<text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
+<text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Un jeu neuf par eprouvette : 4 x 04a, 1 x 04b, 2 x 04c ; il part avec la poutrelle.</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Surfaces a coller : poncer P80 et degraisser a l acetone. Colle Duralco 4420, post-cuisson selon la notice avant charge.</text>
+<text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Collage (NOMENCLATURE.md, ordre de montage) : 04c etape 1, 04b etape 9 (centre au trace), 04a etape 13 ; polymeriser sous la precharge (etape 16).</text>
+<text x="408.000" y="235.600" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">04b : decoupe d apres patin_charge.dxf, SANS TROU, PUIS dessus bombe fraise. Sa longueur 58 laisse passer les tetes des vis du poussoir (02b a 3,5 de ses bouts) ; 2,07 MPa sur le beton a 12 kN.</text>
+<text x="408.000" y="231.800" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Aretes vives des patins cassees 0,8 x 45 deg ; plat ebavure.</text>
+<text x="190.187" y="33.350" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">04b  PATIN DE CHARGE, epaisseur 10  (1:1)</text>
+<text x="190.187" y="37.950" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">S355JR, 1 ex., brut tole 10 mm</text>
+<path d="M 161.187 61.35 L 161.187 149.35 A 6 6 0 0 0 167.187 155.35 L 213.187 155.35 A 6 6 0 0 0 219.187 149.35 L 219.187 61.35 A 6 6 0 0 0 213.187 55.35 L 167.187 55.35 A 6 6 0 0 0 161.187 61.35 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="158.187" y1="105.350" x2="222.187" y2="105.350" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="190.187" y1="158.350" x2="190.187" y2="52.350" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="161.187" y1="156.350" x2="161.187" y2="167.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="219.187" y1="156.350" x2="219.187" y2="167.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="161.187" y1="165.350" x2="219.187" y2="165.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 161.187 165.35 L 163.787 166.078 L 163.787 164.622 Z" fill="#000"/>
+<path d="M 219.187 165.35 L 216.587 164.622 L 216.587 166.078 Z" fill="#000"/>
+<text x="190.187" y="163.750" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">58</text>
+<line x1="160.187" y1="155.350" x2="149.187" y2="155.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="160.187" y1="55.350" x2="149.187" y2="55.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="151.187" y1="155.350" x2="151.187" y2="55.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 151.187 155.35 L 151.915 152.75 L 150.459 152.75 Z" fill="#000"/>
+<path d="M 151.187 55.35 L 150.459 57.95 L 151.915 57.95 Z" fill="#000"/>
+<text x="149.587" y="105.350" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 149.587 105.350)">100</text>
+<line x1="217.430" y1="57.107" x2="223.086" y2="51.451" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 217.43 57.107 L 215.076 58.431 L 216.106 59.461 Z" fill="#000"/>
+<text x="224.286" y="50.451" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">4 x R6</text>
+<path d="M 161.187 200.35 L 219.187 200.35 L 219.187 190.771 L 217.737 190.73 L 216.287 190.691 L 214.837 190.654 L 213.387 190.619 L 211.937 190.587 L 210.487 190.556 L 209.037 190.528 L 207.587 190.501 L 206.137 190.477 L 204.687 190.455 L 203.237 190.435 L 201.787 190.417 L 200.337 190.402 L 198.887 190.388 L 197.437 190.376 L 195.987 190.367 L 194.537 190.359 L 193.087 190.354 L 191.637 190.351 L 190.187 190.35 L 188.737 190.351 L 187.287 190.354 L 185.837 190.359 L 184.387 190.367 L 182.937 190.376 L 181.487 190.388 L 180.037 190.402 L 178.587 190.417 L 177.137 190.435 L 175.687 190.455 L 174.237 190.477 L 172.787 190.501 L 171.337 190.528 L 169.887 190.556 L 168.437 190.587 L 166.987 190.619 L 165.537 190.654 L 164.087 190.691 L 162.637 190.73 L 161.187 190.771 L 161.187 200.35 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="190.187" y1="207.350" x2="190.187" y2="181.350" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="189.187" y1="200.350" x2="149.187" y2="200.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="189.187" y1="190.350" x2="149.187" y2="190.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="151.187" y1="200.350" x2="151.187" y2="190.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 151.187 200.35 L 151.915 197.75 L 150.459 197.75 Z" fill="#000"/>
+<path d="M 151.187 190.35 L 150.459 192.95 L 151.915 192.95 Z" fill="#000"/>
+<text x="149.587" y="195.350" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 149.587 195.350)">10</text>
+<line x1="220.187" y1="200.350" x2="231.187" y2="200.350" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="220.187" y1="190.771" x2="231.187" y2="190.771" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="229.187" y1="200.350" x2="229.187" y2="190.771" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 229.187 200.35 L 229.915 197.75 L 228.459 197.75 Z" fill="#000"/>
+<path d="M 229.187 190.771 L 228.459 193.37 L 229.915 193.37 Z" fill="#000"/>
+<text x="227.587" y="195.560" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 227.587 195.560)">9,58</text>
+<line x1="204.687" y1="190.455" x2="234.687" y2="178.455" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 204.687 190.455 L 207.371 190.165 L 206.831 188.814 Z" fill="#000"/>
+<line x1="234.687" y1="178.455" x2="240.687" y2="178.455" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="241.687" y="177.655" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">dessus bombe R1000</text>
+<text x="241.687" y="181.255" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">dessous plat, colle</text>
+</svg>

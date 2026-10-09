@@ -23,8 +23,9 @@ except Exception:
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 
-# Repere = numero de planche, puis lettre de la vue. La pile est rangee avec la
-# tete de charge (02e) ; les plaques de frottement sont dessinees sur la 06.
+# Repere = numero de groupe, puis lettre de la piece ; chaque piece fabriquee a
+# sa feuille de plan, nommee par son repere (out/plans/<repere>_<piece>.svg).
+# La pile est rangee avec la tete de charge (02e).
 REPERES = {
     "flanc": "01", "coulisseau": "02a", "poussoir": "02b", "coin": "02c",
     "vis": "02d", "pile_belleville": "02e", "guide": "02f",

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#fff"/>
+<rect x="10.000" y="10.000" width="400.000" height="277.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<rect x="225.000" y="251.000" width="185.000" height="36.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<line x1="225.000" y1="263.000" x2="410.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="225.000" y1="275.000" x2="410.000" y2="275.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="251.000" x2="345.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="285.000" y1="263.000" x2="285.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="263.000" x2="345.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="229.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="5.00" fill="#000" text-anchor="start" font-weight="bold">PLATEAU DE POUSSOIR</text>
+<line x1="385.000" y1="251.000" x2="385.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="397.500" y="256.200" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">indice B</text>
+<text x="397.500" y="261.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">05/10/2026</text>
+<text x="349.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="4.00" fill="#000" text-anchor="start" font-weight="normal">rep. 02b</text>
+<text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
+<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">S355JR</text>
+<text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tole 8 mm, cert. 2.2</text>
+<text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
+<text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">3</text>
+<text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
+<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1:1</text>
+<text x="289.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">cotes en mm</text>
+<text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
+<text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
+<text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Plateaux serres en bloc par 2 vis V1 H M6 x 35, TETE EN DESSOUS, rondelle et ecrou au dessus, 8 N.m.</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">3 plateaux identiques empiles, decoupe laser (poussoir.dxf) ; le patin de charge 04b colle fait fond.</text>
+<text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Aretes vives non cotees cassees 0,8 x 45 deg.</text>
+<text x="189.115" y="80.650" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">02b  PLATEAU DE POUSSOIR, 3 empiles  (1:1)</text>
+<text x="189.115" y="85.250" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">S355JR, 3 ex., brut tole 8 mm, cert. 2.2</text>
+<path d="M 139.115 97.65 L 139.115 147.65 A 4 4 0 0 0 143.115 151.65 L 235.115 151.65 A 4 4 0 0 0 239.115 147.65 L 239.115 97.65 A 4 4 0 0 0 235.115 93.65 L 143.115 93.65 A 4 4 0 0 0 139.115 97.65 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 201.815 122.65 A 12.7 12.7 0 0 0 176.415 122.65 A 12.7 12.7 0 0 0 201.815 122.65 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 154.415 122.65 A 3.3 3.3 0 0 0 147.815 122.65 A 3.3 3.3 0 0 0 154.415 122.65 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 230.415 122.65 A 3.3 3.3 0 0 0 223.815 122.65 A 3.3 3.3 0 0 0 230.415 122.65 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="136.615" y1="122.650" x2="241.615" y2="122.650" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="189.115" y1="138.350" x2="189.115" y2="106.950" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="151.115" y1="151.650" x2="151.115" y2="116.850" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="227.115" y1="151.650" x2="227.115" y2="116.850" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="151.115" y1="152.650" x2="151.115" y2="160.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="227.115" y1="152.650" x2="227.115" y2="160.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="151.115" y1="158.650" x2="227.115" y2="158.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 151.115 158.65 L 153.715 159.378 L 153.715 157.922 Z" fill="#000"/>
+<path d="M 227.115 158.65 L 224.515 157.922 L 224.515 159.378 Z" fill="#000"/>
+<text x="189.115" y="157.050" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">76</text>
+<line x1="139.115" y1="148.650" x2="139.115" y2="167.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="239.115" y1="148.650" x2="239.115" y2="167.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="139.115" y1="165.650" x2="239.115" y2="165.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 139.115 165.65 L 141.715 166.378 L 141.715 164.922 Z" fill="#000"/>
+<path d="M 239.115 165.65 L 236.515 164.922 L 236.515 166.378 Z" fill="#000"/>
+<text x="189.115" y="164.050" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">100</text>
+<line x1="142.115" y1="151.650" x2="130.115" y2="151.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="142.115" y1="93.650" x2="130.115" y2="93.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="132.115" y1="151.650" x2="132.115" y2="93.650" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 132.115 151.65 L 132.843 149.05 L 131.387 149.05 Z" fill="#000"/>
+<path d="M 132.115 93.65 L 131.387 96.25 L 132.843 96.25 Z" fill="#000"/>
+<text x="130.515" y="122.650" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 130.515 122.650)">58</text>
+<line x1="195.465" y1="111.651" x2="249.465" y2="97.651" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 195.465 111.651 L 198.164 111.704 L 197.799 110.294 Z" fill="#000"/>
+<line x1="249.465" y1="97.651" x2="255.465" y2="97.651" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="256.465" y="98.651" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">alesage 25,4 traversant</text>
+<line x1="229.448" y1="124.983" x2="251.448" y2="134.983" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 229.448 124.983 L 231.514 126.722 L 232.117 125.397 Z" fill="#000"/>
+<line x1="251.448" y1="134.983" x2="257.448" y2="134.983" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="258.448" y="135.983" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2 x diam. 6,6 (passage)</text>
+<line x1="237.943" y1="94.822" x2="243.600" y2="89.165" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 237.943 94.822 L 235.59 96.145 L 236.62 97.175 Z" fill="#000"/>
+<text x="244.800" y="88.165" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">4 x R4</text>
+</svg>

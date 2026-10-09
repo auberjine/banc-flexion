@@ -7,6 +7,7 @@ Repere feuille : millimetres, y vers le bas (convention SVG).
 """
 
 import math
+import re
 import geom2d as G
 
 A3 = (420.0, 297.0)
@@ -39,6 +40,48 @@ def edition():
     except ImportError:
         return "", ""
     return getattr(p, "INDICE_REVISION", ""), getattr(p, "DATE_EDITION", "")
+
+
+_RE_PATTERN = re.compile(r'(<pattern\b.*?</pattern>)', re.S)
+_RE_XY = re.compile(r'\b(x|y|x1|y1|x2|y2|cx|cy)="([-\d.eE+]+)"')
+_RE_ROT = re.compile(r'rotate\(([-\d.eE+]+) ([-\d.eE+]+) ([-\d.eE+]+)\)')
+_RE_D = re.compile(r'\bd="([^"]*)"')
+_RE_NUM = re.compile(r'[-+]?\d*\.?\d+(?:[eE][-+]?\d+)?')
+
+
+def _decale_d(d, dx, dy):
+    """Translate les donnees d'un chemin SVG absolu (M, L, A, Z) : pour A,
+    seul le point d'arrivee (6e et 7e nombres de chaque groupe) bouge."""
+    out = []
+    for m in re.finditer(r'([MLAZmlaz])([^MLAZmlaz]*)', d):
+        c, nums = m.group(1), [float(v) for v in _RE_NUM.findall(m.group(2))]
+        if c.upper() == 'A':
+            for k in range(0, len(nums) - 6, 7):
+                nums[k + 5] += dx
+                nums[k + 6] += dy
+        elif c.upper() in 'ML':
+            for k in range(0, len(nums) - 1, 2):
+                nums[k] += dx
+                nums[k + 1] += dy
+        out.append(c + (" " + " ".join("%.6g" % v for v in nums) if nums else ""))
+    return " ".join(out)
+
+
+def decale_svg(e, dx, dy):
+    """Translate un element SVG de la feuille (ligne, chemin, texte et sa
+    rotation, rectangle, cercle, chemin de detourage), sauf l'interieur des
+    motifs de hachures, qui vit dans son propre repere."""
+    morceaux = _RE_PATTERN.split(e)
+    for i, m in enumerate(morceaux):
+        if m.startswith("<pattern"):
+            continue
+        m = _RE_XY.sub(lambda g: '%s="%.3f"' % (g.group(1), float(g.group(2))
+                                                + (dx if g.group(1).startswith(("x", "cx")) else dy)), m)
+        m = _RE_ROT.sub(lambda g: "rotate(%s %.3f %.3f)" % (g.group(1), float(g.group(2)) + dx,
+                                                              float(g.group(3)) + dy), m)
+        m = _RE_D.sub(lambda g: 'd="%s"' % _decale_d(g.group(1), dx, dy), m)
+        morceaux[i] = m
+    return "".join(morceaux)
 
 
 class Sheet(object):
@@ -150,6 +193,44 @@ class Sheet(object):
         for n in reversed(self.notes):
             self.text(self.w - MARGE - 2, y, n, 2.8, "end", "#000")
             y -= 3.8
+
+    # ---------------------------------------------------------- une piece par feuille
+
+    def debut_piece(self):
+        """Tout ce qui est trace ensuite appartient au dessin de la piece, que
+        fin_piece() recentre sur la feuille. Appeler APRES cartouche()."""
+        self._i_piece = len(self.body)
+
+    def fin_piece(self):
+        """Recentre le dessin de la piece dans la zone libre : toute la largeur
+        du cadre, du haut du cadre jusqu'au-dessus des notes et du cartouche.
+        Les coordonnees sont reecrites (pas de <g transform>) : verif_plans
+        lit les traits et les textes tels qu'ils sont sur la feuille."""
+        import verif_plans as VP
+        i0 = getattr(self, "_i_piece", None)
+        if i0 is None:
+            return
+        morceau = "\n".join(self.body[i0:])
+        xs, ys = [], []
+        for (x0, y0, x1, y1, _s, _a, _c) in VP.textes(morceau):
+            xs += [x0, x1]
+            ys += [y0, y1]
+        for (x1, y1, x2, y2, _w) in VP.lignes(morceau):
+            xs += [x1, x2]
+            ys += [y1, y2]
+        if not xs:
+            return
+        bx0, bx1, by0, by1 = min(xs), max(xs), min(ys), max(ys)
+        zx0, zx1 = MARGE + 6.0, self.w - MARGE - 6.0
+        zy0 = MARGE + 6.0
+        zy1 = self.h - MARGE - 36.0 - 4.0 - 3.8 * len(self.notes) - 6.0
+        dx = (zx0 + zx1) / 2.0 - (bx0 + bx1) / 2.0
+        if by1 - by0 <= zy1 - zy0:
+            dy = (zy0 + zy1) / 2.0 - (by0 + by1) / 2.0
+        else:
+            dy = zy0 - by0                       # trop haute : calee en haut
+        self.body[i0:] = [decale_svg(e, dx, dy) for e in self.body[i0:]]
+        self._i_piece = None
 
     def dumps(self):
         return ('<svg xmlns="http://www.w3.org/2000/svg" width="%gmm" height="%gmm" '

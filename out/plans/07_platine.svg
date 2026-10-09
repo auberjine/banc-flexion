@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#fff"/>
+<rect x="10.000" y="10.000" width="400.000" height="277.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<rect x="225.000" y="251.000" width="185.000" height="36.000" fill="none" stroke="#000" stroke-width="0.700"/>
+<line x1="225.000" y1="263.000" x2="410.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="225.000" y1="275.000" x2="410.000" y2="275.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="251.000" x2="345.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="285.000" y1="263.000" x2="285.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<line x1="345.000" y1="263.000" x2="345.000" y2="287.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="229.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="5.00" fill="#000" text-anchor="start" font-weight="bold">PLATINE DE BUTEE</text>
+<line x1="385.000" y1="251.000" x2="385.000" y2="263.000" stroke="#000" stroke-width="0.350" stroke-linecap="round"/>
+<text x="397.500" y="256.200" font-family="Helvetica,Arial,sans-serif" font-size="3.00" fill="#000" text-anchor="middle" font-weight="normal">indice B</text>
+<text x="397.500" y="261.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">05/10/2026</text>
+<text x="349.000" y="259.500" font-family="Helvetica,Arial,sans-serif" font-size="4.00" fill="#000" text-anchor="start" font-weight="normal">rep. 07</text>
+<text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
+<text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">42CrMo4 +A, Re &gt;= 430</text>
+<text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tole 8 cert.3.1</text>
+<text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
+<text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2</text>
+<text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
+<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1:1</text>
+<text x="289.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">cotes en mm</text>
+<text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
+<text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
+<text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">Platine : 130 MPa en flexion, coefficient 3,3 a 20 C et 3,0 a 150 C, fleche 0,14 mm.</text>
+<text x="408.000" y="243.200" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07 : decoupe laser d apres support.dxf, aretes cassees 0,8 x 45 deg ; 40 et 70 entre aretes fictives (au sommet R12, la tole mesure 69,46).</text>
+<text x="408.000" y="239.400" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">07 : 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re &gt;= 430 MPa a 20 C ; meme tole que les flancs, platines imbriquees dans leurs chutes.</text>
+<text x="213.449" y="66.150" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">07  PLATINE DE BUTEE  (1:1)</text>
+<text x="213.449" y="70.750" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">42CrMo4 +A, 2 ex. identiques, empilees</text>
+<text x="213.449" y="74.750" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">brut tole 8 mm, cert. 3.1, Re &gt;= 430</text>
+<path d="M 143.449 113.617 L 143.449 140.683 A 8 8 0 0 0 149.773 148.505 L 210.935 161.611 A 12 12 0 0 0 215.963 161.611 L 277.125 148.505 A 8 8 0 0 0 283.449 140.683 L 283.449 113.617 A 8 8 0 0 0 277.125 105.795 L 215.963 92.689 A 12 12 0 0 0 210.935 92.689 L 149.773 105.795 A 8 8 0 0 0 143.449 113.617 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 222.449 127.15 A 9 9 0 0 0 204.449 127.15 A 9 9 0 0 0 222.449 127.15 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 166.949 127.15 A 5.5 5.5 0 0 0 155.949 127.15 A 5.5 5.5 0 0 0 166.949 127.15 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 270.949 127.15 A 5.5 5.5 0 0 0 259.949 127.15 A 5.5 5.5 0 0 0 270.949 127.15 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="140.449" y1="127.150" x2="239.199" y2="127.150" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="243.199" y1="127.150" x2="286.449" y2="127.150" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="213.449" y1="165.150" x2="213.449" y2="89.150" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="161.449" y1="118.650" x2="161.449" y2="174.150" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="265.449" y1="118.650" x2="265.449" y2="174.150" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="143.449" y1="140.683" x2="143.449" y2="148.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="149.773" y1="148.505" x2="143.449" y2="147.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="277.125" y1="148.505" x2="283.449" y2="147.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="283.449" y1="140.683" x2="283.449" y2="148.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="283.449" y1="113.617" x2="283.449" y2="106.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="277.125" y1="105.795" x2="283.449" y2="107.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="210.935" y1="161.611" x2="213.449" y2="162.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="215.963" y1="161.611" x2="213.449" y2="162.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="215.963" y1="92.689" x2="213.449" y2="92.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="210.935" y1="92.689" x2="213.449" y2="92.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="161.449" y1="172.150" x2="265.449" y2="172.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 161.449 172.15 L 164.049 172.878 L 164.049 171.422 Z" fill="#000"/>
+<path d="M 265.449 172.15 L 262.849 171.422 L 262.849 172.878 Z" fill="#000"/>
+<text x="213.449" y="170.550" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">104</text>
+<line x1="143.449" y1="148.150" x2="143.449" y2="182.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="283.449" y1="148.150" x2="283.449" y2="182.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="143.449" y1="180.150" x2="283.449" y2="180.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 143.449 180.15 L 146.049 180.878 L 146.049 179.422 Z" fill="#000"/>
+<path d="M 283.449 180.15 L 280.849 179.422 L 280.849 180.878 Z" fill="#000"/>
+<text x="213.449" y="178.550" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">140</text>
+<line x1="284.449" y1="147.150" x2="295.449" y2="147.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="284.449" y1="107.150" x2="295.449" y2="107.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="293.449" y1="147.150" x2="293.449" y2="107.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 293.449 147.15 L 294.177 144.55 L 292.721 144.55 Z" fill="#000"/>
+<path d="M 293.449 107.15 L 292.721 109.75 L 294.177 109.75 Z" fill="#000"/>
+<text x="291.849" y="127.150" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 291.849 127.150)">40</text>
+<line x1="214.449" y1="162.150" x2="243.199" y2="162.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="214.449" y1="92.150" x2="243.199" y2="92.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="241.199" y1="162.150" x2="241.199" y2="92.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 241.199 162.15 L 241.927 159.55 L 240.471 159.55 Z" fill="#000"/>
+<path d="M 241.199 92.15 L 240.471 94.75 L 241.927 94.75 Z" fill="#000"/>
+<text x="239.599" y="115.150" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 239.599 115.150)">70</text>
+<line x1="145.792" y1="107.960" x2="140.842" y2="103.011" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 145.792 107.96 L 147.116 110.314 L 148.145 109.284 Z" fill="#000"/>
+<text x="139.642" y="102.011" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">4 x R8</text>
+<line x1="211.365" y1="92.605" x2="209.802" y2="83.741" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 211.365 92.605 L 211.1 95.292 L 212.534 95.039 Z" fill="#000"/>
+<text x="208.602" y="82.741" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">2 x R12</text>
+<line x1="208.949" y1="119.356" x2="192.087" y2="90.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 208.949 119.356 L 208.279 116.74 L 207.019 117.468 Z" fill="#000"/>
+<line x1="192.087" y1="90.150" x2="187.087" y2="90.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="186.087" y="91.150" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">diam. 18</text>
+<line x1="159.568" y1="121.982" x2="147.982" y2="90.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 159.568 121.982 L 159.363 119.289 L 157.995 119.787 Z" fill="#000"/>
+<line x1="147.982" y1="90.150" x2="142.982" y2="90.150" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="141.982" y="91.150" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">2 x diam. 11</text>
+</svg>
