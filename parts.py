@@ -395,19 +395,20 @@ def coin_profile():
     y0, y1 = p.COIN_Y0 + wb, p.COIN_Y1 - wb
     h = p.PLAQ_REBORD_H
 
+    # coupe a x = 0, par les tenons ; angles saillants vifs (casses a l'atelier)
     c = G.Contour("coin")
-    c.add(p.COIN_Y0, zr, 1.0)
-    c.add(p.COIN_Y0 + w, zr, 1.0)
+    c.add(p.COIN_Y0, zr)
+    c.add(p.COIN_Y0 + w, zr)
     c.add(p.COIN_Y0 + w, zt, p.PLAQ_REBORD_R)
     c.add(p.COIN_Y1 - w, zt, p.PLAQ_REBORD_R)
-    c.add(p.COIN_Y1 - w, zr, 1.0)
-    c.add(p.COIN_Y1, zr, 1.0)
-    c.add(p.COIN_Y1, zb(p.COIN_Y1) - dr, 1.0)
-    c.add(y1 + h * sa, zb(y1) - h * ca, 1.0)
+    c.add(p.COIN_Y1 - w, zr)
+    c.add(p.COIN_Y1, zr)
+    c.add(p.COIN_Y1, zb(p.COIN_Y1) - dr)
+    c.add(y1 + h * sa, zb(y1) - h * ca)
     c.add(y1, zb(y1), p.PLAQ_REBORD_R)
     c.add(y0, zb(y0), p.PLAQ_REBORD_R)
-    c.add(y0 + h * sa, zb(y0) - h * ca, 1.0)
-    c.add(p.COIN_Y0, zb(p.COIN_Y0) - dr, 1.0)
+    c.add(y0 + h * sa, zb(y0) - h * ca)
+    c.add(p.COIN_Y0, zb(p.COIN_Y0) - dr)
     return c.build(), []
 
 
@@ -423,9 +424,79 @@ def f_coin(solid, Part, Vector):
     out = solid.cut(Part.makeCylinder(
         p.VIS_D / 2.0, p.COIN_L + 4.0,
         Vector(p.COIN_Y0 - 2.0, p.Z_VIS, b2), Vector(1, 0, 0)))
-    return out.cut(Part.makeCylinder(
+    out = out.cut(Part.makeCylinder(
         p.VIS_PASSAGE_D / 2.0, p.COIN_L - p.COIN_TARAUD_L + 4.0,
         Vector(p.COIN_Y0 + p.COIN_TARAUD_L, p.Z_VIS, b2), Vector(1, 0, 0)))
+
+    # Le profil porte des rebords sur toute la largeur (c'est la coupe a x = 0
+    # des plans). En 3D on les rase, puis on rajoute les TENONS, PLAQ_TENON_B au
+    # milieu de chaque bout, dessus et dessous, et on conge leurs pieds en R2
+    # d'un seul coup (piece fraisee).
+    zt, tg = p.Z_COIN_HAUT, p.COIN_TAN
+    a = math.radians(p.COIN_ANGLE)
+    sa, ca = math.sin(a), math.cos(a)
+    tb2, H, L = p.PLAQ_TENON_B / 2.0, p.PLAQ_REBORD_H, p.PLAQ_TENON_L
+    Y0, Y1 = p.COIN_Y0, p.COIN_Y1
+
+    def zb(y):
+        return zt - p.COIN_T_BOUT_MINCE - (Y1 - y) * tg
+
+    ya, yb = Y0 - 2.0, Y1 + 2.0
+    out = out.cut(Part.makeBox(yb - ya, H + 2.0, p.COIN_B + 2.0, Vector(ya, zt, -1.0)))
+    pts = [Vector(ya, zb(ya), -1.0), Vector(yb, zb(yb), -1.0),
+           Vector(yb, zb(yb) - 12.0, -1.0), Vector(ya, zb(ya) - 12.0, -1.0), Vector(ya, zb(ya), -1.0)]
+    out = out.cut(Part.Face(Part.Wire(Part.makePolygon(pts))).extrude(Vector(0, 0, p.COIN_B + 2.0)))
+
+    z0 = b2 - tb2
+    for y_bout, sens in ((Y0, 1.0), (Y1, -1.0)):
+        # dessus : un pave
+        out = out.fuse(Part.makeBox(L, H, 2.0 * tb2,
+                                    Vector(y_bout if sens > 0 else y_bout - L, zt, z0)))
+        # dessous : face interieure NORMALE a la pente, face de bout dans celle du coin
+        q0 = (y_bout, zb(y_bout))
+        q1 = (q0[0] + sens * L * ca, q0[1] + sens * L * sa)
+        q2 = (q1[0] + H * sa, q1[1] - H * ca)
+        t = (y_bout - q2[0]) / ca
+        q3 = (y_bout, q2[1] + t * sa)
+        poly = [Vector(q[0], q[1], z0) for q in (q0, q1, q2, q3, q0)]
+        out = out.fuse(Part.Face(Part.Wire(Part.makePolygon(poly))).extrude(Vector(0, 0, 2.0 * tb2)))
+    out = out.removeSplitter()
+
+    def sur_siege(v):
+        return abs(v.y - zt) < 1e-4 or abs(v.y - zb(v.x)) < 1e-4
+
+    aretes = []
+    for e in out.Edges:
+        vs = [v.Point for v in e.Vertexes]
+        if len(vs) != 2 or not all(sur_siege(v) for v in vs):
+            continue
+        if all(abs(v.x - Y0) < 1e-4 for v in vs) or all(abs(v.x - Y1) < 1e-4 for v in vs):
+            continue                                  # arete sur la face de bout
+        if all(abs(v.z) < 1e-4 for v in vs) or all(abs(v.z - p.COIN_B) < 1e-4 for v in vs):
+            continue                                  # bord du siege
+        cote = all(abs(abs(v.z - b2) - tb2) < 1e-4 for v in vs)
+        fond = all(abs(v.z - b2) <= tb2 + 1e-4 for v in vs) and abs(vs[0].z - vs[1].z) > 1.0
+        if cote or fond:
+            aretes.append(e)
+    try:
+        c = out.makeFillet(p.PLAQ_REBORD_R, aretes)
+        if c.isValid():
+            out = c
+        else:
+            print("   coin : conges de pied des tenons invalides, laisses vifs")
+    except Exception as exc:
+        print("   coin : conges de pied des tenons impossibles (%s, %d aretes), laisses vifs"
+              % (exc, len(aretes)))
+
+    # taraudages M4 des vis de plaquette (avant-trou 3,3), du cote PLAQ_VIS_X
+    zx = b2 + p.PLAQ_VIS_X
+    for yh in (p.PLAQ_HAUT_E0 + p.PLAQ_VIS_BOUT, p.PLAQ_HAUT_E1 - p.PLAQ_VIS_BOUT):
+        out = out.cut(Part.makeCylinder(1.65, p.PLAQ_VIS_TARAUD_P, Vector(yh, zt, zx), Vector(0, -1, 0)))
+    for sh in (p.PLAQ_BAS_E0 + p.PLAQ_VIS_BOUT, p.PLAQ_BAS_E1 - p.PLAQ_VIS_BOUT):
+        yh = sh * ca - p.PLAQ_EP * sa
+        out = out.cut(Part.makeCylinder(1.65, p.PLAQ_VIS_TARAUD_P, Vector(yh, zb(yh), zx),
+                                        Vector(0, ca, 0) + Vector(-sa, 0, 0)))
+    return out
 
 
 def plaquette_haute_profile():
@@ -433,19 +504,65 @@ def plaquette_haute_profile():
     Plaquette de bronze du dessus, prise entre les deux rebords du coin.
     Profil dans le plan (x, y), extrude selon z.
 
-    Piece usinee : rectangle plein PLAQ_B x PLAQ_L_HAUT x PLAQ_EP, sans trou.
-    Pas une seule vis : le percage de la tige prend le milieu du coin. Ce sont
-    les rebords qui prennent l'entrainement ; quelques points de silicone haute
-    temperature la tiennent au montage. PAS d'epoxy : bronze et acier ne se
-    dilatent pas pareil.
+    Piece usinee : PLAQ_B x PLAQ_L_HAUT x PLAQ_EP, encochee aux deux bouts
+    autour des tenons du coin, qui prennent l'entrainement ; deux vis CHC M4
+    dans des oblongs la tiennent sans gener sa dilatation.
     """
-    c = G.Contour("plaquette haute")
+    return plaquette_profile("plaquette haute", p.PLAQ_HAUT_E0, p.PLAQ_HAUT_Y0,
+                             p.PLAQ_HAUT_Y1, p.PLAQ_HAUT_E1)
+
+
+def plaquette_profile(nom, e0, n0, n1, e1):
+    """
+    Plaquette de bronze : PLAQ_B de large (deborde du coin), de e0 a e1 le long
+    du coin, une ENCOCHE a chaque bout jusqu'a n0 / n1 qui enjambe le tenon,
+    degagements R2 aux angles du fond (piece fraisee) ; deux oblongs selon la
+    longueur, du cote PLAQ_VIS_X, pour les vis CHC M4.
+    """
+    c = G.Contour(nom)
     b2 = p.PLAQ_B / 2.0
-    c.add(-b2, p.PLAQ_HAUT_Y0)
-    c.add(b2, p.PLAQ_HAUT_Y0)
-    c.add(b2, p.PLAQ_HAUT_Y1)
-    c.add(-b2, p.PLAQ_HAUT_Y1)
-    return c.build(), []
+    nb = p.PLAQ_TENON_B / 2.0 + p.PLAQ_JEU_X
+    r = p.RAYON_INTERIEUR_MIN
+    c.add(-b2, e0)
+    c.add(-nb, e0)
+    c.add(-nb, n0, r, relief=True)
+    c.add(nb, n0, r, relief=True)
+    c.add(nb, e0)
+    c.add(b2, e0)
+    c.add(b2, e1)
+    c.add(nb, e1)
+    c.add(nb, n1, r, relief=True)
+    c.add(-nb, n1, r, relief=True)
+    c.add(-nb, e1)
+    c.add(-b2, e1)
+    x, w2, l2 = p.PLAQ_VIS_X, p.PLAQ_OBLONG_B / 2.0, p.PLAQ_OBLONG_L / 2.0
+    trous = [G.slot(x - w2, yc - l2, x + w2, yc + l2)
+             for yc in (e0 + p.PLAQ_VIS_BOUT, e1 - p.PLAQ_VIS_BOUT)]
+    return c.build(), trous
+
+
+def lamages_plaquette(solid, Part, Vector, e0, e1, z0):
+    """Lamages oblongs des tetes CHC M4, PLAQ_LAMAGE_P de profondeur depuis
+    la face de glissement (z0 : bas du lamage dans le repere de la piece)."""
+    x, w2 = p.PLAQ_VIS_X, p.PLAQ_LAMAGE_B / 2.0
+    dl = (p.PLAQ_LAMAGE_L - p.PLAQ_LAMAGE_B) / 2.0
+    for yc in (e0 + p.PLAQ_VIS_BOUT, e1 - p.PLAQ_VIS_BOUT):
+        lam = Part.makeBox(2.0 * w2, 2.0 * dl, p.PLAQ_LAMAGE_P + 1.0, Vector(x - w2, yc - dl, z0))
+        for s in (-1.0, 1.0):
+            lam = lam.fuse(Part.makeCylinder(w2, p.PLAQ_LAMAGE_P + 1.0, Vector(x, yc + s * dl, z0)))
+        solid = solid.cut(lam)
+    return solid
+
+
+def f_plaquette_haute(solid, Part, Vector):
+    """Lamages par le dessus : c'est la face qui glisse sous la traverse."""
+    return lamages_plaquette(solid, Part, Vector, p.PLAQ_HAUT_E0, p.PLAQ_HAUT_E1,
+                             p.PLAQ_EP - p.PLAQ_LAMAGE_P)
+
+
+def f_plaquette_basse(solid, Part, Vector):
+    """Lamages par le dessous : c'est la face qui glisse sur le coulisseau."""
+    return lamages_plaquette(solid, Part, Vector, p.PLAQ_BAS_E0, p.PLAQ_BAS_E1, -1.0)
 
 
 def plaquette_basse_profile():
@@ -455,13 +572,8 @@ def plaquette_basse_profile():
     pour se coucher sur la pente. Ses cotes en y sont donc prises SUR LA PENTE,
     d'ou sa longueur PLAQ_L_BAS, plus grande que celle de la haute.
     """
-    c = G.Contour("plaquette basse")
-    b2 = p.PLAQ_B / 2.0
-    c.add(-b2, p.PLAQ_BAS_S0)
-    c.add(b2, p.PLAQ_BAS_S0)
-    c.add(b2, p.PLAQ_BAS_S1)
-    c.add(-b2, p.PLAQ_BAS_S1)
-    return c.build(), []
+    return plaquette_profile("plaquette basse", p.PLAQ_BAS_E0, p.PLAQ_BAS_S0,
+                             p.PLAQ_BAS_S1, p.PLAQ_BAS_E1)
 
 
 def pile_profile():
@@ -990,28 +1102,31 @@ def all_parts():
         coin_profile, 'yz', (-p.COIN_B / 2.0, 0.0, 0.0), flat=False,
         features=f_coin,
         note="acier taraude M%g sur %g depuis le bout EPAIS, passage %g au dela ; porte les deux"
-             " plaques de frottement en bronze entre rebords de %s : dessus %s, dessous %s"
+             " plaques de frottement en bronze, tenons de %s de haut et %s de large : dessus %s, dessous %s"
              " (faces normales a la pente)"
-             % (p.VIS_D, p.COIN_TARAUD_L, p.VIS_PASSAGE_D, fr(p.PLAQ_REBORD_H),
-                fr(p.PLAQ_REBORD_L, 2), fr(p.PLAQ_REBORD_L_BAS, 2))))
+             % (p.VIS_D, p.COIN_TARAUD_L, p.VIS_PASSAGE_D, fr(p.PLAQ_REBORD_H), fr(p.PLAQ_TENON_B),
+                fr(p.PLAQ_REBORD_L, 2), fr(p.PLAQ_REBORD_L_BAS, 2))
+             + " ; 4 taraudages M%g prof. %s pour les vis des plaquettes" % (p.PLAQ_VIS_D, fr(p.PLAQ_VIS_TARAUD_P))))
 
     parts.append(PartSpec(
         "plaquette_haute", "Plaque de frottement, dessus", 1, p.PLAQ_ALLIAGE,
         p.PLAQ_BRUT, p.PLAQ_EP, plaquette_haute_profile, 'xy',
-        (0.0, 0.0, p.Z_COIN_HAUT), density=8800.0, flat=False,
+        (0.0, 0.0, p.Z_COIN_HAUT), density=8800.0, flat=False, features=f_plaquette_haute,
         text_at=(0.0, (p.PLAQ_HAUT_Y0 + p.PLAQ_HAUT_Y1) / 2.0),
-        note="fraisee %s x %s x %s, sans trou, faces planes et paralleles a 0,02, Ra 0,8 cote"
-             " glissement, aretes cassees 0,3 ; entre ses deux rebords sur le dessus du coin, points"
-             " de silicone HT au montage ; %s sur la face qui glisse sous la traverse"
-             % (fr(p.PLAQ_B), fr(p.PLAQ_L_HAUT), fr(p.PLAQ_EP), p.PLAQ_LUBRIFIANT)))
+        note="fraisee %s x %s x %s, encochee aux deux bouts autour des tenons du coin, 2 oblongs"
+             " lames pour CHC M%g ; faces planes et paralleles a 0,02, Ra 0,8 cote glissement,"
+             " aretes cassees 0,3 ; deborde du coin de %s de chaque cote : c est elle qui touche"
+             " la fente des flancs ; %s sur la face qui glisse sous la traverse"
+             % (fr(p.PLAQ_B), fr(p.PLAQ_L_HAUT), fr(p.PLAQ_EP), p.PLAQ_VIS_D, fr(p.PLAQ_DEBORD),
+                p.PLAQ_LUBRIFIANT)))
 
     plaq = PartSpec(
         "plaquette_basse", "Plaque de frottement, dessous", 1, p.PLAQ_ALLIAGE,
         p.PLAQ_BRUT, p.PLAQ_EP, plaquette_basse_profile, 'xy',
-        (0.0, 0.0, p.Z_COULISSEAU_HAUT), density=8800.0, flat=False,
+        (0.0, 0.0, p.Z_COULISSEAU_HAUT), density=8800.0, flat=False, features=f_plaquette_basse,
         text_at=(0.0, (p.PLAQ_BAS_S0 + p.PLAQ_BAS_S1) / 2.0),
-        note="comme la haute, mais %s x %s x %s ; entre ses deux rebords sous le coin, points de"
-             " silicone HT au montage ; %s sur la face qui glisse sur la pente du coulisseau"
+        note="comme la haute, mais %s x %s x %s, lamages cote coulisseau ; %s sur la face qui"
+             " glisse sur la pente du coulisseau"
              % (fr(p.PLAQ_B), fr(p.PLAQ_L_BAS), fr(p.PLAQ_EP), p.PLAQ_LUBRIFIANT))
     plaq.rotate = ((1, 0, 0), p.COIN_ANGLE, (0, 0, p.Z_COULISSEAU_HAUT))
     parts.append(plaq)

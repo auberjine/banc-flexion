@@ -503,34 +503,38 @@ def main():
     a("s'approfondit donc de %.1f mm." % p.PLAQ_DROP)
     a("")
     cis, flex, pres = p.rebord_contrainte()
-    a("Aucune vis : le coin ne fait que %.0f de large et le percage de la vis en"
-      % p.COIN_B)
-    a("prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un")
-    a("ligament d'epaisseur. Chaque plaquette est prise entre DEUX REBORDS usines")
-    a("dans la masse, %.2f (dessus) et %.2f (dessous) x %g, qui encaissent les %.2f kN"
-      % (p.PLAQ_REBORD_L, p.PLAQ_REBORD_L_BAS, p.PLAQ_REBORD_H, p.CHARGE_DIM * p.COIN_MU / 1000.0))
-    a("d'entrainement dans l'axe de la vis : flexion %.1f MPa au pied, matage du chant %.0f MPa."
+    a("Les plaquettes debordent du coin de %g de chaque cote (%g de large) : quand le"
+      % (p.PLAQ_DEBORD, p.PLAQ_B))
+    a("coin se decale en x, c'est le BRONZE qui touche la tranche de la fente des")
+    a("flancs (%g de jeu par cote), jamais l'acier du coin. Elles couvrent toute la"
+      % p.PLAQ_JEU_FENTE)
+    a("longueur du coin et enjambent par une ENCOCHE, a chaque bout, un TENON de %g x %g"
+      % (p.PLAQ_TENON_B, p.PLAQ_TENON_L))
+    a("usine dans la masse, %g de haut, qui encaisse les %.2f kN d'entrainement dans"
+      % (p.PLAQ_REBORD_H, p.CHARGE_DIM * p.COIN_MU / 1000.0))
+    a("l'axe de la vis : flexion %.1f MPa au pied, matage du fond d'encoche %.0f MPa."
       % (flex, pres))
-    d_th = (p.ALPHA_BRONZE - p.ALPHA_ACIER) * p.DELTA_T * p.PLAQ_BAS_L
-    a("Elles ne sont PAS collees a l epoxy. Bronze et acier ne se dilatent pas")
-    a("pareil : a %.0f C la plaquette s allonge de %.2f mm de plus que son siege,"
-      % (20 + p.DELTA_T, d_th))
-    a("et un joint rigide sur toute la longueur encaisserait 30 a 80 MPa de")
-    a("cisaillement en bout pour 15 a 20 tenus : il fissurerait au premier")
-    a("chauffage. Les rebords prenant tout l entrainement, la fixation n a plus")
-    a("qu a tenir la plaquette le temps du montage : quelques points de silicone")
-    a("haute temperature, %.0f fois plus souple, y suffisent -- %.3f MPa de"
-      % (1000.0 / p.COLLE_G, p.COLLE_G * d_th / 2.0 / p.COLLE_EP))
-    a("cisaillement thermique dans le joint. Le %s n'est pas autolubrifiant :" % p.PLAQ_ALLIAGE)
-    a("%s sur les faces de glissement, posee APRES la prise du silicone ;" % p.PLAQ_LUBRIFIANT)
-    a("rien sur les sieges, le silicone ne prend pas sur une pate.")
+    d_th = (p.ALPHA_BRONZE - p.ALPHA_ACIER) * p.DELTA_T * p.PLAQ_L_BAS
+    a("Deux vis CHC M%g x %g ISO 4762 par plaquette, du meme cote, dans des OBLONGS"
+      % (p.PLAQ_VIS_D, p.PLAQ_VIS_L))
+    a("selon la longueur et des lamages de %g sous la surface de glissement, la tiennent"
+      % p.PLAQ_LAMAGE_P)
+    a("sans la brider : serrage leger. Bronze et acier ne se dilatant pas pareil, a %.0f C"
+      % (20 + p.DELTA_T))
+    a("la plaquette s allonge de %.2f mm de plus que son siege, ce que les oblongs" % d_th)
+    a("laissent passer. Le %s n'est pas autolubrifiant : %s sur les faces"
+      % (p.PLAQ_ALLIAGE, p.PLAQ_LUBRIFIANT))
+    a("de glissement, rien sur les sieges.")
     a("")
-    a("Pied de rebord SANS degagement : conge R%g, le bout d'une fraise de %g (pas de" % (p.PLAQ_REBORD_R, 2 * p.PLAQ_REBORD_R))
-    a("conge interieur sous R%g sur les pieces fraisees)," % p.RAYON_INTERIEUR_MIN)
-    a("et chaque logement a %g de plus que sa plaquette, si bien que l'angle du"
-      % (2.0 * p.PLAQ_JEU))
-    a("bronze ne monte pas sur le conge. Et sur la face inclinee, la face interieure")
-    a("du rebord est NORMALE A LA PENTE et non verticale, comme le chant de la")
+    a("Pied des tenons : conge R%g sur ses trois faces, le bout d'une fraise de %g (pas"
+      % (p.PLAQ_REBORD_R, 2 * p.PLAQ_REBORD_R))
+    a("de conge interieur sous R%g sur les pieces fraisees) ; l'encoche a %g de jeu"
+      % (p.RAYON_INTERIEUR_MIN, p.PLAQ_JEU))
+    a("au fond et %g sur les flancs, si bien que le bronze ne monte pas sur le conge,"
+      % p.PLAQ_JEU_X)
+    a("et ses angles ont des degagements R%g." % p.RAYON_INTERIEUR_MIN)
+    a("Sur la face inclinee, la face interieure des tenons est NORMALE A LA PENTE")
+    a("et non verticale, comme le fond d'encoche de la")
     a("plaquette : dessinees verticales, elles la mordaient de %.1f mm en bas."
       % (p.PLAQ_EP * p.COIN_TAN))
     a("")

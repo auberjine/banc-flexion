@@ -46,8 +46,8 @@ que selon y, et l'axe de la vis reste fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30,8 a 55,2 d'epaisseur, 114,5 de long |
-| Plaque haute | CuSn12-C usine 38 x 102 x 6, sans trou, entre deux rebords de 4,25 |
-| Plaque basse | CuSn12-C usine 38 x 104 x 6, sur la pente, entre deux rebords de 4,43 |
+| Plaque haute | CuSn12-C usine 41 x 114 x 6, encochee sur les deux tenons du coin, 2 vis CHC M4 dans des oblongs |
+| Plaque basse | CuSn12-C usine 41 x 117 x 6, sur la pente, idem |
 | Taraudage | M16 sur 80 mm depuis le bout epais, passage a 18 au dela |
 | Course utile | 56,5 mm selon y |
 | Effort moteur a 12 kN | 5,5 kN |
@@ -76,30 +76,30 @@ percage est repris a 18, si bien que le taraud debouche dans un trou plus grand
 et qu'il n'y a que 5 d a tarauder au lieu de 7. Si le filet devait un jour
 lacher, le lamage d'une bague de bronze reste possible.
 
-AUCUNE VIS SUR LES PLAQUES : le coin ne fait que 40 de large et le percage de
-la tige en prend le milieu, il ne reste pas de quoi noyer une tete fraisee a un
-ligament d'epaisseur. Chaque plaque est prise entre DEUX REBORDS usines dans la
-masse, 4,25 (dessus) et 4,43 (dessous) de large pour 4 de haut, qui encaissent
-les 1,44 kN d'entrainement dans l'axe de la vis : flexion 23,9 MPa au pied,
-matage du chant 18 MPa. Il n'y a pas de colle structurale : une epoxy
-fissurerait au premier chauffage, bronze et acier ne se dilatant pas pareil.
-Quelques points de silicone haute temperature tiennent la plaque pendant le
-montage ; la dilatation differentielle n'y met que 0,14 MPa de cisaillement.
-Le CuSn12 n'est pas autolubrifiant : pate graphite haute temperature sur les
-faces de glissement, posee APRES la prise du silicone, et rien sur les sieges,
-car le silicone ne prend pas sur une pate.
+GUIDAGE LATERAL PAR LE BRONZE (19/10/2026) : les plaques font 41 de large et
+debordent du coin (40) de 0,5 de chaque cote. Quand le coin se decale en x,
+c'est le bronze qui touche la tranche de la fente des flancs (42,2, soit 0,6 de
+jeu par cote), jamais l'acier du coin. Elles couvrent toute la longueur du coin
+et enjambent, a chaque bout, un TENON de 24 x 8 x 4 de haut usine dans la masse,
+par une encoche a degagements R2 ; le tenon encaisse les 1,44 kN
+d'entrainement dans l'axe de la vis : flexion 11 MPa au pied, matage du fond
+d'encoche 30 MPa. Pied des tenons : conge R2 sur leurs trois faces (aucun
+conge interieur sous R2 sur les pieces fraisees), avec 2 de jeu au fond et sur
+les flancs de l'encoche, si bien que le bronze ne monte pas sur le conge. Sur
+la face inclinee, la face interieure des tenons est NORMALE A LA PENTE.
 
-Pied de rebord SANS degagement : conge R2, le bout d'une fraise de 4 (aucun
-conge interieur sous R2 sur les pieces fraisees, 09/10/2026), et chaque logement a
-4 mm de plus que sa plaque, si bien que l'angle du bronze ne
-monte pas sur le conge. Sur la face inclinee, la face interieure du rebord est
-NORMALE A LA PENTE et non verticale, comme le chant de la plaque : dessinees
-verticales, elles la mordaient de 1,3 mm en bas.
+Deux vis CHC M4 x 8 ISO 4762 (tete normale) par plaque, du meme cote, dans des
+oblongs selon la longueur, tete dans un lamage de 4,5 sous la surface de
+glissement : serrage LEGER, la plaque doit glisser. Pas de colle : bronze et
+acier ne se dilatent pas pareil (0,1 mm d'ecart sur la longueur a 150 C), ce
+que les oblongs laissent passer. Le CuSn12 n'est pas autolubrifiant : pate
+graphite haute temperature sur les faces de glissement, rien sur les sieges.
 
-Les rebords s'arretent 2 mm SOUS la surface du bronze. Aux deux bouts de course
+Les tenons s'arretent 2 mm SOUS la surface du bronze. Aux deux bouts de course
 ils passent sous la piece conjuguee, et s'ils affleuraient ce serait de l'acier
-sur acier qu'on ferait glisser. Ils coutent de la portee : la plaque haute
-porte sur 51,8 mm au lieu de 60, la basse sur 48,6 au lieu de 58.
+sur acier qu'on ferait glisser. Les calculs ne comptent pas la portee des
+oreilles de part et d'autre des tenons : la plaque haute porte sur 49,0 mm au
+lieu de 60, la basse sur 47,0 au lieu de 58.
 
 Le coin n'est autobloquant que si le frottement de ses deux faces depasse
 0,106 (tan 12 / 2) : avec le bronze graphite on y est a peine, on ne compte

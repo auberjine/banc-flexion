@@ -369,7 +369,14 @@ COIN_PORTEE = POUSSOIR_B  # le coin doit couvrir TOUTE la tete du coulisseau
 COIN_L = COIN_COURSE + COIN_PORTEE                  # 114,5
 COIN_MU = 0.12            # bronze sur acier sous pate graphite, a chaud : faces de glissement du coin
 COIN_VIS_SOUS = 16.0      # axe du taraudage sous la face plate du coin
-COIN_JEU_FENTE = 4.0      # jeu total du coin dans la fente du flanc
+# GUIDAGE LATERAL DU COIN PAR LE BRONZE (19/10/2026) : les plaquettes debordent
+# du coin de PLAQ_DEBORD de chaque cote ; c'est donc le bronze, et non l'acier
+# du coin, qui vient au contact de la tranche de la fente du flanc quand le
+# coin se decale en x. Jeu du bronze dans la fente : PLAQ_JEU_FENTE par cote,
+# assez serre pour que la plaquette du dessus reste sur la traverse (verifie).
+PLAQ_DEBORD = 0.5
+PLAQ_JEU_FENTE = 0.6
+COIN_JEU_FENTE = 2.0 * (PLAQ_DEBORD + PLAQ_JEU_FENTE)   # jeu total du coin d'acier dans la fente
 # RATTRAPAGE DE L EMPILEMENT VERTICAL. Poutrelle, patins, trois plateaux et
 # douze rondelles : la chaine peut sortir courte de quelques mm. Au dela des
 # 12 kN, le coin ne garde que COIN_COURSE.tan(a) - PILE_ECRAS_DIM de reserve en
@@ -404,11 +411,31 @@ CALE_DI = 26.0
 # n'apportaient rien que les rebords ne fassent deja.
 PLAQ_ALLIAGE = "CuSn12-C"
 PLAQ_EP = 6.0             # 6 (09/10/2026, au lieu de 5) : rebords de 4 sous un conge de 2
-PLAQ_B = 38.0             # pas toute la largeur du coin : le dessus doit rester entier sur
-                          # la traverse, jeux de mortaise et de fente a l oppose (verifie)
-PLAQ_L_HAUT = 102.0        # cotes rondes ; les rebords s en deduisent
-PLAQ_L_BAS = 104.0         # prise sur la pente : la basse est plus longue
-PLAQ_BRUT = "plat 40 x 8"      # fraise a 38 x 6
+PLAQ_B = COIN_B + 2.0 * PLAQ_DEBORD   # 41 : deborde du coin, guide en x dans la fente
+# Les plaquettes couvrent TOUTE la longueur du coin (19/10/2026) : les rebords
+# ne sont plus que des TENONS au milieu de chaque bout, et la plaquette les
+# enjambe par une ENCOCHE, avec un degagement R2 a chaque angle du fond.
+PLAQ_L_HAUT = 114.0        # cotes rondes, centrees sur le coin (114,5)
+PLAQ_L_BAS = 117.0         # prise sur la pente : 114,4 en projection
+PLAQ_BRUT = "plat 45 x 8"      # fraise a 41 x 6
+# FIXATION : 2 vis CHC M4 x 8 ISO 4762 (tete normale, 4 de haut) par plaquette,
+# du meme cote, dans des OBLONGS selon la longueur, tete dans un lamage oblong
+# sous la surface de glissement. Serrage LEGER : la plaquette doit pouvoir
+# glisser sous les tetes, de son jeu aux tenons et de sa dilatation propre.
+PLAQ_VIS_D = 4.0
+PLAQ_VIS_L = 8.0           # sous tete : 1,5 de bronze sous la tete, 6,5 dans le coin
+PLAQ_VIS_TETE_D = 7.0      # ISO 4762 M4 : dk
+PLAQ_VIS_TETE_H = 4.0      # ISO 4762 M4 : k
+PLAQ_VIS_X = -14.0         # du cote -x, a 6,5 du bord de la plaquette
+PLAQ_VIS_BOUT = 22.0       # axe des oblongs depuis chaque bout de plaquette
+PLAQ_OBLONG_B = 4.5        # passage M4
+PLAQ_LAMAGE_B = 8.0
+PLAQ_LAMAGE_P = PLAQ_VIS_TETE_H + 0.5    # la tete reste 0,5 sous la surface
+PLAQ_VIS_TARAUD_P = 10.0   # taraudage M4 dans le coin
+# TENONS (les rebords, reduits au milieu de chaque bout du coin)
+PLAQ_TENON_B = 24.0        # largeur selon x
+PLAQ_TENON_L = 8.0         # longueur depuis le bout du coin, le long du siege
+PLAQ_JEU_X = 2.0           # jeu des flancs de l encoche sur ceux du tenon : au moins le conge
 PLAQ_LUBRIFIANT = "pate graphite haute temperature"
 PLAQ_P_ADM = 25.0          # CuSn12 lubrifie, glissement lent : valeur prudente
 
@@ -428,9 +455,9 @@ PLAQ_REBORD_H = 4.0        # hauteur du rebord au dessus de la portee : 2 de gar
 # jeu en y avant de venir en butee, par son arete, au pied du rebord : 2.(JEU - R)
 # au plus. Un usinage de moins par rebord, et rien a tenir au centieme.
 PLAQ_JEU = 2.0             # jeu de la plaquette a chaque bout : au moins le conge de pied
-# les plaquettes ont des cotes rondes : c est la largeur des rebords qui s en
-# deduit, et non l inverse
-PLAQ_REBORD_L = (COIN_L - PLAQ_L_HAUT - 2.0 * PLAQ_JEU) / 2.0    # rebords du dessus, selon y
+PLAQ_REBORD_L = PLAQ_TENON_L     # tenons du dessus, selon y
+PLAQ_OBLONG_L = PLAQ_OBLONG_B + 2.0 * (PLAQ_JEU + 0.5)   # la vis suit le jeu aux tenons
+PLAQ_LAMAGE_L = PLAQ_LAMAGE_B + PLAQ_OBLONG_L - PLAQ_OBLONG_B
 # CONGES INTERIEURS : 2 mm au moins sur les pieces FRAISEES (09/10/2026),
 # RAYON_INTERIEUR_MIN, controle par verif_percages.py sur PIECES_FRAISEES. Les
 # pieces decoupees au laser n'y sont pas soumises. Au pied des rebords du
@@ -441,17 +468,10 @@ PIECES_FRAISEES = ("coin", "coulisseau", "plaquette_haute", "plaquette_basse",
                    "patin_appui", "patin_charge")
 PLAQ_REBORD_R = RAYON_INTERIEUR_MIN   # conge de pied du rebord
 
-# FIXATION DES PLAQUETTES : pas d epoxy. Bronze et acier ne se dilatent pas
-# pareil (18,5 contre 12 microdef/K) : a 150 C, une plaquette de 100 mm
-# s allonge de 0,08 mm de plus que son siege. Colles sur toute la longueur par
-# une epoxy rigide, ce sont 30 a 80 MPa de cisaillement en bout de joint pour
-# 15 a 20 tenus : le joint fissure au premier cycle. Les rebords prennent deja
-# tout l entrainement ; il ne reste a la fixation qu a tenir la plaquette le
-# temps du montage. Un silicone haute temperature, mille fois plus souple,
-# le fait sans rien transmettre.
-COLLE_G = 1.0              # MPa, module de cisaillement d un silicone HT
-COLLE_EP = 0.3             # mm, epaisseur du joint
-COLLE_TAU_ADM = 1.5        # MPa, tenue au cisaillement d un silicone HT
+# DILATATION : bronze et acier ne se dilatent pas pareil (18,5 contre 12
+# microdef/K) : a 150 C, une plaquette de 114 mm s allonge de 0,1 mm de plus
+# que son siege. Ni colle ni vis serree : les oblongs et le serrage leger la
+# laissent glisser, les tenons prennent tout l entrainement.
 ALPHA_BRONZE = 18.5e-6
 ALPHA_ACIER = 12.0e-6
 DELTA_T = 130.0            # de l atelier a l etuve
@@ -504,7 +524,9 @@ COIN_T_BOUT_MINCE = COIN_T_MIN - COIN_Y1 * COIN_TAN
 COIN_T_MAX = COIN_T_MIN + COIN_COURSE * COIN_TAN    # au droit de y = 0, coin avance
 PLAQ_HAUT_Y0 = COIN_Y0 + PLAQ_REBORD_L + PLAQ_JEU   # plaquette haute entre ses rebords
 PLAQ_HAUT_Y1 = COIN_Y1 - PLAQ_REBORD_L - PLAQ_JEU
-PLAQ_HAUT_L = PLAQ_HAUT_Y1 - PLAQ_HAUT_Y0
+PLAQ_HAUT_L = PLAQ_HAUT_Y1 - PLAQ_HAUT_Y0      # entre les fonds d encoche : la portee comptee
+PLAQ_HAUT_E0 = (COIN_Y0 + COIN_Y1) / 2.0 - PLAQ_L_HAUT / 2.0    # bouts de la plaquette
+PLAQ_HAUT_E1 = PLAQ_HAUT_E0 + PLAQ_L_HAUT
 # plaquette basse : meme portee, mais posee sur la pente. Ses cotes sont prises
 # SUR LA PENTE, et son chant penche : c'est son angle HAUT, contre le siege du
 # coin, qui doit venir au pied du rebord. L'angle bas est en retrait de
@@ -513,12 +535,13 @@ PLAQ_HAUT_L = PLAQ_HAUT_Y1 - PLAQ_HAUT_Y0
 # PENTE, comme le chant de la plaquette (parts.coin_profile).
 _C = math.cos(math.radians(COIN_ANGLE))
 _S = math.sin(math.radians(COIN_ANGLE))
-# rebords du dessous : la plaque de PLAQ_L_BAS, couchee sur la pente, doit
-# tenir entre eux
-PLAQ_REBORD_L_BAS = (COIN_L - _C * (PLAQ_L_BAS + 2.0 * PLAQ_JEU)) / 2.0
+# tenons du dessous : PLAQ_TENON_L le long de la pente, soit en projection
+PLAQ_REBORD_L_BAS = PLAQ_TENON_L * _C
 PLAQ_BAS_S0 = (COIN_Y0 + PLAQ_REBORD_L_BAS + PLAQ_EP * _S) / _C + PLAQ_JEU
 PLAQ_BAS_S1 = (COIN_Y1 - PLAQ_REBORD_L_BAS + PLAQ_EP * _S) / _C - PLAQ_JEU
 PLAQ_BAS_L = PLAQ_BAS_S1 - PLAQ_BAS_S0
+PLAQ_BAS_E0 = ((COIN_Y0 + COIN_Y1) / 2.0 + PLAQ_EP * _S) / _C - PLAQ_L_BAS / 2.0   # bouts, sur la pente
+PLAQ_BAS_E1 = PLAQ_BAS_E0 + PLAQ_L_BAS
 PLAQ_BAS_Y0 = PLAQ_BAS_S0 * _C          # portee sur le coulisseau, face du BAS
 PLAQ_BAS_Y1 = PLAQ_BAS_S1 * _C
 COULISSEAU_H = COULISSEAU_E + (POUSSOIR_B / 2.0) * COIN_TAN  # le plan incline prend toute la section
@@ -1175,11 +1198,11 @@ def rebord_contrainte():
     la traverse sur la plaquette. (cisaillement, flexion, pression sur le chant)
     """
     f = CHARGE_DIM * COIN_MU
-    aire = COIN_B * PLAQ_REBORD_L
-    w = COIN_B * PLAQ_REBORD_L ** 2 / 6.0
+    aire = PLAQ_TENON_B * PLAQ_REBORD_L
+    w = PLAQ_TENON_B * PLAQ_REBORD_L ** 2 / 6.0
     return (f / aire,
             f * (PLAQ_REBORD_H / 2.0) / w,
-            f / (COIN_B * (PLAQ_REBORD_H - PLAQ_REBORD_R)))   # le conge ne porte pas
+            f / (PLAQ_TENON_B * (PLAQ_REBORD_H - PLAQ_REBORD_R)))   # le conge ne porte pas
 
 
 def filet_marge():
@@ -1557,13 +1580,30 @@ def verifie():
         pb.append("course du coin %.1f mm pour %.1f utiles : %.0f mm de coin et de"
                   " chape sans emploi" % (COIN_COURSE, course_butee, COIN_COURSE - course_butee))
     # rebords et plaquettes, memes cotes sur les deux faces du coin
-    if abs(PLAQ_HAUT_L - PLAQ_L_HAUT) > 0.01 or abs(PLAQ_BAS_L - PLAQ_L_BAS) > 0.01:
-        pb.append("plaquettes de %g et %g : il en reste %.1f et %.1f entre les rebords"
-                  % (PLAQ_L_HAUT, PLAQ_L_BAS, PLAQ_HAUT_L, PLAQ_BAS_L))
-    if min(PLAQ_REBORD_L, PLAQ_REBORD_L_BAS) < 4.0:
-        pb.append("rebord de %.1f mm : trop etroit a fraiser" % min(PLAQ_REBORD_L, PLAQ_REBORD_L_BAS))
-    if PLAQ_B > COIN_B:
-        pb.append("plaquette plus large que le coin")
+    # plaquettes : dans la longueur du coin, oreilles de part et d autre des
+    # tenons, lamages des vis hors des encoches et de leurs degagements
+    if PLAQ_HAUT_E0 < COIN_Y0 - 1e-6 or PLAQ_HAUT_E1 > COIN_Y1 + 1e-6:
+        pb.append("la plaquette du dessus depasse des bouts du coin")
+    if abs(PLAQ_BAS_E0 * _C - PLAQ_EP * _S - (COIN_Y0 + COIN_Y1) / 2.0 + PLAQ_L_BAS * _C / 2.0) > 1e-6 \
+            or PLAQ_L_BAS * _C > COIN_L + 1e-6:
+        pb.append("la plaquette du dessous depasse des bouts du coin")
+    enc = PLAQ_HAUT_Y0 - PLAQ_HAUT_E0               # profondeur d encoche depuis le bout
+    if PLAQ_VIS_BOUT - PLAQ_LAMAGE_L / 2.0 < enc + RAYON_INTERIEUR_MIN + 2.0:
+        pb.append("le lamage des vis de plaquette mord l encoche (%.1f pour %.1f)"
+                  % (PLAQ_VIS_BOUT - PLAQ_LAMAGE_L / 2.0, enc + RAYON_INTERIEUR_MIN))
+    if PLAQ_B / 2.0 - (abs(PLAQ_VIS_X) + PLAQ_LAMAGE_B / 2.0) < 2.0:
+        pb.append("lamage des vis de plaquette a moins de 2 du bord")
+    if PLAQ_EP - PLAQ_LAMAGE_P < 1.5:
+        pb.append("moins de 1,5 de bronze sous la tete des vis de plaquette")
+    if abs(PLAQ_VIS_X) - PLAQ_VIS_D / 2.0 < VIS_D / 2.0 + 3.0:
+        pb.append("le taraudage M%g de plaquette tombe dans le filet M%g du coin" % (PLAQ_VIS_D, VIS_D))
+    if PLAQ_VIS_L - (PLAQ_EP - PLAQ_LAMAGE_P) < 1.5 * PLAQ_VIS_D:
+        pb.append("vis de plaquette trop courte : %.1f de filet dans le coin"
+                  % (PLAQ_VIS_L - (PLAQ_EP - PLAQ_LAMAGE_P)))
+    if PLAQ_JEU_X < PLAQ_REBORD_R:
+        pb.append("encoche trop etroite : le bronze monte sur le conge de pied du tenon")
+    if PLAQ_REBORD_L < 4.0:
+        pb.append("tenon de %.1f mm : trop court a fraiser" % PLAQ_REBORD_L)
     # pression des plaques : largeur nette selon x FOIS longueur portante selon
     # y (et non deux largeurs selon x multipliees entre elles)
     p_plaq = max(pressions_plaquettes())
@@ -1587,17 +1627,11 @@ def verifie():
                   " de pied (jeu %.1f, conge R%.1f)" % (PLAQ_JEU, PLAQ_REBORD_R))
     if PLAQ_EP < 4.0:
         pb.append("plaquette de bronze trop mince pour etre rectifiee et usee")
-    # fixation des plaquettes : la dilatation differentielle bronze/acier doit
-    # passer dans le joint sans le cisailler, et le joint ne doit pas etre
-    # une epoxy rigide -- voir COLLE_G
-    d_th = (ALPHA_BRONZE - ALPHA_ACIER) * DELTA_T * PLAQ_BAS_L / 2.0
-    tau_th = COLLE_G * d_th / COLLE_EP
-    if tau_th > COLLE_TAU_ADM / 2.0:
-        pb.append("joint des plaquettes cisaille a %.2f MPa par la dilatation seule"
-                  " : trop rigide, ou trop mince" % tau_th)
-    if COLLE_G > 50.0:
-        pb.append("COLLE_G = %.0f MPa : c est une epoxy, elle fissurera en bout"
-                  " de plaquette au premier chauffage" % COLLE_G)
+    # dilatation : les oblongs doivent laisser glisser la plaquette de son jeu
+    # aux tenons plus sa dilatation differentielle
+    d_th = (ALPHA_BRONZE - ALPHA_ACIER) * DELTA_T * PLAQ_L_BAS
+    if (PLAQ_OBLONG_L - PLAQ_OBLONG_B) / 2.0 < PLAQ_JEU + d_th:
+        pb.append("oblongs des plaquettes trop courts pour le jeu et la dilatation")
     for nom, lo, hi, larg, pression in (
             ("haute", PLAQ_HAUT_Y0, PLAQ_HAUT_Y1, TRAVERSE_B, pressions_plaquettes()[0]),
             ("basse", PLAQ_BAS_Y0, PLAQ_BAS_Y1, POUSSOIR_B, pressions_plaquettes()[1])):
@@ -1833,7 +1867,8 @@ def verifie():
     # de fente) sont decales a l'oppose l'un de l'autre. On compare des
     # DEMI-largeurs : comparer la largeur totale au decalage d'un seul cote
     # affichait 4 mm de marge la ou il y en a 0,2.
-    jx = TRAVERSE_JEU_X / 2.0 + COIN_JEU_FENTE / 2.0
+    # le coin ne se decale que jusqu au contact du BRONZE sur la fente
+    jx = TRAVERSE_JEU_X / 2.0 + PLAQ_JEU_FENTE
     marge_x = TRAVERSE_LX / 2.0 - CHANFREIN - jx - PLAQ_B / 2.0
     if marge_x < 0.0:
         pb.append("la plaque de bronze peut deborder de la traverse de %.1f mm" % -marge_x)

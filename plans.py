@@ -669,7 +669,6 @@ def plan_coulisseau():
     ra = p.ALESAGE_D / 2.0
     gx, gz = p.GUIDE_X, p.GUIDE_Z
     coin, _ = P.coin_profile()
-    r1 = min(sg[2] for sg in coin if sg[0] == 'A')        # angles des rebords, lus sur le contour
     zt, zr = p.Z_COIN_HAUT, p.Z_COIN_HAUT + p.PLAQ_REBORD_H
     w, wb, hr = p.PLAQ_REBORD_L, p.PLAQ_REBORD_L_BAS, p.PLAQ_REBORD_H
     Y0, Y1 = p.COIN_Y0, p.COIN_Y1
@@ -681,8 +680,6 @@ def plan_coulisseau():
         return zt - p.COIN_T_BOUT_MINCE - (Y1 - y) * tg
 
     d1_vis = p.VIS_D - 1.082532 * p.VIS_PAS  # diametre du fond de filet femelle (ISO 724)
-    logement = p.PLAQ_L_HAUT + 2.0 * p.PLAQ_JEU       # 104 entre rebords du dessus
-    logement_bas = p.PLAQ_L_BAS + 2.0 * p.PLAQ_JEU    # 106 sur la pente
     psi, rho, marge = p.filet_marge()
     # filet trapezoidal Tr16x4 (ISO 2904 : pas 4, d2 14, flanc 15 deg) au meme frottement
     tr_psi = math.degrees(math.atan(4.0 / (math.pi * 14.0)))
@@ -699,15 +696,21 @@ def plan_coulisseau():
     ]
     notes_o = [
         aretes,
-        "%s : logements centres sur la longueur, sieges plans a 0,05 ; %s, %s et %s depuis les"
-        " plans des sieges prolonges."
+        "%s : sieges plans a 0,05 ; %s, %s et %s depuis les plans des sieges prolonges ; vue de"
+        " cote = coupe a x = 0, par les tenons."
         % (rep_o, f(p.COIN_T_BOUT_EPAIS), f(p.COIN_T_BOUT_MINCE), f(p.COIN_VIS_SOUS)),
-        "%s : pente du dessous (%s deg, celle du coulisseau) ; faces interieures des rebords du"
-        " dessous NORMALES a la pente ; angles R%s." % (rep_o, f(p.COIN_ANGLE), f(r1)),
-        "%s : plaques de bronze usinees %s (%s x %s) et %s (%s x %s), ep. %s, tenues par les"
-        " rebords, points de silicone HT." % (rep_o, R["plaquette_haute"], f(p.PLAQ_B), f(p.PLAQ_L_HAUT),
-                                             R["plaquette_basse"], f(p.PLAQ_B), f(p.PLAQ_L_BAS),
-                                             f(p.PLAQ_EP)),
+        "%s : pente du dessous (%s deg, celle du coulisseau) ; faces interieures des tenons du"
+        " dessous NORMALES a la pente ; tenons du dessous comme ceux du dessus (%s x %s le long"
+        " de la pente)." % (rep_o, f(p.COIN_ANGLE), f(p.PLAQ_TENON_B), f(p.PLAQ_TENON_L)),
+        "%s : taraudages M%g prof. %s (avant-trou 3,3 prof. %s) normaux a chaque siege, dessous a"
+        " %s et %s des bouts le long de la pente."
+        % (rep_o, p.PLAQ_VIS_D, f(p.PLAQ_VIS_TARAUD_P), f(p.PLAQ_VIS_TARAUD_P + 2.0),
+           f(p.PLAQ_BAS_E0 * ca_ - p.PLAQ_EP * sa_ - Y0 + p.PLAQ_VIS_BOUT * ca_, 2),
+           f(Y1 - (p.PLAQ_BAS_E1 * ca_ - p.PLAQ_EP * sa_) + p.PLAQ_VIS_BOUT * ca_, 2)),
+        "%s : plaques de bronze usinees %s (%s x %s) et %s (%s x %s), ep. %s, encochees sur les"
+        " tenons, 2 vis V9 chacune." % (rep_o, R["plaquette_haute"], f(p.PLAQ_B), f(p.PLAQ_L_HAUT),
+                                       R["plaquette_basse"], f(p.PLAQ_B), f(p.PLAQ_L_BAS),
+                                       f(p.PLAQ_EP)),
         "%s : commande %s kN, couple %s N.m a %s kN ; un tour de vis : %s mm de coulisseau,"
         " environ %.0f N."
         % (rep_o, f(p.coin_effort() / 1000.0), f(p.coin_couple()), f(p.CHARGE_DIM / 1000.0),
@@ -829,18 +832,42 @@ def plan_coulisseau():
              D.TRAIT_FIN, C02_CACHE)
     c02_axe(vc, (Y0, p.Z_VIS), (Y1, p.Z_VIS), 3.0, 0.0)
     # cotes
-    vc.cote_hx(Y0 + w, Y1 - w, zr, zr, 7.0, texte="%s +0,5/0" % f(logement))
+    vc.cote_hx(Y0 + w, Y1 - w, zr, zr, 7.0)
     vc.cote_hx(Y0, Y1, zr, zr, 14.0)
     vc.cote_vx(zt - p.COIN_T_BOUT_EPAIS, zt, Y0, Y0, -7.0, texte=f(p.COIN_T_BOUT_EPAIS))
     vc.cote_vx(p.Z_VIS, zt, Y1, Y1, 7.0, texte=f(p.COIN_VIS_SOUS))
     vc.cote_vx(zt - p.COIN_T_BOUT_MINCE, zt, Y1, Y1, 14.0, texte=f(p.COIN_T_BOUT_MINCE), dt=7.0)
     y0b, y1b = Y0 + wb, Y1 - wb
     c02_cote_alignee(vc, (y0b + hr * sa_, zb(y0b) - hr * ca_), (y1b + hr * sa_, zb(y1b) - hr * ca_),
-                     -8.0, "%s +0,5/0" % f(logement_bas))
+                     -8.0, f((y1b - y0b) / ca_, 2))
     vc.renvoi((Y0 + 4.5, p.Z_VIS - p.VIS_D / 2.0),
               "M%g x %g prof. %s depuis le bout EPAIS, centre" % (p.VIS_D, p.VIS_PAS, f(p.COIN_TARAUD_L))
               + chr(10) + "sur l epaisseur ; passage %s debouchant" % f(p.VIS_PASSAGE_D),
               0.0, 48.0, fin="fleche")
+    # ------------------------------------------------ vue de dessus : tenons et M4
+    XT, YT = 140.0, 60.0
+    s.text(XT, 22.0, "vue de dessus (dessous : idem sur la pente)", 2.8, "middle")
+    vt = D.View(s, 1.0, (Y0 + Y1) / 2.0, 0.0, XT, YT)      # y horizontal, x vertical
+    b2c, tb2 = p.COIN_B / 2.0, p.PLAQ_TENON_B / 2.0
+    c02_poly(vt, [(Y0, -b2c), (Y1, -b2c), (Y1, b2c), (Y0, b2c)], ferme=True)
+    for ya_, yb_ in ((Y0, Y0 + w), (Y1 - w, Y1)):
+        c02_poly(vt, [(ya_, -tb2), (yb_, -tb2), (yb_, tb2), (ya_, tb2)], ferme=True)
+    c02_axe(vt, (Y0, 0.0), (Y1, 0.0), 3.0, 3.0)
+    yh = [p.PLAQ_HAUT_E0 + p.PLAQ_VIS_BOUT, p.PLAQ_HAUT_E1 - p.PLAQ_VIS_BOUT]
+    xh = p.PLAQ_VIS_X
+    for y_ in yh:
+        c02_cercle(vt, (y_, xh), 1.65)                       # avant-trou, trait fort
+        c02_cercle(vt, (y_, xh), p.PLAQ_VIS_D / 2.0, D.TRAIT_FIN)   # filet, trait fin
+        c02_axe(vt, (y_, xh - 3.5), (y_, xh + 3.5), 0.0, 0.0)
+    vt.cote_vx(-tb2, tb2, Y1, Y1, 7.0)                                   # 24
+    vt.cote_vx(-b2c, b2c, Y1, Y1, 14.0)                                  # 40
+    vt.cote_hx(Y1 - w, Y1, tb2, tb2, 0.0, zl=b2c + 6.0)                  # 8
+    vt.cote_hx(Y0, yh[0], xh, None, -6.0, zl=-b2c - 7.0)                 # vis depuis le bout
+    vt.cote_hx(yh[1], Y1, None, xh, -6.0, zl=-b2c - 7.0)
+    vt.cote_vx(-b2c, xh, Y0, None, 0.0, xl=Y0 - 7.0)                     # 6 depuis le bord
+    vt.renvoi((yh[0] + 1.5, xh - 1.5), "2 x M%g prof. %s" % (p.PLAQ_VIS_D, f(p.PLAQ_VIS_TARAUD_P)),
+              8.0, 16.0, fin="fleche")
+
     c02_appel(vc, (Y1 - w / 2.0 - 1.0, zt + 1.5), 5.0, "B", 35.0)
     c02_appel(vc, (Y1 - wb / 2.0 - 1.0, zb(Y1 - wb / 2.0 - 1.0) - 1.0), 5.0, "C", -30.0)
 
@@ -848,8 +875,8 @@ def plan_coulisseau():
     KD = 4.0
     XB, XCD, YD = 286.0, 364.0, 132.0
     s.text(XB, YD, "DETAIL B  (4:1)", 3.6, "middle", weight="bold")
-    s.text(XB, YD + 4.5, "rebords du dessus, 2 ex.", 2.8, "middle")
-    s.text(XB, YD + 8.3, "largeur (%s) ; pied : conge R%s (fraise de %s)" % (f(w, 2), f(p.PLAQ_REBORD_R), f(2 * p.PLAQ_REBORD_R)), 2.8, "middle")
+    s.text(XB, YD + 4.5, "tenons du dessus, 2 ex.", 2.8, "middle")
+    s.text(XB, YD + 8.3, "longueur (%s) ; pied : conge R%s (fraise de %s), 3 faces" % (f(w), f(p.PLAQ_REBORD_R), f(2 * p.PLAQ_REBORD_R)), 2.8, "middle")
     vb = D.View(s, KD, Y1 - 8.0, zt, XB, YD + 37.0)
     yb0, zb0 = Y1 - 15.5, zt - 3.0
     for sg in c02_decoupe(coin, yb0, zb0, Y1 + 1.0, zr + 1.0):
@@ -859,12 +886,11 @@ def plan_coulisseau():
     vb.cote_vx(zt, zr, None, Y1 - w, 0.0, xl=Y1 - w - 6.0, texte=f(hr))
     c02_rayon_creux(vb, (Y1 - w - p.PLAQ_REBORD_R, zt + p.PLAQ_REBORD_R), p.PLAQ_REBORD_R, -45.0,
                     "R%s" % f(p.PLAQ_REBORD_R), lg=17.0, palier=-4.0)
-    vb.rayon((Y1 - r1, zr - r1), r1, 45.0, "R%s" % f(r1), 6)
 
     # ------------------------------------------------ detail C : rebord du dessous, 4:1
     s.text(XCD, YD, "DETAIL C  (4:1)", 3.6, "middle", weight="bold")
-    s.text(XCD, YD + 4.5, "rebords du dessous, 2 ex.", 2.8, "middle")
-    s.text(XCD, YD + 8.3, "largeur (%s) en projection ; pied R%s comme B" % (f(wb, 2), f(p.PLAQ_REBORD_R)), 2.8, "middle")
+    s.text(XCD, YD + 4.5, "tenons du dessous, 2 ex.", 2.8, "middle")
+    s.text(XCD, YD + 8.3, "longueur (%s) sur la pente ; pied R%s comme B" % (f(p.PLAQ_TENON_L), f(p.PLAQ_REBORD_R)), 2.8, "middle")
     yc = Y1 - 6.0
     vd = D.View(s, KD, yc, zb(yc), XCD + 2.0, YD + 39.0)
     yd0 = Y1 - 13.0
@@ -1613,9 +1639,8 @@ def plan_petites():
         "%s : la longueur %s %s fixe l ecart des flancs : couper les %d en serie. Ne pas confondre avec %s"
         " (meme tube, L %s, feuille 07b)." % (rB, f(lE), p.ENTRETOISE_TOL, se.qty, R["entretoise_vis"],
                                             f(p.SUPPORT_TUBE_L)),
-        "%s / %s : entre les rebords du coin %s (larges de %s dessus et %s dessous), points de silicone"
-        " HT sur le siege ; %s sur la face de glissement." % (rC, rD, R["coin"], f(p.PLAQ_REBORD_L, 2),
-                                                              f(p.PLAQ_REBORD_L_BAS, 2), p.PLAQ_LUBRIFIANT),
+        "%s / %s : encoches sur les tenons du coin %s, 2 vis V9 a serrage LEGER (la plaquette glisse"
+        " dans ses oblongs) ; %s sur la face de glissement." % (rC, rD, R["coin"], p.PLAQ_LUBRIFIANT),
     ]
     out = []
     s = feuille("TOURILLON", rA, st, "2:1", [n for n in notes if n.startswith(rA)],
@@ -1671,27 +1696,61 @@ def plan_petites():
 
     out.append(range_feuille(s, "%s_entretoise.svg" % rB))
 
-    # ======================================================== 06c / 06d plaques, 1:1
-    # rectangles pleins, sans trou : une feuille chacune, la longueur seule change
+    # ======================================================== 06c / 06d plaques, 2:1
+    # une feuille chacune : encoches sur les tenons du coin, oblongs lames des
+    # vis V9 ; vue cote glissement, longueur a l horizontale
     n_pl = [n for n in notes if n.startswith(rC)]
-    for spec, rep, lg, ou, nom in ((sh, rC, p.PLAQ_L_HAUT, "dessus", "plaque_haute"),
-                                   (sb, rD, p.PLAQ_L_BAS, "dessous", "plaque_basse")):
-        s = feuille("PLAQUE DE FROTTEMENT, %s" % ou.upper(), rep, spec, "1:1", n_pl)
-        XC, YC = 210.0, 90.0
-        hb, hl = p.PLAQ_B / 2.0, lg / 2.0
-        p06_titre(s, XC, 20.0, "%s  PLAQUE DE FROTTEMENT, %s DU COIN  (1:1)" % (rep, ou.upper()),
+    for spec, rep, prof, e0, e1, ou, nom in (
+            (sh, rC, P.plaquette_haute_profile, p.PLAQ_HAUT_E0, p.PLAQ_HAUT_E1, "dessus", "plaque_haute"),
+            (sb, rD, P.plaquette_basse_profile, p.PLAQ_BAS_E0, p.PLAQ_BAS_E1, "dessous", "plaque_basse")):
+        s = feuille("PLAQUE DE FROTTEMENT, %s" % ou.upper(), rep, spec, "2:1", n_pl)
+        kp = 2.0
+        XC, YC = 210.0, 112.0
+        yc = (e0 + e1) / 2.0
+        hb, hl = p.PLAQ_B / 2.0, (e1 - e0) / 2.0
+        nb = p.PLAQ_TENON_B / 2.0 + p.PLAQ_JEU_X
+        enc = (p.PLAQ_HAUT_Y0 - p.PLAQ_HAUT_E0) if ou == "dessus" else (p.PLAQ_BAS_S0 - p.PLAQ_BAS_E0)
+        xv, uv = p.PLAQ_VIS_X, hl - p.PLAQ_VIS_BOUT          # oblong : v (largeur), u (longueur)
+        p06_titre(s, XC, 20.0, "%s  PLAQUE DE FROTTEMENT, %s DU COIN  (2:1)" % (rep, ou.upper()),
                   ["%s, %d ex., brut %s, epaisseur %s" % (spec.material, spec.qty, spec.stock,
-                                                         f(p.PLAQ_EP))])
-        vp = D.View(s, 1.0, 0.0, 0.0, XC, YC)    # longueur a l horizontale
-        vp.contour(p06_poly([(-hl, -hb), (hl, -hb), (hl, hb), (-hl, hb)]))
+                                                         f(p.PLAQ_EP)),
+                   "vue cote GLISSEMENT (lamages visibles) ; %s"
+                   % ("glisse sous la traverse" if ou == "dessus" else "glisse sur le coulisseau")])
+        vp = D.View(s, kp, 0.0, 0.0, XC, YC)
+        o, trous = prof()
+        vp.contour([p06_tourne(sg, yc) for sg in o])
+        for t in trous:
+            vp.contour([p06_tourne(sg, yc) for sg in t])
+        dl = (p.PLAQ_LAMAGE_L - p.PLAQ_LAMAGE_B) / 2.0
+        for su in (-1.0, 1.0):                   # lamages oblongs, vus
+            vp.contour([p06_tourne(sg, 0.0) for sg in
+                        G.slot(xv - p.PLAQ_LAMAGE_B / 2.0, su * uv - dl - p.PLAQ_LAMAGE_B / 2.0,
+                               xv + p.PLAQ_LAMAGE_B / 2.0, su * uv + dl + p.PLAQ_LAMAGE_B / 2.0)])
+            vp.axe((su * uv - p.PLAQ_LAMAGE_L / 2.0, xv), (su * uv + p.PLAQ_LAMAGE_L / 2.0, xv))
+            vp.axe((su * uv, xv - p.PLAQ_LAMAGE_B / 2.0), (su * uv, xv + p.PLAQ_LAMAGE_B / 2.0))
         vp.axe((-hl, 0.0), (hl, 0.0))
-        vp.axe((0.0, -hb), (0.0, hb))
-        vp.cote_hx(-hl, hl, -hb, -hb, 0.0, zl=-hb - 10.0)
-        vp.cote_vx(-hb, hb, hl, hl, 0.0, xl=hl + 10.0)
-        for j, t in enumerate(["Sans trou. Ep. %s +/- 0,05, faces planes" % f(p.PLAQ_EP),
-                               "et paralleles a 0,02, Ra 0,8 cote glissement.",
-                               "Aretes cassees 0,3. Tolerance generale ISO 2768-m."]):
-            s.text(XC, YC + hb + 22.0 + 4.0 * j, t, 2.8, "middle")
+        # cotes : longueur et largeur, encoche, position des oblongs
+        vp.cote_hx(-hl, hl, hb, hb, 0.0, zl=hb + 12.0)
+        vp.cote_vx(-hb, hb, hl, hl, 0.0, xl=hl + 14.0)
+        vp.cote_vx(-nb, nb, hl - enc, hl - enc, 0.0, xl=hl + 6.0)
+        vp.cote_hx(hl - enc, hl, nb, nb, 0.0, zl=hb + 6.0)
+        vp.cote_hx(-hl, -uv, None, xv, 0.0, zl=-hb - 8.0)
+        vp.cote_hx(uv, hl, xv, None, 0.0, zl=-hb - 8.0)
+        vp.cote_vx(-hb, xv, -uv, None, 0.0, xl=-hl - 8.0)
+        vp.renvoi((-uv + p.PLAQ_LAMAGE_B / 2.0 * 0.7, xv + p.PLAQ_LAMAGE_B / 2.0 * 0.7),
+                  "2 x oblong %s x %s debouchant, lamage %s x %s prof. %s cote glissement"
+                  % (f(p.PLAQ_OBLONG_B), f(p.PLAQ_OBLONG_L), f(p.PLAQ_LAMAGE_B), f(p.PLAQ_LAMAGE_L),
+                     f(p.PLAQ_LAMAGE_P)) + chr(10) + "(vis CHC M%g x %g ISO 4762, V9)"
+                  % (p.PLAQ_VIS_D, p.PLAQ_VIS_L), 14.0, 40.0, fin="fleche")
+        vp.renvoi((hl - enc - 1.4, nb + 1.4),
+                  "4 x degagement R%s" % f(p.RAYON_INTERIEUR_MIN) + chr(10) + "centre sur l angle",
+                  -26.0, 26.0, fin="fleche")
+        for j, t in enumerate(["Ep. %s +/- 0,05, faces planes et paralleles a 0,02, Ra 0,8 cote glissement."
+                               % f(p.PLAQ_EP),
+                               "Aretes cassees 0,3. Tolerance generale ISO 2768-m.",
+                               "Deborde de %s de chaque cote du coin (%s) : c est le bronze qui touche la"
+                               " fente des flancs." % (f(p.PLAQ_DEBORD), f(p.COIN_B))]):
+            s.text(XC, YC + kp * hb + 52.0 + 4.0 * j, t, 2.8, "middle")
         out.append(range_feuille(s, "%s_%s.svg" % (rep, nom)))
     return out
 
@@ -1711,6 +1770,15 @@ def p06_ligne(v, p0, p1, w=D.TRAIT_FIN, dash=None):
     """Segment ouvert de p0 a p1 (modele)."""
     a, b = v.P(p0), v.P(p1)
     v.s.line(a[0], a[1], b[0], b[1], w, dash)
+
+
+def p06_tourne(sg, yc):
+    """Segment d un profil de plaquette (x : largeur, y : longueur) ramene dans la
+    vue (u = y - yc a l horizontale, v = x a la verticale)."""
+    if sg[0] == 'L':
+        return ('L', (sg[1][1] - yc, sg[1][0]), (sg[2][1] - yc, sg[2][0]))
+    _t, c, r, a0, a1, ccw = sg
+    return ('A', (c[1] - yc, c[0]), r, math.pi / 2.0 - a0, math.pi / 2.0 - a1, not ccw)
 
 
 def p06_poly(pts):

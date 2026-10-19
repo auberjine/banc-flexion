@@ -103,6 +103,11 @@ def visserie():
          % (p.SUPPORT_RONDELLES_ECROU, fr(v9["serrage"]),
             p.SUPPORT_TIRANT_L - p.SUPPORT_TIRANT_FILET, fr(v9["marge_filet"]),
             fr(v9["depassement"]), spec.COUPLE_M10)),
+        ("V9", "Vis CHC M%g x %g ISO 4762 8.8 zinguee, tete normale" % (p.PLAQ_VIS_D, p.PLAQ_VIS_L), 4,
+         "2 par plaque de frottement, dans ses oblongs, tete dans le lamage (%s sous la surface de"
+         " glissement), %s de filet dans les taraudages M%g du coin ; serrage LEGER, la plaquette"
+         " doit glisser" % (fr(p.PLAQ_LAMAGE_P - p.PLAQ_VIS_TETE_H), fr(p.PLAQ_VIS_L - (p.PLAQ_EP - p.PLAQ_LAMAGE_P)),
+                            p.PLAQ_VIS_D)),
     ]
 
 
@@ -127,11 +132,11 @@ def ordre_de_montage():
         "**Eprouvette, a l avance.** Coller les deux plats %g x %g sous la poutrelle, a y = +/- %g"
         " (axe des flancs), sur toute la longueur ; poncer P80 et degraisser les deux faces ;"
         " polymeriser." % (p.PLAT_B, p.PLAT_E, p.Y_FLANC),
-        "**Coin, a l avance.** Degraisser les deux sieges ; poser chaque plaque de frottement ENTRE"
-        " SES DEUX REBORDS (la plus longue, %g, dessous), quelques points de silicone haute"
-        " temperature sur le siege degraisse -- PAS d epoxy, bronze et acier ne se dilatent pas"
-        " pareil ; laisser prendre. PUIS seulement, %s sur les faces de glissement, rien sur les"
-        " sieges : le silicone ne prend pas sur une pate." % (p.PLAQ_L_BAS, p.PLAQ_LUBRIFIANT),
+        "**Coin, a l avance.** Poser chaque plaque de frottement, encoches sur les tenons (la plus"
+        " longue, %g, dessous), et la tenir par ses deux vis V9 dans leurs oblongs, SANS les"
+        " bloquer : la plaquette doit glisser sous les tetes (pate a l eau sur le filet, ou une"
+        " goutte de frein-filet faible). PAS de colle : bronze et acier ne se dilatent pas pareil."
+        " Puis %s sur les faces de glissement, rien sur les sieges." % (p.PLAQ_L_BAS, p.PLAQ_LUBRIFIANT),
         "**Poussoir, a l avance.** Empiler les %d plateaux, alesages alignes sur un rond de %g ;"
         " passer les deux vis V3 PAR DESSOUS (tete sous le plateau bas), rondelle et ecrou au"
         " dessus, serrer a %g N.m. Le poussoir est desormais un bloc ; il sert a toutes les"
@@ -419,8 +424,9 @@ def main():
     out.append("| Plaques de frottement | usinees en %s, %g x %g (dessus) et %g x %g (dessous) x %g ; %s ; %.1f MPa au plus pour %g admis |"
                % (p.PLAQ_ALLIAGE, p.PLAQ_B, p.PLAQ_L_HAUT, p.PLAQ_B, p.PLAQ_L_BAS, p.PLAQ_EP,
                   p.PLAQ_LUBRIFIANT, max(p_haut, p_bas), p.PLAQ_P_ADM))
-    out.append("| Rebords des plaquettes | %.2f (dessus) et %.2f (dessous) x %g, %.1f MPa de flexion, garde %g sous le bronze |"
-               % (p.PLAQ_REBORD_L, p.PLAQ_REBORD_L_BAS, p.PLAQ_REBORD_H, flex, p.PLAQ_EP - p.PLAQ_REBORD_H))
+    out.append("| Tenons du coin | %g x %g x %g de haut, conge de pied R%g, %.1f MPa de flexion, %.0f MPa de matage, garde %g sous le bronze |"
+               % (p.PLAQ_TENON_B, p.PLAQ_TENON_L, p.PLAQ_REBORD_H, p.PLAQ_REBORD_R, flex, pres,
+                  p.PLAQ_EP - p.PLAQ_REBORD_H))
     for nom, lo, hi, larg, largx, pr in (
             ("haute", p.PLAQ_HAUT_Y0, p.PLAQ_HAUT_Y1, p.TRAVERSE_B, p.portee_coin(), p_haut),
             ("basse", p.PLAQ_BAS_Y0, p.PLAQ_BAS_Y1, p.POUSSOIR_B, p.PLAQ_B, p_bas)):

@@ -15,34 +15,79 @@
 <text x="229.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">matiere</text>
 <text x="229.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">CuSn12-C</text>
 <text x="289.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">brut</text>
-<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">plat 40 x 8</text>
+<text x="289.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">plat 45 x 8</text>
 <text x="349.000" y="268.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">quantite</text>
 <text x="349.000" y="273.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1</text>
 <text x="229.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">echelle</text>
-<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">1:1</text>
+<text x="229.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2:1</text>
 <text x="289.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">cotes en mm</text>
 <text x="289.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">tol. generale ISO 2768-m</text>
 <text x="349.000" y="280.000" font-family="Helvetica,Arial,sans-serif" font-size="2.40" fill="#555" text-anchor="start" font-weight="normal">banc de flexion</text>
 <text x="349.000" y="285.000" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">poutrelle 103x107x840</text>
-<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06c / 06d : entre les rebords du coin 02c (larges de 4,25 dessus et 4,43 dessous), points de silicone HT sur le siege ; pate graphite haute temperature sur la face de glissement.</text>
-<text x="205.500" y="68.142" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06d  PLAQUE DE FROTTEMENT, DESSOUS DU COIN  (1:1)</text>
-<text x="205.500" y="72.742" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">CuSn12-C, 1 ex., brut plat 40 x 8, epaisseur 6</text>
-<path d="M 153.5 157.142 L 257.5 157.142 L 257.5 119.142 L 153.5 119.142 L 153.5 157.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
-<line x1="150.500" y1="138.142" x2="260.500" y2="138.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
-<line x1="205.500" y1="160.142" x2="205.500" y2="116.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
-<line x1="153.500" y1="158.142" x2="153.500" y2="169.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="257.500" y1="158.142" x2="257.500" y2="169.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="153.500" y1="167.142" x2="257.500" y2="167.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 153.5 167.142 L 156.1 167.87 L 156.1 166.414 Z" fill="#000"/>
-<path d="M 257.5 167.142 L 254.9 166.414 L 254.9 167.87 Z" fill="#000"/>
-<text x="205.500" y="165.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">104</text>
-<line x1="258.500" y1="157.142" x2="269.500" y2="157.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="258.500" y1="119.142" x2="269.500" y2="119.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="267.500" y1="157.142" x2="267.500" y2="119.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 267.5 157.142 L 268.228 154.542 L 266.772 154.542 Z" fill="#000"/>
-<path d="M 267.5 119.142 L 266.772 121.742 L 268.228 121.742 Z" fill="#000"/>
-<text x="265.900" y="138.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 265.900 138.142)">38</text>
-<text x="205.500" y="179.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Sans trou. Ep. 6 +/- 0,05, faces planes</text>
-<text x="205.500" y="183.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">et paralleles a 0,02, Ra 0,8 cote glissement.</text>
-<text x="205.500" y="187.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Aretes cassees 0,3. Tolerance generale ISO 2768-m.</text>
+<text x="408.000" y="247.000" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="end" font-weight="normal">06c / 06d : encoches sur les tenons du coin 02c, 2 vis V9 a serrage LEGER (la plaquette glisse dans ses oblongs) ; pate graphite haute temperature sur la face de glissement.</text>
+<text x="205.000" y="31.142" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06d  PLAQUE DE FROTTEMENT, DESSOUS DU COIN  (2:1)</text>
+<text x="205.000" y="35.742" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">CuSn12-C, 1 ex., brut plat 45 x 8, epaisseur 6</text>
+<text x="205.000" y="39.742" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">vue cote GLISSEMENT (lamages visibles) ; glisse sur le coulisseau</text>
+<path d="M 322 164.142 L 88 164.142 L 88 151.142 L 103.942 151.142 A 4 4 0 1 0 107.942 147.142 L 107.942 99.142 A 4 4 0 1 0 103.942 95.142 L 88 95.142 L 88 82.142 L 322 82.142 L 322 95.142 L 306.058 95.142 A 4 4 0 1 0 302.058 99.142 L 302.058 147.142 A 4 4 0 1 0 306.058 151.142 L 322 151.142 L 322 164.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 127 155.642 L 137 155.642 A 4.5 4.5 0 0 0 137 146.642 L 127 146.642 A 4.5 4.5 0 0 0 127 155.642 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 273 155.642 L 283 155.642 A 4.5 4.5 0 0 0 283 146.642 L 273 146.642 A 4.5 4.5 0 0 0 273 155.642 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 127 159.142 L 137 159.142 A 8 8 0 0 0 137 143.142 L 127 143.142 A 8 8 0 0 0 127 159.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="116.000" y1="151.142" x2="148.000" y2="151.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="132.000" y1="162.142" x2="132.000" y2="140.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<path d="M 273 159.142 L 283 159.142 A 8 8 0 0 0 283 143.142 L 273 143.142 A 8 8 0 0 0 273 159.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<line x1="262.000" y1="151.142" x2="294.000" y2="151.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="278.000" y1="162.142" x2="278.000" y2="140.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="85.000" y1="123.142" x2="325.000" y2="123.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="88.000" y1="81.142" x2="88.000" y2="56.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="322.000" y1="81.142" x2="322.000" y2="56.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="88.000" y1="58.142" x2="322.000" y2="58.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 88 58.142 L 90.6 58.87 L 90.6 57.414 Z" fill="#000"/>
+<path d="M 322 58.142 L 319.4 57.414 L 319.4 58.87 Z" fill="#000"/>
+<text x="205.000" y="56.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">117</text>
+<line x1="323.000" y1="164.142" x2="352.000" y2="164.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="323.000" y1="82.142" x2="352.000" y2="82.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="350.000" y1="164.142" x2="350.000" y2="82.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 350 164.142 L 350.728 161.542 L 349.272 161.542 Z" fill="#000"/>
+<path d="M 350 82.142 L 349.272 84.742 L 350.728 84.742 Z" fill="#000"/>
+<text x="348.400" y="123.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 348.400 123.142)">41</text>
+<line x1="303.058" y1="151.142" x2="336.000" y2="151.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="303.058" y1="95.142" x2="336.000" y2="95.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="334.000" y1="151.142" x2="334.000" y2="95.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 334 151.142 L 334.728 148.542 L 333.272 148.542 Z" fill="#000"/>
+<path d="M 334 95.142 L 333.272 97.742 L 334.728 97.742 Z" fill="#000"/>
+<text x="332.400" y="123.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 332.400 123.142)">28</text>
+<line x1="302.058" y1="94.142" x2="302.058" y2="68.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="322.000" y1="94.142" x2="322.000" y2="68.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="302.058" y1="70.142" x2="322.000" y2="70.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 302.058 70.142 L 304.658 70.87 L 304.658 69.414 Z" fill="#000"/>
+<path d="M 322 70.142 L 319.4 69.414 L 319.4 70.87 Z" fill="#000"/>
+<text x="312.029" y="68.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">10</text>
+<line x1="132.000" y1="152.142" x2="132.000" y2="182.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="88.000" y1="180.142" x2="132.000" y2="180.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 88 180.142 L 90.6 180.87 L 90.6 179.414 Z" fill="#000"/>
+<path d="M 132 180.142 L 129.4 179.414 L 129.4 180.87 Z" fill="#000"/>
+<text x="110.000" y="178.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">22</text>
+<line x1="278.000" y1="152.142" x2="278.000" y2="182.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="278.000" y1="180.142" x2="322.000" y2="180.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 278 180.142 L 280.6 180.87 L 280.6 179.414 Z" fill="#000"/>
+<path d="M 322 180.142 L 319.4 179.414 L 319.4 180.87 Z" fill="#000"/>
+<text x="300.000" y="178.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">22</text>
+<line x1="131.000" y1="164.142" x2="70.000" y2="164.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="72.000" y1="164.142" x2="72.000" y2="151.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 72 164.142 L 72.728 161.542 L 71.272 161.542 Z" fill="#000"/>
+<path d="M 72 151.142 L 71.272 153.742 L 72.728 153.742 Z" fill="#000"/>
+<text x="70.400" y="157.642" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 70.400 157.642)">6,5</text>
+<line x1="137.600" y1="145.542" x2="151.600" y2="185.542" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 137.6 145.542 L 137.772 148.237 L 139.146 147.756 Z" fill="#000"/>
+<line x1="151.600" y1="185.542" x2="157.600" y2="185.542" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="158.600" y="184.742" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">2 x oblong 4,5 x 9,5 debouchant, lamage 8 x 13 prof. 4,5 cote glissement</text>
+<text x="158.600" y="188.342" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">(vis CHC M4 x 8 ISO 4762, V9)</text>
+<line x1="299.258" y1="92.342" x2="273.258" y2="118.342" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 299.258 92.342 L 296.905 93.666 L 297.934 94.695 Z" fill="#000"/>
+<line x1="273.258" y1="118.342" x2="267.258" y2="118.342" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<text x="266.258" y="117.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">4 x degagement R2</text>
+<text x="266.258" y="121.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="end" font-weight="normal">centre sur l angle</text>
+<text x="205.000" y="216.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Ep. 6 +/- 0,05, faces planes et paralleles a 0,02, Ra 0,8 cote glissement.</text>
+<text x="205.000" y="220.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Aretes cassees 0,3. Tolerance generale ISO 2768-m.</text>
+<text x="205.000" y="224.142" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">Deborde de 0,5 de chaque cote du coin (40) : c est le bronze qui touche la fente des flancs.</text>
 </svg>
