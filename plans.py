@@ -1749,7 +1749,8 @@ def plan_petites():
                                % f(p.PLAQ_EP),
                                "Aretes cassees 0,3. Tolerance generale ISO 2768-m.",
                                "Deborde de %s de chaque cote du coin (%s) : c est le bronze qui touche la"
-                               " fente des flancs." % (f(p.PLAQ_DEBORD), f(p.COIN_B))]):
+                               " fente des flancs." % (f(p.PLAQ_DEBORD), f(p.COIN_B)),
+                               "Depasse des deux bouts du coin : toujours engagee dans les deux flancs."]):
             s.text(XC, YC + kp * hb + 52.0 + 4.0 * j, t, 2.8, "middle")
         out.append(range_feuille(s, "%s_%s.svg" % (rep, nom)))
     return out
