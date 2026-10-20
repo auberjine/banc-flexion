@@ -51,6 +51,15 @@
 <text x="261.500" y="210.942" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="start" font-weight="normal">(rayon des angles de la fente du flanc) ; fenetres et oblongs vifs</text>
 <path d="M 377.5 78.142 L 381.5 78.142 L 381.5 160.142 L 377.5 160.142 A 8 8 0 0 1 369.5 152.142 L 369.5 86.142 A 8 8 0 0 1 377.5 78.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="362.500" y1="119.142" x2="388.500" y2="119.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="369.500" y1="94.142" x2="381.500" y2="94.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="369.500" y1="90.142" x2="381.500" y2="90.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="369.500" y1="144.142" x2="381.500" y2="144.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="369.500" y1="148.142" x2="381.500" y2="148.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="370.084" y1="155.142" x2="378.500" y2="155.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="369.500" y1="139.142" x2="378.500" y2="139.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="378.500" y1="155.142" x2="378.500" y2="139.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="378.500" y1="151.642" x2="381.500" y2="151.642" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
+<line x1="378.500" y1="142.642" x2="381.500" y2="142.642" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="3 1"/>
 <line x1="369.500" y1="77.142" x2="369.500" y2="64.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="381.500" y1="77.142" x2="381.500" y2="64.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <line x1="369.500" y1="66.142" x2="381.500" y2="66.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>

@@ -1768,6 +1768,21 @@ def plan_petites():
                     ('L', (ue, -hb + rg), (ue, hb - rg)),
                     ('A', (ue + rg, hb - rg), rg, math.pi, math.pi / 2.0, False)])
         vp.axe((ue - 2.0, 0.0), (ue + ep + 2.0, 0.0))
+        # aretes cachees de la vue de bout : fenetres et degagements R2 (sur
+        # toute l'epaisseur), lamage puis oblong (a partir du conge s'il y mord)
+
+        def u_face(v):
+            dv = abs(v) - (hb - rg)
+            return ue + (rg - math.sqrt(rg * rg - dv * dv) if dv > 0.0 else 0.0)
+        r2 = p.RAYON_INTERIEUR_MIN
+        for v in (nb, nb + r2, -nb, -nb - r2):
+            p06_ligne(vp, (u_face(v), v), (ue + ep, v), dash=C02_CACHE)
+        lp, lb, ob = p.PLAQ_LAMAGE_P, p.PLAQ_LAMAGE_B / 2.0, p.PLAQ_OBLONG_B / 2.0
+        for v in (xv - lb, xv + lb):
+            p06_ligne(vp, (u_face(v), v), (ue + lp, v), dash=C02_CACHE)
+        p06_ligne(vp, (ue + lp, xv - lb), (ue + lp, xv + lb), dash=C02_CACHE)
+        for v in (xv - ob, xv + ob):
+            p06_ligne(vp, (ue + lp, v), (ue + ep, v), dash=C02_CACHE)
         vp.cote_hx(ue, ue + ep, hb, hb, 0.0, zl=hb + 6.0)
         vp.rayon((ue + rg, -hb + rg), rg, -135.0, "2 x R%s" % f(rg), 8)
         a = vp.P((ue + ep / 2.0, -hb - 12.0))
