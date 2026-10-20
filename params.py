@@ -418,12 +418,12 @@ PLAQ_B = COIN_B + 2.0 * PLAQ_DEBORD   # 41 : deborde du coin, guide en x dans la
 # Elles DEPASSENT des bouts du coin (20/10/2026) pour rester engagees dans la
 # fente des DEUX flancs sur toute la course : coin recule, le bout mince est a
 # 1 mm du flanc cote chape ; en fin de course, le bout epais a 1 mm de l'autre.
-# Le depassement est borne par les ecrous interieurs V7 sur la vis : en fin de
-# course la plaquette basse, qui remonte avec la pente, ne doit pas les
-# atteindre (verifie).
-PLAQ_L_HAUT = 124.0        # cotes rondes, centrees sur le coin (114,5) : 4,75 de chaque bout
-PLAQ_L_BAS = 127.0         # prise sur la pente : 124,2 en projection
-PLAQ_ENGAGE_MIN = 3.0      # engagement mini dans la tole du flanc oppose, aux bouts de course
+# Elles le font sur TOUTE l'epaisseur du flanc. Au bout mince, en fin de course,
+# elles passent de part et d'autre des ecrous interieurs V7 de la vis : leur
+# encoche laisse le milieu libre (verifie).
+PLAQ_L_HAUT = 133.0        # cotes rondes, centrees sur le coin (114,5) : 9,25 de chaque bout
+PLAQ_L_BAS = 136.0         # prise sur la pente : 133 en projection
+PLAQ_ENGAGE_MIN = 7.0      # engagement mini dans la tole du flanc oppose, aux bouts de course
 PLAQ_BRUT = "plat 45 x 8"      # fraise a 41 x 6
 # FIXATION : 2 vis CHC M4 x 8 ISO 4762 (tete normale, 4 de haut) par plaquette,
 # du meme cote, dans des OBLONGS selon la longueur, tete dans un lamage oblong
@@ -434,7 +434,7 @@ PLAQ_VIS_L = 8.0           # sous tete : 1,5 de bronze sous la tete, 6,5 dans le
 PLAQ_VIS_TETE_D = 7.0      # ISO 4762 M4 : dk
 PLAQ_VIS_TETE_H = 4.0      # ISO 4762 M4 : k
 PLAQ_VIS_X = -14.0         # du cote -x, a 6,5 du bord de la plaquette
-PLAQ_VIS_BOUT = 27.0       # axe des oblongs depuis chaque bout de plaquette
+PLAQ_VIS_BOUT = 31.5       # axe des oblongs depuis chaque bout de plaquette
 PLAQ_OBLONG_B = 4.5        # passage M4
 PLAQ_LAMAGE_B = 8.0
 PLAQ_LAMAGE_P = PLAQ_VIS_TETE_H + 0.5    # la tete reste 0,5 sous la surface
@@ -1596,19 +1596,18 @@ def verifie():
         if eng < PLAQ_ENGAGE_MIN:
             pb.append("plaquette du %s engagee de %.1f seulement dans le flanc oppose en bout de course"
                       % (nom, eng))
-    # en fin de course, la plaquette basse (qui remonte avec la pente) ne doit
-    # pas atteindre les ecrous interieurs V7 de la vis. C'est l'angle de sa face
-    # HAUTE (contre le coin) qui s'approche le plus de l'axe ; la plaquette du
-    # dessus reste a COIN_VIS_SOUS de l'axe, hors des ecrous, quelle que soit y.
-    y_ecrous = COIN_Y_SUPPORT - SUPPORT_RONDELLE - SUPPORT_ECROU_H
+    # en fin de course, au bout mince, les branches des plaquettes passent de
+    # part et d'autre des ecrous interieurs V7 de la vis (l'encoche laisse le
+    # milieu libre), et s'arretent avant les rondelles V5 et les platines
     r_ecrou = VIS_TETE_D / math.cos(math.radians(30.0)) / 2.0
-    if COIN_VIS_SOUS < r_ecrou + 0.5:
-        pb.append("la plaquette du dessus passe a %.1f de l axe : elle toucherait les ecrous de la vis"
-                  % COIN_VIS_SOUS)
-    for nom, yb in (("dessous", PLAQ_BAS_E1 * _C - PLAQ_EP * _S),):
-        if yb + COIN_COURSE > y_ecrous - 0.5:
-            pb.append("en fin de course, la plaquette du %s arrive sur les ecrous de la vis"
-                      " (y %.1f pour %.1f)" % (nom, yb + COIN_COURSE, y_ecrous))
+    if PLAQ_TENON_B / 2.0 + PLAQ_JEU_X < r_ecrou + 0.1:
+        pb.append("les branches des plaquettes passent a %.1f de l axe : elles toucheraient"
+                  " les ecrous de la vis (%.1f)" % (PLAQ_TENON_B / 2.0 + PLAQ_JEU_X, r_ecrou))
+    y_rondelles = COIN_Y_SUPPORT - SUPPORT_RONDELLE
+    for nom, yb in (("dessus", PLAQ_HAUT_E1), ("dessous", PLAQ_BAS_E1 * _C)):
+        if yb + COIN_COURSE > y_rondelles - 1.0:
+            pb.append("en fin de course, la plaquette du %s arrive sur les rondelles et platines"
+                      " de la chape (y %.1f pour %.1f)" % (nom, yb + COIN_COURSE, y_rondelles))
     enc = PLAQ_HAUT_Y0 - PLAQ_HAUT_E0               # profondeur d encoche depuis le bout
     if PLAQ_VIS_BOUT - PLAQ_LAMAGE_L / 2.0 < enc + RAYON_INTERIEUR_MIN + 2.0:
         pb.append("le lamage des vis de plaquette mord l encoche (%.1f pour %.1f)"

@@ -14,7 +14,7 @@ notice. Indice B du 05/10/2026.
 
 | dossier | contenu |
 |---|---|
-| `banc_3d.html` | visionneuse 3D autonome, double-clic, aucune installation |
+| `banc_3d.html` | visionneuse 3D autonome, double-clic, aucune installation ; un curseur fait avancer le coin le long de la vis (coulisseau, pile et effort suivent, jusqu'a la butee) |
 | `fcstd/banc.FCStd` | assemblage FreeCAD, une piece par objet |
 | `step/*.step` | geometrie exacte, une piece par fichier, plus l'assemblage |
 | `stl/*.stl` | maillages ; `*_montes.stl` contient tous les exemplaires places |

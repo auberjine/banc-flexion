@@ -28,7 +28,7 @@
 <text x="205.000" y="29.142" font-family="Helvetica,Arial,sans-serif" font-size="3.60" fill="#000" text-anchor="middle" font-weight="bold">06c  PLAQUE DE FROTTEMENT, DESSUS DU COIN  (2:1)</text>
 <text x="205.000" y="33.742" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">CuSn12-C, 1 ex., brut plat 45 x 8, epaisseur 6</text>
 <text x="205.000" y="37.742" font-family="Helvetica,Arial,sans-serif" font-size="2.80" fill="#000" text-anchor="middle" font-weight="normal">vue cote GLISSEMENT (lamages visibles) ; glisse sous la traverse</text>
-<path d="M 329 162.142 L 81 162.142 L 81 149.142 L 106.5 149.142 A 4 4 0 1 0 110.5 145.142 L 110.5 97.142 A 4 4 0 1 0 106.5 93.142 L 81 93.142 L 81 80.142 L 329 80.142 L 329 93.142 L 303.5 93.142 A 4 4 0 1 0 299.5 97.142 L 299.5 145.142 A 4 4 0 1 0 303.5 149.142 L 329 149.142 L 329 162.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 338 162.142 L 72 162.142 L 72 149.142 L 106.5 149.142 A 4 4 0 1 0 110.5 145.142 L 110.5 97.142 A 4 4 0 1 0 106.5 93.142 L 72 93.142 L 72 80.142 L 338 80.142 L 338 93.142 L 303.5 93.142 A 4 4 0 1 0 299.5 97.142 L 299.5 145.142 A 4 4 0 1 0 303.5 149.142 L 338 149.142 L 338 162.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 130 153.642 L 140 153.642 A 4.5 4.5 0 0 0 140 144.642 L 130 144.642 A 4.5 4.5 0 0 0 130 153.642 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 270 153.642 L 280 153.642 A 4.5 4.5 0 0 0 280 144.642 L 270 144.642 A 4.5 4.5 0 0 0 270 153.642 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 130 157.142 L 140 157.142 A 8 8 0 0 0 140 141.142 L 130 141.142 A 8 8 0 0 0 130 157.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
@@ -37,46 +37,46 @@
 <path d="M 270 157.142 L 280 157.142 A 8 8 0 0 0 280 141.142 L 270 141.142 A 8 8 0 0 0 270 157.142 Z" fill="none" stroke="#000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
 <line x1="259.000" y1="149.142" x2="291.000" y2="149.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
 <line x1="275.000" y1="160.142" x2="275.000" y2="138.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
-<line x1="78.000" y1="121.142" x2="332.000" y2="121.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
-<line x1="81.000" y1="79.142" x2="81.000" y2="54.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="329.000" y1="79.142" x2="329.000" y2="54.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="81.000" y1="56.142" x2="329.000" y2="56.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 81 56.142 L 83.6 56.87 L 83.6 55.414 Z" fill="#000"/>
-<path d="M 329 56.142 L 326.4 55.414 L 326.4 56.87 Z" fill="#000"/>
-<text x="205.000" y="54.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">124</text>
-<line x1="330.000" y1="162.142" x2="359.000" y2="162.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="330.000" y1="80.142" x2="359.000" y2="80.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="357.000" y1="162.142" x2="357.000" y2="80.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 357 162.142 L 357.728 159.542 L 356.272 159.542 Z" fill="#000"/>
-<path d="M 357 80.142 L 356.272 82.742 L 357.728 82.742 Z" fill="#000"/>
-<text x="355.400" y="121.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 355.400 121.142)">41</text>
-<line x1="300.500" y1="149.142" x2="343.000" y2="149.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="300.500" y1="93.142" x2="343.000" y2="93.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="341.000" y1="149.142" x2="341.000" y2="93.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 341 149.142 L 341.728 146.542 L 340.272 146.542 Z" fill="#000"/>
-<path d="M 341 93.142 L 340.272 95.742 L 341.728 95.742 Z" fill="#000"/>
-<text x="339.400" y="121.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 339.400 121.142)">28</text>
+<line x1="69.000" y1="121.142" x2="341.000" y2="121.142" stroke="#000" stroke-width="0.180" stroke-linecap="round" stroke-dasharray="6 1.5 1 1.5"/>
+<line x1="72.000" y1="79.142" x2="72.000" y2="54.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="338.000" y1="79.142" x2="338.000" y2="54.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="72.000" y1="56.142" x2="338.000" y2="56.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 72 56.142 L 74.6 56.87 L 74.6 55.414 Z" fill="#000"/>
+<path d="M 338 56.142 L 335.4 55.414 L 335.4 56.87 Z" fill="#000"/>
+<text x="205.000" y="54.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">133</text>
+<line x1="339.000" y1="162.142" x2="368.000" y2="162.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="339.000" y1="80.142" x2="368.000" y2="80.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="366.000" y1="162.142" x2="366.000" y2="80.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 366 162.142 L 366.728 159.542 L 365.272 159.542 Z" fill="#000"/>
+<path d="M 366 80.142 L 365.272 82.742 L 366.728 82.742 Z" fill="#000"/>
+<text x="364.400" y="121.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 364.400 121.142)">41</text>
+<line x1="300.500" y1="149.142" x2="352.000" y2="149.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="300.500" y1="93.142" x2="352.000" y2="93.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="350.000" y1="149.142" x2="350.000" y2="93.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 350 149.142 L 350.728 146.542 L 349.272 146.542 Z" fill="#000"/>
+<path d="M 350 93.142 L 349.272 95.742 L 350.728 95.742 Z" fill="#000"/>
+<text x="348.400" y="121.142" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 348.400 121.142)">28</text>
 <line x1="299.500" y1="92.142" x2="299.500" y2="66.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="329.000" y1="92.142" x2="329.000" y2="66.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="299.500" y1="68.142" x2="329.000" y2="68.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="338.000" y1="92.142" x2="338.000" y2="66.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="299.500" y1="68.142" x2="338.000" y2="68.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <path d="M 299.5 68.142 L 302.1 68.87 L 302.1 67.414 Z" fill="#000"/>
-<path d="M 329 68.142 L 326.4 67.414 L 326.4 68.87 Z" fill="#000"/>
-<text x="314.250" y="66.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">14,8</text>
+<path d="M 338 68.142 L 335.4 67.414 L 335.4 68.87 Z" fill="#000"/>
+<text x="318.750" y="66.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">19,2</text>
 <line x1="135.000" y1="150.142" x2="135.000" y2="180.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="81.000" y1="178.142" x2="135.000" y2="178.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 81 178.142 L 83.6 178.87 L 83.6 177.414 Z" fill="#000"/>
+<line x1="72.000" y1="178.142" x2="135.000" y2="178.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 72 178.142 L 74.6 178.87 L 74.6 177.414 Z" fill="#000"/>
 <path d="M 135 178.142 L 132.4 177.414 L 132.4 178.87 Z" fill="#000"/>
-<text x="108.000" y="176.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">27</text>
+<text x="103.500" y="176.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">31,5</text>
 <line x1="275.000" y1="150.142" x2="275.000" y2="180.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="275.000" y1="178.142" x2="329.000" y2="178.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="275.000" y1="178.142" x2="338.000" y2="178.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <path d="M 275 178.142 L 277.6 178.87 L 277.6 177.414 Z" fill="#000"/>
-<path d="M 329 178.142 L 326.4 177.414 L 326.4 178.87 Z" fill="#000"/>
-<text x="302.000" y="176.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">27</text>
-<line x1="134.000" y1="162.142" x2="63.000" y2="162.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<line x1="65.000" y1="162.142" x2="65.000" y2="149.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
-<path d="M 65 162.142 L 65.728 159.542 L 64.272 159.542 Z" fill="#000"/>
-<path d="M 65 149.142 L 64.272 151.742 L 65.728 151.742 Z" fill="#000"/>
-<text x="63.400" y="155.642" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 63.400 155.642)">6,5</text>
+<path d="M 338 178.142 L 335.4 177.414 L 335.4 178.87 Z" fill="#000"/>
+<text x="306.500" y="176.542" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal">31,5</text>
+<line x1="134.000" y1="162.142" x2="54.000" y2="162.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<line x1="56.000" y1="162.142" x2="56.000" y2="149.142" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
+<path d="M 56 162.142 L 56.728 159.542 L 55.272 159.542 Z" fill="#000"/>
+<path d="M 56 149.142 L 55.272 151.742 L 56.728 151.742 Z" fill="#000"/>
+<text x="54.400" y="155.642" font-family="Helvetica,Arial,sans-serif" font-size="3.20" fill="#000" text-anchor="middle" font-weight="normal" transform="rotate(-90.00 54.400 155.642)">6,5</text>
 <line x1="140.600" y1="143.542" x2="154.600" y2="183.542" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>
 <path d="M 140.6 143.542 L 140.772 146.237 L 142.146 145.756 Z" fill="#000"/>
 <line x1="154.600" y1="183.542" x2="160.600" y2="183.542" stroke="#000" stroke-width="0.180" stroke-linecap="round"/>

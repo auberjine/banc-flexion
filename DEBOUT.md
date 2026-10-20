@@ -46,8 +46,8 @@ que selon y, et l'axe de la vis reste fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30,8 a 55,2 d'epaisseur, 114,5 de long |
-| Plaque haute | CuSn12-C usine 41 x 124 x 6, encochee sur les deux tenons du coin, 2 vis CHC M4 dans des oblongs |
-| Plaque basse | CuSn12-C usine 41 x 127 x 6, sur la pente, idem |
+| Plaque haute | CuSn12-C usine 41 x 133 x 6, encochee sur les deux tenons du coin, 2 vis CHC M4 dans des oblongs |
+| Plaque basse | CuSn12-C usine 41 x 136 x 6, sur la pente, idem |
 | Taraudage | M16 sur 80 mm depuis le bout epais, passage a 18 au dela |
 | Course utile | 56,5 mm selon y |
 | Effort moteur a 12 kN | 5,5 kN |
@@ -79,10 +79,11 @@ lacher, le lamage d'une bague de bronze reste possible.
 GUIDAGE LATERAL PAR LE BRONZE (19/10/2026) : les plaques font 41 de large et
 debordent du coin (40) de 0,5 de chaque cote. Quand le coin se decale en x,
 c'est le bronze qui touche la tranche de la fente des flancs (44, soit 1,5 de
-jeu par cote), jamais l'acier du coin. Elles depassent de 4,75 a chaque bout du
-coin, si bien qu'elles restent engagees d'au moins 3,75 dans la fente des DEUX
-flancs sur toute la course ; plus, la plaque basse toucherait en fin de course
-les ecrous interieurs de la vis. Elles enjambent, a chaque bout, un TENON de 24 x 8 x 4 de haut usine dans la masse,
+jeu par cote), jamais l'acier du coin. Elles depassent de 9,25 a chaque bout du
+coin, si bien qu'elles restent engagees sur toute l'epaisseur de la fente des
+DEUX flancs, sur toute la course. En fin de course, leurs deux branches passent
+de part et d'autre des ecrous interieurs de la vis, que l'encoche laisse libres
+au milieu. Elles enjambent, a chaque bout, un TENON de 24 x 8 x 4 de haut usine dans la masse,
 par une encoche a degagements R2 ; le tenon encaisse les 1,44 kN
 d'entrainement dans l'axe de la vis : flexion 11 MPa au pied, matage du fond
 d'encoche 30 MPa. Pied des tenons : conge R2 sur leurs trois faces (aucun

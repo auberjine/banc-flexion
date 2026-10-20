@@ -177,7 +177,7 @@ maximale, pas de limite elastique : toute la marge du flanc repose sur Re,
 qui est donc EXIGE a la commande -- 42CrMo4 recuit +A, tole 8 mm : certificat 3.1 EN 10204 avec essai de traction, Re >= 430 MPa a 20 C.
 Le flanc travaille a 213 MPa a l'appui : 2.02 de coefficient a froid, 1.83 a
 150 C, contre 1,91 a chaud pour le cadre precedent en 10 mm S355 (157 MPa)
-et 34.5 kg de cadre au lieu de 44,5.
+et 34.6 kg de cadre au lieu de 44,5.
 Si la tole de 8 en 42CrMo4 manque, le repli est le 10 mm S355 ou S460 :
 EP_FLANC = 10 et tout suit.
 
@@ -231,7 +231,7 @@ traverse, donc l'axe de la vis est fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30.8 a 55.2 d'epaisseur, 114.5 de long |
-| Plaques de frottement | 2 plaques usinees en CuSn12-C, 41 x 124 (dessus) et 41 x 127 (dessous) x 6, sous pate graphite haute temperature, 0.44 kg en tout |
+| Plaques de frottement | 2 plaques usinees en CuSn12-C, 41 x 133 (dessus) et 41 x 136 (dessous) x 6, sous pate graphite haute temperature, 0.45 kg en tout |
 | Course utile | 56.5 mm selon y |
 | Position de repos | bout epais a y -85.5, bout mince a y 29 |
 | Sens de marche | vers la chape ; en fin de course le bout mince est a y 85.5 |
@@ -274,7 +274,7 @@ LE BRONZE N'EST PLUS QUE DEUX PLAQUES, TOUTES DEUX SUR LE COIN.
 Un coin de bronze plein aurait demande 2,7 kg de barre, une section qu'il
 faut faire debiter. Or le bronze n'est utile que sur les deux faces de
 glissement : il est reporte sur deux plaques de frottement en CuSn12-C, de
-simples rectangles fraises dans un plat 45 x 8 (41 x 124 et 41 x 127, ep. 6),
+simples rectangles fraises dans un plat 45 x 8 (41 x 133 et 41 x 136, ep. 6),
 usines avec le reste plutot qu'achetes a part, et le coin devient un bloc d'acier C45
 de 1.37 kg, usine dans un plat 70 x 45, L 120 (fini 63,3 x 40 x 114,5).
 
@@ -438,8 +438,8 @@ Masses du modele 3D (out/masses.json, construit le 20/10/2026).
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
-| Plaque de frottement, dessus | 1 | 0.21 kg | 0.21 kg |
-| Plaque de frottement, dessous | 1 | 0.22 kg | 0.22 kg |
+| Plaque de frottement, dessus | 1 | 0.22 kg | 0.22 kg |
+| Plaque de frottement, dessous | 1 | 0.23 kg | 0.23 kg |
 | Vis de commande H M16 x 160 | 1 | 0.34 kg | 0.34 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.91 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
@@ -452,7 +452,7 @@ Masses du modele 3D (out/masses.json, construit le 20/10/2026).
 | Pile de 12 rondelles Belleville | 1 | 0.41 kg | 0.41 kg |
 | Poutrelle beton | 1 | 22.22 kg | 22.22 kg |
 
-**Cadre complet 34.5 kg**, poutrelle 22.2 kg.
+**Cadre complet 34.6 kg**, poutrelle 22.2 kg.
 
 ## 10. Conduite d'essai
 

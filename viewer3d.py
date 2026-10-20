@@ -24,7 +24,7 @@ PIECES = [
     ("guide", "Guides CHC M%.0f" % p.GUIDE_VIS_D, "#4a5160", 4),
     ("tourillon", "Tourillon", "#6b7280", 1),
     ("pile_belleville", "Pile Belleville", "#b06a3b", 1),
-    ("vis", "Tige filetee de commande", "#4a5160", 1),
+    ("vis", "Vis de commande M16", "#4a5160", 1),
     ("coin", "Coin de commande", "#7d8794", 1),
     ("plaquette_haute", "Plaquette bronze, dessus", "#b8863b", 1),
     ("plaquette_basse", "Plaquette bronze, dessous", "#c9973f", 1),
@@ -60,12 +60,17 @@ HTML = u"""<!doctype html>
  button{background:#343a46;color:#e6e8ec;border:0;border-radius:6px;padding:5px 10px;
    font-size:12px;cursor:pointer;margin-top:10px;margin-right:6px}
  button:hover{background:#414958}
+ #course{width:100%;margin:10px 0 2px}
+ #etat{font-size:12px;color:#c8ced8;font-variant-numeric:tabular-nums}
 </style></head><body>
 <div id="vue"></div><div id="charge">chargement du modele...</div>
 <div id="panneau">
  <h1>Banc de flexion 3 points</h1>
  <div class="sous">poutrelle 103 x 107 x 840, portee 750, capacite 12 kN<br>
  cadre __CADRE__, __MASSE__ kg</div>
+ <div style="font-size:12.5px;margin-top:4px">course du coin le long de la vis</div>
+ <input id="course" type="range" min="0" max="1000" value="0">
+ <div id="etat"></div>
  <div id="liste"></div>
  <button id="iso">vue 3/4</button><button id="face">elevation</button><button id="bout">bout</button>
  <button id="tout">tout</button><button id="rien">rien</button>
@@ -172,10 +177,36 @@ function toutes(v){
   document.querySelectorAll('#liste input').forEach(i=>{
     i.checked=v;groupes[i.dataset.n].visible=v;});
   maj();}
+// CINEMATIQUE DE COMMANDE : le coin (et ses plaquettes) avance le long de la
+// vis, qui tourne en place ; il pousse le coulisseau (tourillon colle, guides)
+// vers le bas de u.tan(a), la pile s ecrase d autant entre le coulisseau et le
+// poussoir, fixe. Contact suppose au repos (sans cales) ; la course s arrete
+// quand les tetes de guide talonnent en bas de lumiere (butee mecanique).
+const K = DATA_K;
+function forceKN(e){const t=K.force;if(e<=0)return 0;
+  for(let i=1;i<t.length;i++)if(t[i][0]>=e){const a=t[i-1],b=t[i];
+    return (a[1]+(b[1]-a[1])*(e-a[0])/(b[0]-a[0]))/1000;}
+  return t[t.length-1][1]/1000;}
+function bouge(u){
+  const dz=u*K.tan;
+  ['coin','plaquette_haute','plaquette_basse'].forEach(n=>{if(groupes[n])groupes[n].position.y=u;});
+  ['coulisseau','tourillon','guide'].forEach(n=>{if(groupes[n])groupes[n].position.z=-dz;});
+  const pile=groupes['pile_belleville'];
+  if(pile){const s=(K.pileH-dz)/K.pileH;pile.scale.z=s;pile.position.z=K.pileZ*(1-s);}
+  const v=groupes['vis'];
+  if(v){const a=-2*Math.PI*u/K.pas;v.rotation.y=a;
+    v.position.x=-K.zVis*Math.sin(a);v.position.z=K.zVis-K.zVis*Math.cos(a);}
+  document.getElementById('etat').innerHTML=
+    'coin '+u.toFixed(1)+' / '+K.course.toFixed(1)+' mm ('+(u/K.pas).toFixed(1)+' tours)<br>'+
+    'coulisseau -'+dz.toFixed(2)+' mm, pile '+forceKN(dz).toFixed(1)+' kN'+
+    (u>=K.course-0.01?' &nbsp;<b>butee</b>':'');
+  maj();}
+document.getElementById('course').addEventListener('input',e=>bouge(K.course*e.target.value/1000));
+
 document.getElementById('tout').onclick=()=>toutes(true);
 document.getElementById('rien').onclick=()=>toutes(false);
 document.getElementById('charge').remove();
-maj();
+bouge(0);
 </script></body></html>
 """
 
@@ -198,7 +229,14 @@ def main():
     # source est neutralise pour ne pas fermer la balise.
     three = io.open(os.path.join(HERE, "vendor", "three.min.js"), encoding="utf-8").read()
     three = three.replace("</script>", "<" + chr(92) + "/script>")
+    # cinematique : la course s arrete a la butee mecanique des guides
+    course = p.ecrasement_butee() / p.COIN_TAN
+    table = [(e, p.pile_force(e)) for e in
+             [p.PILE_COURSE * i / 60.0 for i in range(61)]]
+    k = dict(tan=p.COIN_TAN, course=min(course, p.COIN_COURSE), pas=p.VIS_PAS,
+             zVis=p.Z_VIS, pileZ=p.Z_PILE_BAS, pileH=p.PILE_H_LIBRE, force=table)
     html = HTML.replace("__THREE__", three).replace("__DATA__", json.dumps(data))
+    html = html.replace("DATA_K", json.dumps(k))
     html = html.replace("__MASSE__", ("%.1f" % masses["cadre_kg"]).replace(".", ","))
     html = html.replace("__CADRE__", "%.0f x %.0f x %.0f"
                         % (p.L_FLANC, p.H_FLANC, p.ECART_FLANCS + 2 * p.EP_FLANC))

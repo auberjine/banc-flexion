@@ -74,9 +74,9 @@
    "nom": "plaquette_haute",
    "designation": "Plaque de frottement, dessus",
    "qte": 1,
-   "volume_cm3": 24.39,
-   "masse_kg": 0.215,
-   "masse_totale_kg": 0.215,
+   "volume_cm3": 25.1,
+   "masse_kg": 0.221,
+   "masse_totale_kg": 0.221,
    "matiere": "CuSn12-C",
    "brut": "plat 45 x 8"
   },
@@ -84,9 +84,9 @@
    "nom": "plaquette_basse",
    "designation": "Plaque de frottement, dessous",
    "qte": 1,
-   "volume_cm3": 25.06,
-   "masse_kg": 0.221,
-   "masse_totale_kg": 0.221,
+   "volume_cm3": 25.76,
+   "masse_kg": 0.227,
+   "masse_totale_kg": 0.227,
    "matiere": "CuSn12-C",
    "brut": "plat 45 x 8"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.77,
- "cadre_kg": 34.55,
+ "total_kg": 56.78,
+ "cadre_kg": 34.56,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "20/10/2026",
- "empreinte": "b01ac285f69dc94c"
+ "empreinte": "a423eda9e10555ad"
 }
