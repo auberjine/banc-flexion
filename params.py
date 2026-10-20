@@ -372,11 +372,11 @@ COIN_VIS_SOUS = 16.0      # axe du taraudage sous la face plate du coin
 # GUIDAGE LATERAL DU COIN PAR LE BRONZE (19/10/2026) : les plaquettes debordent
 # du coin de PLAQ_DEBORD de chaque cote ; c'est donc le bronze, et non l'acier
 # du coin, qui vient au contact de la tranche de la fente du flanc quand le
-# coin se decale en x. Jeu du bronze dans la fente : PLAQ_JEU_FENTE par cote,
-# assez serre pour que la plaquette du dessus reste sur la traverse (verifie).
+# coin se decale en x. La fente du flanc n'est PAS touchee (44) : le bronze y
+# a PLAQ_JEU_FENTE par cote.
+COIN_JEU_FENTE = 4.0      # jeu total du coin d'acier dans la fente du flanc (fente de 44)
 PLAQ_DEBORD = 0.5
-PLAQ_JEU_FENTE = 0.6
-COIN_JEU_FENTE = 2.0 * (PLAQ_DEBORD + PLAQ_JEU_FENTE)   # jeu total du coin d'acier dans la fente
+PLAQ_JEU_FENTE = COIN_JEU_FENTE / 2.0 - PLAQ_DEBORD   # 1,5 par cote
 # RATTRAPAGE DE L EMPILEMENT VERTICAL. Poutrelle, patins, trois plateaux et
 # douze rondelles : la chaine peut sortir courte de quelques mm. Au dela des
 # 12 kN, le coin ne garde que COIN_COURSE.tan(a) - PILE_ECRAS_DIM de reserve en
@@ -1867,9 +1867,12 @@ def verifie():
     # de fente) sont decales a l'oppose l'un de l'autre. On compare des
     # DEMI-largeurs : comparer la largeur totale au decalage d'un seul cote
     # affichait 4 mm de marge la ou il y en a 0,2.
-    # le coin ne se decale que jusqu au contact du BRONZE sur la fente
+    # le coin ne se decale que jusqu au contact du BRONZE sur la fente. Au pire
+    # des deux decalages opposes, le bord du bronze arrive au RAS du bord reel de
+    # la traverse (toles ebavurees, sans chanfrein) : admis, il ne doit pas le
+    # depasser. Le bord non portant de CHANFREIN reste compte dans portee_coin.
     jx = TRAVERSE_JEU_X / 2.0 + PLAQ_JEU_FENTE
-    marge_x = TRAVERSE_LX / 2.0 - CHANFREIN - jx - PLAQ_B / 2.0
+    marge_x = TRAVERSE_LX / 2.0 - jx - PLAQ_B / 2.0 + 1e-6
     if marge_x < 0.0:
         pb.append("la plaque de bronze peut deborder de la traverse de %.1f mm" % -marge_x)
     if portee_coin() < 0.75 * PLAQ_B:

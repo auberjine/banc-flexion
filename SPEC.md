@@ -288,7 +288,7 @@ s'approfondit donc de 6.1 mm.
 
 Les plaquettes debordent du coin de 0.5 de chaque cote (41 de large) : quand le
 coin se decale en x, c'est le BRONZE qui touche la tranche de la fente des
-flancs (0.6 de jeu par cote), jamais l'acier du coin. Elles couvrent toute la
+flancs (1.5 de jeu par cote), jamais l'acier du coin. Elles couvrent toute la
 longueur du coin et enjambent par une ENCOCHE, a chaque bout, un TENON de 24 x 8
 usine dans la masse, 4 de haut, qui encaisse les 1.44 kN d'entrainement dans
 l'axe de la vis : flexion 11.2 MPa au pied, matage du fond d'encoche 30 MPa.
@@ -317,9 +317,9 @@ Le filet reste engage sur 27.0 mm coin recule, soit 1.7 d, ce qui est
 tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la vis et le
 taraudage fait que les derniers filets ne prennent plus rien.
 
-Le coin traverse les deux flancs par une fente de 42 x 71, entre les
-deux lumieres de guidage reportees a x = +/- 44. Il reste alors 60 mm
-de section nette dans le noeud, soit 12.5 MPa nominal pour les 6000 N par flanc.
+Le coin traverse les deux flancs par une fente de 44 x 71, entre les
+deux lumieres de guidage reportees a x = +/- 44. Il reste alors 58 mm
+de section nette dans le noeud, soit 12.9 MPa nominal pour les 6000 N par flanc.
 
 La suppression de la vis verticale a ramene la hauteur du cadre de 480 a
 440 mm : debout dans l'etuve de 538, il reste 49 mm de chaque cote, ou se
@@ -427,11 +427,11 @@ resolution suffisante, et un col serait une entaille de plus.
 
 ## 9. Masses
 
-Masses du modele 3D (out/masses.json, construit le 19/10/2026).
+Masses du modele 3D (out/masses.json, construit le 20/10/2026).
 
 | piece | qte | masse unitaire | total |
 |---|---|---|---|
-| Flanc en treillis | 2 | 10.25 kg | 20.50 kg |
+| Flanc en treillis | 2 | 10.24 kg | 20.48 kg |
 | Plaque de traverse | 6 | 0.25 kg | 1.51 kg |
 | Plateau de poussoir | 3 | 0.33 kg | 0.98 kg |
 | Coulisseau a tete inclinee | 1 | 1.46 kg | 1.46 kg |

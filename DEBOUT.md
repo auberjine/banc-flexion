@@ -78,7 +78,7 @@ lacher, le lamage d'une bague de bronze reste possible.
 
 GUIDAGE LATERAL PAR LE BRONZE (19/10/2026) : les plaques font 41 de large et
 debordent du coin (40) de 0,5 de chaque cote. Quand le coin se decale en x,
-c'est le bronze qui touche la tranche de la fente des flancs (42,2, soit 0,6 de
+c'est le bronze qui touche la tranche de la fente des flancs (44, soit 1,5 de
 jeu par cote), jamais l'acier du coin. Elles couvrent toute la longueur du coin
 et enjambent, a chaque bout, un TENON de 24 x 8 x 4 de haut usine dans la masse,
 par une encoche a degagements R2 ; le tenon encaisse les 1,44 kN
