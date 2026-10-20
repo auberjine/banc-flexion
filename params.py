@@ -537,7 +537,14 @@ PLAQ_HAUT_E0 = (COIN_Y0 + COIN_Y1) / 2.0 - PLAQ_L_HAUT / 2.0    # bouts de la pl
 PLAQ_HAUT_E1 = PLAQ_HAUT_E0 + PLAQ_L_HAUT
 PLAQ_HAUT_W0 = COIN_Y0 - PLAQ_JEU      # fenetres autour des tenons : cote pont
 PLAQ_HAUT_W1 = COIN_Y1 + PLAQ_JEU
-PLAQ_R_ANGLE = 2.0                     # conges des quatre angles des plaquettes
+# CONGE DE LA FACE DE GLISSEMENT (21/10/2026) : tout son pourtour exterieur est
+# arrondi au rayon des angles de la fente du flanc (FENTE_COIN_R, verifie). Les
+# angles en plan prennent le meme rayon, sans quoi le conge d'arete se
+# retournerait sur lui-meme. La face ne porte plus que sur PLAQ_B_PORTANT ; le
+# chant, qui touche la tranche de la fente, garde PLAQ_EP - PLAQ_R_GLISS de droit.
+PLAQ_R_GLISS = 4.0                     # conge du pourtour de la face de glissement
+PLAQ_R_ANGLE = PLAQ_R_GLISS            # conges des quatre angles des plaquettes, en plan
+PLAQ_B_PORTANT = PLAQ_B - 2.0 * PLAQ_R_GLISS   # 33 : largeur plane de la face de glissement
 # plaquette basse : meme portee, mais posee sur la pente. Ses cotes sont prises
 # SUR LA PENTE, et son chant penche : c'est son angle HAUT, contre le siege du
 # coin, qui doit venir au pied du rebord. L'angle bas est en retrait de
@@ -1161,12 +1168,13 @@ def portee_coin():
     qui frotte sous la traverse mais la plaquette de bronze du dessus, large de
     PLAQ_B : c'est elle qu'on compte.
 
-    Les bords ebavures des plaques ne portent pas franchement : on retire
-    CHANFREIN de chaque bord a chaque joint, par prudence.
+    Le conge PLAQ_R_GLISS du pourtour ne porte pas : on part de
+    PLAQ_B_PORTANT. Les bords ebavures des plaques ne portent pas franchement
+    non plus : on retire CHANFREIN de chaque bord a chaque joint, par prudence.
     """
     joints = [-TRAVERSE_LX / 2.0 + k * TRAVERSE_EP for k in range(1, TRAVERSE_N)]
-    dedans = sum(1 for x in joints if abs(x) < PLAQ_B / 2.0)
-    return PLAQ_B - 2.0 * CHANFREIN * dedans
+    dedans = sum(1 for x in joints if abs(x) < PLAQ_B_PORTANT / 2.0)
+    return PLAQ_B_PORTANT - 2.0 * CHANFREIN * dedans
 
 
 def pressions_plaquettes():
@@ -1174,11 +1182,11 @@ def pressions_plaquettes():
     Pressions de contact (haute, basse) des deux plaques de bronze, en MPa, au
     plus defavorable des deux bouts de course : largeur nette selon x fois
     longueur portante selon y. La haute porte sur la traverse rainuree
-    (portee_coin), la basse sur le coulisseau, un bloc plein (PLAQ_B entier).
+    (portee_coin), la basse sur le coulisseau, un bloc plein (PLAQ_B_PORTANT).
     """
     ph = portee_plaquette(PLAQ_HAUT_Y0, PLAQ_HAUT_Y1, TRAVERSE_B)
     pb = portee_plaquette(PLAQ_BAS_Y0, PLAQ_BAS_Y1, POUSSOIR_B)
-    return CHARGE_DIM / (portee_coin() * ph), CHARGE_DIM / (PLAQ_B * pb)
+    return CHARGE_DIM / (portee_coin() * ph), CHARGE_DIM / (PLAQ_B_PORTANT * pb)
 
 
 def pression_coin():
@@ -1911,9 +1919,14 @@ def verifie():
     marge_x = TRAVERSE_LX / 2.0 - jx - PLAQ_B / 2.0 + 1e-6
     if marge_x < 0.0:
         pb.append("la plaque de bronze peut deborder de la traverse de %.1f mm" % -marge_x)
-    if portee_coin() < 0.75 * PLAQ_B:
+    if portee_coin() < 0.75 * PLAQ_B_PORTANT:
         pb.append("les aretes cassees mangent %.0f pour cent de la portee du bronze"
-                  % (100.0 * (1.0 - portee_coin() / PLAQ_B)))
+                  % (100.0 * (1.0 - portee_coin() / PLAQ_B_PORTANT)))
+    if abs(PLAQ_R_GLISS - FENTE_COIN_R) > 1e-9:
+        pb.append("conge de glissement des plaquettes (R%g) different de celui de la fente (R%g)"
+                  % (PLAQ_R_GLISS, FENTE_COIN_R))
+    if PLAQ_R_ANGLE < PLAQ_R_GLISS - 1e-9 or PLAQ_EP - PLAQ_R_GLISS < 1.5:
+        pb.append("conge de glissement des plaquettes incompatible (angles en plan, epaisseur)")
     if pression_coin() > 15.0:
         pb.append("pression du bronze sur la traverse : %.1f MPa" % pression_coin())
     # selon y : le tube fixe l'ecart, les epaulements ne doivent jamais pincer

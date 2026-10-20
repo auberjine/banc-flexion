@@ -1749,6 +1749,31 @@ def plan_petites():
             vp.axe((su * uv - p.PLAQ_LAMAGE_L / 2.0, xv), (su * uv + p.PLAQ_LAMAGE_L / 2.0, xv))
             vp.axe((su * uv, xv - p.PLAQ_LAMAGE_B / 2.0), (su * uv, xv + p.PLAQ_LAMAGE_B / 2.0))
         vp.axe((-hl, 0.0), (hl, 0.0))
+        # conge du pourtour de la face de glissement : ligne de raccordement
+        rg = p.PLAQ_R_GLISS
+        for a, b in (((-hl + rg, -hb + rg), (hl - rg, -hb + rg)), ((hl - rg, -hb + rg), (hl - rg, hb - rg)),
+                     ((hl - rg, hb - rg), (-hl + rg, hb - rg)), ((-hl + rg, hb - rg), (-hl + rg, -hb + rg))):
+            p06_ligne(vp, a, b)
+        vp.renvoi((30.0, -hb + 1.0),
+                  "conge R%s sur tout le pourtour exterieur, cote glissement" % f(rg) + chr(10)
+                  + "(rayon des angles de la fente du flanc) ; fenetres et oblongs vifs",
+                  10.0, 50.0, fin="point")
+        # vue de bout, a droite : le conge vu en profil, cote glissement a gauche
+        ue = hl + 26.0
+        ep = p.PLAQ_EP
+        vp.contour([('L', (ue + rg, hb), (ue + ep, hb)),
+                    ('L', (ue + ep, hb), (ue + ep, -hb)),
+                    ('L', (ue + ep, -hb), (ue + rg, -hb)),
+                    ('A', (ue + rg, -hb + rg), rg, -math.pi / 2.0, -math.pi, False),
+                    ('L', (ue, -hb + rg), (ue, hb - rg)),
+                    ('A', (ue + rg, hb - rg), rg, math.pi, math.pi / 2.0, False)])
+        vp.axe((ue - 2.0, 0.0), (ue + ep + 2.0, 0.0))
+        vp.cote_hx(ue, ue + ep, hb, hb, 0.0, zl=hb + 6.0)
+        vp.rayon((ue + rg, -hb + rg), rg, -135.0, "2 x R%s" % f(rg), 8)
+        a = vp.P((ue + ep / 2.0, -hb - 12.0))
+        s.text(a[0], a[1], "VUE DE BOUT", 2.8, "middle", weight="bold")
+        s.text(a[0], a[1] + 4.0, "glissement", 2.8, "middle")
+        s.text(a[0], a[1] + 7.6, "a gauche", 2.8, "middle")
         # cotes : longueur et largeur, encoche, position des oblongs
         vp.cote_hx(-hl, hl, hb, hb, 0.0, zl=hb + 12.0)
         vp.cote_vx(-hb, hb, hl, hl, 0.0, xl=hl + 14.0)
@@ -1772,7 +1797,9 @@ def plan_petites():
                                % f(p.PLAQ_EP),
                                "Aretes cassees 0,3. Tolerance generale ISO 2768-m.",
                                "Deborde de %s de chaque cote du coin (%s) : c est le bronze qui touche la"
-                               " fente des flancs." % (f(p.PLAQ_DEBORD), f(p.COIN_B)),
+                               " fente des flancs," % (f(p.PLAQ_DEBORD), f(p.COIN_B)),
+                               "par les %s de chant droit sous le conge R%s ; face de glissement plane sur %s."
+                               % (f(p.PLAQ_EP - p.PLAQ_R_GLISS), f(p.PLAQ_R_GLISS), f(p.PLAQ_B_PORTANT)),
                                "Depasse des deux bouts du coin : toujours engagee dans les deux flancs."]):
             s.text(XC, YC + kp * hb + 52.0 + 4.0 * j, t, 2.8, "middle")
         out.append(range_feuille(s, "%s_%s.svg" % (rep, nom)))

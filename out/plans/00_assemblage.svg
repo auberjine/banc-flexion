@@ -739,6 +739,7 @@
 <path d="M 305.02 81.12 L 305.01 81.00 L 304.98 80.89" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 305.83 81.49 L 305.82 81.30 L 305.77 81.14 L 305.71 81.00 L 305.62 80.90 L 305.52 80.83 L 305.50 80.82 L 305.47 80.81" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 305.47 80.81 L 305.35 80.78 L 305.23 80.79 L 305.10 80.83 L 304.97 80.90 L 304.84 81.00 L 304.71 81.14 L 304.60 81.32 L 304.51 81.51 L 304.45 81.72 L 304.43 81.86 L 304.42 82.00" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 310.99 70.82 L 310.99 70.83" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 310.99 71.90 L 310.99 73.82" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 311.80 71.06 L 311.80 74.12" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 311.39 70.67 L 311.49 70.65 L 311.58 70.67" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1046,16 +1047,10 @@
 <path d="M 308.23 75.41 L 308.35 75.44 L 308.49 75.44 L 308.56 75.42 L 308.64 75.40" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 309.42 73.25 L 309.32 73.13 L 309.21 73.05 L 309.16 73.01 L 309.10 72.99" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 309.10 72.99 L 308.97 72.96 L 308.83 72.96 L 308.69 72.99 L 308.54 73.05 L 308.39 73.15 L 308.24 73.29 L 308.10 73.46 L 307.98 73.66 L 307.88 73.88 L 307.80 74.11 L 307.76 74.35 L 307.76 74.44 L 307.75 74.53" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 311.47 70.78 L 311.27 70.71" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 311.47 71.73 L 311.53 71.69 L 311.55 71.66" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 311.47 70.93 L 311.53 70.89 L 311.55 70.86" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 311.55 70.86 L 311.54 70.82 L 311.47 70.78" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 307.73 73.08 L 311.47 71.73" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 307.35 73.09 L 307.48 73.11 L 307.63 73.11 L 307.68 73.10 L 307.73 73.08" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 311.26 71.80 L 311.37 71.75 L 311.42 71.69 L 311.43 71.67 L 311.43 71.66" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 307.93 73.01 L 311.26 71.80" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 307.35 73.06 L 307.56 73.07 L 307.78 73.05 L 307.86 73.03 L 307.93 73.01" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 300.48 70.60 L 300.84 70.73" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 307.73 72.28 L 311.47 70.93" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 307.44 72.31 L 307.59 72.31 L 307.73 72.28" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 310.01 76.97 L 310.02 76.97" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 308.81 76.54 L 310.29 76.00" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 308.26 76.34 L 309.74 75.80" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 316.90 78.28 L 316.91 77.99 L 316.96 77.69 L 317.04 77.38 L 317.15 77.08 L 317.29 76.80 L 317.45 76.54 L 317.63 76.31 L 317.82 76.11 L 318.02 75.94 L 318.22 75.82 L 318.42 75.73 L 318.62 75.68 L 318.80 75.66 L 318.98 75.67 L 319.06 75.69 L 319.14 75.72" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
@@ -1817,7 +1812,10 @@
 <path d="M 297.99 88.38 L 297.99 89.45" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 305.34 81.24 L 304.80 81.04" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 304.71 82.98 L 304.42 82.88" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
-<path d="M 311.55 70.86 L 311.55 71.66" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 311.43 71.39 L 311.43 71.66" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 311.06 70.85 L 310.98 70.82" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 311.43 71.39 L 311.42 71.25 L 311.37 71.12 L 311.29 71.00 L 311.18 70.92 L 311.06 70.85" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 309.80 76.90 L 310.21 76.75" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 313.38 74.69 L 308.69 72.99" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 310.96 76.25 L 307.91 75.14" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M 317.68 79.75 L 317.88 79.82" fill="none" stroke="#000" stroke-width="0.220" stroke-linecap="round" stroke-linejoin="round"/>

@@ -25,8 +25,8 @@ Encombrement des flancs 960 x 440 x 76 mm ; selon y, de -85,5 (coin recule) a +1
 | 02a | Coulisseau a tete inclinee | 1 | S355JR | plat 65 x 40, L 120 (fini 58 x 36,2 x 114) | 1.46 kg | 1.46 kg | dessus a 12 degres sur toute la section ; alesage 25 H8 prof. 20 par dessous ; 4 taraudages M8 prof. 16 dans les faces laterales (avant-trou 6,8 prof. 19), axe a 12 du dessous, x = +/- 44 |
 | 06a | Tourillon de centrage | 1 | C45+C | rond etire 25 h9 x 79.5 | 0.31 kg | 0.31 kg | rond etire h9 NON repris : tronconne, chanfrein 1,5 x 45 deg aux deux bouts ; COLLE au fond de l alesage du coulisseau (Loctite 648 (tient 175 C), alesage 25 H8 degraisse) ; centre la pile et coulisse dans le poussoir : 7,9 au repos, 4,3 de garde au dessus du patin a la butee |
 | 02c | Coin de commande | 1 | C45 | plat 70 x 45, L 120 (fini 63,3 x 40 x 114,5) | 1.37 kg | 1.37 kg | acier taraude M16 sur 80 depuis le bout EPAIS, passage 18 au dela ; porte les deux plaques de frottement en bronze, tenons de 4 de haut et 24 de large : dessus 8, dessous 7,83 (faces normales a la pente) ; 4 taraudages M4 prof. 10 pour les vis des plaquettes |
-| 06c | Plaque de frottement, dessus | 1 | CuSn12-C | plat 45 x 8 | 0.25 kg | 0.25 kg | fraisee 41 x 133 x 6, une fenetre a chaque bout autour des tenons du coin, 2 oblongs lames pour CHC M4 ; faces planes et paralleles a 0,02, Ra 0,8 cote glissement, aretes cassees 0,3 ; deborde du coin de 0,5 de chaque cote : c est elle qui touche la fente des flancs ; pate graphite haute temperature sur la face qui glisse sous la traverse |
-| 06d | Plaque de frottement, dessous | 1 | CuSn12-C | plat 45 x 8 | 0.26 kg | 0.26 kg | comme la haute, mais 41 x 136 x 6, lamages cote coulisseau ; pate graphite haute temperature sur la face qui glisse sur la pente du coulisseau |
+| 06c | Plaque de frottement, dessus | 1 | CuSn12-C | plat 45 x 8 | 0.24 kg | 0.24 kg | fraisee 41 x 133 x 6, une fenetre a chaque bout autour des tenons du coin, 2 oblongs lames pour CHC M4 ; faces planes et paralleles a 0,02, Ra 0,8 cote glissement, aretes cassees 0,3 ; deborde du coin de 0,5 de chaque cote : c est elle qui touche la fente des flancs ; pate graphite haute temperature sur la face qui glisse sous la traverse |
+| 06d | Plaque de frottement, dessous | 1 | CuSn12-C | plat 45 x 8 | 0.25 kg | 0.25 kg | comme la haute, mais 41 x 136 x 6, lamages cote coulisseau ; pate graphite haute temperature sur la face qui glisse sur la pente du coulisseau |
 | 07 | Platine de butee de la vis | 2 | 42CrMo4 +A | tole 8 mm, cert. 3.1, Re >= 430 | 0.45 kg | 0.91 kg | meme tole 42CrMo4 que les flancs (imbriquees dans leurs chutes), empilees et serrees par les deux vis H M10 x 200 de la chape |
 | 07b | Entretoise de butee | 2 | E235+C EN 10305-1 | tube de precision 20 x 2 | 0.06 kg | 0.13 kg | coupee a 71,5 +/-0,2, faces dressees ; en compression pure : c est elle qui porte l effort de commande |
 | 04a | Patin d'appui rainure | 4 | S355JR | tole 10 mm | 0.13 kg | 0.52 kg | decoupe laser PUIS rainure 9,5 x 1,5 fraisee sur toute la longueur de la face d appui (0,75 de jeu par cote sur la tole reelle du flanc) ; colle en place, cadre monte, sous 0,5 kN de precharge ; un jeu par eprouvette |
@@ -105,10 +105,10 @@ Fichiers DXF dans `out/dxf/`, cotes en millimetres, contours fermes, indice B du
 | Irreversibilite du filet | helice 2.48 deg / frottement 5.28 deg a mu 0.08 (acier sur acier, pate cuivre), marge x2.13 |
 | Coin | autobloquant seulement si mu > 0.106 ; desserrage 329 N a mu 0.12 |
 | Flancs du filet, taraude dans l acier | 9.2 MPa pour 12 admis, 80 mm filetes, engagement utile 24 mm |
-| Plaques de frottement | usinees en CuSn12-C, 41 x 133 (dessus) et 41 x 136 (dessous) x 6 ; pate graphite haute temperature ; 7.2 MPa au plus pour 25 admis |
+| Plaques de frottement | usinees en CuSn12-C, 41 x 133 (dessus) et 41 x 136 (dessous) x 6 ; pate graphite haute temperature ; 9.5 MPa au plus pour 25 admis |
 | Tenons du coin | 24 x 8 x 4 de haut, pied vif (outil vertical), 11.2 MPa de flexion, 15 MPa de matage, garde 2 sous le bronze |
-| Portee de la plaquette haute | 33.0 x 50.5 mm (sur 60) en fin de course, 7.2 MPa |
-| Portee de la plaquette basse | 41.0 x 48.4 mm (sur 58) en fin de course, 6.0 MPa |
+| Portee de la plaquette haute | 25.0 x 50.5 mm (sur 60) en fin de course, 9.5 MPa |
+| Portee de la plaquette basse | 41.0 x 48.4 mm (sur 58) en fin de course, 7.5 MPa |
 | Aretes des pieces de tole | ebavurees, sans chanfrein ; les calculs comptent 0.8 non portant a chaque bord |
 | Effort estime a la fissuration (beton a 4 MPa) | 5.1 kN |
 | Fleche a la fissuration | 0.12 mm |

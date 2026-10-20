@@ -537,6 +537,25 @@ def plaquette_profile(nom, e0, w0, n0, n1, w1, e1):
     return contour, trous
 
 
+def conge_glissement(solid, zg):
+    """Conge PLAQ_R_GLISS sur tout le pourtour EXTERIEUR de la face de
+    glissement (plane, a z = zg) : le rayon des angles de la fente du flanc.
+    Les fenetres et oblongs restent vifs."""
+    for fa in solid.Faces:
+        bb = fa.BoundBox
+        if abs(bb.ZMin - zg) < 1e-6 and abs(bb.ZMax - zg) < 1e-6:
+            try:
+                c = solid.makeFillet(p.PLAQ_R_GLISS, fa.OuterWire.Edges)
+                if c.isValid():
+                    return c
+                print("   plaquette : conge de glissement invalide, laisse vif")
+            except Exception as exc:
+                print("   plaquette : conge de glissement impossible (%s)" % exc)
+            return solid
+    print("   plaquette : face de glissement introuvable")
+    return solid
+
+
 def lamages_plaquette(solid, Part, Vector, e0, e1, z0):
     """Lamages oblongs des tetes CHC M4, PLAQ_LAMAGE_P de profondeur depuis
     la face de glissement (z0 : bas du lamage dans le repere de la piece)."""
@@ -551,13 +570,15 @@ def lamages_plaquette(solid, Part, Vector, e0, e1, z0):
 
 
 def f_plaquette_haute(solid, Part, Vector):
-    """Lamages par le dessus : c'est la face qui glisse sous la traverse."""
+    """Lamages et conge par le dessus : c'est la face qui glisse sous la traverse."""
+    solid = conge_glissement(solid, p.PLAQ_EP)
     return lamages_plaquette(solid, Part, Vector, p.PLAQ_HAUT_E0, p.PLAQ_HAUT_E1,
                              p.PLAQ_EP - p.PLAQ_LAMAGE_P)
 
 
 def f_plaquette_basse(solid, Part, Vector):
-    """Lamages par le dessous : c'est la face qui glisse sur le coulisseau."""
+    """Lamages et conge par le dessous : c'est la face qui glisse sur le coulisseau."""
+    solid = conge_glissement(solid, 0.0)
     return lamages_plaquette(solid, Part, Vector, p.PLAQ_BAS_E0, p.PLAQ_BAS_E1, -1.0)
 
 

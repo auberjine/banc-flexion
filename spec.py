@@ -506,8 +506,12 @@ def main():
     a("Les plaquettes debordent du coin de %g de chaque cote (%g de large) : quand le"
       % (p.PLAQ_DEBORD, p.PLAQ_B))
     a("coin se decale en x, c'est le BRONZE qui touche la tranche de la fente des")
-    a("flancs (%g de jeu par cote), jamais l'acier du coin. Elles couvrent toute la"
-      % p.PLAQ_JEU_FENTE)
+    a("flancs (%g de jeu par cote), jamais l'acier du coin, par les %g de chant droit"
+      % (p.PLAQ_JEU_FENTE, p.PLAQ_EP - p.PLAQ_R_GLISS))
+    a("sous le conge R%g qui fait le tour de leur face de glissement (le rayon des"
+      % p.PLAQ_R_GLISS)
+    a("angles de la fente ; face plane sur %g, angles en plan R%g). Elles couvrent toute la"
+      % (p.PLAQ_B_PORTANT, p.PLAQ_R_ANGLE))
     a("longueur du coin et enjambent par une ENCOCHE, a chaque bout, un TENON de %g x %g"
       % (p.PLAQ_TENON_B, p.PLAQ_TENON_L))
     a("usine dans la masse, %g de haut, qui encaisse les %.2f kN d'entrainement dans"
