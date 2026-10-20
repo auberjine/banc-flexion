@@ -1710,6 +1710,7 @@ def plan_petites():
         hb, hl = p.PLAQ_B / 2.0, (e1 - e0) / 2.0
         nb = p.PLAQ_TENON_B / 2.0 + p.PLAQ_JEU_X
         enc = (p.PLAQ_HAUT_Y0 - p.PLAQ_HAUT_E0) if ou == "dessus" else (p.PLAQ_BAS_S0 - p.PLAQ_BAS_E0)
+        pont = (p.PLAQ_HAUT_W0 - p.PLAQ_HAUT_E0) if ou == "dessus" else (p.PLAQ_BAS_W0 - p.PLAQ_BAS_E0)
         xv, uv = p.PLAQ_VIS_X, hl - p.PLAQ_VIS_BOUT          # oblong : v (largeur), u (longueur)
         p06_titre(s, XC, 20.0, "%s  PLAQUE DE FROTTEMENT, %s DU COIN  (2:1)" % (rep, ou.upper()),
                   ["%s, %d ex., brut %s, epaisseur %s" % (spec.material, spec.qty, spec.stock,
@@ -1733,7 +1734,10 @@ def plan_petites():
         vp.cote_hx(-hl, hl, hb, hb, 0.0, zl=hb + 12.0)
         vp.cote_vx(-hb, hb, hl, hl, 0.0, xl=hl + 14.0)
         vp.cote_vx(-nb, nb, hl - enc, hl - enc, 0.0, xl=hl + 6.0)
-        vp.cote_hx(hl - enc, hl, nb, nb, 0.0, zl=hb + 6.0)
+        vp.cote_hx(hl - enc, hl, nb, None, 0.0, zl=hb + 6.0)
+        vp.cote_hx(hl - pont, hl, nb, None, 0.0, zl=hb + 3.0)
+        vp.rayon((-hl + p.PLAQ_R_ANGLE, hb - p.PLAQ_R_ANGLE), p.PLAQ_R_ANGLE, 135.0,
+                 "4 x R%s" % f(p.PLAQ_R_ANGLE), 8)
         vp.cote_hx(-hl, -uv, None, xv, 0.0, zl=-hb - 8.0)
         vp.cote_hx(uv, hl, xv, None, 0.0, zl=-hb - 8.0)
         vp.cote_vx(-hb, xv, -uv, None, 0.0, xl=-hl - 8.0)
@@ -1743,7 +1747,7 @@ def plan_petites():
                      f(p.PLAQ_LAMAGE_P)) + chr(10) + "(vis CHC M%g x %g ISO 4762, V9)"
                   % (p.PLAQ_VIS_D, p.PLAQ_VIS_L), 14.0, 40.0, fin="fleche")
         vp.renvoi((hl - enc - 1.4, nb + 1.4),
-                  "4 x degagement R%s" % f(p.RAYON_INTERIEUR_MIN) + chr(10) + "centre sur l angle",
+                  "2 fenetres, 8 x degagement R%s" % f(p.RAYON_INTERIEUR_MIN) + chr(10) + "centre sur l angle",
                   -26.0, 26.0, fin="fleche")
         for j, t in enumerate(["Ep. %s +/- 0,05, faces planes et paralleles a 0,02, Ra 0,8 cote glissement."
                                % f(p.PLAQ_EP),

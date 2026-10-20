@@ -418,9 +418,12 @@ PLAQ_B = COIN_B + 2.0 * PLAQ_DEBORD   # 41 : deborde du coin, guide en x dans la
 # Elles DEPASSENT des bouts du coin (20/10/2026) pour rester engagees dans la
 # fente des DEUX flancs sur toute la course : coin recule, le bout mince est a
 # 1 mm du flanc cote chape ; en fin de course, le bout epais a 1 mm de l'autre.
-# Elles le font sur TOUTE l'epaisseur du flanc. Au bout mince, en fin de course,
-# elles passent de part et d'autre des ecrous interieurs V7 de la vis : leur
-# encoche laisse le milieu libre (verifie).
+# Elles le font sur TOUTE l'epaisseur du flanc. Les deux branches de chaque bout
+# sont RELIEES par un pont (21/10/2026) : l'encoche devient une fenetre autour
+# du tenon. En fin de course, le pont de la plaquette du DESSOUS (qui remonte
+# avec la pente) atteint les ecrous interieurs V7 de la vis au dela de
+# COURSE_PONT_ECROUS : collision acceptee, la course n'est pas utilisee jusque la
+# (au besoin, un trait de scie dans le pont). Celui du dessus passe au-dessus.
 PLAQ_L_HAUT = 133.0        # cotes rondes, centrees sur le coin (114,5) : 9,25 de chaque bout
 PLAQ_L_BAS = 136.0         # prise sur la pente : 133 en projection
 PLAQ_ENGAGE_MIN = 7.0      # engagement mini dans la tole du flanc oppose, aux bouts de course
@@ -534,6 +537,9 @@ PLAQ_HAUT_Y1 = COIN_Y1 - PLAQ_REBORD_L - PLAQ_JEU
 PLAQ_HAUT_L = PLAQ_HAUT_Y1 - PLAQ_HAUT_Y0      # entre les fonds d encoche : la portee comptee
 PLAQ_HAUT_E0 = (COIN_Y0 + COIN_Y1) / 2.0 - PLAQ_L_HAUT / 2.0    # bouts de la plaquette
 PLAQ_HAUT_E1 = PLAQ_HAUT_E0 + PLAQ_L_HAUT
+PLAQ_HAUT_W0 = COIN_Y0 - PLAQ_JEU      # fenetres autour des tenons : cote pont
+PLAQ_HAUT_W1 = COIN_Y1 + PLAQ_JEU
+PLAQ_R_ANGLE = 2.0                     # conges des quatre angles des plaquettes
 # plaquette basse : meme portee, mais posee sur la pente. Ses cotes sont prises
 # SUR LA PENTE, et son chant penche : c'est son angle HAUT, contre le siege du
 # coin, qui doit venir au pied du rebord. L'angle bas est en retrait de
@@ -549,6 +555,8 @@ PLAQ_BAS_S1 = (COIN_Y1 - PLAQ_REBORD_L_BAS + PLAQ_EP * _S) / _C - PLAQ_JEU
 PLAQ_BAS_L = PLAQ_BAS_S1 - PLAQ_BAS_S0
 PLAQ_BAS_E0 = ((COIN_Y0 + COIN_Y1) / 2.0 + PLAQ_EP * _S) / _C - PLAQ_L_BAS / 2.0   # bouts, sur la pente
 PLAQ_BAS_E1 = PLAQ_BAS_E0 + PLAQ_L_BAS
+PLAQ_BAS_W0 = (COIN_Y0 + PLAQ_EP * _S) / _C - PLAQ_JEU
+PLAQ_BAS_W1 = (COIN_Y1 + PLAQ_EP * _S) / _C + PLAQ_JEU
 PLAQ_BAS_Y0 = PLAQ_BAS_S0 * _C          # portee sur le coulisseau, face du BAS
 PLAQ_BAS_Y1 = PLAQ_BAS_S1 * _C
 COULISSEAU_H = COULISSEAU_E + (POUSSOIR_B / 2.0) * COIN_TAN  # le plan incline prend toute la section
@@ -725,6 +733,14 @@ VIS_Y0 = SUPPORT_Y1 + SUPPORT_BUTEE_H - VIS_L
 # voir Y_ETUVE_LIBRE).
 Y_BOUT_VIS = SUPPORT_Y1 + SUPPORT_BUTEE_H + VIS_TETE_H
 Y_BOUT_TIRANT = -Y_FLANC_EXT - SUPPORT_RONDELLE_E + SUPPORT_TIRANT_L
+
+
+def course_pont_ecrous():
+    """Course du coin a laquelle le pont de la plaquette basse touche les
+    ecrous interieurs V7 : son angle haut, contre le coin, est le plus proche
+    de l'axe de la vis (on prend l'arete d'entree, un peu tot)."""
+    y_ecrous = COIN_Y_SUPPORT - SUPPORT_RONDELLE - SUPPORT_ECROU_H
+    return y_ecrous - (PLAQ_BAS_E1 * _C - PLAQ_EP * _S)
 DEGAGEMENT_DOUILLE = None   # calcule apres ETUVE_Y (voir plus bas)
 
 Z_MEMB_HAUTE = H_FLANC - W_MEMBRURE                 # 420
@@ -1599,10 +1615,8 @@ def verifie():
     # en fin de course, au bout mince, les branches des plaquettes passent de
     # part et d'autre des ecrous interieurs V7 de la vis (l'encoche laisse le
     # milieu libre), et s'arretent avant les rondelles V5 et les platines
-    r_ecrou = VIS_TETE_D / math.cos(math.radians(30.0)) / 2.0
-    if PLAQ_TENON_B / 2.0 + PLAQ_JEU_X < r_ecrou + 0.1:
-        pb.append("les branches des plaquettes passent a %.1f de l axe : elles toucheraient"
-                  " les ecrous de la vis (%.1f)" % (PLAQ_TENON_B / 2.0 + PLAQ_JEU_X, r_ecrou))
+    if PLAQ_HAUT_W0 - PLAQ_HAUT_E0 < 4.0 or PLAQ_BAS_W0 - PLAQ_BAS_E0 < 4.0:
+        pb.append("pont des plaquettes de moins de 4 mm")
     y_rondelles = COIN_Y_SUPPORT - SUPPORT_RONDELLE
     for nom, yb in (("dessus", PLAQ_HAUT_E1), ("dessous", PLAQ_BAS_E1 * _C)):
         if yb + COIN_COURSE > y_rondelles - 1.0:
@@ -2034,6 +2048,8 @@ if __name__ == "__main__":
           " marge x%.2f" % (psi, rho, VIS_MU_MIN, marge))
     print("   coin autobloquant si mu > %.3f ; desserrage %.0f N a mu %.2f"
           % (coin_mu_autoblocage(), coin_desserrage(), COIN_MU))
+    print("   pont de la plaquette basse sur les ecrous V7 au dela de %.1f mm de course"
+          " (sur %.1f utiles) : accepte" % (course_pont_ecrous(), ecrasement_butee() / COIN_TAN))
     sig_pl, fl_pl, sig_tube = platine_contrainte()
     print("   platine de butee          %.0f MPa, coefficient %.1f a froid, %.1f a 150 C,"
           " fleche %.3f ; entretoises %.1f MPa chacune"

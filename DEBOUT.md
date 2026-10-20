@@ -81,9 +81,11 @@ debordent du coin (40) de 0,5 de chaque cote. Quand le coin se decale en x,
 c'est le bronze qui touche la tranche de la fente des flancs (44, soit 1,5 de
 jeu par cote), jamais l'acier du coin. Elles depassent de 9,25 a chaque bout du
 coin, si bien qu'elles restent engagees sur toute l'epaisseur de la fente des
-DEUX flancs, sur toute la course. En fin de course, leurs deux branches passent
-de part et d'autre des ecrous interieurs de la vis, que l'encoche laisse libres
-au milieu. Elles enjambent, a chaque bout, un TENON de 24 x 8 x 4 de haut usine dans la masse,
+DEUX flancs, sur toute la course. A chaque bout, une fenetre entoure le tenon et
+ses deux branches sont reliees par un pont de 7,3 ; angles exterieurs en conge
+R2. Au dela de 53 mm de course (sur 55,5), le pont de la plaque basse touche les
+ecrous interieurs de la vis : accepte, la course n'est pas utilisee jusque la
+(au besoin, un trait de scie dans le pont). Elles enjambent, a chaque bout, un TENON de 24 x 8 x 4 de haut usine dans la masse,
 par une encoche a degagements R2 ; le tenon encaisse les 1,44 kN
 d'entrainement dans l'axe de la vis : flexion 11 MPa au pied, matage du fond
 d'encoche 30 MPa. Pied des tenons : conge R2 sur leurs trois faces (aucun

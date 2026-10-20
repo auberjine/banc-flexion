@@ -508,37 +508,34 @@ def plaquette_haute_profile():
     autour des tenons du coin, qui prennent l'entrainement ; deux vis CHC M4
     dans des oblongs la tiennent sans gener sa dilatation.
     """
-    return plaquette_profile("plaquette haute", p.PLAQ_HAUT_E0, p.PLAQ_HAUT_Y0,
-                             p.PLAQ_HAUT_Y1, p.PLAQ_HAUT_E1)
+    return plaquette_profile("plaquette haute", p.PLAQ_HAUT_E0, p.PLAQ_HAUT_W0, p.PLAQ_HAUT_Y0,
+                             p.PLAQ_HAUT_Y1, p.PLAQ_HAUT_W1, p.PLAQ_HAUT_E1)
 
 
-def plaquette_profile(nom, e0, n0, n1, e1):
+def plaquette_profile(nom, e0, w0, n0, n1, w1, e1):
     """
     Plaquette de bronze : PLAQ_B de large (deborde du coin), de e0 a e1 le long
-    du coin, une ENCOCHE a chaque bout jusqu'a n0 / n1 qui enjambe le tenon,
-    degagements R2 aux angles du fond (piece fraisee) ; deux oblongs selon la
+    du coin, angles en conge PLAQ_R_ANGLE ; a chaque bout une FENETRE de w0 a n0
+    (de n1 a w1) autour du tenon, ses deux branches reliees par un pont,
+    degagements R2 a ses quatre angles (piece fraisee) ; deux oblongs selon la
     longueur, du cote PLAQ_VIS_X, pour les vis CHC M4.
     """
-    c = G.Contour(nom)
     b2 = p.PLAQ_B / 2.0
     nb = p.PLAQ_TENON_B / 2.0 + p.PLAQ_JEU_X
     r = p.RAYON_INTERIEUR_MIN
-    c.add(-b2, e0)
-    c.add(-nb, e0)
-    c.add(-nb, n0, r, relief=True)
-    c.add(nb, n0, r, relief=True)
-    c.add(nb, e0)
-    c.add(b2, e0)
-    c.add(b2, e1)
-    c.add(nb, e1)
-    c.add(nb, n1, r, relief=True)
-    c.add(-nb, n1, r, relief=True)
-    c.add(-nb, e1)
-    c.add(-b2, e1)
+    contour = G.rounded_rect(-b2, e0, b2, e1, p.PLAQ_R_ANGLE)
+    trous = []
+    for ya, yb in ((w0, n0), (n1, w1)):
+        f = G.Contour(nom + " fenetre")
+        f.add(-nb, ya, r, relief=True)
+        f.add(nb, ya, r, relief=True)
+        f.add(nb, yb, r, relief=True)
+        f.add(-nb, yb, r, relief=True)
+        trous.append(f.build())
     x, w2, l2 = p.PLAQ_VIS_X, p.PLAQ_OBLONG_B / 2.0, p.PLAQ_OBLONG_L / 2.0
-    trous = [G.slot(x - w2, yc - l2, x + w2, yc + l2)
-             for yc in (e0 + p.PLAQ_VIS_BOUT, e1 - p.PLAQ_VIS_BOUT)]
-    return c.build(), trous
+    trous += [G.slot(x - w2, yc - l2, x + w2, yc + l2)
+              for yc in (e0 + p.PLAQ_VIS_BOUT, e1 - p.PLAQ_VIS_BOUT)]
+    return contour, trous
 
 
 def lamages_plaquette(solid, Part, Vector, e0, e1, z0):
@@ -572,8 +569,8 @@ def plaquette_basse_profile():
     pour se coucher sur la pente. Ses cotes en y sont donc prises SUR LA PENTE,
     d'ou sa longueur PLAQ_L_BAS, plus grande que celle de la haute.
     """
-    return plaquette_profile("plaquette basse", p.PLAQ_BAS_E0, p.PLAQ_BAS_S0,
-                             p.PLAQ_BAS_S1, p.PLAQ_BAS_E1)
+    return plaquette_profile("plaquette basse", p.PLAQ_BAS_E0, p.PLAQ_BAS_W0, p.PLAQ_BAS_S0,
+                             p.PLAQ_BAS_S1, p.PLAQ_BAS_W1, p.PLAQ_BAS_E1)
 
 
 def pile_profile():
@@ -1113,7 +1110,7 @@ def all_parts():
         p.PLAQ_BRUT, p.PLAQ_EP, plaquette_haute_profile, 'xy',
         (0.0, 0.0, p.Z_COIN_HAUT), density=8800.0, flat=False, features=f_plaquette_haute,
         text_at=(0.0, (p.PLAQ_HAUT_Y0 + p.PLAQ_HAUT_Y1) / 2.0),
-        note="fraisee %s x %s x %s, encochee aux deux bouts autour des tenons du coin, 2 oblongs"
+        note="fraisee %s x %s x %s, une fenetre a chaque bout autour des tenons du coin, 2 oblongs"
              " lames pour CHC M%g ; faces planes et paralleles a 0,02, Ra 0,8 cote glissement,"
              " aretes cassees 0,3 ; deborde du coin de %s de chaque cote : c est elle qui touche"
              " la fente des flancs ; %s sur la face qui glisse sous la traverse"

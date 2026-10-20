@@ -231,7 +231,7 @@ traverse, donc l'axe de la vis est fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30.8 a 55.2 d'epaisseur, 114.5 de long |
-| Plaques de frottement | 2 plaques usinees en CuSn12-C, 41 x 133 (dessus) et 41 x 136 (dessous) x 6, sous pate graphite haute temperature, 0.45 kg en tout |
+| Plaques de frottement | 2 plaques usinees en CuSn12-C, 41 x 133 (dessus) et 41 x 136 (dessous) x 6, sous pate graphite haute temperature, 0.49 kg en tout |
 | Course utile | 56.5 mm selon y |
 | Position de repos | bout epais a y -85.5, bout mince a y 29 |
 | Sens de marche | vers la chape ; en fin de course le bout mince est a y 85.5 |
@@ -438,8 +438,8 @@ Masses du modele 3D (out/masses.json, construit le 20/10/2026).
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
-| Plaque de frottement, dessus | 1 | 0.22 kg | 0.22 kg |
-| Plaque de frottement, dessous | 1 | 0.23 kg | 0.23 kg |
+| Plaque de frottement, dessus | 1 | 0.24 kg | 0.24 kg |
+| Plaque de frottement, dessous | 1 | 0.25 kg | 0.25 kg |
 | Vis de commande H M16 x 160 | 1 | 0.34 kg | 0.34 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.91 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
