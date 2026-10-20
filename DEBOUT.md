@@ -88,10 +88,11 @@ ecrous interieurs de la vis : accepte, la course n'est pas utilisee jusque la
 (au besoin, un trait de scie dans le pont). Elles enjambent, a chaque bout, un TENON de 24 x 8 x 4 de haut usine dans la masse,
 par une encoche a degagements R2 ; le tenon encaisse les 1,44 kN
 d'entrainement dans l'axe de la vis : flexion 11 MPa au pied, matage du fond
-d'encoche 30 MPa. Pied des tenons : conge R2 sur leurs trois faces (aucun
-conge interieur sous R2 sur les pieces fraisees), avec 2 de jeu au fond et sur
-les flancs de l'encoche, si bien que le bronze ne monte pas sur le conge. Sur
-la face inclinee, la face interieure des tenons est NORMALE A LA PENTE.
+d'encoche 15 MPa. Pied des tenons VIF, usine a l'outil vertical (5 axes) : le
+bronze porte sur toute la hauteur du tenon, et la fenetre de la plaque ne lui
+laisse que 0,5 de jeu en long et sur les flancs ; ses angles ont des
+degagements R2. Sur la face inclinee, la face interieure des tenons est
+NORMALE A LA PENTE.
 
 Deux vis CHC M4 x 8 ISO 4762 (tete normale) par plaque, du meme cote, dans des
 oblongs selon la longueur, tete dans un lamage de 4,5 sous la surface de

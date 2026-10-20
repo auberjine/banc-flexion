@@ -424,8 +424,8 @@ def main():
     out.append("| Plaques de frottement | usinees en %s, %g x %g (dessus) et %g x %g (dessous) x %g ; %s ; %.1f MPa au plus pour %g admis |"
                % (p.PLAQ_ALLIAGE, p.PLAQ_B, p.PLAQ_L_HAUT, p.PLAQ_B, p.PLAQ_L_BAS, p.PLAQ_EP,
                   p.PLAQ_LUBRIFIANT, max(p_haut, p_bas), p.PLAQ_P_ADM))
-    out.append("| Tenons du coin | %g x %g x %g de haut, conge de pied R%g, %.1f MPa de flexion, %.0f MPa de matage, garde %g sous le bronze |"
-               % (p.PLAQ_TENON_B, p.PLAQ_TENON_L, p.PLAQ_REBORD_H, p.PLAQ_REBORD_R, flex, pres,
+    out.append("| Tenons du coin | %g x %g x %g de haut, pied vif (outil vertical), %.1f MPa de flexion, %.0f MPa de matage, garde %g sous le bronze |"
+               % (p.PLAQ_TENON_B, p.PLAQ_TENON_L, p.PLAQ_REBORD_H, flex, pres,
                   p.PLAQ_EP - p.PLAQ_REBORD_H))
     for nom, lo, hi, larg, largx, pr in (
             ("haute", p.PLAQ_HAUT_Y0, p.PLAQ_HAUT_Y1, p.TRAVERSE_B, p.portee_coin(), p_haut),

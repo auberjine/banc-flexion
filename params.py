@@ -445,7 +445,7 @@ PLAQ_VIS_TARAUD_P = 10.0   # taraudage M4 dans le coin
 # TENONS (les rebords, reduits au milieu de chaque bout du coin)
 PLAQ_TENON_B = 24.0        # largeur selon x
 PLAQ_TENON_L = 8.0         # longueur depuis le bout du coin, le long du siege
-PLAQ_JEU_X = 2.0           # jeu des flancs de l encoche sur ceux du tenon : au moins le conge
+PLAQ_JEU_X = 0.5           # jeu des flancs de la fenetre sur ceux du tenon
 PLAQ_LUBRIFIANT = "pate graphite haute temperature"
 PLAQ_P_ADM = 25.0          # CuSn12 lubrifie, glissement lent : valeur prudente
 
@@ -459,24 +459,22 @@ PLAQ_P_ADM = 25.0          # CuSn12 lubrifie, glissement lent : valeur prudente
 # il passe sous la traverse, et s'il affleurait ce serait de l'acier sur acier
 # qu'on ferait glisser. Il en reste donc PLAQ_EP - PLAQ_REBORD_H de garde.
 PLAQ_REBORD_H = 4.0        # hauteur du rebord au dessus de la portee : 2 de garde sous les 6 du bronze
-# PIEDS DE REBORD SANS DEGAGEMENT (06/10/2026) : la fraise laisse son angle,
-# vif ou un conge de PLAQ_REBORD_R au plus, et c est le logement qui s allonge
-# pour que l angle de la plaquette ne monte pas dessus. Elle a donc un peu de
-# jeu en y avant de venir en butee, par son arete, au pied du rebord : 2.(JEU - R)
-# au plus. Un usinage de moins par rebord, et rien a tenir au centieme.
-PLAQ_JEU = 2.0             # jeu de la plaquette a chaque bout : au moins le conge de pied
+# PIED DES TENONS VIF (21/10/2026) : ils sont usines a l'outil vertical (5 axes),
+# sans conge au pied. Le bronze porte donc sur toute la hauteur du tenon, et la
+# fenetre de la plaquette se resserre a PLAQ_JEU / PLAQ_JEU_X autour de lui ;
+# ses propres angles gardent leurs degagements R2 (fraisee verticalement, elle).
+PLAQ_JEU = 0.5             # jeu de la plaquette a chaque bout, aux tenons
 PLAQ_REBORD_L = PLAQ_TENON_L     # tenons du dessus, selon y
 PLAQ_OBLONG_L = PLAQ_OBLONG_B + 2.0 * (PLAQ_JEU + 0.5)   # la vis suit le jeu aux tenons
 PLAQ_LAMAGE_L = PLAQ_LAMAGE_B + PLAQ_OBLONG_L - PLAQ_OBLONG_B
 # CONGES INTERIEURS : 2 mm au moins sur les pieces FRAISEES (09/10/2026),
 # RAYON_INTERIEUR_MIN, controle par verif_percages.py sur PIECES_FRAISEES. Les
-# pieces decoupees au laser n'y sont pas soumises. Au pied des rebords du
-# coin, c est le bout d une fraise de 4 : la plaquette garde 2 de jeu par bout
-# et ne porte que sur les PLAQ_REBORD_H - PLAQ_REBORD_R du haut du rebord.
+# pieces decoupees au laser n'y sont pas soumises. Exception voulue : le pied
+# des tenons du coin, vif, usine a l'outil vertical (PLAQ_REBORD_R = 0).
 RAYON_INTERIEUR_MIN = 2.0
 PIECES_FRAISEES = ("coin", "coulisseau", "plaquette_haute", "plaquette_basse",
                    "patin_appui", "patin_charge")
-PLAQ_REBORD_R = RAYON_INTERIEUR_MIN   # conge de pied du rebord
+PLAQ_REBORD_R = 0.0        # pied des tenons : vif
 
 # DILATATION : bronze et acier ne se dilatent pas pareil (18,5 contre 12
 # microdef/K) : a 150 C, une plaquette de 114 mm s allonge de 0,1 mm de plus
@@ -555,7 +553,10 @@ PLAQ_BAS_S1 = (COIN_Y1 - PLAQ_REBORD_L_BAS + PLAQ_EP * _S) / _C - PLAQ_JEU
 PLAQ_BAS_L = PLAQ_BAS_S1 - PLAQ_BAS_S0
 PLAQ_BAS_E0 = ((COIN_Y0 + COIN_Y1) / 2.0 + PLAQ_EP * _S) / _C - PLAQ_L_BAS / 2.0   # bouts, sur la pente
 PLAQ_BAS_E1 = PLAQ_BAS_E0 + PLAQ_L_BAS
-PLAQ_BAS_W0 = (COIN_Y0 + PLAQ_EP * _S) / _C - PLAQ_JEU
+# au bout epais, la face de bout du tenon du dessous est VERTICALE (celle du
+# coin) et non normale a la pente : son pied recule de H.tan(a) le long de la
+# pente, la fenetre aussi
+PLAQ_BAS_W0 = (COIN_Y0 + PLAQ_EP * _S) / _C - PLAQ_REBORD_H * COIN_TAN - PLAQ_JEU
 PLAQ_BAS_W1 = (COIN_Y1 + PLAQ_EP * _S) / _C + PLAQ_JEU
 PLAQ_BAS_Y0 = PLAQ_BAS_S0 * _C          # portee sur le coulisseau, face du BAS
 PLAQ_BAS_Y1 = PLAQ_BAS_S1 * _C

@@ -526,13 +526,10 @@ def main():
       % (p.PLAQ_ALLIAGE, p.PLAQ_LUBRIFIANT))
     a("de glissement, rien sur les sieges.")
     a("")
-    a("Pied des tenons : conge R%g sur ses trois faces, le bout d'une fraise de %g (pas"
-      % (p.PLAQ_REBORD_R, 2 * p.PLAQ_REBORD_R))
-    a("de conge interieur sous R%g sur les pieces fraisees) ; l'encoche a %g de jeu"
-      % (p.RAYON_INTERIEUR_MIN, p.PLAQ_JEU))
-    a("au fond et %g sur les flancs, si bien que le bronze ne monte pas sur le conge,"
-      % p.PLAQ_JEU_X)
-    a("et ses angles ont des degagements R%g." % p.RAYON_INTERIEUR_MIN)
+    a("Pied des tenons VIF, usine a l'outil vertical : le bronze porte sur toute la")
+    a("hauteur du tenon. La fenetre de la plaquette a %g de jeu en long et %g sur les"
+      % (p.PLAQ_JEU, p.PLAQ_JEU_X))
+    a("flancs, et ses angles ont des degagements R%g." % p.RAYON_INTERIEUR_MIN)
     a("Sur la face inclinee, la face interieure des tenons est NORMALE A LA PENTE")
     a("et non verticale, comme le fond d'encoche de la")
     a("plaquette : dessinees verticales, elles la mordaient de %.1f mm en bas."

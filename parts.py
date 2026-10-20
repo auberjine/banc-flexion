@@ -368,10 +368,8 @@ def coin_profile():
     Le bout EPAIS est du cote oppose a la chape : le coin avance vers elle.
 
     Les DEUX faces portent une plaquette de bronze, chacune tenue entre deux
-    REBORDS qui prennent son entrainement dans l'axe de la vis. Leur pied
-    garde l'angle de la fraise (conge PLAQ_REBORD_R au plus), sans degagement :
-    c'est le logement, plus long de 2.PLAQ_JEU, qui laisse l'angle de la
-    plaquette hors du conge.
+    REBORDS (des tenons, en 3D) qui prennent son entrainement dans l'axe de la
+    vis. Pied vif, usine a l'outil vertical.
     """
     zt = p.Z_COIN_HAUT
     zr = zt + p.PLAQ_REBORD_H
@@ -478,15 +476,16 @@ def f_coin(solid, Part, Vector):
         fond = all(abs(v.z - b2) <= tb2 + 1e-4 for v in vs) and abs(vs[0].z - vs[1].z) > 1.0
         if cote or fond:
             aretes.append(e)
-    try:
-        c = out.makeFillet(p.PLAQ_REBORD_R, aretes)
-        if c.isValid():
-            out = c
-        else:
-            print("   coin : conges de pied des tenons invalides, laisses vifs")
-    except Exception as exc:
-        print("   coin : conges de pied des tenons impossibles (%s, %d aretes), laisses vifs"
-              % (exc, len(aretes)))
+    if p.PLAQ_REBORD_R > 0.0 and aretes:
+        try:
+            c = out.makeFillet(p.PLAQ_REBORD_R, aretes)
+            if c.isValid():
+                out = c
+            else:
+                print("   coin : conges de pied des tenons invalides, laisses vifs")
+        except Exception as exc:
+            print("   coin : conges de pied des tenons impossibles (%s, %d aretes), laisses vifs"
+                  % (exc, len(aretes)))
 
     # taraudages M4 des vis de plaquette (avant-trou 3,3), du cote PLAQ_VIS_X
     zx = b2 + p.PLAQ_VIS_X

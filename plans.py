@@ -831,6 +831,27 @@ def plan_coulisseau():
     c02_poly(vc, [(yt_, p.Z_VIS - p.VIS_PASSAGE_D / 2.0), (yt_, p.Z_VIS + p.VIS_PASSAGE_D / 2.0)],
              D.TRAIT_FIN, C02_CACHE)
     c02_axe(vc, (Y0, p.Z_VIS), (Y1, p.Z_VIS), 3.0, 0.0)
+    # taraudages M4 des vis de plaquette, en traits interrompus : dessus
+    # verticaux, dessous normaux a la pente (ils sont a x = PLAQ_VIS_X, hors coupe)
+    rv4, pv4 = p.PLAQ_VIS_D / 2.0, p.PLAQ_VIS_TARAUD_P
+    for yh_ in (p.PLAQ_HAUT_E0 + p.PLAQ_VIS_BOUT, p.PLAQ_HAUT_E1 - p.PLAQ_VIS_BOUT):
+        for e in (-1.0, 1.0):
+            c02_poly(vc, [(yh_ + e * rv4, zt), (yh_ + e * rv4, zt - pv4)], D.TRAIT_FIN, C02_CACHE)
+        c02_poly(vc, [(yh_ - rv4, zt - pv4), (yh_ + rv4, zt - pv4)], D.TRAIT_FIN, C02_CACHE)
+        c02_axe(vc, (yh_, zt + 1.0), (yh_, zt - pv4 - 1.0), 0.0, 0.0)
+    for sh_ in (p.PLAQ_BAS_E0 + p.PLAQ_VIS_BOUT, p.PLAQ_BAS_E1 - p.PLAQ_VIS_BOUT):
+        yb_ = sh_ * ca_ - p.PLAQ_EP * sa_
+        o_ = (yb_, zb(yb_))
+        n_ = (-sa_, ca_)                         # vers l'interieur du coin
+        t_ = (ca_, sa_)
+        for e in (-1.0, 1.0):
+            c02_poly(vc, [(o_[0] + e * rv4 * t_[0], o_[1] + e * rv4 * t_[1]),
+                          (o_[0] + e * rv4 * t_[0] + pv4 * n_[0], o_[1] + e * rv4 * t_[1] + pv4 * n_[1])],
+                     D.TRAIT_FIN, C02_CACHE)
+        f_ = (o_[0] + pv4 * n_[0], o_[1] + pv4 * n_[1])
+        c02_poly(vc, [(f_[0] - rv4 * t_[0], f_[1] - rv4 * t_[1]), (f_[0] + rv4 * t_[0], f_[1] + rv4 * t_[1])],
+                 D.TRAIT_FIN, C02_CACHE)
+        c02_axe(vc, (o_[0] - n_[0], o_[1] - n_[1]), (f_[0] + n_[0], f_[1] + n_[1]), 0.0, 0.0)
     # cotes
     vc.cote_hx(Y0 + w, Y1 - w, zr, zr, 7.0)
     vc.cote_hx(Y0, Y1, zr, zr, 14.0)
@@ -876,7 +897,7 @@ def plan_coulisseau():
     XB, XCD, YD = 286.0, 364.0, 132.0
     s.text(XB, YD, "DETAIL B  (4:1)", 3.6, "middle", weight="bold")
     s.text(XB, YD + 4.5, "tenons du dessus, 2 ex.", 2.8, "middle")
-    s.text(XB, YD + 8.3, "longueur (%s) ; pied : conge R%s (fraise de %s), 3 faces" % (f(w), f(p.PLAQ_REBORD_R), f(2 * p.PLAQ_REBORD_R)), 2.8, "middle")
+    s.text(XB, YD + 8.3, "longueur (%s) ; pied VIF (outil vertical)" % f(w), 2.8, "middle")
     vb = D.View(s, KD, Y1 - 8.0, zt, XB, YD + 37.0)
     yb0, zb0 = Y1 - 15.5, zt - 3.0
     for sg in c02_decoupe(coin, yb0, zb0, Y1 + 1.0, zr + 1.0):
@@ -884,13 +905,11 @@ def plan_coulisseau():
     vb.rupture((yb0, zt), (yb0, zb0))
     vb.rupture((yb0, zb0), (Y1, zb0))
     vb.cote_vx(zt, zr, None, Y1 - w, 0.0, xl=Y1 - w - 6.0, texte=f(hr))
-    c02_rayon_creux(vb, (Y1 - w - p.PLAQ_REBORD_R, zt + p.PLAQ_REBORD_R), p.PLAQ_REBORD_R, -45.0,
-                    "R%s" % f(p.PLAQ_REBORD_R), lg=17.0, palier=-4.0)
 
     # ------------------------------------------------ detail C : rebord du dessous, 4:1
     s.text(XCD, YD, "DETAIL C  (4:1)", 3.6, "middle", weight="bold")
     s.text(XCD, YD + 4.5, "tenons du dessous, 2 ex.", 2.8, "middle")
-    s.text(XCD, YD + 8.3, "longueur (%s) sur la pente ; pied R%s comme B" % (f(p.PLAQ_TENON_L), f(p.PLAQ_REBORD_R)), 2.8, "middle")
+    s.text(XCD, YD + 8.3, "longueur (%s) sur la pente ; pied vif comme B" % f(p.PLAQ_TENON_L), 2.8, "middle")
     yc = Y1 - 6.0
     vd = D.View(s, KD, yc, zb(yc), XCD + 2.0, YD + 39.0)
     yd0 = Y1 - 13.0
@@ -1748,7 +1767,7 @@ def plan_petites():
                   % (p.PLAQ_VIS_D, p.PLAQ_VIS_L), 14.0, 40.0, fin="fleche")
         vp.renvoi((hl - enc - 1.4, nb + 1.4),
                   "2 fenetres, 8 x degagement R%s" % f(p.RAYON_INTERIEUR_MIN) + chr(10) + "centre sur l angle",
-                  -26.0, 26.0, fin="fleche")
+                  -30.0, 12.0, fin="fleche")
         for j, t in enumerate(["Ep. %s +/- 0,05, faces planes et paralleles a 0,02, Ra 0,8 cote glissement."
                                % f(p.PLAQ_EP),
                                "Aretes cassees 0,3. Tolerance generale ISO 2768-m.",

@@ -64,9 +64,9 @@
    "nom": "coin",
    "designation": "Coin de commande",
    "qte": 1,
-   "volume_cm3": 174.97,
-   "masse_kg": 1.374,
-   "masse_totale_kg": 1.374,
+   "volume_cm3": 174.83,
+   "masse_kg": 1.372,
+   "masse_totale_kg": 1.372,
    "matiere": "C45",
    "brut": "plat 70 x 45, L 120 (fini 63,3 x 40 x 114,5)"
   },
@@ -74,9 +74,9 @@
    "nom": "plaquette_haute",
    "designation": "Plaque de frottement, dessus",
    "qte": 1,
-   "volume_cm3": 27.29,
-   "masse_kg": 0.24,
-   "masse_totale_kg": 0.24,
+   "volume_cm3": 28.87,
+   "masse_kg": 0.254,
+   "masse_totale_kg": 0.254,
    "matiere": "CuSn12-C",
    "brut": "plat 45 x 8"
   },
@@ -84,9 +84,9 @@
    "nom": "plaquette_basse",
    "designation": "Plaque de frottement, dessous",
    "qte": 1,
-   "volume_cm3": 28.02,
-   "masse_kg": 0.247,
-   "masse_totale_kg": 0.247,
+   "volume_cm3": 29.48,
+   "masse_kg": 0.259,
+   "masse_totale_kg": 0.259,
    "matiere": "CuSn12-C",
    "brut": "plat 45 x 8"
   },
@@ -201,10 +201,10 @@
    "brut": "-"
   }
  ],
- "total_kg": 56.82,
- "cadre_kg": 34.6,
+ "total_kg": 56.84,
+ "cadre_kg": 34.62,
  "indice": "B",
  "date": "05/10/2026",
  "date_calcul": "20/10/2026",
- "empreinte": "b63ba723f18db29d"
+ "empreinte": "ca8587430f2690e5"
 }

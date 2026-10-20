@@ -231,7 +231,7 @@ traverse, donc l'axe de la vis est fixe.
 |---|---|
 | Angle | 12 degres |
 | Coin | acier C45, 40 de large, 30.8 a 55.2 d'epaisseur, 114.5 de long |
-| Plaques de frottement | 2 plaques usinees en CuSn12-C, 41 x 133 (dessus) et 41 x 136 (dessous) x 6, sous pate graphite haute temperature, 0.49 kg en tout |
+| Plaques de frottement | 2 plaques usinees en CuSn12-C, 41 x 133 (dessus) et 41 x 136 (dessous) x 6, sous pate graphite haute temperature, 0.51 kg en tout |
 | Course utile | 56.5 mm selon y |
 | Position de repos | bout epais a y -85.5, bout mince a y 29 |
 | Sens de marche | vers la chape ; en fin de course le bout mince est a y 85.5 |
@@ -240,7 +240,7 @@ traverse, donc l'axe de la vis est fixe.
 | Effort moteur a 12 kN | 5.5 kN |
 | Couple sur la vis | 14.5 N.m |
 | Course par tour | 0.425 mm de coulisseau, environ 549 N |
-| Pression de contact, fin de course | 7.4 MPa en haut sur 33.0 x 49.0 (joints de traverse deduits), 6.2 MPa en bas sur 41 x 47.0 ; 25 admis |
+| Pression de contact, fin de course | 7.2 MPa en haut sur 33.0 x 50.5 (joints de traverse deduits), 6.0 MPa en bas sur 41 x 48.4 ; 25 admis |
 | Rendement | 46 pour cent |
 
 Le coin n'est autobloquant que si le frottement de ses deux faces depasse
@@ -279,7 +279,7 @@ usines avec le reste plutot qu'achetes a part, et le coin devient un bloc d'acie
 de 1.37 kg, usine dans un plat 70 x 45, L 120 (fini 63,3 x 40 x 114,5).
 
 La basse pourrait etre posee sur la pente du coulisseau, ou elle ne ferait
-que 58 de long au lieu de 97. Elle est mise sur le coin comme la
+que 58 de long au lieu de 100. Elle est mise sur le coin comme la
 haute : le coulisseau redevient un bloc nu -- un percage et un plan a 12
 degres, ni poche ni taraudage -- les deux faces d'usure sortent ensemble
 avec le coin, et c'est deux fois le meme rebord a usiner. Ce que cela
@@ -291,7 +291,7 @@ coin se decale en x, c'est le BRONZE qui touche la tranche de la fente des
 flancs (1.5 de jeu par cote), jamais l'acier du coin. Elles couvrent toute la
 longueur du coin et enjambent par une ENCOCHE, a chaque bout, un TENON de 24 x 8
 usine dans la masse, 4 de haut, qui encaisse les 1.44 kN d'entrainement dans
-l'axe de la vis : flexion 11.2 MPa au pied, matage du fond d'encoche 30 MPa.
+l'axe de la vis : flexion 11.2 MPa au pied, matage du fond d'encoche 15 MPa.
 Deux vis CHC M4 x 8 ISO 4762 par plaquette, du meme cote, dans des OBLONGS
 selon la longueur et des lamages de 4.5 sous la surface de glissement, la tiennent
 sans la brider : serrage leger. Bronze et acier ne se dilatant pas pareil, a 150 C
@@ -299,10 +299,9 @@ la plaquette s allonge de 0.11 mm de plus que son siege, ce que les oblongs
 laissent passer. Le CuSn12-C n'est pas autolubrifiant : pate graphite haute temperature sur les faces
 de glissement, rien sur les sieges.
 
-Pied des tenons : conge R2 sur ses trois faces, le bout d'une fraise de 4 (pas
-de conge interieur sous R2 sur les pieces fraisees) ; l'encoche a 2 de jeu
-au fond et 2 sur les flancs, si bien que le bronze ne monte pas sur le conge,
-et ses angles ont des degagements R2.
+Pied des tenons VIF, usine a l'outil vertical : le bronze porte sur toute la
+hauteur du tenon. La fenetre de la plaquette a 0.5 de jeu en long et 0.5 sur les
+flancs, et ses angles ont des degagements R2.
 Sur la face inclinee, la face interieure des tenons est NORMALE A LA PENTE
 et non verticale, comme le fond d'encoche de la
 plaquette : dessinees verticales, elles la mordaient de 1.3 mm en bas.
@@ -310,8 +309,8 @@ plaquette : dessinees verticales, elles la mordaient de 1.3 mm en bas.
 Les rebords s'arretent 2 mm SOUS la surface du bronze. Aux deux bouts de
 course ils passent sous la conjuguee, et s'ils affleuraient ce serait de
 l'acier sur acier qu'on ferait glisser. Il en coute de la portee : la
-plaquette haute porte sur 49.0 mm au lieu de 60, la basse sur 47.0 au
-lieu de 58, soit 7.4 et 6.2 MPa.
+plaquette haute porte sur 50.5 mm au lieu de 60, la basse sur 48.4 au
+lieu de 58, soit 7.2 et 6.0 MPa.
 
 Le filet reste engage sur 27.0 mm coin recule, soit 1.7 d, ce qui est
 tout ce qui porte : au dela de 1,5 d, l'ecart de pas entre la vis et le
@@ -438,8 +437,8 @@ Masses du modele 3D (out/masses.json, construit le 20/10/2026).
 | Vis de guidage CHC M8 x 12 | 4 | 0.01 kg | 0.05 kg |
 | Tourillon de centrage | 1 | 0.31 kg | 0.31 kg |
 | Coin de commande | 1 | 1.37 kg | 1.37 kg |
-| Plaque de frottement, dessus | 1 | 0.24 kg | 0.24 kg |
-| Plaque de frottement, dessous | 1 | 0.25 kg | 0.25 kg |
+| Plaque de frottement, dessus | 1 | 0.25 kg | 0.25 kg |
+| Plaque de frottement, dessous | 1 | 0.26 kg | 0.26 kg |
 | Vis de commande H M16 x 160 | 1 | 0.34 kg | 0.34 kg |
 | Platine de butee de la vis | 2 | 0.45 kg | 0.91 kg |
 | Entretoise de butee | 2 | 0.06 kg | 0.13 kg |
